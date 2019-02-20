@@ -34,3 +34,13 @@ C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netc
 C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netcoreapp2.2\WebApp.csproj.CopyComplete
 C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netcoreapp2.2\WebApp.dll
 C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netcoreapp2.2\WebApp.pdb
+C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netcoreapp2.2\Razor\Views\Breed\Create.g.cshtml.cs
+C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netcoreapp2.2\Razor\Views\Breed\Delete.g.cshtml.cs
+C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netcoreapp2.2\Razor\Views\Breed\Details.g.cshtml.cs
+C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netcoreapp2.2\Razor\Views\Breed\Edit.g.cshtml.cs
+C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netcoreapp2.2\Razor\Views\Breed\Index.g.cshtml.cs
+C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netcoreapp2.2\Razor\Views\Award\Create.g.cshtml.cs
+C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netcoreapp2.2\Razor\Views\Award\Delete.g.cshtml.cs
+C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netcoreapp2.2\Razor\Views\Award\Details.g.cshtml.cs
+C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netcoreapp2.2\Razor\Views\Award\Edit.g.cshtml.cs
+C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netcoreapp2.2\Razor\Views\Award\Index.g.cshtml.cs
