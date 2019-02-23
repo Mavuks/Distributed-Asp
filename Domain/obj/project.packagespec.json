@@ -1,13 +1,13 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "/Users/akaver/Development/ITCollege/temp/icd0007-2018/Domain/Domain.csproj",
+    "projectUniqueName": "C:\\Users\\Laptop\\Desktop\\Ülikool\\Distributed\\Hajus-project\\Domain\\Domain.csproj",
     "projectName": "Domain",
-    "projectPath": "/Users/akaver/Development/ITCollege/temp/icd0007-2018/Domain/Domain.csproj",
-    "outputPath": "/Users/akaver/Development/ITCollege/temp/icd0007-2018/Domain/obj/",
+    "projectPath": "C:\\Users\\Laptop\\Desktop\\Ülikool\\Distributed\\Hajus-project\\Domain\\Domain.csproj",
+    "outputPath": "C:\\Users\\Laptop\\Desktop\\Ülikool\\Distributed\\Hajus-project\\Domain\\obj\\",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
-      "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
     ],
     "originalTargetFrameworks": [
       "netstandard2.0"

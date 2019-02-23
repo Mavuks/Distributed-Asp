@@ -11,6 +11,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F98F6167-7599-4A02-B7CB-AC66FAC5C7BD}"
 ProjectSection(SolutionItems) = preProject
 	generate-controllers.sh = generate-controllers.sh
+	.gitignore = .gitignore
+EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Kirjeldus", "Kirjeldus", "{0F828F3B-B0E4-4964-B69D-E89BA51829F5}"
+ProjectSection(SolutionItems) = preProject
+	..\..\..\Kennel.odt = ..\..\..\Kennel.odt
 EndProjectSection
 EndProject
 Global

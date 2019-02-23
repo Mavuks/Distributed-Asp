@@ -1,13 +1,13 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "/Users/akaver/Development/ITCollege/temp/icd0007-2018/WebApp/WebApp.csproj",
+    "projectUniqueName": "C:\\Users\\Laptop\\Desktop\\Ülikool\\Distributed\\Hajus-project\\WebApp\\WebApp.csproj",
     "projectName": "WebApp",
-    "projectPath": "/Users/akaver/Development/ITCollege/temp/icd0007-2018/WebApp/WebApp.csproj",
-    "outputPath": "/Users/akaver/Development/ITCollege/temp/icd0007-2018/WebApp/obj/",
+    "projectPath": "C:\\Users\\Laptop\\Desktop\\Ülikool\\Distributed\\Hajus-project\\WebApp\\WebApp.csproj",
+    "outputPath": "C:\\Users\\Laptop\\Desktop\\Ülikool\\Distributed\\Hajus-project\\WebApp\\obj\\",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
-      "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
     ],
     "originalTargetFrameworks": [
       "netcoreapp2.2"
@@ -15,11 +15,11 @@
     "frameworks": {
       "netcoreapp2.2": {
         "projectReferences": {
-          "/Users/akaver/Development/ITCollege/temp/icd0007-2018/DAL/DAL.csproj": {
-            "projectPath": "/Users/akaver/Development/ITCollege/temp/icd0007-2018/DAL/DAL.csproj"
+          "C:\\Users\\Laptop\\Desktop\\Ülikool\\Distributed\\Hajus-project\\DAL\\DAL.csproj": {
+            "projectPath": "C:\\Users\\Laptop\\Desktop\\Ülikool\\Distributed\\Hajus-project\\DAL\\DAL.csproj"
           },
-          "/Users/akaver/Development/ITCollege/temp/icd0007-2018/Domain/Domain.csproj": {
-            "projectPath": "/Users/akaver/Development/ITCollege/temp/icd0007-2018/Domain/Domain.csproj"
+          "C:\\Users\\Laptop\\Desktop\\Ülikool\\Distributed\\Hajus-project\\Domain\\Domain.csproj": {
+            "projectPath": "C:\\Users\\Laptop\\Desktop\\Ülikool\\Distributed\\Hajus-project\\Domain\\Domain.csproj"
           }
         }
       }

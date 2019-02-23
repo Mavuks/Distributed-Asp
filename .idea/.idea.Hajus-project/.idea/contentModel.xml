@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="$PROJECT_DIR$" t="IncludeFlat">
+    <e p="C:\Users\Laptop\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Laptop\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_Hajus-project.1417768554.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Laptop\Desktop\Kennel.odt" t="Include" />
+    <e p="C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project" t="IncludeFlat">
+      <e p=".gitignore" t="Include" />
       <e p="DAL" t="IncludeRecursive">
         <e p="AppDbContext.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
@@ -59,6 +63,7 @@
           </e>
         </e>
       </e>
+      <e p="Kirjeldus" t="Include" />
       <e p="packages" t="ExcludeRecursive" />
       <e p="Solution Items" t="Include" />
       <e p="WebApp" t="IncludeRecursive">
@@ -250,7 +255,5 @@
         </e>
       </e>
     </e>
-    <e p="$USER_HOME$/Library/Caches/Rider2018.3/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/Library/Caches/Rider2018.3/resharper-host/local/Transient/ReSharperHost/v183/SolutionCaches/_Hajus-project.-2081837448.00" t="ExcludeRecursive" />
   </component>
 </project>
