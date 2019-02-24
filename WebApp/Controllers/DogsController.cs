@@ -22,7 +22,7 @@ namespace WebApp.Controllers
         // GET: Dogs
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.Dogs.Include(d => d.Award).Include(d => d.Breed);
+            var appDbContext = _context.Dogs.Include(d => d.AppUser).Include(d => d.Award).Include(d => d.Breed);
             return View(await appDbContext.ToListAsync());
         }
 
@@ -35,6 +35,7 @@ namespace WebApp.Controllers
             }
 
             var dog = await _context.Dogs
+                .Include(d => d.AppUser)
                 .Include(d => d.Award)
                 .Include(d => d.Breed)
                 .FirstOrDefaultAsync(m => m.Id == id);
@@ -49,6 +50,7 @@ namespace WebApp.Controllers
         // GET: Dogs/Create
         public IActionResult Create()
         {
+            ViewData["AppUserId"] = new SelectList(_context.Users, "Id", "Id");
             ViewData["AwardId"] = new SelectList(_context.Awards, "Id", "Id");
             ViewData["BreedId"] = new SelectList(_context.Breeds, "Id", "Id");
             return View();
@@ -59,7 +61,7 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DogName,DateOfBirth,DateOfDeath,Sex,BreedId,AwardId,Id")] Dog dog)
+        public async Task<IActionResult> Create([Bind("DogName,DateOfBirth,DateOfDeath,Sex,BreedId,Owner,AppUserId,AwardId,Id")] Dog dog)
         {
             if (ModelState.IsValid)
             {
@@ -67,6 +69,7 @@ namespace WebApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["AppUserId"] = new SelectList(_context.Users, "Id", "Id", dog.AppUserId);
             ViewData["AwardId"] = new SelectList(_context.Awards, "Id", "Id", dog.AwardId);
             ViewData["BreedId"] = new SelectList(_context.Breeds, "Id", "Id", dog.BreedId);
             return View(dog);
@@ -85,6 +88,7 @@ namespace WebApp.Controllers
             {
                 return NotFound();
             }
+            ViewData["AppUserId"] = new SelectList(_context.Users, "Id", "Id", dog.AppUserId);
             ViewData["AwardId"] = new SelectList(_context.Awards, "Id", "Id", dog.AwardId);
             ViewData["BreedId"] = new SelectList(_context.Breeds, "Id", "Id", dog.BreedId);
             return View(dog);
@@ -95,7 +99,7 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("DogName,DateOfBirth,DateOfDeath,Sex,BreedId,AwardId,Id")] Dog dog)
+        public async Task<IActionResult> Edit(int id, [Bind("DogName,DateOfBirth,DateOfDeath,Sex,BreedId,Owner,AppUserId,AwardId,Id")] Dog dog)
         {
             if (id != dog.Id)
             {
@@ -122,6 +126,7 @@ namespace WebApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["AppUserId"] = new SelectList(_context.Users, "Id", "Id", dog.AppUserId);
             ViewData["AwardId"] = new SelectList(_context.Awards, "Id", "Id", dog.AwardId);
             ViewData["BreedId"] = new SelectList(_context.Breeds, "Id", "Id", dog.BreedId);
             return View(dog);
@@ -136,6 +141,7 @@ namespace WebApp.Controllers
             }
 
             var dog = await _context.Dogs
+                .Include(d => d.AppUser)
                 .Include(d => d.Award)
                 .Include(d => d.Breed)
                 .FirstOrDefaultAsync(m => m.Id == id);

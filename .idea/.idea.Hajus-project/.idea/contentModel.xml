@@ -3,7 +3,7 @@
   <component name="ContentModelStore">
     <e p="C:\Users\Laptop\.Rider2018.3\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\Laptop\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_Hajus-project.1417768554.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Laptop\Desktop\Kennel.odt" t="Include" />
+    <e p="C:\Users\Laptop\Desktop\Kennel.pdf" t="Include" />
     <e p="C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project" t="IncludeFlat">
       <e p=".gitignore" t="Include" />
       <e p="DAL" t="IncludeRecursive">
@@ -13,6 +13,8 @@
         <e p="Migrations" t="Include">
           <e p="20190219155745_InitialDbCreation.cs" t="Include" />
           <e p="20190219155745_InitialDbCreation.Designer.cs" t="Include" />
+          <e p="20190224140403_changeses.cs" t="Include" />
+          <e p="20190224140403_changeses.Designer.cs" t="Include" />
           <e p="AppDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -63,7 +65,6 @@
           </e>
         </e>
       </e>
-      <e p="Kirjeldus" t="Include" />
       <e p="packages" t="ExcludeRecursive" />
       <e p="Solution Items" t="Include" />
       <e p="WebApp" t="IncludeRecursive">
