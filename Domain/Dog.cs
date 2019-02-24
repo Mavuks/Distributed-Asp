@@ -43,7 +43,7 @@ namespace Domain
 
         public List<Competition> Competitions { get; set; }
 
-        public int AwardId { get; set; }
+        public int? AwardId { get; set; }
         public Award Award { get; set; }
         
        

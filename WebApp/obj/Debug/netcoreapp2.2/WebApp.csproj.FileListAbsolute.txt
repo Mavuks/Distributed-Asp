@@ -152,11 +152,6 @@ C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netc
 C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.g.cshtml.cs
 C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LoginPartial.g.cshtml.cs
 C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
-C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netcoreapp2.2\Razor\Views\Shows\Create.g.cshtml.cs
-C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netcoreapp2.2\Razor\Views\Shows\Delete.g.cshtml.cs
-C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netcoreapp2.2\Razor\Views\Shows\Details.g.cshtml.cs
-C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netcoreapp2.2\Razor\Views\Shows\Edit.g.cshtml.cs
-C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netcoreapp2.2\Razor\Views\Shows\Index.g.cshtml.cs
 C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.g.cshtml.cs
 C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.g.cshtml.cs
 C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netcoreapp2.2\WebApp.RazorTargetAssemblyInfo.cache
@@ -165,3 +160,8 @@ C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netc
 C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netcoreapp2.2\WebApp.csproj.CopyComplete
 C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netcoreapp2.2\WebApp.dll
 C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netcoreapp2.2\WebApp.pdb
+C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netcoreapp2.2\Razor\Views\Shows\Create.g.cshtml.cs
+C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netcoreapp2.2\Razor\Views\Shows\Delete.g.cshtml.cs
+C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netcoreapp2.2\Razor\Views\Shows\Details.g.cshtml.cs
+C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netcoreapp2.2\Razor\Views\Shows\Edit.g.cshtml.cs
+C:\Users\Laptop\Desktop\Ülikool\Distributed\Hajus-project\WebApp\obj\Debug\netcoreapp2.2\Razor\Views\Shows\Index.g.cshtml.cs

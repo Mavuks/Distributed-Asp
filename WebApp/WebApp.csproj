@@ -24,6 +24,11 @@
       <_ContentIncludedByDefault Remove="Views\Competitions\Details.cshtml" />
       <_ContentIncludedByDefault Remove="Views\Competitions\Edit.cshtml" />
       <_ContentIncludedByDefault Remove="Views\Competitions\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Shows\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Shows\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Shows\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Shows\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Shows\Index.cshtml" />
     </ItemGroup>
 
 </Project>

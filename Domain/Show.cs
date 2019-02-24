@@ -11,8 +11,7 @@ namespace Domain
 
         public string Comment { get; set; }
 
-        public string Award { get; set; }
-        
+       
         
         [Display(Name = "Start")]
         [DataType(DataType.Date)]

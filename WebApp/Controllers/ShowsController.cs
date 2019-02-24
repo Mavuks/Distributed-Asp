@@ -61,7 +61,7 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Title,Comment,Award,Start,End,DogId,LocationId,ParticipantId,Id")] Show show)
+        public async Task<IActionResult> Create([Bind("Title,Comment,Start,End,DogId,LocationId,ParticipantId,Id")] Show show)
         {
             if (ModelState.IsValid)
             {
@@ -99,7 +99,7 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Title,Comment,Award,Start,End,DogId,LocationId,ParticipantId,Id")] Show show)
+        public async Task<IActionResult> Edit(int id, [Bind("Title,Comment,Start,End,DogId,LocationId,ParticipantId,Id")] Show show)
         {
             if (id != show.Id)
             {

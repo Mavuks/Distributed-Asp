@@ -24,11 +24,11 @@ namespace DAL.Migrations
 
                     b.Property<string>("Comment");
 
-                    b.Property<int>("CompetitionId");
+                    b.Property<int?>("CompetitionId");
 
-                    b.Property<int>("Place");
+                    b.Property<string>("Place");
 
-                    b.Property<int>("ShowId");
+                    b.Property<int?>("ShowId");
 
                     b.HasKey("Id");
 
@@ -90,7 +90,7 @@ namespace DAL.Migrations
 
                     b.Property<int>("AppUserId");
 
-                    b.Property<int>("AwardId");
+                    b.Property<int?>("AwardId");
 
                     b.Property<int>("BreedId");
 
@@ -239,7 +239,7 @@ namespace DAL.Migrations
 
                     b.Property<string>("Comment");
 
-                    b.Property<int>("CompetitionId");
+                    b.Property<int?>("CompetitionId");
 
                     b.Property<int>("DogId");
 
@@ -247,7 +247,7 @@ namespace DAL.Migrations
 
                     b.Property<int>("ParticipantId");
 
-                    b.Property<int>("ShowId");
+                    b.Property<int?>("ShowId");
 
                     b.Property<DateTime>("Start");
 
@@ -298,8 +298,6 @@ namespace DAL.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Award");
 
                     b.Property<string>("Comment");
 
