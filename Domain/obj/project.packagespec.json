@@ -1,13 +1,13 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "/Users/akaver/Development/ITCollege/temp/mavuks/icd0007-2018/Domain/Domain.csproj",
+    "projectUniqueName": "C:\\Users\\Laptop\\Desktop\\Ülikool\\Distributed\\Hajus-project\\Domain\\Domain.csproj",
     "projectName": "Domain",
-    "projectPath": "/Users/akaver/Development/ITCollege/temp/mavuks/icd0007-2018/Domain/Domain.csproj",
-    "outputPath": "/Users/akaver/Development/ITCollege/temp/mavuks/icd0007-2018/Domain/obj/",
+    "projectPath": "C:\\Users\\Laptop\\Desktop\\Ülikool\\Distributed\\Hajus-project\\Domain\\Domain.csproj",
+    "outputPath": "C:\\Users\\Laptop\\Desktop\\Ülikool\\Distributed\\Hajus-project\\Domain\\obj\\",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
-      "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
     ],
     "originalTargetFrameworks": [
       "netstandard2.0"
@@ -15,8 +15,8 @@
     "frameworks": {
       "netstandard2.0": {
         "projectReferences": {
-          "/Users/akaver/Development/ITCollege/temp/mavuks/icd0007-2018/Contracts.DAL.Base/Contracts.DAL.Base.csproj": {
-            "projectPath": "/Users/akaver/Development/ITCollege/temp/mavuks/icd0007-2018/Contracts.DAL.Base/Contracts.DAL.Base.csproj"
+          "C:\\Users\\Laptop\\Desktop\\Ülikool\\Distributed\\Hajus-project\\Contracts.DAL.Base\\Contracts.DAL.Base.csproj": {
+            "projectPath": "C:\\Users\\Laptop\\Desktop\\Ülikool\\Distributed\\Hajus-project\\Contracts.DAL.Base\\Contracts.DAL.Base.csproj"
           }
         }
       }

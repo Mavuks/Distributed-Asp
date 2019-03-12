@@ -2,28 +2,36 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.DAL.App;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DAL.App.EF;
 using Domain;
+using Domain.Identity;
+using Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApp.Controllers
-{
+{ 
+    [Authorize]
     public class DogsController : Controller
     {
-        private readonly AppDbContext _context;
+        private readonly IAppUnitOfWork _uow;
 
-        public DogsController(AppDbContext context)
+        public DogsController( IAppUnitOfWork uow)
         {
-            _context = context;
+            
+            _uow = uow;
         }
 
         // GET: Dogs
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.Dogs.Include(d => d.AppUser).Include(d => d.Award).Include(d => d.Breed);
-            return View(await appDbContext.ToListAsync());
+//            var appDbContext = _context.Dogs.Include(d => d.AppUser).Include(d => d.Award).Include(d => d.Breed);
+//            return View(await appDbContext.ToListAsync());
+            var dogs = await _uow.Dog.AllAsync(User.GetUserId());
+            return View(dogs);
         }
 
         // GET: Dogs/Details/5
@@ -34,11 +42,13 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var dog = await _context.Dogs
-                .Include(d => d.AppUser)
-                .Include(d => d.Award)
-                .Include(d => d.Breed)
-                .FirstOrDefaultAsync(m => m.Id == id);
+//            var dog = await _context.Dogs
+//                .Include(d => d.AppUser)
+//                .Include(d => d.Award)
+//                .Include(d => d.Breed)
+//                .FirstOrDefaultAsync(m => m.Id == id);
+
+            var dog = await _uow.Dog.FindAsync(id);
             if (dog == null)
             {
                 return NotFound();
@@ -50,9 +60,7 @@ namespace WebApp.Controllers
         // GET: Dogs/Create
         public IActionResult Create()
         {
-            ViewData["AppUserId"] = new SelectList(_context.Users, "Id", "Id");
-            ViewData["AwardId"] = new SelectList(_context.Awards, "Id", "Id");
-            ViewData["BreedId"] = new SelectList(_context.Breeds, "Id", "Id");
+            
             return View();
         }
 
@@ -63,18 +71,20 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("DogName,DateOfBirth,DateOfDeath,Sex,BreedId,Owner,AppUserId,AwardId,Id")] Dog dog)
         {
+            dog.AppUserId = User.GetUserId();
+            
             if (ModelState.IsValid)
             {
-                _context.Add(dog);
-                await _context.SaveChangesAsync();
+                await _uow.Dog.AddAsync(dog);
+                await _uow.SaveChangesAsync();
+                
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AppUserId"] = new SelectList(_context.Users, "Id", "Id", dog.AppUserId);
-            ViewData["AwardId"] = new SelectList(_context.Awards, "Id", "Id", dog.AwardId);
-            ViewData["BreedId"] = new SelectList(_context.Breeds, "Id", "Id", dog.BreedId);
+            
             return View(dog);
         }
-
+        
+        
         // GET: Dogs/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -83,14 +93,14 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var dog = await _context.Dogs.FindAsync(id);
+            var dog = await _uow.Dog.FindAsync(id);
             if (dog == null)
             {
                 return NotFound();
             }
-            ViewData["AppUserId"] = new SelectList(_context.Users, "Id", "Id", dog.AppUserId);
-            ViewData["AwardId"] = new SelectList(_context.Awards, "Id", "Id", dog.AwardId);
-            ViewData["BreedId"] = new SelectList(_context.Breeds, "Id", "Id", dog.BreedId);
+            ViewData["AppUserId"] = new SelectList(await _uow.BaseRepository<AppUser>().AllAsync(), "Id", "Id", dog.AppUserId);
+            ViewData["AwardId"] = new SelectList(await _uow.BaseRepository<Award>().AllAsync(), "Id", "Id", dog.AwardId);
+            ViewData["BreedId"] = new SelectList(await _uow.BaseRepository<Breed>().AllAsync(), "Id", "Id", dog.BreedId);
             return View(dog);
         }
 
@@ -108,27 +118,14 @@ namespace WebApp.Controllers
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(dog);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!DogExists(dog.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                _uow.Dog.Update(dog);
+                await _uow.SaveChangesAsync();
+                
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AppUserId"] = new SelectList(_context.Users, "Id", "Id", dog.AppUserId);
-            ViewData["AwardId"] = new SelectList(_context.Awards, "Id", "Id", dog.AwardId);
-            ViewData["BreedId"] = new SelectList(_context.Breeds, "Id", "Id", dog.BreedId);
+            ViewData["AppUserId"] = new SelectList(await _uow.BaseRepository<AppUser>().AllAsync(), "Id", "Id", dog.AppUserId);
+            ViewData["AwardId"] = new SelectList(await _uow.BaseRepository<Award>().AllAsync(), "Id", "Id", dog.AwardId);
+            ViewData["BreedId"] = new SelectList(await _uow.BaseRepository<Breed>().AllAsync(), "Id", "Id", dog.BreedId);
             return View(dog);
         }
 
@@ -140,11 +137,8 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var dog = await _context.Dogs
-                .Include(d => d.AppUser)
-                .Include(d => d.Award)
-                .Include(d => d.Breed)
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var dog = await _uow.Dog.FindAsync(id);
+                
             if (dog == null)
             {
                 return NotFound();
@@ -158,15 +152,11 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var dog = await _context.Dogs.FindAsync(id);
-            _context.Dogs.Remove(dog);
-            await _context.SaveChangesAsync();
+            _uow.Dog.Remove(id);
+            await _uow.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool DogExists(int id)
-        {
-            return _context.Dogs.Any(e => e.Id == id);
-        }
+       
     }
 }

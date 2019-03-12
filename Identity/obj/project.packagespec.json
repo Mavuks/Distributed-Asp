@@ -1,13 +1,13 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "/Users/akaver/Development/ITCollege/temp/mavuks/icd0007-2018/Identity/Identity.csproj",
+    "projectUniqueName": "C:\\Users\\Laptop\\Desktop\\Ülikool\\Distributed\\Hajus-project\\Identity\\Identity.csproj",
     "projectName": "Identity",
-    "projectPath": "/Users/akaver/Development/ITCollege/temp/mavuks/icd0007-2018/Identity/Identity.csproj",
-    "outputPath": "/Users/akaver/Development/ITCollege/temp/mavuks/icd0007-2018/Identity/obj/",
+    "projectPath": "C:\\Users\\Laptop\\Desktop\\Ülikool\\Distributed\\Hajus-project\\Identity\\Identity.csproj",
+    "outputPath": "C:\\Users\\Laptop\\Desktop\\Ülikool\\Distributed\\Hajus-project\\Identity\\obj\\",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
-      "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
     ],
     "originalTargetFrameworks": [
       "netstandard2.0"

@@ -2,28 +2,34 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.DAL.App;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DAL.App.EF;
 using Domain;
+using Identity;
 
 namespace WebApp.Controllers
 {
     public class CompetitionsController : Controller
     {
-        private readonly AppDbContext _context;
+        private readonly IAppUnitOfWork _uow;
 
-        public CompetitionsController(AppDbContext context)
+        public CompetitionsController(IAppUnitOfWork uow)
         {
-            _context = context;
+            
+            _uow = uow;
         }
 
         // GET: Competitions
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.Competitions.Include(c => c.Dog).Include(c => c.Location).Include(c => c.Participant);
-            return View(await appDbContext.ToListAsync());
+//            var appDbContext = _context.Competitions.Include(c => c.Dog).Include(c => c.Location).Include(c => c.Participant);
+//            return View(await appDbContext.ToListAsync());
+
+            var competitions = await _uow.Competition.AllAsync(User.GetUserId());
+            return View(competitions);
         }
 
         // GET: Competitions/Details/5
@@ -34,11 +40,12 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var competition = await _context.Competitions
-                .Include(c => c.Dog)
-                .Include(c => c.Location)
-                .Include(c => c.Participant)
-                .FirstOrDefaultAsync(m => m.Id == id);
+//            var competition = await _context.Competitions
+//                .Include(c => c.Dog)
+//                .Include(c => c.Location)
+//                .Include(c => c.Participant)
+//                .FirstOrDefaultAsync(m => m.Id == id);
+            var competition = await _uow.Competition.FindAsync(id);
             if (competition == null)
             {
                 return NotFound();
@@ -65,13 +72,13 @@ namespace WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(competition);
-                await _context.SaveChangesAsync();
+                await _uow.Competition.AddAsync(competition);
+                await _uow.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DogId"] = new SelectList(_context.Dogs, "Id", "DogName", competition.DogId);
-            ViewData["LocationId"] = new SelectList(_context.Locations, "Id", "Id", competition.LocationId);
-            ViewData["ParticipantId"] = new SelectList(_context.Participants, "Id", "FirstName", competition.ParticipantId);
+            ViewData["DogId"] = new SelectList(await _uow.BaseRepository<Dog>().AllAsync(), "Id", "DogName", competition.DogId);
+            ViewData["LocationId"] = new SelectList(await _uow.BaseRepository<Location>().AllAsync(), "Id", "Id", competition.LocationId);
+            ViewData["ParticipantId"] = new SelectList(await _uow.BaseRepository<Participant>().AllAsync(), "Id", "FirstName", competition.ParticipantId);
             return View(competition);
         }
 
@@ -83,7 +90,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var competition = await _context.Competitions.FindAsync(id);
+            var competition = await _uow.Competition.FindAsync(id);
             if (competition == null)
             {
                 return NotFound();
@@ -108,22 +115,7 @@ namespace WebApp.Controllers
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(competition);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!CompetitionExists(competition.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+               
                 return RedirectToAction(nameof(Index));
             }
             ViewData["DogId"] = new SelectList(_context.Dogs, "Id", "DogName", competition.DogId);
@@ -140,11 +132,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var competition = await _context.Competitions
-                .Include(c => c.Dog)
-                .Include(c => c.Location)
-                .Include(c => c.Participant)
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var competition = await _uow.Competition.AllAsync(User.GetUserId());
             if (competition == null)
             {
                 return NotFound();
@@ -158,15 +146,10 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var competition = await _context.Competitions.FindAsync(id);
-            _context.Competitions.Remove(competition);
-            await _context.SaveChangesAsync();
+            
+            _uow.Competition.Remove(id);
+            await _uow.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CompetitionExists(int id)
-        {
-            return _context.Competitions.Any(e => e.Id == id);
-        }
-    }
 }

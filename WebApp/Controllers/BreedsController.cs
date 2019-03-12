@@ -2,27 +2,32 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.DAL.App;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DAL.App.EF;
 using Domain;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApp.Controllers
 {
+    
+    [Authorize]
     public class BreedsController : Controller
     {
-        private readonly AppDbContext _context;
+        private readonly IAppUnitOfWork _uow;
 
-        public BreedsController(AppDbContext context)
+        public BreedsController( IAppUnitOfWork uow)
         {
-            _context = context;
+            
+            _uow = uow;
         }
 
         // GET: Breeds
         public async Task<IActionResult> Index()
-        {
-            return View(await _context.Breeds.ToListAsync());
+        {    
+            return View(await _uow.Breed.AllAsync());
         }
 
         // GET: Breeds/Details/5
@@ -33,8 +38,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var breed = await _context.Breeds
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var breed = await _uow.Breed.FindAsync(id);
             if (breed == null)
             {
                 return NotFound();
@@ -58,8 +62,8 @@ namespace WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(breed);
-                await _context.SaveChangesAsync();
+                await _uow.Breed.AddAsync(breed);
+                await _uow.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(breed);
@@ -73,7 +77,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var breed = await _context.Breeds.FindAsync(id);
+            var breed = await _uow.Breed.FindAsync(id);
             if (breed == null)
             {
                 return NotFound();
@@ -95,22 +99,8 @@ namespace WebApp.Controllers
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(breed);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!BreedExists(breed.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                _uow.Breed.Update(breed);
+                await _uow.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(breed);
@@ -124,8 +114,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var breed = await _context.Breeds
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var breed = await _uow.Breed.FindAsync(id);
             if (breed == null)
             {
                 return NotFound();
@@ -139,15 +128,10 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var breed = await _context.Breeds.FindAsync(id);
-            _context.Breeds.Remove(breed);
-            await _context.SaveChangesAsync();
+            _uow.Breed.Remove(id);
+            await _uow.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool BreedExists(int id)
-        {
-            return _context.Breeds.Any(e => e.Id == id);
-        }
     }
 }
