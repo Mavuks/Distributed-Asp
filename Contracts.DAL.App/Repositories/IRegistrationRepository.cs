@@ -3,7 +3,7 @@ using Contracts.DAL.Base.Repositories;
  
  namespace Contracts.DAL.App.Repositories
  {
-     public interface IRegistrationRepository : IBaseRepository<Registration>
+     public interface IRegistrationRepository : IBaseRepositoryAsync<Registration>
      {
          // add here custom methods
      }

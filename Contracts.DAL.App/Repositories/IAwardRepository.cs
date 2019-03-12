@@ -3,7 +3,7 @@ using Contracts.DAL.Base.Repositories;
  
  namespace Contracts.DAL.App.Repositories
  {
-     public interface IAwardRepository : IBaseRepository<Award>
+     public interface IAwardRepository : IBaseRepositoryAsync<Award>
      {
          // add here custom methods
      }

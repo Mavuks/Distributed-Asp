@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Contracts.DAL.App;
 using Contracts.DAL.App.Repositories;
+using Contracts.DAL.Base;
+using Contracts.DAL.Base.Helpers;
 using Contracts.DAL.Base.Repositories;
 
 using DAL.App.EF.Repositories;
@@ -13,62 +15,56 @@ namespace DAL.App.EF
 {
     public class AppUnitOfWork : IAppUnitOfWork
     {
-
+        
         private readonly AppDbContext _appDbContext;
-        
-        // repo cache
-        private readonly Dictionary<Type, object> _repositoryCache = new Dictionary<Type, object>();
-        
-        // caching is ok, but creation is fixed - repeating code
-        private IPersonRepository _personRepository;
-       
-        
-        // no caching, every time new repo is created on access
-        public IPersonRepository Person => 
-            _personRepository ?? (_personRepository = new PersonRepository(_appDbContext));
-        
-        public IContactRepository Contacts => new ContactRepository(_appDbContext);
-        
-        //better, creation is centralized into getorcreate factory
-        public IContactTypeRepository ContactTypes => 
-            GetOrCreateRepository((dataContext) => new ContactTypeRepository(dataContext));
 
-        
-        public AppUnitOfWork(AppDbContext appDbContext)
+        private readonly IRepositoryProvider _repositoryProvider;
+
+        public IAwardRepository Award =>  
+            _repositoryProvider.GetRepository<IAwardRepository>();
+        public IBreedRepository Breed => 
+            _repositoryProvider.GetRepository<IBreedRepository>();
+        public IDogRepository Dog => 
+            _repositoryProvider.GetRepository<IDogRepository>();
+        public ICompetitionRepository Competition => 
+            _repositoryProvider.GetRepository<ICompetitionRepository>();
+        public ILocationRepository Location => 
+            _repositoryProvider.GetRepository<ILocationRepository>();
+        public IMaterialRepository Material => 
+            _repositoryProvider.GetRepository<IMaterialRepository>();
+
+        public IParticipantRepository Participant => 
+            _repositoryProvider.GetRepository<IParticipantRepository>();
+        public IRegistrationRepository Registration => 
+            _repositoryProvider.GetRepository<IRegistrationRepository>();
+        public ISchoolingRepository Schooling =>
+            _repositoryProvider.GetRepository<ISchoolingRepository>();
+        public IShowRepository Show => 
+            _repositoryProvider.GetRepository<IShowRepository>();
+
+        public IBaseRepositoryAsync<TEntity> BaseRepository<TEntity>() where TEntity : class, IBaseEntity, new() =>
+            _repositoryProvider.GetRepositoryForEntity<TEntity>();
+
+
+        public AppUnitOfWork(IDataContext dataContext, IRepositoryProvider repositoryProvider)
         {
-            _appDbContext = appDbContext;
-        }
-        
-        public IBaseRepository<TEntity> BaseRepository<TEntity>() where TEntity : class, new()
-        {
-            return new BaseRepository<TEntity>(_appDbContext);
-        }
-
-
-        private TRepository GetOrCreateRepository<TRepository>(Func<AppDbContext,TRepository> factoryMethod)
-        {
-            // try to get repo by type from cache dictionary
-            _repositoryCache.TryGetValue(typeof(TRepository), out var repoObject);
-            if (repoObject != null)
-            {
-                // we have it, cat it to correct type and return
-                return (TRepository) repoObject;
-            }
-
-            repoObject = factoryMethod(_appDbContext);
-            _repositoryCache[typeof(TRepository)] = repoObject;
-            return (TRepository) repoObject;
+            _appDbContext = (dataContext as AppDbContext) ?? throw new ArgumentNullException(nameof(dataContext));
+            _repositoryProvider = repositoryProvider;
         }
 
-        public int SaveChanges()
+
+
+
+        public virtual int SaveChanges()
         {
             return _appDbContext.SaveChanges();
         }
 
-        public async Task<int> SaveChangesAsync()
+        public virtual async Task<int> SaveChangesAsync()
         {
             return await _appDbContext.SaveChangesAsync();
         }
+
 
     }
 }

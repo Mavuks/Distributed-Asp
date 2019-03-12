@@ -10,7 +10,7 @@ namespace Contracts.DAL.Base
         int  SaveChanges();
         Task<int> SaveChangesAsync();
 
-        IBaseRepository<TEntity> BaseRepository<TEntity>() where TEntity : class, new();
+        IBaseRepository<TEntity> BaseRepository<TEntity>() where TEntity : class, IBaseEntity, new();
 
 
 

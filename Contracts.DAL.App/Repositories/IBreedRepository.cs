@@ -3,7 +3,7 @@ using Domain;
 
 namespace Contracts.DAL.App.Repositories
 {
-    public interface IBreedRepository : IBaseRepository<Breed>
+    public interface IBreedRepository : IBaseRepositoryAsync<Breed>
     {
         // add here custom methods
 

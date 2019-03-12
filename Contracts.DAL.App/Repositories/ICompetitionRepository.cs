@@ -3,7 +3,7 @@ using Domain;
 
 namespace Contracts.DAL.App.Repositories
 {
-    public interface ICompetitionRepository : IBaseRepository<Competition>
+    public interface ICompetitionRepository : IBaseRepositoryAsync<Competition>
     {
         // add here custom methods
     }

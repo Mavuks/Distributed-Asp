@@ -3,7 +3,7 @@ using Contracts.DAL.Base.Repositories;
  
  namespace Contracts.DAL.App.Repositories
  {
-     public interface ISchoolingRepository : IBaseRepository<Schooling>
+     public interface ISchoolingRepository : IBaseRepositoryAsync<Schooling>
      {
          // add here custom methods
      }
