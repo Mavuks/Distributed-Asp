@@ -1052,6 +1052,16 @@
         "compile": {
           "ref/netstandard1.3/System.Threading.Tasks.dll": {}
         }
+      },
+      "Contracts.DAL.Base/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/Contracts.DAL.Base.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Contracts.DAL.Base.dll": {}
+        }
       }
     }
   },
@@ -1396,7 +1406,7 @@
       ]
     },
     "Microsoft.Extensions.DependencyInjection/2.2.0": {
-      "sha512": "MZtBIwfDFork5vfjpJdG5g8wuJFt7d/y3LOSVVtDK/76wlbtz6cjltfKHqLx2TKVqTj5/c41t77m1+h20zqtPA==",
+      "sha512": "7JzIJyfA1Wr19ibRr67CoG3lFklnTkzhkJ6thWFcNrmZCgLf9oEqrED4Tz08y7F18wTWsWUnI52BCjraBGtPIA==",
       "type": "package",
       "path": "microsoft.extensions.dependencyinjection/2.2.0",
       "files": [
@@ -1413,7 +1423,7 @@
       ]
     },
     "Microsoft.Extensions.DependencyInjection.Abstractions/2.2.0": {
-      "sha512": "f9hstgjVmr6rmrfGSpfsVOl2irKAgr1QjrSi3FgnS7kulxband50f2brRLwySAQTADPZeTdow0mpSMcoAdadCw==",
+      "sha512": "YZcHF0/+XeKv12ZEo+OmrAa6rNayjye0qvEjYSDIhN99StqxnS2gZpwkcCrH/8JuXxzzcDSVpZw5Bruz8xYfXQ==",
       "type": "package",
       "path": "microsoft.extensions.dependencyinjection.abstractions/2.2.0",
       "files": [
@@ -3239,7 +3249,7 @@
       ]
     },
     "System.Security.Cryptography.Cng/4.4.0": {
-      "sha512": "07fZJgFAgCati1lQEbO67EMEhm+fPenFqiSjwCwFssnmYQrLGA48lqiWilGLbuwb+nmflfodj1jgIQYI4g7LXA==",
+      "sha512": "3d/d+7sdNpfYfqJFzuE/o6Pl/reaMbH7rlUMNvtm4+XVYHY32tdFa45yjB3vhb6q0YY+IV8GUuiBPRsBFP3yaw==",
       "type": "package",
       "path": "system.security.cryptography.cng/4.4.0",
       "files": [
@@ -3622,45 +3632,53 @@
         "system.threading.tasks.4.0.11.nupkg.sha512",
         "system.threading.tasks.nuspec"
       ]
+    },
+    "Contracts.DAL.Base/1.0.0": {
+      "type": "project",
+      "path": "../Contracts.DAL.Base/Contracts.DAL.Base.csproj",
+      "msbuildProject": "../Contracts.DAL.Base/Contracts.DAL.Base.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
+      "Contracts.DAL.Base >= 1.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 2.2.0",
       "NETStandard.Library >= 2.0.3",
       "System.ComponentModel.Annotations >= 4.5.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Laptop\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/akaver/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Laptop\\Desktop\\Ülikool\\Distributed\\Hajus-project\\Domain\\Domain.csproj",
+      "projectUniqueName": "/Users/akaver/Development/ITCollege/temp/mavuks/icd0007-2018/Domain/Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "C:\\Users\\Laptop\\Desktop\\Ülikool\\Distributed\\Hajus-project\\Domain\\Domain.csproj",
-      "packagesPath": "C:\\Users\\Laptop\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Laptop\\Desktop\\Ülikool\\Distributed\\Hajus-project\\Domain\\obj\\",
+      "projectPath": "/Users/akaver/Development/ITCollege/temp/mavuks/icd0007-2018/Domain/Domain.csproj",
+      "packagesPath": "/Users/akaver/.nuget/packages/",
+      "outputPath": "/Users/akaver/Development/ITCollege/temp/mavuks/icd0007-2018/Domain/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Laptop\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/akaver/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netstandard2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/akaver/Development/ITCollege/temp/mavuks/icd0007-2018/Contracts.DAL.Base/Contracts.DAL.Base.csproj": {
+              "projectPath": "/Users/akaver/Development/ITCollege/temp/mavuks/icd0007-2018/Contracts.DAL.Base/Contracts.DAL.Base.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

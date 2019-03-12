@@ -1,13 +1,13 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "C:\\Users\\Laptop\\Desktop\\Ülikool\\Distributed\\Hajus-project\\WebApp\\WebApp.csproj",
+    "projectUniqueName": "/Users/akaver/Development/ITCollege/temp/mavuks/icd0007-2018/WebApp/WebApp.csproj",
     "projectName": "WebApp",
-    "projectPath": "C:\\Users\\Laptop\\Desktop\\Ülikool\\Distributed\\Hajus-project\\WebApp\\WebApp.csproj",
-    "outputPath": "C:\\Users\\Laptop\\Desktop\\Ülikool\\Distributed\\Hajus-project\\WebApp\\obj\\",
+    "projectPath": "/Users/akaver/Development/ITCollege/temp/mavuks/icd0007-2018/WebApp/WebApp.csproj",
+    "outputPath": "/Users/akaver/Development/ITCollege/temp/mavuks/icd0007-2018/WebApp/obj/",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
-      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
     ],
     "originalTargetFrameworks": [
       "netcoreapp2.2"
@@ -15,11 +15,11 @@
     "frameworks": {
       "netcoreapp2.2": {
         "projectReferences": {
-          "C:\\Users\\Laptop\\Desktop\\Ülikool\\Distributed\\Hajus-project\\DAL\\DAL.csproj": {
-            "projectPath": "C:\\Users\\Laptop\\Desktop\\Ülikool\\Distributed\\Hajus-project\\DAL\\DAL.csproj"
+          "/Users/akaver/Development/ITCollege/temp/mavuks/icd0007-2018/DAL.App.EF/DAL.App.EF.csproj": {
+            "projectPath": "/Users/akaver/Development/ITCollege/temp/mavuks/icd0007-2018/DAL.App.EF/DAL.App.EF.csproj"
           },
-          "C:\\Users\\Laptop\\Desktop\\Ülikool\\Distributed\\Hajus-project\\Domain\\Domain.csproj": {
-            "projectPath": "C:\\Users\\Laptop\\Desktop\\Ülikool\\Distributed\\Hajus-project\\Domain\\Domain.csproj"
+          "/Users/akaver/Development/ITCollege/temp/mavuks/icd0007-2018/Domain/Domain.csproj": {
+            "projectPath": "/Users/akaver/Development/ITCollege/temp/mavuks/icd0007-2018/Domain/Domain.csproj"
           }
         }
       }
@@ -44,10 +44,6 @@
           "target": "Package",
           "version": "[2.2.0, )"
         },
-        "Microsoft.EntityFrameworkCore.Sqlite": {
-          "target": "Package",
-          "version": "[2.2.2, )"
-        },
         "Microsoft.NETCore.App": {
           "suppressParent": "All",
           "target": "Package",
@@ -57,6 +53,10 @@
         "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
           "target": "Package",
           "version": "[2.2.2, )"
+        },
+        "Pomelo.EntityFrameworkCore.MySql": {
+          "target": "Package",
+          "version": "[2.2.0, )"
         }
       },
       "imports": [
