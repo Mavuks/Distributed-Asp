@@ -18,7 +18,7 @@ namespace WebApp.Controllers
 
         public CompetitionsController(IAppUnitOfWork uow)
         {
-            
+
             _uow = uow;
         }
 
@@ -28,8 +28,8 @@ namespace WebApp.Controllers
 //            var appDbContext = _context.Competitions.Include(c => c.Dog).Include(c => c.Location).Include(c => c.Participant);
 //            return View(await appDbContext.ToListAsync());
 
-            var competitions = await _uow.Competition.AllAsync(User.GetUserId());
-            return View(competitions);
+//            var competitions = await _uow.Competition.AllAsync(User.GetUserId());
+            return View(await _uow.Competition.AllAsync());
         }
 
         // GET: Competitions/Details/5
@@ -57,9 +57,10 @@ namespace WebApp.Controllers
         // GET: Competitions/Create
         public IActionResult Create()
         {
-            ViewData["DogId"] = new SelectList(_context.Dogs, "Id", "DogName");
-            ViewData["LocationId"] = new SelectList(_context.Locations, "Id", "Id");
-            ViewData["ParticipantId"] = new SelectList(_context.Participants, "Id", "FirstName");
+            // TODO: Need ära teha!!
+            //  ViewData["DogId"] = new SelectList(_context.Dogs, "Id", "DogName");
+            //   ViewData["LocationId"] = new SelectList(_context.Locations, "Id", "Id");
+            //  ViewData["ParticipantId"] = new SelectList(_context.Participants, "Id", "FirstName");
             return View();
         }
 
@@ -68,7 +69,9 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Title,Comment,Award,Start,End,DogId,LocationId,ParticipantId,Id")] Competition competition)
+        public async Task<IActionResult> Create(
+            [Bind("Title,Comment,Award,Start,End,DogId,LocationId,ParticipantId,Id")]
+            Competition competition)
         {
             if (ModelState.IsValid)
             {
@@ -76,9 +79,13 @@ namespace WebApp.Controllers
                 await _uow.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DogId"] = new SelectList(await _uow.BaseRepository<Dog>().AllAsync(), "Id", "DogName", competition.DogId);
-            ViewData["LocationId"] = new SelectList(await _uow.BaseRepository<Location>().AllAsync(), "Id", "Id", competition.LocationId);
-            ViewData["ParticipantId"] = new SelectList(await _uow.BaseRepository<Participant>().AllAsync(), "Id", "FirstName", competition.ParticipantId);
+
+            ViewData["DogId"] = new SelectList(await _uow.BaseRepository<Dog>().AllAsync(), "Id", "DogName",
+                competition.DogId);
+            ViewData["LocationId"] = new SelectList(await _uow.BaseRepository<Location>().AllAsync(), "Id", "Id",
+                competition.LocationId);
+            ViewData["ParticipantId"] = new SelectList(await _uow.BaseRepository<Participant>().AllAsync(), "Id",
+                "FirstName", competition.ParticipantId);
             return View(competition);
         }
 
@@ -95,9 +102,13 @@ namespace WebApp.Controllers
             {
                 return NotFound();
             }
-            ViewData["DogId"] = new SelectList(_context.Dogs, "Id", "DogName", competition.DogId);
-            ViewData["LocationId"] = new SelectList(_context.Locations, "Id", "Id", competition.LocationId);
-            ViewData["ParticipantId"] = new SelectList(_context.Participants, "Id", "FirstName", competition.ParticipantId);
+
+            ViewData["DogId"] = new SelectList(await _uow.BaseRepository<Dog>().AllAsync(), "Id", "DogName",
+                competition.DogId);
+            ViewData["LocationId"] = new SelectList(await _uow.BaseRepository<Location>().AllAsync(), "Id", "Id",
+                competition.LocationId);
+            ViewData["ParticipantId"] = new SelectList(await _uow.BaseRepository<Participant>().AllAsync(), "Id",
+                "FirstName", competition.ParticipantId);
             return View(competition);
         }
 
@@ -106,7 +117,9 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Title,Comment,Award,Start,End,DogId,LocationId,ParticipantId,Id")] Competition competition)
+        public async Task<IActionResult> Edit(int id,
+            [Bind("Title,Comment,Award,Start,End,DogId,LocationId,ParticipantId,Id")]
+            Competition competition)
         {
             if (id != competition.Id)
             {
@@ -115,12 +128,16 @@ namespace WebApp.Controllers
 
             if (ModelState.IsValid)
             {
-               
+
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DogId"] = new SelectList(_context.Dogs, "Id", "DogName", competition.DogId);
-            ViewData["LocationId"] = new SelectList(_context.Locations, "Id", "Id", competition.LocationId);
-            ViewData["ParticipantId"] = new SelectList(_context.Participants, "Id", "FirstName", competition.ParticipantId);
+
+            ViewData["DogId"] = new SelectList(await _uow.BaseRepository<Dog>().AllAsync(), "Id", "DogName",
+                competition.DogId);
+            ViewData["LocationId"] = new SelectList(await _uow.BaseRepository<Location>().AllAsync(), "Id", "Id",
+                competition.LocationId);
+            ViewData["ParticipantId"] = new SelectList(await _uow.BaseRepository<Participant>().AllAsync(), "Id",
+                "FirstName", competition.ParticipantId);
             return View(competition);
         }
 
@@ -132,7 +149,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var competition = await _uow.Competition.AllAsync(User.GetUserId());
+            var competition = await _uow.Competition.FindAsync(id);
             if (competition == null)
             {
                 return NotFound();
@@ -146,10 +163,12 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            
+
             _uow.Competition.Remove(id);
             await _uow.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
+    }
 }
+
+

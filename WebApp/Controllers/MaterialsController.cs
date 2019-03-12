@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.DAL.App;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,17 +13,18 @@ namespace WebApp.Controllers
 {
     public class MaterialsController : Controller
     {
-        private readonly AppDbContext _context;
+        private readonly IAppUnitOfWork _uow;
 
-        public MaterialsController(AppDbContext context)
+        public MaterialsController( IAppUnitOfWork uow)
         {
-            _context = context;
+            _uow = uow;
+            
         }
 
         // GET: Materials
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Materials.ToListAsync());
+            return View(await _uow.Material.AllAsync());
         }
 
         // GET: Materials/Details/5
@@ -33,8 +35,10 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var material = await _context.Materials
-                .FirstOrDefaultAsync(m => m.Id == id);
+//            var material = await _context.Materials
+//                .FirstOrDefaultAsync(m => m.Id == id);
+
+            var material = await _uow.Material.FindAsync(id);
             if (material == null)
             {
                 return NotFound();
@@ -56,10 +60,11 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("MaterialName,Id")] Material material)
         {
+            
             if (ModelState.IsValid)
             {
-                _context.Add(material);
-                await _context.SaveChangesAsync();
+                await _uow.Material.AddAsync(material);
+                await _uow.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(material);
@@ -73,7 +78,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var material = await _context.Materials.FindAsync(id);
+            var material = await _uow.Material.FindAsync(id);
             if (material == null)
             {
                 return NotFound();
@@ -95,22 +100,8 @@ namespace WebApp.Controllers
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(material);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!MaterialExists(material.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                _uow.Material.Update(material);
+                await _uow.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(material);
@@ -124,8 +115,9 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var material = await _context.Materials
-                .FirstOrDefaultAsync(m => m.Id == id);
+//            var material = await _context.Materials
+//                .FirstOrDefaultAsync(m => m.Id == id);
+            var material = await _uow.Material.FindAsync(id);
             if (material == null)
             {
                 return NotFound();
@@ -139,15 +131,11 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var material = await _context.Materials.FindAsync(id);
-            _context.Materials.Remove(material);
-            await _context.SaveChangesAsync();
+            var material = await _uow.Material.FindAsync(id);
+            _uow.Material.Remove(material);
+            await _uow.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool MaterialExists(int id)
-        {
-            return _context.Materials.Any(e => e.Id == id);
-        }
     }
 }

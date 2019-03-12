@@ -3,31 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="97f0307b-bc7c-42ff-af33-ab3fe27807d7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Hajus-project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hajus-project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Identity/AppRole.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Identity/AppRole.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Identity/AppUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Identity/AppUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/netstandard2.0/Domain.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/netstandard2.0/Domain.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Domain.csproj.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Domain.csproj.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Domain.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Domain.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Domain.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Domain.csproj.nuget.g.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Identity/obj/Debug/netstandard2.0/Identity.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Identity/obj/Debug/netstandard2.0/Identity.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Identity/obj/Identity.csproj.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Identity/obj/Identity.csproj.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Identity/obj/Identity.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Identity/obj/Identity.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Identity/obj/Identity.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/Identity/obj/Identity.csproj.nuget.g.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Identity/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Identity/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Identity/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Identity/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Controllers/BreedsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Controllers/BreedsController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApp/Controllers/CompetitionsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Controllers/CompetitionsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Controllers/DogsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Controllers/DogsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/WebApp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/WebApp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/WebApp.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/WebApp.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/WebApp.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/WebApp.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/obj/WebApp.csproj.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/obj/WebApp.csproj.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/obj/WebApp.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/obj/WebApp.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/obj/WebApp.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/obj/WebApp.csproj.nuget.g.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Controllers/MaterialsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Controllers/MaterialsController.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,13 +13,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.55306244">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/WebApp/Controllers/BreedsController.cs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="493">
+                <state relative-caret-position="-843">
                   <caret line="50" column="37" lean-forward="true" selection-start-line="50" selection-start-column="37" selection-end-line="50" selection-end-column="37" />
                   <folding>
                     <marker date="1552417953775" expanded="true" signature="6:264" ph="..." />
@@ -76,33 +53,71 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/WebApp/Controllers/CompetitionsController.cs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="537">
-                  <caret line="154" column="41" selection-start-line="154" selection-start-column="41" selection-end-line="154" selection-end-column="41" />
+                <state relative-caret-position="588">
+                  <caret line="171" column="1" selection-start-line="171" selection-start-column="1" selection-end-line="171" selection-end-column="1" />
                   <folding>
-                    <marker date="1552418444035" expanded="true" signature="6:264" ph="..." />
-                    <marker date="1552418444035" expanded="true" signature="365:5944" ph="{...}" />
-                    <marker date="1552418444035" expanded="true" signature="476:533" ph="{...}" />
-                    <marker date="1552418444035" expanded="true" signature="612:944" ph="{...}" />
-                    <marker date="1552418444035" expanded="true" signature="623:812" ph="/* var appDbContext = _context.Competitions.Include(c =&gt; c.Dog).Include(c =&gt; c.Location).Include(c =&gt; c.Participa ... */" />
-                    <marker date="1552418444035" expanded="true" signature="1042:1608" ph="{...}" />
-                    <marker date="1552418444035" expanded="true" signature="1080:1143" ph="{...}" />
-                    <marker date="1552418444035" expanded="true" signature="1145:1391" ph="/* var competition = await _context.Competitions ... */" />
-                    <marker date="1552418444035" expanded="true" signature="1496:1559" ph="{...}" />
-                    <marker date="1552418444035" expanded="true" signature="1683:1993" ph="{...}" />
-                    <marker date="1552418444035" expanded="true" signature="2003:2218" ph="/* POST: Competitions/Create ... */" />
-                    <marker date="1552418444035" expanded="true" signature="2419:3129" ph="{...}" />
-                    <marker date="1552418444035" expanded="true" signature="2465:2658" ph="{...}" />
-                    <marker date="1552418444035" expanded="true" signature="3221:3872" ph="{...}" />
-                    <marker date="1552418444035" expanded="true" signature="3259:3322" ph="{...}" />
-                    <marker date="1552418444035" expanded="true" signature="3428:3491" ph="{...}" />
-                    <marker date="1552418444035" expanded="true" signature="3882:4097" ph="/* POST: Competitions/Edit/5 ... */" />
-                    <marker date="1552418444035" expanded="true" signature="4304:4933" ph="{...}" />
-                    <marker date="1552418444035" expanded="true" signature="4352:4415" ph="{...}" />
-                    <marker date="1552418444035" expanded="true" signature="4452:4552" ph="{...}" />
-                    <marker date="1552418444035" expanded="true" signature="5029:5517" ph="{...}" />
-                    <marker date="1552418444035" expanded="true" signature="5067:5130" ph="{...}" />
-                    <marker date="1552418444035" expanded="true" signature="5405:5468" ph="{...}" />
-                    <marker date="1552418444035" expanded="true" signature="5698:5941" ph="{...}" />
+                    <marker date="1552423399115" expanded="true" signature="6:264" ph="..." />
+                    <marker date="1552423399115" expanded="true" signature="310:6116" ph="{...}" />
+                    <marker date="1552423399115" expanded="true" signature="365:6114" ph="{...}" />
+                    <marker date="1552423399115" expanded="true" signature="476:521" ph="{...}" />
+                    <marker date="1552423399115" expanded="true" signature="600:955" ph="{...}" />
+                    <marker date="1552423399115" expanded="true" signature="611:885" ph="/* var appDbContext = _context.Competitions.Include(c =&gt; c.Dog).Include(c =&gt; c.Location).Include(c =&gt; c.Participa ... */" />
+                    <marker date="1552423399115" expanded="true" signature="1053:1619" ph="{...}" />
+                    <marker date="1552423399115" expanded="true" signature="1091:1154" ph="{...}" />
+                    <marker date="1552423399115" expanded="true" signature="1156:1402" ph="/* var competition = await _context.Competitions ... */" />
+                    <marker date="1552423399115" expanded="true" signature="1507:1570" ph="{...}" />
+                    <marker date="1552423399115" expanded="true" signature="1694:2054" ph="{...}" />
+                    <marker date="1552423399115" expanded="true" signature="1717:2017" ph="/* ViewData[&quot;DogId&quot;] = new SelectList(_context.Dogs, &quot;Id&quot;, &quot;DogName&quot;); ... */" />
+                    <marker date="1552423399115" expanded="true" signature="2064:2279" ph="/* POST: Competitions/Create ... */" />
+                    <marker date="1552423399115" expanded="true" signature="2505:3264" ph="{...}" />
+                    <marker date="1552423399115" expanded="true" signature="2551:2744" ph="{...}" />
+                    <marker date="1552423399115" expanded="true" signature="3356:4146" ph="{...}" />
+                    <marker date="1552423399115" expanded="true" signature="3394:3457" ph="{...}" />
+                    <marker date="1552423399115" expanded="true" signature="3563:3626" ph="{...}" />
+                    <marker date="1552423399115" expanded="true" signature="4156:4371" ph="/* POST: Competitions/Edit/5 ... */" />
+                    <marker date="1552423399115" expanded="true" signature="4602:5355" ph="{...}" />
+                    <marker date="1552423399115" expanded="true" signature="4650:4713" ph="{...}" />
+                    <marker date="1552423399115" expanded="true" signature="4750:4835" ph="{...}" />
+                    <marker date="1552423399115" expanded="true" signature="5451:5770" ph="{...}" />
+                    <marker date="1552423399115" expanded="true" signature="5489:5552" ph="{...}" />
+                    <marker date="1552423399115" expanded="true" signature="5658:5721" ph="{...}" />
+                    <marker date="1552423399115" expanded="true" signature="5951:6108" ph="{...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/WebApp/Controllers/MaterialsController.cs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="200">
+                  <caret line="65" column="55" selection-start-line="65" selection-start-column="55" selection-end-line="65" selection-end-column="55" />
+                  <folding>
+                    <marker date="1552423378575" expanded="true" signature="6:264" ph="..." />
+                    <marker date="1552423378575" expanded="true" signature="294:4016" ph="{...}" />
+                    <marker date="1552423378575" expanded="true" signature="346:4014" ph="{...}" />
+                    <marker date="1552423378575" expanded="true" signature="455:512" ph="{...}" />
+                    <marker date="1552423378575" expanded="true" signature="588:665" ph="{...}" />
+                    <marker date="1552423378575" expanded="true" signature="760:1179" ph="{...}" />
+                    <marker date="1552423378575" expanded="true" signature="798:861" ph="{...}" />
+                    <marker date="1552423378575" expanded="true" signature="863:973" ph="/* var material = await _context.Materials ... */" />
+                    <marker date="1552423378575" expanded="true" signature="1070:1133" ph="{...}" />
+                    <marker date="1552423378575" expanded="true" signature="1251:1298" ph="{...}" />
+                    <marker date="1552423378575" expanded="true" signature="1308:1520" ph="/* POST: Materials/Create ... */" />
+                    <marker date="1552423378575" expanded="true" signature="1667:1958" ph="{...}" />
+                    <marker date="1552423378575" expanded="true" signature="1726:1913" ph="{...}" />
+                    <marker date="1552423378575" expanded="true" signature="2047:2353" ph="{...}" />
+                    <marker date="1552423378575" expanded="true" signature="2085:2148" ph="{...}" />
+                    <marker date="1552423378575" expanded="true" signature="2245:2308" ph="{...}" />
+                    <marker date="1552423378575" expanded="true" signature="2363:2575" ph="/* POST: Materials/Edit/5 ... */" />
+                    <marker date="1552423378575" expanded="true" signature="2728:3097" ph="{...}" />
+                    <marker date="1552423378575" expanded="true" signature="2773:2836" ph="{...}" />
+                    <marker date="1552423378575" expanded="true" signature="2873:3052" ph="{...}" />
+                    <marker date="1552423378575" expanded="true" signature="3190:3608" ph="{...}" />
+                    <marker date="1552423378575" expanded="true" signature="3228:3291" ph="{...}" />
+                    <marker date="1552423378575" expanded="true" signature="3293:3403" ph="/* var material = await _context.Materials ... */" />
+                    <marker date="1552423378575" expanded="true" signature="3499:3562" ph="{...}" />
+                    <marker date="1552423378575" expanded="true" signature="3786:4007" ph="{...}" />
                   </folding>
                 </state>
               </provider>
@@ -112,13 +127,47 @@
       </split-first>
       <split-second>
         <leaf>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/WebApp/Controllers/BreedsController.cs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-1394">
+                  <caret line="18" column="8" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="45" />
+                  <folding>
+                    <marker date="1552417953775" expanded="false" signature="6:264" ph="..." />
+                    <marker date="1552417953775" expanded="true" signature="336:3668" ph="{...}" />
+                    <marker date="1552417953775" expanded="true" signature="406:3666" ph="{...}" />
+                    <marker date="1552417953775" expanded="true" signature="512:569" ph="{...}" />
+                    <marker date="1552417953775" expanded="true" signature="642:720" ph="{...}" />
+                    <marker date="1552417953775" expanded="true" signature="812:1107" ph="{...}" />
+                    <marker date="1552417953775" expanded="true" signature="850:913" ph="{...}" />
+                    <marker date="1552417953775" expanded="true" signature="1001:1064" ph="{...}" />
+                    <marker date="1552417953775" expanded="true" signature="1176:1223" ph="{...}" />
+                    <marker date="1552417953775" expanded="true" signature="1233:1442" ph="/* POST: Breeds/Create ... */" />
+                    <marker date="1552417953775" expanded="true" signature="1580:1849" ph="{...}" />
+                    <marker date="1552417953775" expanded="true" signature="1626:1807" ph="{...}" />
+                    <marker date="1552417953775" expanded="true" signature="1935:2229" ph="{...}" />
+                    <marker date="1552417953775" expanded="true" signature="1973:2036" ph="{...}" />
+                    <marker date="1552417953775" expanded="true" signature="2124:2187" ph="{...}" />
+                    <marker date="1552417953775" expanded="true" signature="2239:2448" ph="/* POST: Breeds/Edit/5 ... */" />
+                    <marker date="1552417953775" expanded="true" signature="2592:2949" ph="{...}" />
+                    <marker date="1552417953775" expanded="true" signature="2634:2697" ph="{...}" />
+                    <marker date="1552417953775" expanded="true" signature="2734:2907" ph="{...}" />
+                    <marker date="1552417953775" expanded="true" signature="3039:3334" ph="{...}" />
+                    <marker date="1552417953775" expanded="true" signature="3077:3140" ph="{...}" />
+                    <marker date="1552417953775" expanded="true" signature="3228:3291" ph="{...}" />
+                    <marker date="1552417953775" expanded="true" signature="3509:3659" ph="{...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/WebApp/Controllers/DogsController.cs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-398">
-                  <caret line="102" column="46" selection-start-line="102" selection-start-column="46" selection-end-line="102" selection-end-column="46" />
+                <state relative-caret-position="-374">
+                  <caret line="32" column="58" selection-start-line="32" selection-start-column="58" selection-end-line="32" selection-end-column="58" />
                   <folding>
-                    <marker date="1552417404493" expanded="true" signature="6:345" ph="..." />
+                    <marker date="1552417404493" expanded="false" signature="6:345" ph="..." />
                     <marker date="1552417404493" expanded="true" signature="375:5099" ph="{...}" />
                     <marker date="1552417404493" expanded="true" signature="439:5097" ph="{...}" />
                     <marker date="1552417404493" expanded="true" signature="543:600" ph="{...}" />
@@ -143,6 +192,26 @@
                     <marker date="1552417404493" expanded="true" signature="4495:4558" ph="{...}" />
                     <marker date="1552417404493" expanded="true" signature="4657:4720" ph="{...}" />
                     <marker date="1552417404493" expanded="true" signature="4934:5082" ph="{...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Identity/IdentityExtensions.cs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="85">
+                  <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+                  <folding>
+                    <marker date="1550681025186" expanded="false" signature="6:72" ph="..." />
+                    <marker date="1550681025186" expanded="true" signature="91:1101" ph="{...}" />
+                    <marker date="1550681025186" expanded="true" signature="136:1099" ph="{...}" />
+                    <marker date="1550681025186" expanded="true" signature="210:276" ph="{...}" />
+                    <marker date="1550681025186" expanded="true" signature="352:1093" ph="{...}" />
+                    <marker date="1550681025186" expanded="true" signature="397:493" ph="{...}" />
+                    <marker date="1550681025186" expanded="true" signature="622:839" ph="{...}" />
+                    <marker date="1550681025186" expanded="true" signature="686:825" ph="{...}" />
+                    <marker date="1550681025186" expanded="true" signature="922:1082" ph="/* this is tiny bit slower, but handles GUID type also ... */" />
                   </folding>
                 </state>
               </provider>
@@ -279,7 +348,6 @@
         <option value="$PROJECT_DIR$/WebApp/WebApp.csproj" />
         <option value="$PROJECT_DIR$/WebApp/Controllers/AwardsController.cs" />
         <option value="$PROJECT_DIR$/WebApp/Controllers/LocationsController.cs" />
-        <option value="$PROJECT_DIR$/WebApp/Controllers/MaterialsController.cs" />
         <option value="$PROJECT_DIR$/WebApp/Controllers/ParticipantsController.cs" />
         <option value="$PROJECT_DIR$/WebApp/Controllers/RegistrationsController.cs" />
         <option value="$PROJECT_DIR$/WebApp/Controllers/SchoolingsController.cs" />
@@ -289,6 +357,7 @@
         <option value="$PROJECT_DIR$/Domain/Identity/AppUser.cs" />
         <option value="$PROJECT_DIR$/WebApp/Controllers/DogsController.cs" />
         <option value="$PROJECT_DIR$/WebApp/Controllers/BreedsController.cs" />
+        <option value="$PROJECT_DIR$/WebApp/Controllers/MaterialsController.cs" />
         <option value="$PROJECT_DIR$/WebApp/Controllers/CompetitionsController.cs" />
       </list>
     </option>
@@ -460,11 +529,18 @@
       <option name="project" value="LOCAL" />
       <updated>1551040076803</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Hw2 Doneish">
+      <created>1552418675454</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1552418675454</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33900000" />
+    <option name="totallyTimeSpent" value="36053000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -479,7 +555,7 @@
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.12100213" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12100213" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -510,6 +586,38 @@
       <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="right" id="Unit Tests Coverage" order="6" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12100213" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Capture Tool" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3290461" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3290461" />
+      <window_info anchor="bottom" id="NuGet" order="7" sideWeight="0.49893504" weight="0.32903227" />
+      <window_info anchor="bottom" id="Performance Profiler" order="8" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Database Changes" order="11" />
+      <window_info anchor="bottom" id="Unit Tests" order="12" />
+      <window_info anchor="bottom" id="REST Client" order="13" weight="0.3290461" />
+      <window_info anchor="bottom" id="Terminal" order="14" weight="0.31725615" />
+      <window_info anchor="bottom" id="Event Log" order="15" sideWeight="0.50106496" side_tool="true" weight="0.2636656" />
+      <window_info anchor="bottom" id="Statistic" order="16" />
+      <window_info anchor="bottom" id="Build" order="17" sideWeight="0.49946752" weight="0.32718894" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="right" id="Errors In Solution" order="4" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="Unit Tests Coverage" order="6" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -520,7 +628,8 @@
     <MESSAGE value="Lisatud ODT file." />
     <MESSAGE value="Mõned Changes." />
     <MESSAGE value="More Changeses" />
-    <option name="LAST_COMMIT_MESSAGE" value="More Changeses" />
+    <MESSAGE value="Hw2 Doneish" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hw2 Doneish" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -974,43 +1083,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebApp/Controllers/MaterialsController.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <marker date="1552414855316" expanded="true" signature="6:239" ph="..." />
-            <marker date="1552414855316" expanded="true" signature="269:4375" ph="{...}" />
-            <marker date="1552414855316" expanded="true" signature="321:4373" ph="{...}" />
-            <marker date="1552414855316" expanded="true" signature="433:485" ph="{...}" />
-            <marker date="1552414855316" expanded="true" signature="561:646" ph="{...}" />
-            <marker date="1552414855316" expanded="true" signature="741:1093" ph="{...}" />
-            <marker date="1552414855316" expanded="true" signature="779:842" ph="{...}" />
-            <marker date="1552414855316" expanded="true" signature="984:1047" ph="{...}" />
-            <marker date="1552414855316" expanded="true" signature="1165:1212" ph="{...}" />
-            <marker date="1552414855316" expanded="true" signature="1222:1434" ph="/* POST: Materials/Create ... */" />
-            <marker date="1552414855316" expanded="true" signature="1581:1847" ph="{...}" />
-            <marker date="1552414855316" expanded="true" signature="1627:1802" ph="{...}" />
-            <marker date="1552414855316" expanded="true" signature="1936:2247" ph="{...}" />
-            <marker date="1552414855316" expanded="true" signature="1974:2037" ph="{...}" />
-            <marker date="1552414855316" expanded="true" signature="2139:2202" ph="{...}" />
-            <marker date="1552414855316" expanded="true" signature="2257:2469" ph="/* POST: Materials/Edit/5 ... */" />
-            <marker date="1552414855316" expanded="true" signature="2622:3384" ph="{...}" />
-            <marker date="1552414855316" expanded="true" signature="2667:2730" ph="{...}" />
-            <marker date="1552414855316" expanded="true" signature="2767:3339" ph="{...}" />
-            <marker date="1552414855316" expanded="true" signature="2801:2939" ph="{...}" />
-            <marker date="1552414855316" expanded="true" signature="2992:3269" ph="{...}" />
-            <marker date="1552414855316" expanded="true" signature="3064:3151" ph="{...}" />
-            <marker date="1552414855316" expanded="true" signature="3176:3251" ph="{...}" />
-            <marker date="1552414855316" expanded="true" signature="3477:3829" ph="{...}" />
-            <marker date="1552414855316" expanded="true" signature="3515:3578" ph="{...}" />
-            <marker date="1552414855316" expanded="true" signature="3720:3783" ph="{...}" />
-            <marker date="1552414855316" expanded="true" signature="4007:4242" ph="{...}" />
-            <marker date="1552414855316" expanded="true" signature="4287:4367" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebApp/Controllers/ParticipantsController.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1195,24 +1267,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Identity/IdentityExtensions.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
-          <folding>
-            <marker date="1550681025186" expanded="false" signature="6:72" ph="..." />
-            <marker date="1550681025186" expanded="true" signature="91:1101" ph="{...}" />
-            <marker date="1550681025186" expanded="true" signature="136:1099" ph="{...}" />
-            <marker date="1550681025186" expanded="true" signature="210:276" ph="{...}" />
-            <marker date="1550681025186" expanded="true" signature="352:1093" ph="{...}" />
-            <marker date="1550681025186" expanded="true" signature="397:493" ph="{...}" />
-            <marker date="1550681025186" expanded="true" signature="622:839" ph="{...}" />
-            <marker date="1550681025186" expanded="true" signature="686:825" ph="{...}" />
-            <marker date="1550681025186" expanded="true" signature="922:1082" ph="/* this is tiny bit slower, but handles GUID type also ... */" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebApp/Controllers/AwardsController.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-442">
@@ -1291,9 +1345,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Identity/IdentityExtensions.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+          <folding>
+            <marker date="1550681025186" expanded="false" signature="6:72" ph="..." />
+            <marker date="1550681025186" expanded="true" signature="91:1101" ph="{...}" />
+            <marker date="1550681025186" expanded="true" signature="136:1099" ph="{...}" />
+            <marker date="1550681025186" expanded="true" signature="210:276" ph="{...}" />
+            <marker date="1550681025186" expanded="true" signature="352:1093" ph="{...}" />
+            <marker date="1550681025186" expanded="true" signature="397:493" ph="{...}" />
+            <marker date="1550681025186" expanded="true" signature="622:839" ph="{...}" />
+            <marker date="1550681025186" expanded="true" signature="686:825" ph="{...}" />
+            <marker date="1550681025186" expanded="true" signature="922:1082" ph="/* this is tiny bit slower, but handles GUID type also ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/WebApp/Controllers/BreedsController.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
+        <state relative-caret-position="-843">
           <caret line="50" column="37" lean-forward="true" selection-start-line="50" selection-start-column="37" selection-end-line="50" selection-end-column="37" />
           <folding>
             <marker date="1552417953775" expanded="true" signature="6:264" ph="..." />
@@ -1325,10 +1397,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/WebApp/Controllers/DogsController.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-398">
-          <caret line="102" column="46" selection-start-line="102" selection-start-column="46" selection-end-line="102" selection-end-column="46" />
+        <state relative-caret-position="-374">
+          <caret line="32" column="58" selection-start-line="32" selection-start-column="58" selection-end-line="32" selection-end-column="58" />
           <folding>
-            <marker date="1552417404493" expanded="true" signature="6:345" ph="..." />
+            <marker date="1552417404493" expanded="false" signature="6:345" ph="..." />
             <marker date="1552417404493" expanded="true" signature="375:5099" ph="{...}" />
             <marker date="1552417404493" expanded="true" signature="439:5097" ph="{...}" />
             <marker date="1552417404493" expanded="true" signature="543:600" ph="{...}" />
@@ -1357,35 +1429,71 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/WebApp/Controllers/MaterialsController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="65" column="55" selection-start-line="65" selection-start-column="55" selection-end-line="65" selection-end-column="55" />
+          <folding>
+            <marker date="1552423378575" expanded="true" signature="6:264" ph="..." />
+            <marker date="1552423378575" expanded="true" signature="294:4016" ph="{...}" />
+            <marker date="1552423378575" expanded="true" signature="346:4014" ph="{...}" />
+            <marker date="1552423378575" expanded="true" signature="455:512" ph="{...}" />
+            <marker date="1552423378575" expanded="true" signature="588:665" ph="{...}" />
+            <marker date="1552423378575" expanded="true" signature="760:1179" ph="{...}" />
+            <marker date="1552423378575" expanded="true" signature="798:861" ph="{...}" />
+            <marker date="1552423378575" expanded="true" signature="863:973" ph="/* var material = await _context.Materials ... */" />
+            <marker date="1552423378575" expanded="true" signature="1070:1133" ph="{...}" />
+            <marker date="1552423378575" expanded="true" signature="1251:1298" ph="{...}" />
+            <marker date="1552423378575" expanded="true" signature="1308:1520" ph="/* POST: Materials/Create ... */" />
+            <marker date="1552423378575" expanded="true" signature="1667:1958" ph="{...}" />
+            <marker date="1552423378575" expanded="true" signature="1726:1913" ph="{...}" />
+            <marker date="1552423378575" expanded="true" signature="2047:2353" ph="{...}" />
+            <marker date="1552423378575" expanded="true" signature="2085:2148" ph="{...}" />
+            <marker date="1552423378575" expanded="true" signature="2245:2308" ph="{...}" />
+            <marker date="1552423378575" expanded="true" signature="2363:2575" ph="/* POST: Materials/Edit/5 ... */" />
+            <marker date="1552423378575" expanded="true" signature="2728:3097" ph="{...}" />
+            <marker date="1552423378575" expanded="true" signature="2773:2836" ph="{...}" />
+            <marker date="1552423378575" expanded="true" signature="2873:3052" ph="{...}" />
+            <marker date="1552423378575" expanded="true" signature="3190:3608" ph="{...}" />
+            <marker date="1552423378575" expanded="true" signature="3228:3291" ph="{...}" />
+            <marker date="1552423378575" expanded="true" signature="3293:3403" ph="/* var material = await _context.Materials ... */" />
+            <marker date="1552423378575" expanded="true" signature="3499:3562" ph="{...}" />
+            <marker date="1552423378575" expanded="true" signature="3786:4007" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/WebApp/Controllers/CompetitionsController.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="154" column="41" selection-start-line="154" selection-start-column="41" selection-end-line="154" selection-end-column="41" />
+        <state relative-caret-position="588">
+          <caret line="171" column="1" selection-start-line="171" selection-start-column="1" selection-end-line="171" selection-end-column="1" />
           <folding>
-            <marker date="1552418444035" expanded="true" signature="6:264" ph="..." />
-            <marker date="1552418444035" expanded="true" signature="365:5944" ph="{...}" />
-            <marker date="1552418444035" expanded="true" signature="476:533" ph="{...}" />
-            <marker date="1552418444035" expanded="true" signature="612:944" ph="{...}" />
-            <marker date="1552418444035" expanded="true" signature="623:812" ph="/* var appDbContext = _context.Competitions.Include(c =&gt; c.Dog).Include(c =&gt; c.Location).Include(c =&gt; c.Participa ... */" />
-            <marker date="1552418444035" expanded="true" signature="1042:1608" ph="{...}" />
-            <marker date="1552418444035" expanded="true" signature="1080:1143" ph="{...}" />
-            <marker date="1552418444035" expanded="true" signature="1145:1391" ph="/* var competition = await _context.Competitions ... */" />
-            <marker date="1552418444035" expanded="true" signature="1496:1559" ph="{...}" />
-            <marker date="1552418444035" expanded="true" signature="1683:1993" ph="{...}" />
-            <marker date="1552418444035" expanded="true" signature="2003:2218" ph="/* POST: Competitions/Create ... */" />
-            <marker date="1552418444035" expanded="true" signature="2419:3129" ph="{...}" />
-            <marker date="1552418444035" expanded="true" signature="2465:2658" ph="{...}" />
-            <marker date="1552418444035" expanded="true" signature="3221:3872" ph="{...}" />
-            <marker date="1552418444035" expanded="true" signature="3259:3322" ph="{...}" />
-            <marker date="1552418444035" expanded="true" signature="3428:3491" ph="{...}" />
-            <marker date="1552418444035" expanded="true" signature="3882:4097" ph="/* POST: Competitions/Edit/5 ... */" />
-            <marker date="1552418444035" expanded="true" signature="4304:4933" ph="{...}" />
-            <marker date="1552418444035" expanded="true" signature="4352:4415" ph="{...}" />
-            <marker date="1552418444035" expanded="true" signature="4452:4552" ph="{...}" />
-            <marker date="1552418444035" expanded="true" signature="5029:5517" ph="{...}" />
-            <marker date="1552418444035" expanded="true" signature="5067:5130" ph="{...}" />
-            <marker date="1552418444035" expanded="true" signature="5405:5468" ph="{...}" />
-            <marker date="1552418444035" expanded="true" signature="5698:5941" ph="{...}" />
+            <marker date="1552423399115" expanded="true" signature="6:264" ph="..." />
+            <marker date="1552423399115" expanded="true" signature="310:6116" ph="{...}" />
+            <marker date="1552423399115" expanded="true" signature="365:6114" ph="{...}" />
+            <marker date="1552423399115" expanded="true" signature="476:521" ph="{...}" />
+            <marker date="1552423399115" expanded="true" signature="600:955" ph="{...}" />
+            <marker date="1552423399115" expanded="true" signature="611:885" ph="/* var appDbContext = _context.Competitions.Include(c =&gt; c.Dog).Include(c =&gt; c.Location).Include(c =&gt; c.Participa ... */" />
+            <marker date="1552423399115" expanded="true" signature="1053:1619" ph="{...}" />
+            <marker date="1552423399115" expanded="true" signature="1091:1154" ph="{...}" />
+            <marker date="1552423399115" expanded="true" signature="1156:1402" ph="/* var competition = await _context.Competitions ... */" />
+            <marker date="1552423399115" expanded="true" signature="1507:1570" ph="{...}" />
+            <marker date="1552423399115" expanded="true" signature="1694:2054" ph="{...}" />
+            <marker date="1552423399115" expanded="true" signature="1717:2017" ph="/* ViewData[&quot;DogId&quot;] = new SelectList(_context.Dogs, &quot;Id&quot;, &quot;DogName&quot;); ... */" />
+            <marker date="1552423399115" expanded="true" signature="2064:2279" ph="/* POST: Competitions/Create ... */" />
+            <marker date="1552423399115" expanded="true" signature="2505:3264" ph="{...}" />
+            <marker date="1552423399115" expanded="true" signature="2551:2744" ph="{...}" />
+            <marker date="1552423399115" expanded="true" signature="3356:4146" ph="{...}" />
+            <marker date="1552423399115" expanded="true" signature="3394:3457" ph="{...}" />
+            <marker date="1552423399115" expanded="true" signature="3563:3626" ph="{...}" />
+            <marker date="1552423399115" expanded="true" signature="4156:4371" ph="/* POST: Competitions/Edit/5 ... */" />
+            <marker date="1552423399115" expanded="true" signature="4602:5355" ph="{...}" />
+            <marker date="1552423399115" expanded="true" signature="4650:4713" ph="{...}" />
+            <marker date="1552423399115" expanded="true" signature="4750:4835" ph="{...}" />
+            <marker date="1552423399115" expanded="true" signature="5451:5770" ph="{...}" />
+            <marker date="1552423399115" expanded="true" signature="5489:5552" ph="{...}" />
+            <marker date="1552423399115" expanded="true" signature="5658:5721" ph="{...}" />
+            <marker date="1552423399115" expanded="true" signature="5951:6108" ph="{...}" />
           </folding>
         </state>
       </provider>
