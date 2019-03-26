@@ -2,28 +2,35 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.DAL.App;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DAL.App.EF;
 using Domain;
+using WebApp.ViewModels;
 
 namespace WebApp.Controllers
 {
     public class AwardsController : Controller
     {
-        private readonly AppDbContext _context;
+        
 
-        public AwardsController(AppDbContext context)
+        private readonly IAppUnitOfWork _uow;
+
+        public AwardsController(IAppUnitOfWork uow)
         {
-            _context = context;
+            
+            _uow = uow;
         }
 
         // GET: Awards
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.Awards.Include(a => a.Competition).Include(a => a.Show);
-            return View(await appDbContext.ToListAsync());
+            var award = await _uow.Award.AllAsync();
+            
+//            var appDbContext = _context.Awards.Include(a => a.Competition).Include(a => a.Show);
+            return View(award);
         }
 
         // GET: Awards/Details/5
@@ -34,10 +41,11 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var award = await _context.Awards
-                .Include(a => a.Competition)
-                .Include(a => a.Show)
-                .FirstOrDefaultAsync(m => m.Id == id);
+//            var award = await _context.Awards
+//                .Include(a => a.Competition)
+//                .Include(a => a.Show)
+//                .FirstOrDefaultAsync(m => m.Id == id);
+            var award = await _uow.Award.FindAsync(id);
             if (award == null)
             {
                 return NotFound();
@@ -47,11 +55,17 @@ namespace WebApp.Controllers
         }
 
         // GET: Awards/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            ViewData["CompetitionId"] = new SelectList(_context.Competitions, "Id", "Id");
-            ViewData["ShowId"] = new SelectList(_context.Shows, "Id", "Id");
-            return View();
+            var vm = new AwardCreateViewModel()
+            {
+                CompetitionSelectList = new SelectList(await _uow.Competition.AllAsync(),nameof(Competition.Id),nameof(Competition.Title)),
+                ShowSelectList = new SelectList(await _uow.Show.AllAsync(),nameof(Show.Id),nameof(Show.Title))
+                
+            };
+//            ViewData["CompetitionId"] = new SelectList(_context.Competitions, "Id", "Id");
+//            ViewData["ShowId"] = new SelectList(_context.Shows, "Id", "Id");
+            return View(vm);
         }
 
         // POST: Awards/Create
@@ -59,17 +73,25 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Place,Comment,CompetitionId,ShowId,Id")] Award award)
+        public async Task<IActionResult> Create(AwardCreateViewModel vm)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(award);
-                await _context.SaveChangesAsync();
+                await _uow.Award.AddAsync(vm.Award);
+                
+                await _uow.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CompetitionId"] = new SelectList(_context.Competitions, "Id", "Id", award.CompetitionId);
-            ViewData["ShowId"] = new SelectList(_context.Shows, "Id", "Id", award.ShowId);
-            return View(award);
+
+
+            vm.CompetitionSelectList = new SelectList(await _uow.Competition.AllAsync(), nameof(Competition.Id),
+                nameof(Competition.Title), vm.Award.CompetitionId);
+
+            vm.ShowSelectList = new SelectList(await _uow.Show.AllAsync(), nameof(Show.Id), nameof(Show.Title),
+                vm.Award.ShowId);
+//            ViewData["CompetitionId"] = new SelectList(_context.Competitions, "Id", "Id", award.CompetitionId);
+//            ViewData["ShowId"] = new SelectList(_context.Shows, "Id", "Id", award.ShowId);
+            return View(vm);
         }
 
         // GET: Awards/Edit/5
@@ -80,14 +102,25 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var award = await _context.Awards.FindAsync(id);
+            var award = await _uow.Award.FindAsync(id);
             if (award == null)
             {
                 return NotFound();
             }
-            ViewData["CompetitionId"] = new SelectList(_context.Competitions, "Id", "Id", award.CompetitionId);
-            ViewData["ShowId"] = new SelectList(_context.Shows, "Id", "Id", award.ShowId);
-            return View(award);
+
+            var vm = new AwardCreateViewModel()
+            {
+                CompetitionSelectList = new SelectList(await _uow.Competition.AllAsync(), nameof(Competition.Id),
+                    nameof(Competition.Title), award.CompetitionId),
+                ShowSelectList = new SelectList(await _uow.Show.AllAsync(), nameof(Show.Id), nameof(Show.Title),
+                    award.ShowId)
+            };
+            
+            
+            
+//            ViewData["CompetitionId"] = new SelectList(_context.Competitions, "Id", "Id", award.CompetitionId);
+//            ViewData["ShowId"] = new SelectList(_context.Shows, "Id", "Id", award.ShowId);
+            return View(vm);
         }
 
         // POST: Awards/Edit/5
@@ -95,36 +128,28 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Place,Comment,CompetitionId,ShowId,Id")] Award award)
+        public async Task<IActionResult> Edit(int id, AwardCreateViewModel vm)
         {
-            if (id != award.Id)
+            if (id != vm.Award.Id)
             {
                 return NotFound();
             }
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(award);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!AwardExists(award.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                _uow.Award.Update(vm.Award);
+                await _uow.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CompetitionId"] = new SelectList(_context.Competitions, "Id", "Id", award.CompetitionId);
-            ViewData["ShowId"] = new SelectList(_context.Shows, "Id", "Id", award.ShowId);
-            return View(award);
+            
+            vm.CompetitionSelectList = new SelectList(await _uow.Competition.AllAsync(), nameof(Competition.Id),
+                nameof(Competition.Title), vm.Award.CompetitionId);
+
+            vm.ShowSelectList = new SelectList(await _uow.Show.AllAsync(), nameof(Show.Id), nameof(Show.Title),
+                vm.Award.ShowId);
+//            ViewData["CompetitionId"] = new SelectList(_context.Competitions, "Id", "Id", award.CompetitionId);
+//            ViewData["ShowId"] = new SelectList(_context.Shows, "Id", "Id", award.ShowId);
+            return View(vm);
         }
 
         // GET: Awards/Delete/5
@@ -135,10 +160,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var award = await _context.Awards
-                .Include(a => a.Competition)
-                .Include(a => a.Show)
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var award = await _uow.Award.FindAsync(id);
             if (award == null)
             {
                 return NotFound();
@@ -152,15 +174,10 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var award = await _context.Awards.FindAsync(id);
-            _context.Awards.Remove(award);
-            await _context.SaveChangesAsync();
+            _uow.Award.Remove(id);
+            await _uow.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool AwardExists(int id)
-        {
-            return _context.Awards.Any(e => e.Id == id);
-        }
     }
 }

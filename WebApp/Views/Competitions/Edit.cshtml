@@ -1,4 +1,4 @@
-@model Domain.Competition
+@model WebApp.ViewModels.CompetitionsCreateViewModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -13,46 +13,46 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
+                <label asp-for="Competition.Title" class="control-label"></label>
+                <input asp-for="Competition.Title" class="form-control" />
+                <span asp-validation-for="Competition.Title" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Comment" class="control-label"></label>
-                <input asp-for="Comment" class="form-control" />
-                <span asp-validation-for="Comment" class="text-danger"></span>
+                <label asp-for="Competition.Comment" class="control-label"></label>
+                <input asp-for="Competition.Comment" class="form-control" />
+                <span asp-validation-for="Competition.Comment" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Award" class="control-label"></label>
-                <input asp-for="Award" class="form-control" />
-                <span asp-validation-for="Award" class="text-danger"></span>
+                <label asp-for="Competition.Award" class="control-label"></label>
+                <input asp-for="Competition.Award" class="form-control" />
+                <span asp-validation-for="Competition.Award" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Start" class="control-label"></label>
-                <input asp-for="Start" class="form-control" />
-                <span asp-validation-for="Start" class="text-danger"></span>
+                <label asp-for="Competition.Start" class="control-label"></label>
+                <input asp-for="Competition.Start" class="form-control" />
+                <span asp-validation-for="Competition.Start" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="End" class="control-label"></label>
-                <input asp-for="End" class="form-control" />
-                <span asp-validation-for="End" class="text-danger"></span>
+                <label asp-for="Competition.End" class="control-label"></label>
+                <input asp-for="Competition.End" class="form-control" />
+                <span asp-validation-for="Competition.End" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DogId" class="control-label"></label>
-                <select asp-for="DogId" class="form-control" asp-items="ViewBag.DogId"></select>
-                <span asp-validation-for="DogId" class="text-danger"></span>
+                <label asp-for="Competition.DogId" class="control-label"></label>
+                <select asp-for="Competition.DogId" class="form-control" asp-items="Model.DogSelectList"></select>
+                <span asp-validation-for="Competition.DogId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="LocationId" class="control-label"></label>
-                <select asp-for="LocationId" class="form-control" asp-items="ViewBag.LocationId"></select>
-                <span asp-validation-for="LocationId" class="text-danger"></span>
+                <label asp-for="Competition.LocationId" class="control-label"></label>
+                <select asp-for="Competition.LocationId" class="form-control" asp-items="Model.LocationSelectList"></select>
+                <span asp-validation-for="Competition.LocationId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ParticipantId" class="control-label"></label>
-                <select asp-for="ParticipantId" class="form-control" asp-items="ViewBag.ParticipantId"></select>
-                <span asp-validation-for="ParticipantId" class="text-danger"></span>
+                <label asp-for="Competition.ParticipantId" class="control-label"></label>
+                <select asp-for="Competition.ParticipantId" class="form-control" asp-items="Model.ParticipantSelectList"></select>
+                <span asp-validation-for="Competition.ParticipantId" class="text-danger"></span>
             </div>
-            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="Competition.Id" />
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

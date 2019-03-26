@@ -246,6 +246,9 @@
         <e p="ScaffoldingReadme.txt" t="Include" />
         <e p="Startup.cs" t="Include" />
         <e p="ViewModels" t="Include">
+          <e p="AwardCreateViewModel.cs" t="Include" />
+          <e p="CompetitionsCreateViewModel.cs" t="Include" />
+          <e p="DogCreateViewModel.cs" t="Include" />
           <e p="ErrorViewModel.cs" t="Include" />
         </e>
         <e p="Views" t="Include">

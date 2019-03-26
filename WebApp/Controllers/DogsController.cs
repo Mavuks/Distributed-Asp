@@ -11,6 +11,7 @@ using Domain;
 using Domain.Identity;
 using Identity;
 using Microsoft.AspNetCore.Authorization;
+using WebApp.ViewModels;
 
 namespace WebApp.Controllers
 { 
@@ -58,10 +59,24 @@ namespace WebApp.Controllers
         }
 
         // GET: Dogs/Create
-        public IActionResult Create()
+        public  async Task<IActionResult> Create()
         {
+
+            var vm = new DogCreateViewModel()
+            {
+                AppUserSelectList = new SelectList( await _uow.BaseRepository<AppUser>().AllAsync(),nameof(AppUser.Id),nameof(AppUser.FirstLastName) ),
+                AwardSelectList = new SelectList(await _uow.Award.AllAsync(),nameof(Award.Id), nameof(Award.Place)),
+                BreedSelectList = new SelectList(await _uow.Breed.AllAsync(), nameof(Breed.Id), nameof(Breed.BreedName))
+                
+            };
             
-            return View();
+            
+//            ViewData["AppUserId"] = new SelectList(_context.Users, "Id", "Id");
+//            ViewData["AwardId"] = new SelectList(_context.Awards, "Id", "Id");
+//            ViewData["BreedId"] = new SelectList(_context.Breeds, "Id", "Id");
+
+
+            return View(vm);
         }
 
         // POST: Dogs/Create
@@ -69,19 +84,31 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DogName,DateOfBirth,DateOfDeath,Sex,BreedId,Owner,AppUserId,AwardId,Id")] Dog dog)
+        public async Task<IActionResult> Create(DogCreateViewModel vm)
         {
-            dog.AppUserId = User.GetUserId();
+            
             
             if (ModelState.IsValid)
             {
-                await _uow.Dog.AddAsync(dog);
+                await _uow.Dog.AddAsync(vm.Dog);
                 await _uow.SaveChangesAsync();
                 
                 return RedirectToAction(nameof(Index));
             }
+
+            vm.AppUserSelectList = new SelectList(await _uow.BaseRepository<AppUser>().AllAsync(), nameof(AppUser.Id),
+                nameof(AppUser.FirstLastName), vm.Dog.AppUserId);
+            vm.AwardSelectList = new SelectList(await _uow.Award.AllAsync(), nameof(Award.Id), nameof(Award.Place), vm.Dog.AwardId);
+            vm.BreedSelectList  = new SelectList(await _uow.Breed.AllAsync(), nameof(Breed.Id),
+                nameof(Breed.BreedName), vm.Dog.BreedId );
             
-            return View(dog);
+//            ViewData["AppUserId"] = new SelectList(_context.Users, "Id", "Id", dog.AppUserId);
+
+//            ViewData["AwardId"] = new SelectList(_context.Awards, "Id", "Id", dog.AwardId);
+//            ViewData["BreedId"] = new SelectList(_context.Breeds, "Id", "Id", dog.BreedId);
+
+            
+            return View(vm);
         }
         
         
@@ -98,10 +125,20 @@ namespace WebApp.Controllers
             {
                 return NotFound();
             }
-            ViewData["AppUserId"] = new SelectList(await _uow.BaseRepository<AppUser>().AllAsync(), "Id", "Id", dog.AppUserId);
-            ViewData["AwardId"] = new SelectList(await _uow.BaseRepository<Award>().AllAsync(), "Id", "Id", dog.AwardId);
-            ViewData["BreedId"] = new SelectList(await _uow.BaseRepository<Breed>().AllAsync(), "Id", "Id", dog.BreedId);
-            return View(dog);
+            
+            var vm = new DogCreateViewModel()
+            {
+                AppUserSelectList = new SelectList( await _uow.BaseRepository<AppUser>().AllAsync(),nameof(AppUser.Id),nameof(AppUser.FirstLastName), dog.AppUserId ),
+                AwardSelectList = new SelectList(await _uow.Award.AllAsync(),nameof(Award.Id), nameof(Award.Place), dog.AwardId),
+                BreedSelectList = new SelectList(await _uow.Breed.AllAsync(), nameof(Breed.Id), nameof(Breed.BreedName), dog.BreedId)
+                
+            };
+            
+            
+//            ViewData["AppUserId"] = new SelectList(await _uow.BaseRepository<AppUser>().AllAsync(), "Id", "Id", dog.AppUserId);
+//            ViewData["AwardId"] = new SelectList(await _uow.BaseRepository<Award>().AllAsync(), "Id", "Id", dog.AwardId);
+//            ViewData["BreedId"] = new SelectList(await _uow.BaseRepository<Breed>().AllAsync(), "Id", "Id", dog.BreedId);
+            return View(vm);
         }
 
         // POST: Dogs/Edit/5
@@ -109,24 +146,31 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("DogName,DateOfBirth,DateOfDeath,Sex,BreedId,Owner,AppUserId,AwardId,Id")] Dog dog)
+        public async Task<IActionResult> Edit(int id, DogCreateViewModel vm)
         {
-            if (id != dog.Id)
+            if (id != vm.Dog.Id)
             {
                 return NotFound();
             }
 
             if (ModelState.IsValid)
             {
-                _uow.Dog.Update(dog);
+                _uow.Dog.Update(vm.Dog);
                 await _uow.SaveChangesAsync();
                 
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AppUserId"] = new SelectList(await _uow.BaseRepository<AppUser>().AllAsync(), "Id", "Id", dog.AppUserId);
-            ViewData["AwardId"] = new SelectList(await _uow.BaseRepository<Award>().AllAsync(), "Id", "Id", dog.AwardId);
-            ViewData["BreedId"] = new SelectList(await _uow.BaseRepository<Breed>().AllAsync(), "Id", "Id", dog.BreedId);
-            return View(dog);
+            
+            vm.AppUserSelectList = new SelectList(await _uow.BaseRepository<AppUser>().AllAsync(), nameof(AppUser.Id),
+                nameof(AppUser.FirstLastName), vm.Dog.AppUserId);
+            vm.AwardSelectList = new SelectList(await _uow.Award.AllAsync(), nameof(Award.Id), nameof(Award.Place), vm.Dog.AwardId);
+            vm.BreedSelectList  = new SelectList(await _uow.Breed.AllAsync(), nameof(Breed.Id),
+                nameof(Breed.BreedName), vm.Dog.BreedId );
+            
+//            ViewData["AppUserId"] = new SelectList(await _uow.BaseRepository<AppUser>().AllAsync(), "Id", "Id", dog.AppUserId);
+//            ViewData["AwardId"] = new SelectList(await _uow.BaseRepository<Award>().AllAsync(), "Id", "Id", dog.AwardId);
+//            ViewData["BreedId"] = new SelectList(await _uow.BaseRepository<Breed>().AllAsync(), "Id", "Id", dog.BreedId);
+            return View(vm);
         }
 
         // GET: Dogs/Delete/5

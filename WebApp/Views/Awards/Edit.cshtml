@@ -1,4 +1,4 @@
-@model Domain.Award
+@model WebApp.ViewModels.AwardCreateViewModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -13,26 +13,26 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Place" class="control-label"></label>
-                <input asp-for="Place" class="form-control" />
-                <span asp-validation-for="Place" class="text-danger"></span>
+                <label asp-for="Award.Place" class="control-label"></label>
+                <input asp-for="Award.Place" class="form-control" />
+                <span asp-validation-for="Award.Place" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Comment" class="control-label"></label>
-                <input asp-for="Comment" class="form-control" />
-                <span asp-validation-for="Comment" class="text-danger"></span>
+                <label asp-for="Award.Comment" class="control-label"></label>
+                <input asp-for="Award.Comment" class="form-control" />
+                <span asp-validation-for="Award.Comment" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CompetitionId" class="control-label"></label>
-                <select asp-for="CompetitionId" class="form-control" asp-items="ViewBag.CompetitionId"></select>
-                <span asp-validation-for="CompetitionId" class="text-danger"></span>
+                <label asp-for="Award.CompetitionId" class="control-label"></label>
+                <select asp-for="Award.CompetitionId" class="form-control" asp-items="Model.CompetitionSelectList"></select>
+                <span asp-validation-for="Award.CompetitionId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ShowId" class="control-label"></label>
-                <select asp-for="ShowId" class="form-control" asp-items="ViewBag.ShowId"></select>
-                <span asp-validation-for="ShowId" class="text-danger"></span>
+                <label asp-for="Award.ShowId" class="control-label"></label>
+                <select asp-for="Award.ShowId" class="form-control" asp-items="Model.ShowSelectList"></select>
+                <span asp-validation-for="Award.ShowId" class="text-danger"></span>
             </div>
-            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="Award.Id" />
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
