@@ -2,28 +2,33 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.DAL.App;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DAL.App.EF;
 using Domain;
+using WebApp.ViewModels;
 
 namespace WebApp.Controllers
 {
     public class RegistrationsController : Controller
     {
-        private readonly AppDbContext _context;
+        
 
-        public RegistrationsController(AppDbContext context)
+        private readonly IAppUnitOfWork _uow;
+
+        public RegistrationsController(IAppUnitOfWork uow)
         {
-            _context = context;
+            
+            _uow = uow;
         }
 
         // GET: Registrations
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.Registrations.Include(r => r.Competition).Include(r => r.Dog).Include(r => r.Participant).Include(r => r.Show);
-            return View(await appDbContext.ToListAsync());
+         
+            return View(await _uow.Registration.AllAsync());
         }
 
         // GET: Registrations/Details/5
@@ -34,12 +39,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var registration = await _context.Registrations
-                .Include(r => r.Competition)
-                .Include(r => r.Dog)
-                .Include(r => r.Participant)
-                .Include(r => r.Show)
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var registration = await _uow.Registration.FindAsync(id);
             if (registration == null)
             {
                 return NotFound();
@@ -49,13 +49,18 @@ namespace WebApp.Controllers
         }
 
         // GET: Registrations/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            ViewData["CompetitionId"] = new SelectList(_context.Competitions, "Id", "Id");
-            ViewData["DogId"] = new SelectList(_context.Dogs, "Id", "DogName");
-            ViewData["ParticipantId"] = new SelectList(_context.Participants, "Id", "FirstName");
-            ViewData["ShowId"] = new SelectList(_context.Shows, "Id", "Id");
-            return View();
+
+            var vm = new RegistrationsCreateViewModel()
+            {
+                CompetitionSelectList = new SelectList(await _uow.Competition.AllAsync(), nameof(Competition.Id),nameof(Competition.Title)),
+                DogSelectList = new SelectList(await _uow.Dog.AllAsync(), nameof(Dog.Id), nameof(Dog.DogName)),
+                ParticipantSelectList = new SelectList(await _uow.Participant.AllAsync(), nameof(Participant.Id), nameof(Participant.FirstName)),
+                ShowSelectList = new SelectList(await _uow.Show.AllAsync(), nameof(Show.Id), nameof(Show.Title))
+            };
+
+            return View(vm);
         }
 
         // POST: Registrations/Create
@@ -63,19 +68,24 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Title,Comment,Start,End,DogId,ParticipantId,CompetitionId,ShowId,Id")] Registration registration)
+        public async Task<IActionResult> Create(RegistrationsCreateViewModel vm)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(registration);
-                await _context.SaveChangesAsync();
+                await _uow.Registration.AddAsync(vm.Registration);
+                await _uow.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CompetitionId"] = new SelectList(_context.Competitions, "Id", "Id", registration.CompetitionId);
-            ViewData["DogId"] = new SelectList(_context.Dogs, "Id", "DogName", registration.DogId);
-            ViewData["ParticipantId"] = new SelectList(_context.Participants, "Id", "FirstName", registration.ParticipantId);
-            ViewData["ShowId"] = new SelectList(_context.Shows, "Id", "Id", registration.ShowId);
-            return View(registration);
+
+
+            vm.CompetitionSelectList = new SelectList(await _uow.Competition.AllAsync(), nameof(Competition.Id),
+                nameof(Competition.Title), vm.Registration.CompetitionId);
+            vm.DogSelectList = new SelectList(await _uow.Dog.AllAsync(), nameof(Dog.Id), nameof(Dog.DogName), vm.Registration.DogId);
+            vm.ParticipantSelectList = new SelectList(await _uow.Participant.AllAsync(), nameof(Participant.Id),
+                nameof(Participant.FirstName), vm.Registration.ParticipantId);
+            vm.ShowSelectList = new SelectList(await _uow.Show.AllAsync(), nameof(Show.Id), nameof(Show.Title), vm.Registration.ShowId);
+
+            return View(vm);
         }
 
         // GET: Registrations/Edit/5
@@ -86,16 +96,21 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var registration = await _context.Registrations.FindAsync(id);
+            var registration = await _uow.Registration.FindAsync(id);
             if (registration == null)
             {
                 return NotFound();
             }
-            ViewData["CompetitionId"] = new SelectList(_context.Competitions, "Id", "Id", registration.CompetitionId);
-            ViewData["DogId"] = new SelectList(_context.Dogs, "Id", "DogName", registration.DogId);
-            ViewData["ParticipantId"] = new SelectList(_context.Participants, "Id", "FirstName", registration.ParticipantId);
-            ViewData["ShowId"] = new SelectList(_context.Shows, "Id", "Id", registration.ShowId);
-            return View(registration);
+            
+            var vm = new RegistrationsCreateViewModel()
+            {
+                CompetitionSelectList = new SelectList(await _uow.Competition.AllAsync(), nameof(Competition.Id),nameof(Competition.Title), registration.CompetitionId),
+                DogSelectList = new SelectList(await _uow.Dog.AllAsync(), nameof(Dog.Id), nameof(Dog.DogName), registration.DogId),
+                ParticipantSelectList = new SelectList(await _uow.Participant.AllAsync(), nameof(Participant.Id), nameof(Participant.FirstName), registration.ParticipantId),
+                ShowSelectList = new SelectList(await _uow.Show.AllAsync(), nameof(Show.Id), nameof(Show.Title), registration.ShowId)
+            };
+
+            return View(vm);
         }
 
         // POST: Registrations/Edit/5
@@ -103,38 +118,28 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Title,Comment,Start,End,DogId,ParticipantId,CompetitionId,ShowId,Id")] Registration registration)
+        public async Task<IActionResult> Edit(int id, RegistrationsCreateViewModel vm)
         {
-            if (id != registration.Id)
+            if (id != vm.Registration.Id)
             {
                 return NotFound();
             }
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(registration);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!RegistrationExists(registration.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                _uow.Registration.Update(vm.Registration);
+                await _uow.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CompetitionId"] = new SelectList(_context.Competitions, "Id", "Id", registration.CompetitionId);
-            ViewData["DogId"] = new SelectList(_context.Dogs, "Id", "DogName", registration.DogId);
-            ViewData["ParticipantId"] = new SelectList(_context.Participants, "Id", "FirstName", registration.ParticipantId);
-            ViewData["ShowId"] = new SelectList(_context.Shows, "Id", "Id", registration.ShowId);
-            return View(registration);
+            
+            vm.CompetitionSelectList = new SelectList(await _uow.Competition.AllAsync(), nameof(Competition.Id),
+                nameof(Competition.Title), vm.Registration.CompetitionId);
+            vm.DogSelectList = new SelectList(await _uow.Dog.AllAsync(), nameof(Dog.Id), nameof(Dog.DogName), vm.Registration.DogId);
+            vm.ParticipantSelectList = new SelectList(await _uow.Participant.AllAsync(), nameof(Participant.Id),
+                nameof(Participant.FirstName), vm.Registration.ParticipantId);
+            vm.ShowSelectList = new SelectList(await _uow.Show.AllAsync(), nameof(Show.Id), nameof(Show.Title), vm.Registration.ShowId);
+
+            return View(vm);
         }
 
         // GET: Registrations/Delete/5
@@ -145,12 +150,8 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var registration = await _context.Registrations
-                .Include(r => r.Competition)
-                .Include(r => r.Dog)
-                .Include(r => r.Participant)
-                .Include(r => r.Show)
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var registration = await _uow.Registration.FindAsync(id);
+            
             if (registration == null)
             {
                 return NotFound();
@@ -164,15 +165,11 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var registration = await _context.Registrations.FindAsync(id);
-            _context.Registrations.Remove(registration);
-            await _context.SaveChangesAsync();
+            _uow.Registration.Remove(id);
+            await _uow.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool RegistrationExists(int id)
-        {
-            return _context.Registrations.Any(e => e.Id == id);
-        }
+    
     }
 }

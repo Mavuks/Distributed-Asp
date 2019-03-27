@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.DAL.App;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,17 +13,19 @@ namespace WebApp.Controllers
 {
     public class LocationsController : Controller
     {
-        private readonly AppDbContext _context;
+        
+        private readonly IAppUnitOfWork _uow;
 
-        public LocationsController(AppDbContext context)
+        public LocationsController(IAppUnitOfWork uow)
         {
-            _context = context;
+            
+            _uow = uow;
         }
 
         // GET: Locations
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Locations.ToListAsync());
+            return View(await _uow.Location.AllAsync());
         }
 
         // GET: Locations/Details/5
@@ -33,8 +36,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var location = await _context.Locations
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var location = await _uow.Location.FindAsync(id);
             if (location == null)
             {
                 return NotFound();
@@ -58,8 +60,10 @@ namespace WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(location);
-                await _context.SaveChangesAsync();
+
+                 await  _uow.Location.AddAsync(location);
+                
+                await _uow.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(location);
@@ -73,7 +77,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var location = await _context.Locations.FindAsync(id);
+            var location = await _uow.Location.FindAsync(id);
             if (location == null)
             {
                 return NotFound();
@@ -95,22 +99,9 @@ namespace WebApp.Controllers
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(location);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!LocationExists(location.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                _uow.Location.Update(location);
+                await _uow.SaveChangesAsync();
+               
                 return RedirectToAction(nameof(Index));
             }
             return View(location);
@@ -124,8 +115,8 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var location = await _context.Locations
-                .FirstOrDefaultAsync(m => m.Id == id);
+
+            var location = await _uow.Location.FindAsync(id);
             if (location == null)
             {
                 return NotFound();
@@ -139,15 +130,13 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var location = await _context.Locations.FindAsync(id);
-            _context.Locations.Remove(location);
-            await _context.SaveChangesAsync();
+            
+            
+            _uow.Location.Remove(id);
+            await _uow.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool LocationExists(int id)
-        {
-            return _context.Locations.Any(e => e.Id == id);
-        }
+       
     }
 }

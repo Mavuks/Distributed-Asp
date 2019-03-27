@@ -1,4 +1,4 @@
-@model Domain.Registration
+@model WebApp.ViewModels.RegistrationsCreateViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -13,40 +13,40 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
+                <label asp-for="Registration.Title" class="control-label"></label>
+                <input asp-for="Registration.Title" class="form-control" />
+                <span asp-validation-for="Registration.Title" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Comment" class="control-label"></label>
-                <input asp-for="Comment" class="form-control" />
-                <span asp-validation-for="Comment" class="text-danger"></span>
+                <label asp-for="Registration.Comment" class="control-label"></label>
+                <input asp-for="Registration.Comment" class="form-control" />
+                <span asp-validation-for="Registration.Comment" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Start" class="control-label"></label>
-                <input asp-for="Start" class="form-control" />
-                <span asp-validation-for="Start" class="text-danger"></span>
+                <label asp-for="Registration.Start" class="control-label"></label>
+                <input asp-for="Registration.Start" class="form-control" />
+                <span asp-validation-for="Registration.Start" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="End" class="control-label"></label>
-                <input asp-for="End" class="form-control" />
-                <span asp-validation-for="End" class="text-danger"></span>
+                <label asp-for="Registration.End" class="control-label"></label>
+                <input asp-for="Registration.End" class="form-control" />
+                <span asp-validation-for="Registration.End" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DogId" class="control-label"></label>
-                <select asp-for="DogId" class ="form-control" asp-items="ViewBag.DogId"></select>
+                <label asp-for="Registration.DogId" class="control-label"></label>
+                <select asp-for="Registration.DogId" class ="form-control" asp-items="Model.DogSelectList"></select>
             </div>
             <div class="form-group">
-                <label asp-for="ParticipantId" class="control-label"></label>
-                <select asp-for="ParticipantId" class ="form-control" asp-items="ViewBag.ParticipantId"></select>
+                <label asp-for="Registration.ParticipantId" class="control-label"></label>
+                <select asp-for="Registration.ParticipantId" class ="form-control" asp-items="Model.ParticipantSelectList"></select>
             </div>
             <div class="form-group">
-                <label asp-for="CompetitionId" class="control-label"></label>
-                <select asp-for="CompetitionId" class ="form-control" asp-items="ViewBag.CompetitionId"></select>
+                <label asp-for="Registration.CompetitionId" class="control-label"></label>
+                <select asp-for="Registration.CompetitionId" class ="form-control" asp-items="Model.CompetitionSelectList"></select>
             </div>
             <div class="form-group">
-                <label asp-for="ShowId" class="control-label"></label>
-                <select asp-for="ShowId" class ="form-control" asp-items="ViewBag.ShowId"></select>
+                <label asp-for="Registration.ShowId" class="control-label"></label>
+                <select asp-for="Registration.ShowId" class ="form-control" asp-items="Model.ShowSelectList"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

@@ -11,6 +11,7 @@ ProjectSection(SolutionItems) = preProject
 	generate-controllers.sh = generate-controllers.sh
 	.gitignore = .gitignore
 	..\..\..\Kennel.pdf = ..\..\..\Kennel.pdf
+	generate-resstcontrollers.sh = generate-resstcontrollers.sh
 EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts.DAL.App", "Contracts.DAL.App\Contracts.DAL.App.csproj", "{D90A660A-EDCF-4BC2-A22E-98E5CD071E3F}"

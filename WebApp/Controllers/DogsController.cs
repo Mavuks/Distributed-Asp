@@ -29,8 +29,7 @@ namespace WebApp.Controllers
         // GET: Dogs
         public async Task<IActionResult> Index()
         {
-//            var appDbContext = _context.Dogs.Include(d => d.AppUser).Include(d => d.Award).Include(d => d.Breed);
-//            return View(await appDbContext.ToListAsync());
+
             var dogs = await _uow.Dog.AllAsync(User.GetUserId());
             return View(dogs);
         }
@@ -42,12 +41,6 @@ namespace WebApp.Controllers
             {
                 return NotFound();
             }
-
-//            var dog = await _context.Dogs
-//                .Include(d => d.AppUser)
-//                .Include(d => d.Award)
-//                .Include(d => d.Breed)
-//                .FirstOrDefaultAsync(m => m.Id == id);
 
             var dog = await _uow.Dog.FindAsync(id);
             if (dog == null)
@@ -69,13 +62,7 @@ namespace WebApp.Controllers
                 BreedSelectList = new SelectList(await _uow.Breed.AllAsync(), nameof(Breed.Id), nameof(Breed.BreedName))
                 
             };
-            
-            
-//            ViewData["AppUserId"] = new SelectList(_context.Users, "Id", "Id");
-//            ViewData["AwardId"] = new SelectList(_context.Awards, "Id", "Id");
-//            ViewData["BreedId"] = new SelectList(_context.Breeds, "Id", "Id");
-
-
+           
             return View(vm);
         }
 
@@ -101,11 +88,7 @@ namespace WebApp.Controllers
             vm.AwardSelectList = new SelectList(await _uow.Award.AllAsync(), nameof(Award.Id), nameof(Award.Place), vm.Dog.AwardId);
             vm.BreedSelectList  = new SelectList(await _uow.Breed.AllAsync(), nameof(Breed.Id),
                 nameof(Breed.BreedName), vm.Dog.BreedId );
-            
-//            ViewData["AppUserId"] = new SelectList(_context.Users, "Id", "Id", dog.AppUserId);
 
-//            ViewData["AwardId"] = new SelectList(_context.Awards, "Id", "Id", dog.AwardId);
-//            ViewData["BreedId"] = new SelectList(_context.Breeds, "Id", "Id", dog.BreedId);
 
             
             return View(vm);
@@ -133,11 +116,7 @@ namespace WebApp.Controllers
                 BreedSelectList = new SelectList(await _uow.Breed.AllAsync(), nameof(Breed.Id), nameof(Breed.BreedName), dog.BreedId)
                 
             };
-            
-            
-//            ViewData["AppUserId"] = new SelectList(await _uow.BaseRepository<AppUser>().AllAsync(), "Id", "Id", dog.AppUserId);
-//            ViewData["AwardId"] = new SelectList(await _uow.BaseRepository<Award>().AllAsync(), "Id", "Id", dog.AwardId);
-//            ViewData["BreedId"] = new SelectList(await _uow.BaseRepository<Breed>().AllAsync(), "Id", "Id", dog.BreedId);
+
             return View(vm);
         }
 
@@ -166,10 +145,7 @@ namespace WebApp.Controllers
             vm.AwardSelectList = new SelectList(await _uow.Award.AllAsync(), nameof(Award.Id), nameof(Award.Place), vm.Dog.AwardId);
             vm.BreedSelectList  = new SelectList(await _uow.Breed.AllAsync(), nameof(Breed.Id),
                 nameof(Breed.BreedName), vm.Dog.BreedId );
-            
-//            ViewData["AppUserId"] = new SelectList(await _uow.BaseRepository<AppUser>().AllAsync(), "Id", "Id", dog.AppUserId);
-//            ViewData["AwardId"] = new SelectList(await _uow.BaseRepository<Award>().AllAsync(), "Id", "Id", dog.AwardId);
-//            ViewData["BreedId"] = new SelectList(await _uow.BaseRepository<Breed>().AllAsync(), "Id", "Id", dog.BreedId);
+
             return View(vm);
         }
 

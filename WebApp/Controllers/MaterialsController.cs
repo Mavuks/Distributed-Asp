@@ -35,8 +35,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-//            var material = await _context.Materials
-//                .FirstOrDefaultAsync(m => m.Id == id);
+
 
             var material = await _uow.Material.FindAsync(id);
             if (material == null)
@@ -115,8 +114,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-//            var material = await _context.Materials
-//                .FirstOrDefaultAsync(m => m.Id == id);
+
             var material = await _uow.Material.FindAsync(id);
             if (material == null)
             {

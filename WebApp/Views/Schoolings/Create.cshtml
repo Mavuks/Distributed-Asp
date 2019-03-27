@@ -1,4 +1,4 @@
-@model Domain.Schooling
+@model WebApp.ViewModels.SchoolingCreateViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -13,27 +13,27 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="SchoolingName" class="control-label"></label>
-                <input asp-for="SchoolingName" class="form-control" />
-                <span asp-validation-for="SchoolingName" class="text-danger"></span>
+                <label asp-for="Schooling.SchoolingName" class="control-label"></label>
+                <input asp-for="Schooling.SchoolingName" class="form-control" />
+                <span asp-validation-for="Schooling.SchoolingName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Start" class="control-label"></label>
-                <input asp-for="Start" class="form-control" />
-                <span asp-validation-for="Start" class="text-danger"></span>
+                <label asp-for="Schooling.Start" class="control-label"></label>
+                <input asp-for="Schooling.Start" class="form-control" />
+                <span asp-validation-for="Schooling.Start" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="End" class="control-label"></label>
-                <input asp-for="End" class="form-control" />
-                <span asp-validation-for="End" class="text-danger"></span>
+                <label asp-for="Schooling.End" class="control-label"></label>
+                <input asp-for="Schooling.End" class="form-control" />
+                <span asp-validation-for="Schooling.End" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="MaterialId" class="control-label"></label>
-                <select asp-for="MaterialId" class ="form-control" asp-items="ViewBag.MaterialId"></select>
+                <label asp-for="Schooling.MaterialId" class="control-label"></label>
+                <select asp-for="Schooling.MaterialId" class ="form-control" asp-items="Model.MaterialSelectList"></select>
             </div>
             <div class="form-group">
-                <label asp-for="DogId" class="control-label"></label>
-                <select asp-for="DogId" class ="form-control" asp-items="ViewBag.DogId"></select>
+                <label asp-for="Schooling.DogId" class="control-label"></label>
+                <select asp-for="Schooling.DogId" class ="form-control" asp-items="Model.DogSelectList"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

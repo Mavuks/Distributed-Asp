@@ -2,28 +2,33 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.DAL.App;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DAL.App.EF;
+using DAL.App.EF.Repositories;
 using Domain;
+using WebApp.ViewModels;
 
 namespace WebApp.Controllers
 {
     public class SchoolingsController : Controller
     {
-        private readonly AppDbContext _context;
+        
 
-        public SchoolingsController(AppDbContext context)
+        private readonly IAppUnitOfWork _uow;
+
+        public SchoolingsController(IAppUnitOfWork uow)
         {
-            _context = context;
+            _uow = uow;
         }
 
         // GET: Schoolings
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.Schoolings.Include(s => s.Dog).Include(s => s.Material);
-            return View(await appDbContext.ToListAsync());
+        
+            return View(await _uow.Schooling.AllAsync());
         }
 
         // GET: Schoolings/Details/5
@@ -34,10 +39,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var schooling = await _context.Schoolings
-                .Include(s => s.Dog)
-                .Include(s => s.Material)
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var schooling = await _uow.Schooling.FindAsync(id);
             if (schooling == null)
             {
                 return NotFound();
@@ -47,11 +49,17 @@ namespace WebApp.Controllers
         }
 
         // GET: Schoolings/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            ViewData["DogId"] = new SelectList(_context.Dogs, "Id", "DogName");
-            ViewData["MaterialId"] = new SelectList(_context.Materials, "Id", "Id");
-            return View();
+
+            var vm = new SchoolingCreateViewModel()
+            {
+                DogSelectList =  new SelectList(await _uow.Dog.AllAsync(),nameof(Dog.Id),nameof(Dog.DogName)),
+                MaterialSelectList = new SelectList(await _uow.Material.AllAsync(),nameof(Material.Id), nameof(Material.MaterialName) )
+
+            };
+
+            return View(vm);
         }
 
         // POST: Schoolings/Create
@@ -59,17 +67,20 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("SchoolingName,Start,End,MaterialId,DogId,Id")] Schooling schooling)
+        public async Task<IActionResult> Create(SchoolingCreateViewModel vm)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(schooling);
-                await _context.SaveChangesAsync();
+                await _uow.Schooling.AddAsync(vm.Schooling);
+                await _uow.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DogId"] = new SelectList(_context.Dogs, "Id", "DogName", schooling.DogId);
-            ViewData["MaterialId"] = new SelectList(_context.Materials, "Id", "Id", schooling.MaterialId);
-            return View(schooling);
+
+            vm.DogSelectList = new SelectList(await _uow.Dog.AllAsync(), nameof(Dog.Id), nameof(Dog.DogName), vm.Schooling.DogId);
+            vm.MaterialSelectList = new SelectList(await _uow.Material.AllAsync(), nameof(Material.Id),
+                nameof(Material.MaterialName), vm.Schooling.MaterialId);
+
+            return View(vm);
         }
 
         // GET: Schoolings/Edit/5
@@ -80,14 +91,20 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var schooling = await _context.Schoolings.FindAsync(id);
+            var schooling = await _uow.Schooling.FindAsync(id);
             if (schooling == null)
             {
                 return NotFound();
             }
-            ViewData["DogId"] = new SelectList(_context.Dogs, "Id", "DogName", schooling.DogId);
-            ViewData["MaterialId"] = new SelectList(_context.Materials, "Id", "Id", schooling.MaterialId);
-            return View(schooling);
+            
+            var vm = new SchoolingCreateViewModel()
+            {
+                DogSelectList =  new SelectList(await _uow.Dog.AllAsync(),nameof(Dog.Id),nameof(Dog.DogName), schooling.DogId),
+                MaterialSelectList = new SelectList(await _uow.Material.AllAsync(),nameof(Material.Id), nameof(Material.MaterialName), schooling.MaterialId)
+
+            };
+
+            return View(vm);
         }
 
         // POST: Schoolings/Edit/5
@@ -95,36 +112,27 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("SchoolingName,Start,End,MaterialId,DogId,Id")] Schooling schooling)
+        public async Task<IActionResult> Edit(int id, SchoolingCreateViewModel vm)
         {
-            if (id != schooling.Id)
+            if (id != vm.Schooling.Id)
             {
                 return NotFound();
             }
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(schooling);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!SchoolingExists(schooling.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                _uow.Schooling.Update(vm.Schooling);
+                await _uow.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DogId"] = new SelectList(_context.Dogs, "Id", "DogName", schooling.DogId);
-            ViewData["MaterialId"] = new SelectList(_context.Materials, "Id", "Id", schooling.MaterialId);
-            return View(schooling);
+            
+            
+            vm.DogSelectList = new SelectList(await _uow.Dog.AllAsync(), nameof(Dog.Id), nameof(Dog.DogName), vm.Schooling.DogId);
+            vm.MaterialSelectList = new SelectList(await _uow.Material.AllAsync(), nameof(Material.Id),
+                nameof(Material.MaterialName), vm.Schooling.MaterialId);
+
+
+            return View(vm);
         }
 
         // GET: Schoolings/Delete/5
@@ -135,10 +143,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var schooling = await _context.Schoolings
-                .Include(s => s.Dog)
-                .Include(s => s.Material)
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var schooling = await _uow.Schooling.FindAsync(id);
             if (schooling == null)
             {
                 return NotFound();
@@ -152,15 +157,11 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var schooling = await _context.Schoolings.FindAsync(id);
-            _context.Schoolings.Remove(schooling);
-            await _context.SaveChangesAsync();
+            _uow.Schooling.Remove(id);
+            await _uow.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool SchoolingExists(int id)
-        {
-            return _context.Schoolings.Any(e => e.Id == id);
-        }
+       
     }
 }

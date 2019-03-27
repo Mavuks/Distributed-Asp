@@ -28,8 +28,7 @@ namespace WebApp.Controllers
         public async Task<IActionResult> Index()
         {
             var award = await _uow.Award.AllAsync();
-            
-//            var appDbContext = _context.Awards.Include(a => a.Competition).Include(a => a.Show);
+
             return View(award);
         }
 
@@ -41,10 +40,6 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-//            var award = await _context.Awards
-//                .Include(a => a.Competition)
-//                .Include(a => a.Show)
-//                .FirstOrDefaultAsync(m => m.Id == id);
             var award = await _uow.Award.FindAsync(id);
             if (award == null)
             {
@@ -63,8 +58,7 @@ namespace WebApp.Controllers
                 ShowSelectList = new SelectList(await _uow.Show.AllAsync(),nameof(Show.Id),nameof(Show.Title))
                 
             };
-//            ViewData["CompetitionId"] = new SelectList(_context.Competitions, "Id", "Id");
-//            ViewData["ShowId"] = new SelectList(_context.Shows, "Id", "Id");
+
             return View(vm);
         }
 
@@ -89,8 +83,7 @@ namespace WebApp.Controllers
 
             vm.ShowSelectList = new SelectList(await _uow.Show.AllAsync(), nameof(Show.Id), nameof(Show.Title),
                 vm.Award.ShowId);
-//            ViewData["CompetitionId"] = new SelectList(_context.Competitions, "Id", "Id", award.CompetitionId);
-//            ViewData["ShowId"] = new SelectList(_context.Shows, "Id", "Id", award.ShowId);
+
             return View(vm);
         }
 
@@ -115,11 +108,7 @@ namespace WebApp.Controllers
                 ShowSelectList = new SelectList(await _uow.Show.AllAsync(), nameof(Show.Id), nameof(Show.Title),
                     award.ShowId)
             };
-            
-            
-            
-//            ViewData["CompetitionId"] = new SelectList(_context.Competitions, "Id", "Id", award.CompetitionId);
-//            ViewData["ShowId"] = new SelectList(_context.Shows, "Id", "Id", award.ShowId);
+
             return View(vm);
         }
 
@@ -147,8 +136,7 @@ namespace WebApp.Controllers
 
             vm.ShowSelectList = new SelectList(await _uow.Show.AllAsync(), nameof(Show.Id), nameof(Show.Title),
                 vm.Award.ShowId);
-//            ViewData["CompetitionId"] = new SelectList(_context.Competitions, "Id", "Id", award.CompetitionId);
-//            ViewData["ShowId"] = new SelectList(_context.Shows, "Id", "Id", award.ShowId);
+
             return View(vm);
         }
 

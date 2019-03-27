@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.DAL.App;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,17 +13,20 @@ namespace WebApp.Controllers
 {
     public class ParticipantsController : Controller
     {
-        private readonly AppDbContext _context;
+        
 
-        public ParticipantsController(AppDbContext context)
+        private readonly IAppUnitOfWork _uow;
+
+        public ParticipantsController( IAppUnitOfWork uow)
         {
-            _context = context;
+           
+            _uow = uow;
         }
 
         // GET: Participants
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Participants.ToListAsync());
+            return View(await _uow.Participant.AllAsync());
         }
 
         // GET: Participants/Details/5
@@ -33,8 +37,9 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var participant = await _context.Participants
-                .FirstOrDefaultAsync(m => m.Id == id);
+
+            var participant = await _uow.Participant.FindAsync(id);
+            
             if (participant == null)
             {
                 return NotFound();
@@ -58,8 +63,8 @@ namespace WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(participant);
-                await _context.SaveChangesAsync();
+                await _uow.Participant.AddAsync(participant);
+                await _uow.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(participant);
@@ -73,7 +78,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var participant = await _context.Participants.FindAsync(id);
+            var participant = await _uow.Participant.FindAsync(id);
             if (participant == null)
             {
                 return NotFound();
@@ -95,22 +100,11 @@ namespace WebApp.Controllers
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(participant);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ParticipantExists(participant.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+
+                _uow.Participant.Update(participant);
+                    await _uow.SaveChangesAsync();
+                
+                
                 return RedirectToAction(nameof(Index));
             }
             return View(participant);
@@ -124,8 +118,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var participant = await _context.Participants
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var participant = await _uow.Participant.FindAsync(id);
             if (participant == null)
             {
                 return NotFound();
@@ -139,15 +132,12 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var participant = await _context.Participants.FindAsync(id);
-            _context.Participants.Remove(participant);
-            await _context.SaveChangesAsync();
+            
+            _uow.Participant.Remove(id);
+            await _uow.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ParticipantExists(int id)
-        {
-            return _context.Participants.Any(e => e.Id == id);
-        }
+       
     }
 }

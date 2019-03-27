@@ -38,6 +38,7 @@
           <e p="IRepositoryProvider.cs" t="Include" />
         </e>
         <e p="IBaseEntity.cs" t="Include" />
+        <e p="IBaseUnitOfWork.cs" t="Include" />
         <e p="IDataContext.cs" t="Include" />
         <e p="IUnitOfWork.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
@@ -58,6 +59,11 @@
         <e p="DAL.App.EF.csproj" t="IncludeRecursive" />
         <e p="Helpers" t="Include">
           <e p="AppRepositoryFactory.cs" t="Include" />
+        </e>
+        <e p="Migrations" t="Include">
+          <e p="20190327095523_InitialDbCreation.cs" t="Include" />
+          <e p="20190327095523_InitialDbCreation.Designer.cs" t="Include" />
+          <e p="AppDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -80,6 +86,7 @@
         </e>
       </e>
       <e p="DAL.Base.EF" t="IncludeRecursive">
+        <e p="BaseUnitOfWork.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="DAL.Base.EF.csproj" t="IncludeRecursive" />
         <e p="Helpers" t="Include">
@@ -125,6 +132,7 @@
         <e p="Show.cs" t="Include" />
       </e>
       <e p="generate-controllers.sh" t="Include" />
+      <e p="generate-resstcontrollers.sh" t="Include" />
       <e p="Hajus-project.sln" t="IncludeFlat" />
       <e p="Identity" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
@@ -141,6 +149,18 @@
       <e p="packages" t="ExcludeRecursive" />
       <e p="Solution Items" t="Include" />
       <e p="WebApp" t="IncludeRecursive">
+        <e p="ApiControllers" t="Include">
+          <e p="AwardsController.cs" t="Include" />
+          <e p="BreedsController.cs" t="Include" />
+          <e p="CompetitionsController.cs" t="Include" />
+          <e p="DogsController.cs" t="Include" />
+          <e p="LocationsController.cs" t="Include" />
+          <e p="MaterialsController.cs" t="Include" />
+          <e p="ParticipantsController.cs" t="Include" />
+          <e p="RegistrationsController.cs" t="Include" />
+          <e p="SchoolingsController.cs" t="Include" />
+          <e p="ShowsController.cs" t="Include" />
+        </e>
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="Areas" t="Include">
@@ -250,6 +270,9 @@
           <e p="CompetitionsCreateViewModel.cs" t="Include" />
           <e p="DogCreateViewModel.cs" t="Include" />
           <e p="ErrorViewModel.cs" t="Include" />
+          <e p="RegistrationsCreateViewModel.cs" t="Include" />
+          <e p="SchoolingCreateViewModel.cs" t="Include" />
+          <e p="ShowCreateViewModel.cs" t="Include" />
         </e>
         <e p="Views" t="Include">
           <e p="_ViewImports.cshtml" t="Include" />

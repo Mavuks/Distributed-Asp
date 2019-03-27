@@ -26,10 +26,7 @@ namespace WebApp.Controllers
         // GET: Competitions
         public async Task<IActionResult> Index()
         {
-//            var appDbContext = _context.Competitions.Include(c => c.Dog).Include(c => c.Location).Include(c => c.Participant);
-//            return View(await appDbContext.ToListAsync());
 
-//            var competitions = await _uow.Competition.AllAsync(User.GetUserId());
             return View(await _uow.Competition.AllAsync());
         }
 
@@ -41,11 +38,6 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-//            var competition = await _context.Competitions
-//                .Include(c => c.Dog)
-//                .Include(c => c.Location)
-//                .Include(c => c.Participant)
-//                .FirstOrDefaultAsync(m => m.Id == id);
             var competition = await _uow.Competition.FindAsync(id);
             if (competition == null)
             {
@@ -67,10 +59,7 @@ namespace WebApp.Controllers
                 ParticipantSelectList = new SelectList(await _uow.Participant.AllAsync(), nameof(Participant.Id), nameof(Participant.FirstName))
 
             };
-            
-            //  ViewData["DogId"] = new SelectList(_context.Dogs, "Id", "DogName");
-            //   ViewData["LocationId"] = new SelectList(_context.Locations, "Id", "Id");
-            //  ViewData["ParticipantId"] = new SelectList(_context.Participants, "Id", "FirstName");
+
             return View(vm);
         }
 
@@ -94,14 +83,6 @@ namespace WebApp.Controllers
             vm.ParticipantSelectList = new SelectList(await _uow.Participant.AllAsync(), nameof(Participant.Id),
                 nameof(Participant.FirstName), vm.Competition.ParticipantId);
 
-
-
-//            ViewData["DogId"] = new SelectList(await _uow.BaseRepository<Dog>().AllAsync(), "Id", "DogName",
-//                competition.DogId);
-//            ViewData["LocationId"] = new SelectList(await _uow.BaseRepository<Location>().AllAsync(), "Id", "Id",
-//                competition.LocationId);
-//            ViewData["ParticipantId"] = new SelectList(await _uow.BaseRepository<Participant>().AllAsync(), "Id",
-//                "FirstName", competition.ParticipantId);
             return View(vm);
         }
 
@@ -126,13 +107,7 @@ namespace WebApp.Controllers
              ParticipantSelectList = new SelectList(await _uow.Participant.AllAsync(), nameof(Participant.Id),
                  nameof(Participant.FirstName), competition.ParticipantId)
             };
-                
-//            ViewData["DogId"] = new SelectList(await _uow.BaseRepository<Dog>().AllAsync(), "Id", "DogName",
-//                competition.DogId);
-//            ViewData["LocationId"] = new SelectList(await _uow.BaseRepository<Location>().AllAsync(), "Id", "Id",
-//                competition.LocationId);
-//            ViewData["ParticipantId"] = new SelectList(await _uow.BaseRepository<Participant>().AllAsync(), "Id",
-//                "FirstName", competition.ParticipantId);
+
             return View(vm);
         }
 
@@ -161,12 +136,6 @@ namespace WebApp.Controllers
             vm.ParticipantSelectList = new SelectList(await _uow.Participant.AllAsync(), nameof(Participant.Id),
                 nameof(Participant.FirstName), vm.Competition.ParticipantId);
 
-//            ViewData["DogId"] = new SelectList(await _uow.BaseRepository<Dog>().AllAsync(), "Id", "DogName",
-//                competition.DogId);
-//            ViewData["LocationId"] = new SelectList(await _uow.BaseRepository<Location>().AllAsync(), "Id", "Id",
-//                competition.LocationId);
-//            ViewData["ParticipantId"] = new SelectList(await _uow.BaseRepository<Participant>().AllAsync(), "Id",
-//                "FirstName", competition.ParticipantId);
             return View(vm);
         }
 
