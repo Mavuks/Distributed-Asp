@@ -20,6 +20,8 @@ namespace DAL.App.EF.Repositories
         {
             return await RepositoryDbSet
                 .Include(a => a.AppUser)
+                .Include(b => b.Award)
+                .Include(c => c.Breed)
                 .Where(b => b.AppUserId == userId)
                 .ToListAsync();
         }

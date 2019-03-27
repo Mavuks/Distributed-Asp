@@ -103,6 +103,7 @@ namespace WebApp.Controllers
 
             var vm = new AwardCreateViewModel()
             {
+                Award = award,
                 CompetitionSelectList = new SelectList(await _uow.Competition.AllAsync(), nameof(Competition.Id),
                     nameof(Competition.Title), award.CompetitionId),
                 ShowSelectList = new SelectList(await _uow.Show.AllAsync(), nameof(Show.Id), nameof(Show.Title),

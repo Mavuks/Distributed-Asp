@@ -99,6 +99,7 @@ namespace WebApp.Controllers
             
             var vm = new SchoolingCreateViewModel()
             {
+                Schooling = schooling,
                 DogSelectList =  new SelectList(await _uow.Dog.AllAsync(),nameof(Dog.Id),nameof(Dog.DogName), schooling.DogId),
                 MaterialSelectList = new SelectList(await _uow.Material.AllAsync(),nameof(Material.Id), nameof(Material.MaterialName), schooling.MaterialId)
 

@@ -102,6 +102,7 @@ namespace WebApp.Controllers
             
             var vm = new CompetitionsCreateViewModel()
             {
+                Competition = competition,
              DogSelectList   =  new SelectList(await _uow.Dog.AllAsync(), nameof(Dog.Id), nameof(Dog.DogName), competition.DogId),
              LocationSelectList = new SelectList(await _uow.Location.AllAsync(), nameof(Location.Id), nameof(Location.Locations), competition.LocationId),
              ParticipantSelectList = new SelectList(await _uow.Participant.AllAsync(), nameof(Participant.Id),

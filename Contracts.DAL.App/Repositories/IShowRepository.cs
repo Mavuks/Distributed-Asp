@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Contracts.DAL.Base.Repositories;
  using Domain;
  
@@ -6,5 +8,7 @@ using Contracts.DAL.Base.Repositories;
      public interface IShowRepository : IBaseRepositoryAsync<Show>
      {
          // add here custom methods
+         
+         Task<IEnumerable<Show>> AllAsync();
      }
  }

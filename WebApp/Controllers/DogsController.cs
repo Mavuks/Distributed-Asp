@@ -103,7 +103,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var dog = await _uow.Dog.FindAsync(id);
+            var dog = await _uow.Dog.FindAsync((int)id);
             if (dog == null)
             {
                 return NotFound();
@@ -111,6 +111,7 @@ namespace WebApp.Controllers
             
             var vm = new DogCreateViewModel()
             {
+                Dog = dog,
                 AppUserSelectList = new SelectList( await _uow.BaseRepository<AppUser>().AllAsync(),nameof(AppUser.Id),nameof(AppUser.FirstLastName), dog.AppUserId ),
                 AwardSelectList = new SelectList(await _uow.Award.AllAsync(),nameof(Award.Id), nameof(Award.Place), dog.AwardId),
                 BreedSelectList = new SelectList(await _uow.Breed.AllAsync(), nameof(Breed.Id), nameof(Breed.BreedName), dog.BreedId)

@@ -102,6 +102,7 @@ namespace WebApp.Controllers
             
             var vm = new ShowCreateViewModel()
             {
+                Show = show,
                 DogSelectList = new SelectList(await _uow.Dog.AllAsync(),nameof(Dog.Id),nameof(Dog.DogName), show.DogId),
                 LocationSelectList = new SelectList(await _uow.Location.AllAsync(),nameof(Location.Id), nameof(Location.Locations), show.LocationId),
                 ParticipantSelectList = new SelectList(await _uow.Participant.AllAsync(),nameof(Participant.Id),nameof(Participant.FirstName), show.ParticipantId)
