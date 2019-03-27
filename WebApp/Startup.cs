@@ -4,9 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Contracts.DAL.App;
 using Contracts.DAL.App.Repositories;
+using Contracts.DAL.Base;
+using Contracts.DAL.Base.Helpers;
 using DAL;
 using DAL.App.EF;
+using DAL.App.EF.Helpers;
 using DAL.App.EF.Repositories;
+using DAL.Base.EF.Helpers;
 using Domain.Identity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
@@ -49,19 +53,20 @@ namespace WebApp
                     Configuration.GetConnectionString("MysqlConnection")));
 
 
+            services.AddScoped<IDataContext, AppDbContext>();
+            services.AddSingleton<IRepositoryFactory, AppRepositoryFactory>();
+            services.AddScoped<IRepositoryProvider, BaseRepositoryProvider>();
             services.AddScoped<IAppUnitOfWork, AppUnitOfWork>();
-
-            /*
-            services.AddDefaultIdentity<AppUser>()
-                .AddDefaultUI(UIFramework.Bootstrap4)
-                .AddEntityFrameworkStores<AppDbContext>();
-*/
+            
+            
             services
                 .AddIdentity<AppUser, AppRole>()
+                //.AddDefaultIdentity<AppUser>()
+                //.AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
-
             
+
             // Relax password requirements for easy testing
             // TODO: Remove in production
             services.Configure<IdentityOptions>(options =>
@@ -75,38 +80,9 @@ namespace WebApp
 
             });
 
-            services.AddCors(options =>
-            {
-                options.AddPolicy("CorsAllowAll",
-                    builder =>
-                    {
-                        builder.AllowAnyOrigin();
-                        builder.AllowAnyHeader();
-                        builder.AllowAnyMethod();
-                    });
-                
-            });
+            services.AddTransient<IEmailSender, EmailSender>();
             
-            services
-                .AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
-                .AddRazorPagesOptions(options =>
-                {
-                    options.AllowAreas = true;
-                    options.Conventions.AuthorizeAreaFolder("Identity", "/Account/Manage");
-                    options.Conventions.AuthorizeAreaPage("Identity", "/Account/Logout");
-                });
-            
-            services.ConfigureApplicationCookie(options =>
-            {
-                options.LoginPath = $"/Identity/Account/Login";
-                options.LogoutPath = $"/Identity/Account/Logout";
-                options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
-            });
-
-            services.AddSingleton<IEmailSender, EmailSender>();
-
-            
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -130,8 +106,6 @@ namespace WebApp
 
             app.UseAuthentication();
 
-            app.UseCors("CorsAllowAll");
-            
             app.UseMvc(routes =>
             {
 
