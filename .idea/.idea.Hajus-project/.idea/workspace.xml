@@ -2,141 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="97f0307b-bc7c-42ff-af33-ab3fe27807d7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/.babelrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/.eslintignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/.eslintrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/composer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/index2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/index3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/bootstrap-slider/bootstrap-slider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/bootstrap-slider/slider.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chartjs-old/Chart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chartjs-old/Chart.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/colorpicker/bootstrap-colorpicker.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/colorpicker/bootstrap-colorpicker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/colorpicker/bootstrap-colorpicker.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/colorpicker/bootstrap-colorpicker.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/colorpicker/img/alpha-horizontal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/colorpicker/img/alpha.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/colorpicker/img/hue-horizontal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/colorpicker/img/hue.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/colorpicker/img/saturation.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/bootstrap-datepicker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/datepicker3.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.is.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.it.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.ja.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.ka.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.kk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.kr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.lt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.lv.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.mk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.ms.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.nb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.nl-BE.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.nl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.no.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.pl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.pt-BR.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.pt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.ro.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.rs-latin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.rs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.ru.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.sk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.sl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.sq.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.sv.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.sw.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.th.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.tr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.ua.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.vi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.zh-CN.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.zh-TW.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/daterangepicker/daterangepicker-bs3.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/daterangepicker/daterangepicker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/daterangepicker/moment.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/daterangepicker/moment.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/font-awesome/css/font-awesome.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/font-awesome/css/font-awesome.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/font-awesome/css/font-awesome.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/font-awesome/fonts/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/font-awesome/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/font-awesome/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/font-awesome/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/font-awesome/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/font-awesome/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/fullcalendar/fullcalendar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/fullcalendar/fullcalendar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/fullcalendar/fullcalendar.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/fullcalendar/fullcalendar.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/fullcalendar/fullcalendar.print.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/input-mask/jquery.inputmask.date.extensions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/input-mask/jquery.inputmask.extensions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/input-mask/jquery.inputmask.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/input-mask/jquery.inputmask.numeric.extensions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/input-mask/jquery.inputmask.phone.extensions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/input-mask/jquery.inputmask.regex.extensions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/input-mask/phone-codes/phone-be.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/input-mask/phone-codes/phone-codes.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/input-mask/phone-codes/readme.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/jvectormap/jquery-jvectormap-1.2.2.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/jvectormap/jquery-jvectormap-usa-en.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/jvectormap/jquery-jvectormap-world-mill-en.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/slimScroll/jquery.slimscroll.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/timepicker/bootstrap-timepicker.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/timepicker/bootstrap-timepicker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/timepicker/bootstrap-timepicker.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/timepicker/bootstrap-timepicker.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/rollup.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/starter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Hajus-project/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hajus-project/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Hajus-project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hajus-project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contracts.DAL.App/Repositories/IAwardRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts.DAL.App/Repositories/IAwardRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contracts.DAL.App/Repositories/IShowRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts.DAL.App/Repositories/IShowRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DAL.App.EF/Repositories/ContactTypeRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAL.App.EF/Repositories/AwardRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DAL.App.EF/Repositories/DogRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAL.App.EF/Repositories/DogRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DAL.App.EF/Repositories/MaterialRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAL.App.EF/Repositories/MaterialRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DAL.App.EF/Repositories/SchoolingRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAL.App.EF/Repositories/SchoolingRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DAL.App.EF/Repositories/ShowRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAL.App.EF/Repositories/ShowRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Areas/Identity/Pages/Account/Login.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Areas/Identity/Pages/Account/Login.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Areas/Identity/Pages/Account/Register.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Areas/Identity/Pages/Account/Register.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Controllers/AwardsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Controllers/AwardsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Controllers/CompetitionsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Controllers/CompetitionsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Controllers/DogsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Controllers/DogsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Controllers/RegistrationsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Controllers/RegistrationsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Controllers/SchoolingsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Controllers/SchoolingsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Controllers/ShowsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Controllers/ShowsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Views/Awards/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Views/Awards/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Views/Breeds/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Views/Breeds/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Views/Dogs/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Views/Dogs/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Views/Home/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Views/Schoolings/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Views/Schoolings/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Views/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Views/Shared/_LoginPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Views/Shared/_LoginPartial.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Views/Shows/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Views/Shows/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/bin/Debug/netcoreapp2.2/WebApp.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/bin/Debug/netcoreapp2.2/WebApp.Views.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/bin/Debug/netcoreapp2.2/WebApp.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/bin/Debug/netcoreapp2.2/WebApp.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contracts.DAL.App/Repositories/ICompetitionRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts.DAL.App/Repositories/ICompetitionRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DAL.App.EF/Repositories/CompetitionRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAL.App.EF/Repositories/CompetitionRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Views/Competitions/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Views/Competitions/Index.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApp/bin/Debug/netcoreapp2.2/WebApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/bin/Debug/netcoreapp2.2/WebApp.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApp/bin/Debug/netcoreapp2.2/WebApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/bin/Debug/netcoreapp2.2/WebApp.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/Razor/Views/Home/Index.g.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/Razor/Views/Home/Index.g.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_Layout.g.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_Layout.g.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_LoginPartial.g.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_LoginPartial.g.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/WebApp.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/WebApp.Views.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/WebApp.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/WebApp.Views.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/WebApp.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/WebApp.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/WebApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/WebApp.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/WebApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/WebApp.pdb" afterDir="false" />
@@ -146,34 +17,6 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/index.html">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="176">
-                    <caret line="377" column="31" lean-forward="true" selection-start-line="377" selection-start-column="31" selection-end-line="377" selection-end-column="31" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/pages/examples/login.html">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="340">
-                    <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="40" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -239,11 +82,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebApp/Controllers/CompetitionsController.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="112" column="9" lean-forward="true" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
+            <state relative-caret-position="221">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
               <folding>
                 <marker date="1553704880908" expanded="false" signature="6:305" ph="..." />
                 <marker date="1553704880908" expanded="true" signature="335:5932" ph="{...}" />
@@ -270,6 +113,87 @@
                 <marker date="1553704880908" expanded="true" signature="5305:5368" ph="{...}" />
                 <marker date="1553704880908" expanded="true" signature="5474:5537" ph="{...}" />
                 <marker date="1553704880908" expanded="true" signature="5767:5924" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DAL.App.EF/Repositories/CompetitionRepository.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+              <folding>
+                <marker date="1553767497377" expanded="true" signature="6:210" ph="..." />
+                <marker date="1553767497377" expanded="true" signature="291:796" ph="{...}" />
+                <marker date="1553767497377" expanded="true" signature="385:790" ph="{...}" />
+                <marker date="1553767497377" expanded="true" signature="474:494" ph="{...}" />
+                <marker date="1553767497377" expanded="true" signature="567:784" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Contracts.DAL.App/Repositories/IAwardRepository.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="10" column="45" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="45" />
+              <folding>
+                <marker date="1553703052259" expanded="false" signature="6:117" ph="..." />
+                <marker date="1553703052259" expanded="true" signature="161:332" ph="{...}" />
+                <marker date="1553703052259" expanded="true" signature="233:329" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Contracts.DAL.App/Repositories/ICompetitionRepository.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+              <folding>
+                <marker date="1553767493826" expanded="true" signature="6:116" ph="..." />
+                <marker date="1553767493826" expanded="true" signature="158:340" ph="{...}" />
+                <marker date="1553767493826" expanded="true" signature="240:338" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WebApp/Views/Competitions/Index.cshtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="63" column="69" selection-start-line="63" selection-start-column="69" selection-end-line="63" selection-end-column="69" />
+              <folding>
+                <marker date="1553767770202" expanded="true" signature="40:77" ph="@..." />
+                <marker date="1553767770202" expanded="true" signature="95:145" ph="&lt;p.../&gt;" />
+                <marker date="1553767770202" expanded="true" signature="146:2132" ph="&lt;table.../&gt;" />
+                <marker date="1553767770202" expanded="true" signature="172:1000" ph="&lt;thead.../&gt;" />
+                <marker date="1553767770202" expanded="true" signature="188:987" ph="&lt;tr.../&gt;" />
+                <marker date="1553767770202" expanded="true" signature="205:286" ph="&lt;th.../&gt;" />
+                <marker date="1553767770202" expanded="true" signature="299:382" ph="&lt;th.../&gt;" />
+                <marker date="1553767770202" expanded="true" signature="395:476" ph="&lt;th.../&gt;" />
+                <marker date="1553767770202" expanded="true" signature="489:570" ph="&lt;th.../&gt;" />
+                <marker date="1553767770202" expanded="true" signature="583:662" ph="&lt;th.../&gt;" />
+                <marker date="1553767770202" expanded="true" signature="675:754" ph="&lt;th.../&gt;" />
+                <marker date="1553767770202" expanded="true" signature="767:851" ph="&lt;th.../&gt;" />
+                <marker date="1553767770202" expanded="true" signature="864:951" ph="&lt;th.../&gt;" />
+                <marker date="1553767770202" expanded="true" signature="1005:2123" ph="&lt;tbody.../&gt;" />
+                <marker date="1553767770202" expanded="true" signature="1013:2110" ph="@..." />
+                <marker date="1553767770202" expanded="true" signature="1042:2110" ph="{...}" />
+                <marker date="1553767770202" expanded="true" signature="1052:2108" ph="&lt;tr.../&gt;" />
+                <marker date="1553767770202" expanded="true" signature="1069:1149" ph="&lt;td.../&gt;" />
+                <marker date="1553767770202" expanded="true" signature="1162:1244" ph="&lt;td.../&gt;" />
+                <marker date="1553767770202" expanded="true" signature="1257:1337" ph="&lt;td.../&gt;" />
+                <marker date="1553767770202" expanded="true" signature="1350:1430" ph="&lt;td.../&gt;" />
+                <marker date="1553767770202" expanded="true" signature="1443:1521" ph="&lt;td.../&gt;" />
+                <marker date="1553767770202" expanded="true" signature="1534:1620" ph="&lt;td.../&gt;" />
+                <marker date="1553767770202" expanded="true" signature="1633:1726" ph="&lt;td.../&gt;" />
+                <marker date="1553767770202" expanded="true" signature="1739:1835" ph="&lt;td.../&gt;" />
+                <marker date="1553767770202" expanded="true" signature="1848:2094" ph="&lt;td.../&gt;" />
               </folding>
             </state>
           </provider>
@@ -311,6 +235,7 @@
     <setting file="file://$PROJECT_DIR$/WebApp/Views/Competitions/Create.cshtml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/WebApp/Areas/Identity/Pages/Account/Login.cshtml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/WebApp/Areas/Identity/Pages/Account/Login.cshtml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/WebApp/Views/Competitions/Index.cshtml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/WebApp/Views/Competitions/Delete.cshtml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/WebApp/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/WebApp/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml" root0="FORCE_HIGHLIGHTING" />
@@ -439,9 +364,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/WebApp/Controllers/BreedsController.cs" />
-        <option value="$PROJECT_DIR$/WebApp/Areas/Identity/Pages/Account/Manage/_Layout.cshtml" />
-        <option value="$PROJECT_DIR$/WebApp/Areas/Identity/Pages/Account/ResetPassword.cshtml.cs" />
         <option value="$PROJECT_DIR$/WebApp/Areas/Identity/Pages/Account/Register.cshtml.cs" />
         <option value="$PROJECT_DIR$/WebApp/ViewModels/AwardCreateViewModel.cs" />
         <option value="$PROJECT_DIR$/WebApp/Views/Awards/Create.cshtml" />
@@ -490,6 +412,9 @@
         <option value="$PROJECT_DIR$/DAL.App.EF/Repositories/SchoolingRepository.cs" />
         <option value="$PROJECT_DIR$/WebApp/Views/Schoolings/Index.cshtml" />
         <option value="$PROJECT_DIR$/WebApp/Controllers/CompetitionsController.cs" />
+        <option value="$PROJECT_DIR$/DAL.App.EF/Repositories/CompetitionRepository.cs" />
+        <option value="$PROJECT_DIR$/Contracts.DAL.App/Repositories/ICompetitionRepository.cs" />
+        <option value="$PROJECT_DIR$/WebApp/Views/Competitions/Index.cshtml" />
       </list>
     </option>
   </component>
@@ -514,6 +439,46 @@
             <path>
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="Hajus-project" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="Hajus-project" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Contracts.DAL.App" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="Hajus-project" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Contracts.DAL.App" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Repositories" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="Hajus-project" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="DAL.App.EF" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="Hajus-project" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="DAL.App.EF" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Repositories" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="Hajus-project" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="WebApp" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="Hajus-project" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="WebApp" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Views" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="Hajus-project" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="WebApp" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Views" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Competitions" type="24d0babc:SolutionExplorerModelNode" />
             </path>
           </expand>
           <select />
@@ -617,7 +582,7 @@
       <workItem from="1551039330941" duration="766000" />
       <workItem from="1551772163218" duration="2288000" />
       <workItem from="1552414225542" duration="842000" />
-      <workItem from="1553688356520" duration="12155000" />
+      <workItem from="1553688356520" duration="13633000" />
     </task>
     <task id="LOCAL-00001" summary="Lisatud ODT file.">
       <created>1550924168079</created>
@@ -675,11 +640,18 @@
       <option name="project" value="LOCAL" />
       <updated>1553686348217</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Repo changes and new bootstrap theme">
+      <created>1553705625176</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1553705625176</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68624000" />
+    <option name="totallyTimeSpent" value="70102000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -692,6 +664,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17217484" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -838,7 +811,8 @@
     <MESSAGE value="Some ViewModels" />
     <MESSAGE value="No more ViewBags and ViewData." />
     <MESSAGE value="Startup changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Startup changes" />
+    <MESSAGE value="Repo changes and new bootstrap theme" />
+    <option name="LAST_COMMIT_MESSAGE" value="Repo changes and new bootstrap theme" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -851,94 +825,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/WebApp/Areas/Identity/Pages/_ViewImports.cshtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <marker date="1553622927875" expanded="false" signature="7:88" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebApp/Areas/Identity/Pages/_ViewStart.cshtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <marker date="1550569512944" expanded="true" signature="0:49" ph="@..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebApp/Areas/Identity/Pages/Account/Login.cshtml.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
-          <folding>
-            <marker date="1553622923765" expanded="false" signature="6:397" ph="..." />
-            <marker date="1553622923765" expanded="true" signature="444:3445" ph="{...}" />
-            <marker date="1553622923765" expanded="true" signature="507:3443" ph="{...}" />
-            <marker date="1553622923765" expanded="true" signature="724:818" ph="{...}" />
-            <marker date="1553622923765" expanded="true" signature="1110:1436" ph="{...}" />
-            <marker date="1553622923765" expanded="true" signature="1499:2027" ph="{...}" />
-            <marker date="1553622923765" expanded="true" signature="1562:1660" ph="{...}" />
-            <marker date="1553622923765" expanded="true" signature="2106:3437" ph="{...}" />
-            <marker date="1553622923765" expanded="true" signature="2209:3331" ph="{...}" />
-            <marker date="1553622923765" expanded="true" signature="2240:2402" ph="/* This doesn't count login failures towards account lockout ... */" />
-            <marker date="1553622923765" expanded="true" signature="2582:2734" ph="{...}" />
-            <marker date="1553622923765" expanded="true" signature="2780:2939" ph="{...}" />
-            <marker date="1553622923765" expanded="true" signature="2979:3139" ph="{...}" />
-            <marker date="1553622923765" expanded="true" signature="3160:3317" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebApp/Views/Dogs/Create.cshtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <marker date="1553629001710" expanded="true" signature="45:83" ph="@..." />
-            <marker date="1553629001710" expanded="true" signature="122:2613" ph="&lt;div.../&gt;" />
-            <marker date="1553629001710" expanded="true" signature="144:2606" ph="&lt;div.../&gt;" />
-            <marker date="1553629001710" expanded="true" signature="175:2595" ph="&lt;form.../&gt;" />
-            <marker date="1553629001710" expanded="true" signature="293:564" ph="&lt;div.../&gt;" />
-            <marker date="1553629001710" expanded="true" signature="577:860" ph="&lt;div.../&gt;" />
-            <marker date="1553629001710" expanded="true" signature="873:1156" ph="&lt;div.../&gt;" />
-            <marker date="1553629001710" expanded="true" signature="1169:1428" ph="&lt;div.../&gt;" />
-            <marker date="1553629001710" expanded="true" signature="1441:1672" ph="&lt;div.../&gt;" />
-            <marker date="1553629001710" expanded="true" signature="1685:1950" ph="&lt;div.../&gt;" />
-            <marker date="1553629001710" expanded="true" signature="1963:2200" ph="&lt;div.../&gt;" />
-            <marker date="1553629001710" expanded="true" signature="2213:2444" ph="&lt;div.../&gt;" />
-            <marker date="1553629001710" expanded="true" signature="2457:2579" ph="&lt;div.../&gt;" />
-            <marker date="1553629001710" expanded="true" signature="2615:2670" ph="&lt;div.../&gt;" />
-            <marker date="1553629001710" expanded="true" signature="2672:2759" ph="@{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebApp/Views/Dogs/Edit.cshtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="62" column="5" lean-forward="true" selection-start-line="61" selection-end-line="62" selection-end-column="5" />
-          <folding>
-            <marker date="1553629111507" expanded="true" signature="45:81" ph="@..." />
-            <marker date="1553629111507" expanded="true" signature="118:2906" ph="&lt;div.../&gt;" />
-            <marker date="1553629111507" expanded="true" signature="140:2899" ph="&lt;div.../&gt;" />
-            <marker date="1553629111507" expanded="true" signature="171:2888" ph="&lt;form.../&gt;" />
-            <marker date="1553629111507" expanded="true" signature="287:558" ph="&lt;div.../&gt;" />
-            <marker date="1553629111507" expanded="true" signature="571:854" ph="&lt;div.../&gt;" />
-            <marker date="1553629111507" expanded="true" signature="867:1150" ph="&lt;div.../&gt;" />
-            <marker date="1553629111507" expanded="true" signature="1163:1422" ph="&lt;div.../&gt;" />
-            <marker date="1553629111507" expanded="true" signature="1435:1748" ph="&lt;div.../&gt;" />
-            <marker date="1553629111507" expanded="true" signature="1761:2026" ph="&lt;div.../&gt;" />
-            <marker date="1553629111507" expanded="true" signature="2039:2360" ph="&lt;div.../&gt;" />
-            <marker date="1553629111507" expanded="true" signature="2373:2686" ph="&lt;div.../&gt;" />
-            <marker date="1553629111507" expanded="true" signature="2752:2872" ph="&lt;div.../&gt;" />
-            <marker date="1553629111507" expanded="true" signature="2908:2963" ph="&lt;div.../&gt;" />
-            <marker date="1553629111507" expanded="true" signature="2965:3052" ph="@{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebApp/Views/Home/Index.cshtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1639,18 +1525,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Contracts.DAL.App/Repositories/IAwardRepository.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="45" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="45" />
-          <folding>
-            <marker date="1553703052259" expanded="true" signature="6:117" ph="..." />
-            <marker date="1553703052259" expanded="true" signature="161:332" ph="{...}" />
-            <marker date="1553703052259" expanded="true" signature="233:329" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Contracts.DAL.App/Repositories/IShowRepository.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -1829,8 +1703,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/WebApp/Controllers/CompetitionsController.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="112" column="9" lean-forward="true" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
+        <state relative-caret-position="221">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
           <folding>
             <marker date="1553704880908" expanded="false" signature="6:305" ph="..." />
             <marker date="1553704880908" expanded="true" signature="335:5932" ph="{...}" />
@@ -1857,6 +1731,93 @@
             <marker date="1553704880908" expanded="true" signature="5305:5368" ph="{...}" />
             <marker date="1553704880908" expanded="true" signature="5474:5537" ph="{...}" />
             <marker date="1553704880908" expanded="true" signature="5767:5924" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="377" column="31" lean-forward="true" selection-start-line="377" selection-start-column="31" selection-end-line="377" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/pages/examples/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DAL.App.EF/Repositories/CompetitionRepository.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+          <folding>
+            <marker date="1553767497377" expanded="true" signature="6:210" ph="..." />
+            <marker date="1553767497377" expanded="true" signature="291:796" ph="{...}" />
+            <marker date="1553767497377" expanded="true" signature="385:790" ph="{...}" />
+            <marker date="1553767497377" expanded="true" signature="474:494" ph="{...}" />
+            <marker date="1553767497377" expanded="true" signature="567:784" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Contracts.DAL.App/Repositories/IAwardRepository.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" column="45" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="45" />
+          <folding>
+            <marker date="1553703052259" expanded="false" signature="6:117" ph="..." />
+            <marker date="1553703052259" expanded="true" signature="161:332" ph="{...}" />
+            <marker date="1553703052259" expanded="true" signature="233:329" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Contracts.DAL.App/Repositories/ICompetitionRepository.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+          <folding>
+            <marker date="1553767493826" expanded="true" signature="6:116" ph="..." />
+            <marker date="1553767493826" expanded="true" signature="158:340" ph="{...}" />
+            <marker date="1553767493826" expanded="true" signature="240:338" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebApp/Views/Competitions/Index.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="63" column="69" selection-start-line="63" selection-start-column="69" selection-end-line="63" selection-end-column="69" />
+          <folding>
+            <marker date="1553767770202" expanded="true" signature="40:77" ph="@..." />
+            <marker date="1553767770202" expanded="true" signature="95:145" ph="&lt;p.../&gt;" />
+            <marker date="1553767770202" expanded="true" signature="146:2132" ph="&lt;table.../&gt;" />
+            <marker date="1553767770202" expanded="true" signature="172:1000" ph="&lt;thead.../&gt;" />
+            <marker date="1553767770202" expanded="true" signature="188:987" ph="&lt;tr.../&gt;" />
+            <marker date="1553767770202" expanded="true" signature="205:286" ph="&lt;th.../&gt;" />
+            <marker date="1553767770202" expanded="true" signature="299:382" ph="&lt;th.../&gt;" />
+            <marker date="1553767770202" expanded="true" signature="395:476" ph="&lt;th.../&gt;" />
+            <marker date="1553767770202" expanded="true" signature="489:570" ph="&lt;th.../&gt;" />
+            <marker date="1553767770202" expanded="true" signature="583:662" ph="&lt;th.../&gt;" />
+            <marker date="1553767770202" expanded="true" signature="675:754" ph="&lt;th.../&gt;" />
+            <marker date="1553767770202" expanded="true" signature="767:851" ph="&lt;th.../&gt;" />
+            <marker date="1553767770202" expanded="true" signature="864:951" ph="&lt;th.../&gt;" />
+            <marker date="1553767770202" expanded="true" signature="1005:2123" ph="&lt;tbody.../&gt;" />
+            <marker date="1553767770202" expanded="true" signature="1013:2110" ph="@..." />
+            <marker date="1553767770202" expanded="true" signature="1042:2110" ph="{...}" />
+            <marker date="1553767770202" expanded="true" signature="1052:2108" ph="&lt;tr.../&gt;" />
+            <marker date="1553767770202" expanded="true" signature="1069:1149" ph="&lt;td.../&gt;" />
+            <marker date="1553767770202" expanded="true" signature="1162:1244" ph="&lt;td.../&gt;" />
+            <marker date="1553767770202" expanded="true" signature="1257:1337" ph="&lt;td.../&gt;" />
+            <marker date="1553767770202" expanded="true" signature="1350:1430" ph="&lt;td.../&gt;" />
+            <marker date="1553767770202" expanded="true" signature="1443:1521" ph="&lt;td.../&gt;" />
+            <marker date="1553767770202" expanded="true" signature="1534:1620" ph="&lt;td.../&gt;" />
+            <marker date="1553767770202" expanded="true" signature="1633:1726" ph="&lt;td.../&gt;" />
+            <marker date="1553767770202" expanded="true" signature="1739:1835" ph="&lt;td.../&gt;" />
+            <marker date="1553767770202" expanded="true" signature="1848:2094" ph="&lt;td.../&gt;" />
           </folding>
         </state>
       </provider>
