@@ -56,16 +56,16 @@
                 @Html.DisplayFor(modelItem => item.Sex)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Breed.Id)
+                @Html.DisplayFor(modelItem => item.Breed.BreedName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Owner)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.AppUser.Id)
+                @Html.DisplayFor(modelItem => item.AppUser.FirstLastName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Award.Id)
+                @Html.DisplayFor(modelItem => item.Award.Place)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
