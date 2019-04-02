@@ -1,29 +1,604 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="97f0307b-bc7c-42ff-af33-ab3fe27807d7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Hajus-project/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hajus-project/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Hajus-project/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hajus-project/.idea/indexLayout.xml" afterDir="false" />
+    <list default="true" id="97f0307b-bc7c-42ff-af33-ab3fe27807d7" name="Default Changelist" comment="Aurelia -- Distributed">
+      <change afterPath="$PROJECT_DIR$/DAL.App.EF/Migrations/20190327155608_NewMigra.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DAL.App.EF/Migrations/20190327155608_NewMigra.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DAL.App.EF/Migrations/20190327161355_NewMigra2.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DAL.App.EF/Migrations/20190327161355_NewMigra2.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/demo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/pages/dashboard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/pages/dashboard2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/pages/dashboard3.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chart.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/axes/cartesian/category.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/axes/cartesian/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/axes/cartesian/linear.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/axes/cartesian/logarithmic.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/axes/cartesian/time.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/axes/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/axes/labelling.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/axes/radial/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/axes/radial/linear.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/axes/styling.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/charts/area.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/charts/bar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/charts/bubble.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/charts/doughnut.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/charts/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/charts/line.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/charts/mixed.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/charts/polar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/charts/radar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/charts/scatter.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/configuration/animations.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/configuration/elements.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/configuration/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/configuration/layout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/configuration/legend.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/configuration/title.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/configuration/tooltip.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/developers/api.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/developers/axes.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/developers/charts.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/developers/contributing.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/developers/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/developers/plugins.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/developers/updates.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/general/colors.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/general/device-pixel-ratio.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/general/fonts.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/general/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/general/interactions/events.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/general/interactions/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/general/interactions/modes.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/general/options.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/general/responsive.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/getting-started/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/getting-started/installation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/getting-started/integration.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/getting-started/usage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/gitbook/fonts/fontawesome/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/gitbook/fonts/fontawesome/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/gitbook/fonts/fontawesome/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/gitbook/fonts/fontawesome/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/gitbook/fonts/fontawesome/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/gitbook/fonts/fontawesome/fontawesome-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-anchorjs/anchor-style.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-chartjs/Chart.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-chartjs/Chart.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-chartjs/Chart.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-chartjs/Chart.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-chartjs/chartjs-plugin-deferred.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-chartjs/chartjs-plugin-deferred.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-chartjs/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-fontsettings/fontsettings.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-fontsettings/website.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-ga/plugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-highlight/ebook.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-highlight/website.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-search-plus/jquery.mark.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-search-plus/search.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-search-plus/search.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-sharing/buttons.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/gitbook/gitbook.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/gitbook/images/apple-touch-icon-precomposed-152.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/gitbook/images/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/gitbook/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/gitbook/theme.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/notes/comparison.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/notes/extensions.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/notes/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/notes/license.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/search_plus_index.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/chartjs2/docs/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/jquery/core.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/jquery/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/jquery/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/jquery/jquery.min.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/jquery/jquery.slim.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/jquery/jquery.slim.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/jquery/jquery.slim.min.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/popper/esm/popper-utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/popper/esm/popper-utils.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/popper/esm/popper-utils.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/popper/esm/popper-utils.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/popper/esm/popper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/popper/esm/popper.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/popper/esm/popper.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/popper/esm/popper.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/popper/popper-utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/popper/popper-utils.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/popper/popper-utils.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/popper/popper-utils.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/popper/popper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/popper/popper.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/popper/popper.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/popper/popper.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/popper/umd/popper-utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/popper/umd/popper-utils.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/popper/umd/popper-utils.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/popper/umd/popper-utils.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/popper/umd/popper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/popper/umd/popper.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/popper/umd/popper.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/dist/js/plugins/popper/umd/popper.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/pages/calendar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/pages/examples/404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/pages/examples/500.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/pages/examples/blank.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/pages/examples/invoice-print.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/pages/examples/invoice.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/pages/examples/lockscreen.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/pages/examples/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/pages/examples/profile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/pages/examples/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/pages/widgets.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/bootstrap/css/bootstrap-grid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/bootstrap/css/bootstrap-grid.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/bootstrap/css/bootstrap-grid.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/bootstrap/css/bootstrap-grid.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/bootstrap/css/bootstrap-reboot.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/bootstrap/css/bootstrap-reboot.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/bootstrap/css/bootstrap-reboot.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/bootstrap/css/bootstrap-reboot.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/bootstrap/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/bootstrap/css/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/bootstrap/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/bootstrap/css/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/bootstrap/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/bootstrap/js/bootstrap.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/bootstrap/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/bootstrap/js/bootstrap.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/Chart.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/Chart.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/Chart.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/Chart.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/axes/cartesian/category.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/axes/cartesian/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/axes/cartesian/linear.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/axes/cartesian/logarithmic.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/axes/cartesian/time.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/axes/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/axes/labelling.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/axes/radial/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/axes/radial/linear.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/axes/styling.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/charts/area.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/charts/bar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/charts/bubble.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/charts/doughnut.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/charts/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/charts/line.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/charts/mixed.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/charts/polar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/charts/radar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/charts/scatter.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/configuration/animations.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/configuration/elements.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/configuration/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/configuration/layout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/configuration/legend.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/configuration/title.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/configuration/tooltip.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/developers/api.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/developers/axes.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/developers/charts.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/developers/contributing.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/developers/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/developers/plugins.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/developers/updates.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/general/colors.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/general/device-pixel-ratio.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/general/device-pixel-ratio.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/general/fonts.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/general/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/general/interactions/events.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/general/interactions/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/general/interactions/modes.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/general/options.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/general/responsive.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/getting-started/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/getting-started/installation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/getting-started/integration.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/getting-started/usage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/gitbook/fonts/fontawesome/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/gitbook/fonts/fontawesome/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/gitbook/fonts/fontawesome/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/gitbook/fonts/fontawesome/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/gitbook/fonts/fontawesome/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/gitbook/fonts/fontawesome/fontawesome-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/gitbook/gitbook-plugin-anchorjs/anchor-style.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/gitbook/gitbook-plugin-chartjs/Chart.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/gitbook/gitbook-plugin-chartjs/Chart.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/gitbook/gitbook-plugin-chartjs/Chart.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/gitbook/gitbook-plugin-chartjs/Chart.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/gitbook/gitbook-plugin-chartjs/chartjs-plugin-deferred.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/gitbook/gitbook-plugin-chartjs/chartjs-plugin-deferred.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/gitbook/gitbook-plugin-chartjs/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/gitbook/gitbook-plugin-fontsettings/fontsettings.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/gitbook/gitbook-plugin-fontsettings/website.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/gitbook/gitbook-plugin-ga/plugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/gitbook/gitbook-plugin-highlight/ebook.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/gitbook/gitbook-plugin-highlight/website.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/gitbook/gitbook-plugin-search-plus/jquery.mark.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/gitbook/gitbook-plugin-search-plus/search.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/gitbook/gitbook-plugin-search-plus/search.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/gitbook/gitbook-plugin-sharing/buttons.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/gitbook/gitbook.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/gitbook/images/apple-touch-icon-precomposed-152.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/gitbook/images/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/gitbook/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/gitbook/theme.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/notes/comparison.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/notes/extensions.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/notes/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/notes/license.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/search_plus_index.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/chart.js/docs/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/ckeditor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/ckeditor.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/ar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/ast.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/bg.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/cs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/da.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/de.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/el.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/en-au.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/eo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/es.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/et.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/eu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/fi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/fr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/gl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/gu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/hr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/hu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/it.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/ja.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/km.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/kn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/ko.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/ku.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/nb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/ne.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/nl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/oc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/pl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/pt-br.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/pt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/ro.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/ru.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/si.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/sk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/sq.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/sv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/tr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/tt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/ug.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/uk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/zh-cn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ckeditor/translations/zh.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/AutoFill/Readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/AutoFill/css/dataTables.autoFill.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/AutoFill/css/dataTables.autoFill.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/AutoFill/examples/columns.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/AutoFill/examples/complete-callback.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/AutoFill/examples/fill-both.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/AutoFill/examples/fill-horizontal.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/AutoFill/examples/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/AutoFill/examples/scrolling.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/AutoFill/examples/simple.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/AutoFill/examples/step-callback.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/AutoFill/images/filler.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/AutoFill/js/dataTables.autoFill.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/AutoFill/js/dataTables.autoFill.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/ColVis/License.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/ColVis/Readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/ColVis/css/dataTables.colVis.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/ColVis/css/dataTables.colVis.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/ColVis/css/dataTables.colvis.jqueryui.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/ColVis/examples/button_order.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/ColVis/examples/exclude_columns.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/ColVis/examples/group_columns.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/ColVis/examples/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/ColVis/examples/jqueryui.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/ColVis/examples/mouseover.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/ColVis/examples/new_init.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/ColVis/examples/restore.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/ColVis/examples/simple.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/ColVis/examples/text.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/ColVis/examples/title_callback.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/ColVis/examples/two_tables.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/ColVis/examples/two_tables_identical.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/ColVis/js/dataTables.colVis.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/ColVis/js/dataTables.colVis.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/KeyTable/Readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/KeyTable/css/dataTables.keyTable.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/KeyTable/css/dataTables.keyTable.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/KeyTable/examples/events.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/KeyTable/examples/html.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/KeyTable/examples/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/KeyTable/examples/scrolling.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/KeyTable/examples/simple.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/KeyTable/js/dataTables.keyTable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/KeyTable/js/dataTables.keyTable.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/Scroller/css/dataTables.scroller.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/Scroller/css/dataTables.scroller.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/Scroller/examples/data/2500.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/Scroller/examples/data/ssp.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/Scroller/examples/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/Scroller/examples/simple.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/Scroller/images/loading-background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/Scroller/js/dataTables.scroller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/extensions/Scroller/js/dataTables.scroller.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/images/sort_asc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/images/sort_asc_disabled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/images/sort_both.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/images/sort_desc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/datatables/images/sort_desc_disabled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/fastclick/fastclick.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/fastclick/fastclick.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/excanvas.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/excanvas.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/jquery.colorhelpers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/jquery.colorhelpers.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/jquery.flot.canvas.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/jquery.flot.canvas.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/jquery.flot.categories.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/jquery.flot.categories.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/jquery.flot.crosshair.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/jquery.flot.crosshair.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/jquery.flot.errorbars.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/jquery.flot.errorbars.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/jquery.flot.fillbetween.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/jquery.flot.fillbetween.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/jquery.flot.image.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/jquery.flot.image.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/jquery.flot.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/jquery.flot.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/jquery.flot.navigate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/jquery.flot.navigate.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/jquery.flot.pie.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/jquery.flot.pie.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/jquery.flot.resize.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/jquery.flot.resize.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/jquery.flot.selection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/jquery.flot.selection.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/jquery.flot.stack.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/jquery.flot.stack.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/jquery.flot.symbol.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/jquery.flot.symbol.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/jquery.flot.threshold.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/jquery.flot.threshold.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/jquery.flot.time.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/flot/jquery.flot.time.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/all.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/flat/_all.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/flat/aero.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/flat/aero.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/flat/aero@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/flat/blue.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/flat/blue.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/flat/blue@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/flat/flat.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/flat/flat.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/flat/flat@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/flat/green.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/flat/green.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/flat/green@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/flat/grey.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/flat/grey.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/flat/grey@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/flat/orange.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/flat/orange.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/flat/orange@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/flat/pink.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/flat/pink.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/flat/pink@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/flat/purple.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/flat/purple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/flat/purple@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/flat/red.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/flat/red.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/flat/red@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/flat/yellow.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/flat/yellow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/flat/yellow@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/futurico/futurico.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/futurico/futurico.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/futurico/futurico@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/icheck.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/icheck.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/line/_all.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/line/aero.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/line/blue.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/line/green.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/line/grey.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/line/line.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/line/line.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/line/line@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/line/orange.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/line/pink.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/line/purple.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/line/red.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/line/yellow.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/minimal/_all.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/minimal/aero.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/minimal/aero.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/minimal/aero@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/minimal/blue.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/minimal/blue.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/minimal/blue@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/minimal/green.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/minimal/green.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/minimal/green@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/minimal/grey.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/minimal/grey.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/minimal/grey@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/minimal/minimal.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/minimal/minimal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/minimal/minimal@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/minimal/orange.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/minimal/orange.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/minimal/orange@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/minimal/pink.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/minimal/pink.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/minimal/pink@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/minimal/purple.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/minimal/purple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/minimal/purple@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/minimal/red.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/minimal/red.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/minimal/red@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/minimal/yellow.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/minimal/yellow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/minimal/yellow@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/polaris/polaris.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/polaris/polaris.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/polaris/polaris@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/square/_all.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/square/aero.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/square/aero.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/square/aero@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/square/blue.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/square/blue.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/square/blue@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/square/green.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/square/green.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/square/green@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/square/grey.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/square/grey.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/square/grey@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/square/orange.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/square/orange.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/square/orange@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/square/pink.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/square/pink.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/square/pink@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/square/purple.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/square/purple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/square/purple@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/square/red.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/square/red.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/square/red@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/square/square.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/square/square.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/square/square@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/square/yellow.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/square/yellow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/iCheck/square/yellow@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ionslider/img/sprite-skin-flat.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ionslider/img/sprite-skin-nice.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ionslider/ion.rangeSlider.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ionslider/ion.rangeSlider.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ionslider/ion.rangeSlider.skinFlat.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/ionslider/ion.rangeSlider.skinNice.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/jQueryUI/jquery-ui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/jQueryUI/jquery-ui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/jquery/core.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/jquery/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/jquery/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/jquery/jquery.min.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/jquery/jquery.slim.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/jquery/jquery.slim.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/jquery/jquery.slim.min.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/knob/jquery.knob.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/morris/morris.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/morris/morris.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/morris/morris.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/pace/pace.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/pace/pace.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/pace/pace.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/pace/pace.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/popper/esm/popper-utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/popper/esm/popper-utils.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/popper/esm/popper-utils.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/popper/esm/popper-utils.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/popper/esm/popper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/popper/esm/popper.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/popper/esm/popper.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/popper/esm/popper.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/popper/popper-utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/popper/popper-utils.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/popper/popper-utils.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/popper/popper-utils.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/popper/popper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/popper/popper.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/popper/popper.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/popper/popper.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/popper/umd/popper-utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/popper/umd/popper-utils.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/popper/umd/popper-utils.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/popper/umd/popper-utils.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/popper/umd/popper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/popper/umd/popper.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/popper/umd/popper.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/popper/umd/popper.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/az.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/bg.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/ca.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/cs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/da.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/de.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/en.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/es.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/et.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/eu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/fa.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/fi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/fr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/gl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/he.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/hi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/hr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/hu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/id.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/is.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/it.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/ko.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/lt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/lv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/mk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/nb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/nl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/pl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/pt-BR.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/pt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/ro.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/ru.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/sk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/sr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/sv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/th.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/tr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/uk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/vi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/zh-CN.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/i18n/zh-TW.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/select2.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/select2.full.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/select2.full.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/select2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/select2.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/select2/select2.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/sparkline/jquery.sparkline.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/AdminLTE/plugins/sparkline/jquery.sparkline.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Hajus-project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hajus-project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Hajus-project/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hajus-project/riderModule.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/netstandard2.0/Domain.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/netstandard2.0/Domain.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/ApiControllers/AwardsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/ApiControllers/AwardsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/ApiControllers/BreedsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/ApiControllers/BreedsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/ApiControllers/CompetitionsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/ApiControllers/CompetitionsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/ApiControllers/DogsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/ApiControllers/DogsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/ApiControllers/LocationsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/ApiControllers/LocationsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/ApiControllers/MaterialsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/ApiControllers/MaterialsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/ApiControllers/ParticipantsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/ApiControllers/ParticipantsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/ApiControllers/RegistrationsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/ApiControllers/RegistrationsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/ApiControllers/SchoolingsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/ApiControllers/SchoolingsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/ApiControllers/ShowsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/ApiControllers/ShowsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Views/Home/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/bin/Debug/netcoreapp2.2/WebApp.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/bin/Debug/netcoreapp2.2/WebApp.Views.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/bin/Debug/netcoreapp2.2/WebApp.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/bin/Debug/netcoreapp2.2/WebApp.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/Razor/Views/Home/Index.g.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/Razor/Views/Home/Index.g.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/WebApp.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/WebApp.Views.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/WebApp.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/WebApp.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/WebApp.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/WebApp.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/bin/Debug/netcoreapp2.2/WebApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/bin/Debug/netcoreapp2.2/WebApp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/bin/Debug/netcoreapp2.2/WebApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/bin/Debug/netcoreapp2.2/WebApp.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/WebApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/WebApp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/WebApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/WebApp.pdb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,226 +606,8 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/WebApp/ApiControllers/AwardsController.cs">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="153">
-                    <caret line="18" column="45" lean-forward="true" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
-                    <folding>
-                      <marker date="1554191168280" expanded="false" signature="6:255" ph="..." />
-                      <marker date="1554191168280" expanded="true" signature="288:2253" ph="{...}" />
-                      <marker date="1554191168280" expanded="true" signature="393:2251" ph="{...}" />
-                      <marker date="1554191168280" expanded="true" signature="507:563" ph="{...}" />
-                      <marker date="1554191168280" expanded="true" signature="681:820" ph="{...}" />
-                      <marker date="1554191168280" expanded="true" signature="940:1138" ph="{...}" />
-                      <marker date="1554191168280" expanded="true" signature="1038:1101" ph="{...}" />
-                      <marker date="1554191168280" expanded="true" signature="1265:1524" ph="{...}" />
-                      <marker date="1554191168280" expanded="true" signature="1307:1372" ph="{...}" />
-                      <marker date="1554191168280" expanded="true" signature="1642:1830" ph="{...}" />
-                      <marker date="1554191168280" expanded="true" signature="1959:2238" ph="{...}" />
-                      <marker date="1554191168280" expanded="true" signature="2056:2119" ph="{...}" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebApp/ApiControllers/CompetitionsController.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1275">
-              <caret line="84" column="34" lean-forward="true" selection-start-line="84" selection-start-column="34" selection-end-line="84" selection-end-column="34" />
-              <folding>
-                <marker date="1554191716613" expanded="false" signature="6:255" ph="..." />
-                <marker date="1554191716613" expanded="true" signature="288:2518" ph="{...}" />
-                <marker date="1554191716613" expanded="true" signature="399:2516" ph="{...}" />
-                <marker date="1554191716613" expanded="true" signature="530:587" ph="{...}" />
-                <marker date="1554191716613" expanded="true" signature="723:899" ph="{...}" />
-                <marker date="1554191716613" expanded="true" signature="1037:1259" ph="{...}" />
-                <marker date="1554191716613" expanded="true" signature="1153:1216" ph="{...}" />
-                <marker date="1554191716613" expanded="true" signature="1410:1673" ph="{...}" />
-                <marker date="1554191716613" expanded="true" signature="1458:1523" ph="{...}" />
-                <marker date="1554191716613" expanded="true" signature="1821:2039" ph="{...}" />
-                <marker date="1554191716613" expanded="true" signature="2186:2501" ph="{...}" />
-                <marker date="1554191716613" expanded="true" signature="2301:2364" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebApp/ApiControllers/DogsController.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1326">
-              <caret line="87" column="9" lean-forward="true" selection-start-line="87" selection-start-column="9" selection-end-line="87" selection-end-column="9" />
-              <folding>
-                <marker date="1554192052223" expanded="false" signature="6:255" ph="..." />
-                <marker date="1554192052223" expanded="true" signature="288:2145" ph="{...}" />
-                <marker date="1554192052223" expanded="true" signature="391:2143" ph="{...}" />
-                <marker date="1554192052223" expanded="true" signature="503:560" ph="{...}" />
-                <marker date="1554192052223" expanded="true" signature="672:803" ph="{...}" />
-                <marker date="1554192052223" expanded="true" signature="917:1107" ph="{...}" />
-                <marker date="1554192052223" expanded="true" signature="1009:1072" ph="{...}" />
-                <marker date="1554192052223" expanded="true" signature="1226:1452" ph="{...}" />
-                <marker date="1554192052223" expanded="true" signature="1266:1331" ph="{...}" />
-                <marker date="1554192052223" expanded="true" signature="1560:1738" ph="{...}" />
-                <marker date="1554192052223" expanded="true" signature="1861:2128" ph="{...}" />
-                <marker date="1554192052223" expanded="true" signature="1952:2015" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebApp/ApiControllers/LocationsController.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1326">
-              <caret line="87" selection-start-line="87" selection-end-line="87" />
-              <folding>
-                <marker date="1554192052195" expanded="false" signature="6:255" ph="..." />
-                <marker date="1554192052195" expanded="true" signature="288:2345" ph="{...}" />
-                <marker date="1554192052195" expanded="true" signature="396:2343" ph="{...}" />
-                <marker date="1554192052195" expanded="true" signature="505:562" ph="{...}" />
-                <marker date="1554192052195" expanded="true" signature="689:840" ph="{...}" />
-                <marker date="1554192052195" expanded="true" signature="969:1179" ph="{...}" />
-                <marker date="1554192052195" expanded="true" signature="1076:1139" ph="{...}" />
-                <marker date="1554192052195" expanded="true" signature="1318:1571" ph="{...}" />
-                <marker date="1554192052195" expanded="true" signature="1363:1428" ph="{...}" />
-                <marker date="1554192052195" expanded="true" signature="1704:1901" ph="{...}" />
-                <marker date="1554192052195" expanded="true" signature="2039:2336" ph="{...}" />
-                <marker date="1554192052195" expanded="true" signature="2145:2208" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebApp/ApiControllers/MaterialsController.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="986">
-              <caret line="67" column="12" lean-forward="true" selection-start-line="67" selection-start-column="12" selection-end-line="67" selection-end-column="12" />
-              <folding>
-                <marker date="1554192378724" expanded="false" signature="6:255" ph="..." />
-                <marker date="1554192378724" expanded="true" signature="288:2367" ph="{...}" />
-                <marker date="1554192378724" expanded="true" signature="396:2365" ph="{...}" />
-                <marker date="1554192378724" expanded="true" signature="504:561" ph="{...}" />
-                <marker date="1554192378724" expanded="true" signature="688:856" ph="{...}" />
-                <marker date="1554192378724" expanded="true" signature="985:1195" ph="{...}" />
-                <marker date="1554192378724" expanded="true" signature="1092:1155" ph="{...}" />
-                <marker date="1554192378724" expanded="true" signature="1334:1587" ph="{...}" />
-                <marker date="1554192378724" expanded="true" signature="1379:1444" ph="{...}" />
-                <marker date="1554192378724" expanded="true" signature="1720:1923" ph="{...}" />
-                <marker date="1554192378724" expanded="true" signature="2061:2358" ph="{...}" />
-                <marker date="1554192378724" expanded="true" signature="2167:2230" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebApp/ApiControllers/ParticipantsController.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1224">
-              <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
-              <folding>
-                <marker date="1554192378708" expanded="false" signature="6:255" ph="..." />
-                <marker date="1554192378708" expanded="true" signature="288:2464" ph="{...}" />
-                <marker date="1554192378708" expanded="true" signature="399:2462" ph="{...}" />
-                <marker date="1554192378708" expanded="true" signature="510:567" ph="{...}" />
-                <marker date="1554192378708" expanded="true" signature="703:866" ph="{...}" />
-                <marker date="1554192378708" expanded="true" signature="1004:1226" ph="{...}" />
-                <marker date="1554192378708" expanded="true" signature="1120:1183" ph="{...}" />
-                <marker date="1554192378708" expanded="true" signature="1377:1627" ph="{...}" />
-                <marker date="1554192378708" expanded="true" signature="1425:1490" ph="{...}" />
-                <marker date="1554192378708" expanded="true" signature="1775:1993" ph="{...}" />
-                <marker date="1554192378708" expanded="true" signature="2140:2455" ph="{...}" />
-                <marker date="1554192378708" expanded="true" signature="2255:2318" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebApp/ApiControllers/RegistrationsController.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="541">
-              <caret line="85" column="32" lean-forward="true" selection-start-line="85" selection-start-column="32" selection-end-line="85" selection-end-column="32" />
-              <folding>
-                <marker date="1554192507305" expanded="false" signature="6:255" ph="..." />
-                <marker date="1554192507305" expanded="true" signature="288:2519" ph="{...}" />
-                <marker date="1554192507305" expanded="true" signature="400:2517" ph="{...}" />
-                <marker date="1554192507305" expanded="true" signature="513:570" ph="{...}" />
-                <marker date="1554192507305" expanded="true" signature="709:876" ph="{...}" />
-                <marker date="1554192507305" expanded="true" signature="1017:1243" ph="{...}" />
-                <marker date="1554192507305" expanded="true" signature="1136:1199" ph="{...}" />
-                <marker date="1554192507305" expanded="true" signature="1398:1663" ph="{...}" />
-                <marker date="1554192507305" expanded="true" signature="1447:1512" ph="{...}" />
-                <marker date="1554192507305" expanded="true" signature="1816:2039" ph="{...}" />
-                <marker date="1554192507305" expanded="true" signature="2189:2510" ph="{...}" />
-                <marker date="1554192507305" expanded="true" signature="2307:2370" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebApp/ApiControllers/SchoolingsController.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="636">
-              <caret line="87" selection-start-line="87" selection-end-line="87" />
-              <folding>
-                <marker date="1554192507289" expanded="false" signature="6:255" ph="..." />
-                <marker date="1554192507289" expanded="true" signature="288:2381" ph="{...}" />
-                <marker date="1554192507289" expanded="true" signature="397:2379" ph="{...}" />
-                <marker date="1554192507289" expanded="true" signature="507:564" ph="{...}" />
-                <marker date="1554192507289" expanded="true" signature="694:849" ph="{...}" />
-                <marker date="1554192507289" expanded="true" signature="981:1195" ph="{...}" />
-                <marker date="1554192507289" expanded="true" signature="1091:1154" ph="{...}" />
-                <marker date="1554192507289" expanded="true" signature="1338:1582" ph="{...}" />
-                <marker date="1554192507289" expanded="true" signature="1384:1449" ph="{...}" />
-                <marker date="1554192507289" expanded="true" signature="1720:1928" ph="{...}" />
-                <marker date="1554192507289" expanded="true" signature="2069:2372" ph="{...}" />
-                <marker date="1554192507289" expanded="true" signature="2178:2241" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/WebApp/ApiControllers/ShowsController.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="932">
-              <caret line="87" selection-start-line="87" selection-end-line="87" />
-              <folding>
-                <marker date="1554192619046" expanded="false" signature="6:255" ph="..." />
-                <marker date="1554192619046" expanded="true" signature="288:2170" ph="{...}" />
-                <marker date="1554192619046" expanded="true" signature="392:2168" ph="{...}" />
-                <marker date="1554192619046" expanded="true" signature="496:553" ph="{...}" />
-                <marker date="1554192619046" expanded="true" signature="668:803" ph="{...}" />
-                <marker date="1554192619046" expanded="true" signature="920:1114" ph="{...}" />
-                <marker date="1554192619046" expanded="true" signature="1015:1078" ph="{...}" />
-                <marker date="1554192619046" expanded="true" signature="1237:1466" ph="{...}" />
-                <marker date="1554192619046" expanded="true" signature="1278:1343" ph="{...}" />
-                <marker date="1554192619046" expanded="true" signature="1579:1762" ph="{...}" />
-                <marker date="1554192619046" expanded="true" signature="1888:2161" ph="{...}" />
-                <marker date="1554192619046" expanded="true" signature="1982:2045" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -377,6 +734,7 @@
     <setting file="file://$PROJECT_DIR$/Contracts.DAL.Base/Helpers/IRepositoryProvider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Contracts.DAL.Base/Helpers/IRepositoryFactory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Contracts.DAL.Base/IDataContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DAL.App.EF/Migrations/20190327155608_NewMigra.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Contracts.DAL.Base/IBaseEntity.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/65B4B714-F478-4116-807A-4ACDB0697ADF/c3/12bbd623/IEmailSender.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DAL.Base.EF/Repositories/BaseRepository.cs" root0="FORCE_HIGHLIGHTING" />
@@ -422,7 +780,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/WebApp/Views/Shows/Edit.cshtml" />
         <option value="$PROJECT_DIR$/WebApp/Controllers/ParticipantsController.cs" />
         <option value="$PROJECT_DIR$/WebApp/Controllers/MaterialsController.cs" />
         <option value="$PROJECT_DIR$/WebApp/Controllers/LocationsController.cs" />
@@ -473,6 +830,7 @@
         <option value="$PROJECT_DIR$/WebApp/ApiControllers/RegistrationsController.cs" />
         <option value="$PROJECT_DIR$/WebApp/ApiControllers/SchoolingsController.cs" />
         <option value="$PROJECT_DIR$/WebApp/ApiControllers/ShowsController.cs" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -496,17 +854,6 @@
             <path>
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="Hajus-project" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="Hajus-project" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="WebApp" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="Hajus-project" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="WebApp" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="ApiControllers" type="24d0babc:SolutionExplorerModelNode" />
             </path>
           </expand>
           <select />
@@ -619,7 +966,7 @@
       <workItem from="1554109391976" duration="1503000" />
       <workItem from="1554187098426" duration="2032000" />
       <workItem from="1554189723948" duration="78000" />
-      <workItem from="1554190524690" duration="2093000" />
+      <workItem from="1554190524690" duration="3899000" />
     </task>
     <task id="LOCAL-00001" summary="Lisatud ODT file.">
       <created>1550924168079</created>
@@ -698,11 +1045,18 @@
       <option name="project" value="LOCAL" />
       <updated>1554038274116</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Aurelia -- Distributed">
+      <created>1554192752868</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1554192752868</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91207000" />
+    <option name="totallyTimeSpent" value="93013000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -714,10 +1068,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18550107" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18550107" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -736,7 +1090,7 @@
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Unit Tests" order="12" sideWeight="0.49946696" weight="0.3290461" />
       <window_info anchor="bottom" id="REST Client" order="13" weight="0.32900432" />
-      <window_info anchor="bottom" id="Terminal" order="14" weight="0.2636656" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="14" visible="true" weight="0.2636656" />
       <window_info anchor="bottom" id="Event Log" order="15" sideWeight="0.50053304" side_tool="true" weight="0.4790997" />
       <window_info anchor="bottom" id="Statistic" order="16" weight="0.3290461" />
       <window_info anchor="bottom" id="Build" order="17" sideWeight="0.49946752" weight="0.32690248" />
@@ -864,7 +1218,8 @@
     <MESSAGE value="Startup changes" />
     <MESSAGE value="Repo changes and new bootstrap theme" />
     <MESSAGE value="Style changes and admin area" />
-    <option name="LAST_COMMIT_MESSAGE" value="Style changes and admin area" />
+    <MESSAGE value="Aurelia -- Distributed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aurelia -- Distributed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -877,17 +1232,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Domain/Material.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
-          <folding>
-            <marker date="1550574944237" expanded="true" signature="51:227" ph="{...}" />
-            <marker date="1550574944237" expanded="true" signature="97:225" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Domain/Dog.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="534">
@@ -1743,27 +2087,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebApp/ApiControllers/AwardsController.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="18" column="45" lean-forward="true" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
-          <folding>
-            <marker date="1554191168280" expanded="false" signature="6:255" ph="..." />
-            <marker date="1554191168280" expanded="true" signature="288:2253" ph="{...}" />
-            <marker date="1554191168280" expanded="true" signature="393:2251" ph="{...}" />
-            <marker date="1554191168280" expanded="true" signature="507:563" ph="{...}" />
-            <marker date="1554191168280" expanded="true" signature="681:820" ph="{...}" />
-            <marker date="1554191168280" expanded="true" signature="940:1138" ph="{...}" />
-            <marker date="1554191168280" expanded="true" signature="1038:1101" ph="{...}" />
-            <marker date="1554191168280" expanded="true" signature="1265:1524" ph="{...}" />
-            <marker date="1554191168280" expanded="true" signature="1307:1372" ph="{...}" />
-            <marker date="1554191168280" expanded="true" signature="1642:1830" ph="{...}" />
-            <marker date="1554191168280" expanded="true" signature="1959:2238" ph="{...}" />
-            <marker date="1554191168280" expanded="true" signature="2056:2119" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebApp/ApiControllers/ParticipantsController.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1224">
@@ -1827,10 +2150,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/WebApp/ApiControllers/AwardsController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="18" column="45" lean-forward="true" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
+          <folding>
+            <marker date="1554191168280" expanded="false" signature="6:255" ph="..." />
+            <marker date="1554191168280" expanded="true" signature="288:2253" ph="{...}" />
+            <marker date="1554191168280" expanded="true" signature="393:2251" ph="{...}" />
+            <marker date="1554191168280" expanded="true" signature="507:563" ph="{...}" />
+            <marker date="1554191168280" expanded="true" signature="681:820" ph="{...}" />
+            <marker date="1554191168280" expanded="true" signature="940:1138" ph="{...}" />
+            <marker date="1554191168280" expanded="true" signature="1038:1101" ph="{...}" />
+            <marker date="1554191168280" expanded="true" signature="1265:1524" ph="{...}" />
+            <marker date="1554191168280" expanded="true" signature="1307:1372" ph="{...}" />
+            <marker date="1554191168280" expanded="true" signature="1642:1830" ph="{...}" />
+            <marker date="1554191168280" expanded="true" signature="1959:2238" ph="{...}" />
+            <marker date="1554191168280" expanded="true" signature="2056:2119" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="628">
+          <caret line="341" column="14" selection-start-line="341" selection-start-column="14" selection-end-line="341" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/WebApp/ApiControllers/ShowsController.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="932">
-          <caret line="87" selection-start-line="87" selection-end-line="87" />
+        <state relative-caret-position="466">
+          <caret line="77" column="29" lean-forward="true" selection-start-line="77" selection-start-column="29" selection-end-line="77" selection-end-column="29" />
           <folding>
             <marker date="1554192619046" expanded="false" signature="6:255" ph="..." />
             <marker date="1554192619046" expanded="true" signature="288:2170" ph="{...}" />
