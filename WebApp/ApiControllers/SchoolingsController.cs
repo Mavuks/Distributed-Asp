@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.DAL.App;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -14,25 +15,27 @@ namespace WebApp.ApiControllers
     [ApiController]
     public class SchoolingsController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly IAppUnitOfWork _uow;
 
-        public SchoolingsController(AppDbContext context)
+        public SchoolingsController( IAppUnitOfWork uow)
         {
-            _context = context;
+            _uow = uow;
+            
         }
 
         // GET: api/Schoolings
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Schooling>>> GetSchoolings()
         {
-            return await _context.Schoolings.ToListAsync();
+            var schoolings = await _uow.Schooling.AllAsync();
+            return new ActionResult<IEnumerable<Schooling>>(schoolings);
         }
 
         // GET: api/Schoolings/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Schooling>> GetSchooling(int id)
         {
-            var schooling = await _context.Schoolings.FindAsync(id);
+            var schooling = await _uow.Schooling.FindAsync(id);
 
             if (schooling == null)
             {
@@ -51,23 +54,8 @@ namespace WebApp.ApiControllers
                 return BadRequest();
             }
 
-            _context.Entry(schooling).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!SchoolingExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            _uow.Schooling.Update(schooling);
+            await _uow.SaveChangesAsync();
 
             return NoContent();
         }
@@ -76,8 +64,8 @@ namespace WebApp.ApiControllers
         [HttpPost]
         public async Task<ActionResult<Schooling>> PostSchooling(Schooling schooling)
         {
-            _context.Schoolings.Add(schooling);
-            await _context.SaveChangesAsync();
+            await _uow.Schooling.AddAsync(schooling);
+            await _uow.SaveChangesAsync();
 
             return CreatedAtAction("GetSchooling", new { id = schooling.Id }, schooling);
         }
@@ -86,21 +74,17 @@ namespace WebApp.ApiControllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Schooling>> DeleteSchooling(int id)
         {
-            var schooling = await _context.Schoolings.FindAsync(id);
+            var schooling = await _uow.Schooling.FindAsync(id);
             if (schooling == null)
             {
                 return NotFound();
             }
 
-            _context.Schoolings.Remove(schooling);
-            await _context.SaveChangesAsync();
+            _uow.Schooling.Remove(schooling);
+            await _uow.SaveChangesAsync();
 
             return schooling;
         }
 
-        private bool SchoolingExists(int id)
-        {
-            return _context.Schoolings.Any(e => e.Id == id);
-        }
     }
 }

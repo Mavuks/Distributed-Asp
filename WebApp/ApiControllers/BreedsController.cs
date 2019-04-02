@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.DAL.App;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -14,25 +15,28 @@ namespace WebApp.ApiControllers
     [ApiController]
     public class BreedsController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        
+        private readonly IAppUnitOfWork _uow;
 
-        public BreedsController(AppDbContext context)
+        public BreedsController(IAppUnitOfWork uow)
         {
-            _context = context;
+            
+            _uow = uow;
         }
 
         // GET: api/Breeds
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Breed>>> GetBreeds()
         {
-            return await _context.Breeds.ToListAsync();
+            var breeds = await _uow.Breed.AllAsync();
+            return new ActionResult<IEnumerable<Breed>>(breeds);
         }
 
         // GET: api/Breeds/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Breed>> GetBreed(int id)
         {
-            var breed = await _context.Breeds.FindAsync(id);
+            var breed = await _uow.Breed.FindAsync(id);
 
             if (breed == null)
             {
@@ -51,23 +55,10 @@ namespace WebApp.ApiControllers
                 return BadRequest();
             }
 
-            _context.Entry(breed).State = EntityState.Modified;
+            _uow.Breed.Update(breed);
+            await _uow.SaveChangesAsync();
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!BreedExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            
 
             return NoContent();
         }
@@ -76,8 +67,8 @@ namespace WebApp.ApiControllers
         [HttpPost]
         public async Task<ActionResult<Breed>> PostBreed(Breed breed)
         {
-            _context.Breeds.Add(breed);
-            await _context.SaveChangesAsync();
+            _uow.Breed.AddAsync(breed);
+            await _uow.SaveChangesAsync();
 
             return CreatedAtAction("GetBreed", new { id = breed.Id }, breed);
         }
@@ -86,21 +77,18 @@ namespace WebApp.ApiControllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Breed>> DeleteBreed(int id)
         {
-            var breed = await _context.Breeds.FindAsync(id);
+            var breed = await _uow.Breed.FindAsync(id);
             if (breed == null)
             {
                 return NotFound();
             }
 
-            _context.Breeds.Remove(breed);
-            await _context.SaveChangesAsync();
+            _uow.Breed.Remove(breed);
+            await _uow.SaveChangesAsync();
 
             return breed;
         }
 
-        private bool BreedExists(int id)
-        {
-            return _context.Breeds.Any(e => e.Id == id);
-        }
+       
     }
 }

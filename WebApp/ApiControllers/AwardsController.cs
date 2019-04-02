@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.DAL.App;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -14,25 +15,28 @@ namespace WebApp.ApiControllers
     [ApiController]
     public class AwardsController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        
+        private readonly IAppUnitOfWork _uow;
 
-        public AwardsController(AppDbContext context)
+        public AwardsController(IAppUnitOfWork uow)
         {
-            _context = context;
+           
+            _uow = uow;
         }
 
         // GET: api/Awards
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Award>>> GetAwards()
         {
-            return await _context.Awards.ToListAsync();
+            var awards = await _uow.Award.AllAsync();
+            return new ActionResult<IEnumerable<Award>>(awards);
         }
 
         // GET: api/Awards/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Award>> GetAward(int id)
         {
-            var award = await _context.Awards.FindAsync(id);
+            var award = await _uow.Award.FindAsync(id);
 
             if (award == null)
             {
@@ -51,23 +55,11 @@ namespace WebApp.ApiControllers
                 return BadRequest();
             }
 
-            _context.Entry(award).State = EntityState.Modified;
+            _uow.Award.Update(award);
+            await _uow.SaveChangesAsync();
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!AwardExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            
+            
 
             return NoContent();
         }
@@ -76,8 +68,8 @@ namespace WebApp.ApiControllers
         [HttpPost]
         public async Task<ActionResult<Award>> PostAward(Award award)
         {
-            _context.Awards.Add(award);
-            await _context.SaveChangesAsync();
+            await _uow.Award.AddAsync(award);
+            await _uow.SaveChangesAsync();
 
             return CreatedAtAction("GetAward", new { id = award.Id }, award);
         }
@@ -86,21 +78,18 @@ namespace WebApp.ApiControllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Award>> DeleteAward(int id)
         {
-            var award = await _context.Awards.FindAsync(id);
+            var award = await _uow.Award.FindAsync(id);
             if (award == null)
             {
                 return NotFound();
             }
 
-            _context.Awards.Remove(award);
-            await _context.SaveChangesAsync();
+            _uow.Award.Remove(award);
+            await _uow.SaveChangesAsync();
 
             return award;
         }
 
-        private bool AwardExists(int id)
-        {
-            return _context.Awards.Any(e => e.Id == id);
-        }
+     
     }
 }

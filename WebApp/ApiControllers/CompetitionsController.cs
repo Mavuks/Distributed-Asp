@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.DAL.App;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -14,25 +15,31 @@ namespace WebApp.ApiControllers
     [ApiController]
     public class CompetitionsController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        
 
-        public CompetitionsController(AppDbContext context)
+        private readonly IAppUnitOfWork _uow;
+        
+
+        public CompetitionsController( IAppUnitOfWork uow)
         {
-            _context = context;
+            
+            _uow = uow;
         }
 
         // GET: api/Competitions
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Competition>>> GetCompetitions()
         {
-            return await _context.Competitions.ToListAsync();
+            var competitions = await _uow.Competition.AllAsync();
+            
+            return new ActionResult<IEnumerable<Competition>>(competitions);
         }
 
         // GET: api/Competitions/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Competition>> GetCompetition(int id)
         {
-            var competition = await _context.Competitions.FindAsync(id);
+            var competition = await _uow.Competition.FindAsync(id);
 
             if (competition == null)
             {
@@ -51,23 +58,9 @@ namespace WebApp.ApiControllers
                 return BadRequest();
             }
 
-            _context.Entry(competition).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CompetitionExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            _uow.Competition.Update(competition);
+            await _uow.SaveChangesAsync();
+            
 
             return NoContent();
         }
@@ -76,8 +69,8 @@ namespace WebApp.ApiControllers
         [HttpPost]
         public async Task<ActionResult<Competition>> PostCompetition(Competition competition)
         {
-            _context.Competitions.Add(competition);
-            await _context.SaveChangesAsync();
+            await _uow.Competition.AddAsync(competition);
+            await _uow.SaveChangesAsync();
 
             return CreatedAtAction("GetCompetition", new { id = competition.Id }, competition);
         }
@@ -86,21 +79,18 @@ namespace WebApp.ApiControllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Competition>> DeleteCompetition(int id)
         {
-            var competition = await _context.Competitions.FindAsync(id);
+            var competition = await _uow.Competition.FindAsync(id);
             if (competition == null)
             {
                 return NotFound();
             }
 
-            _context.Competitions.Remove(competition);
-            await _context.SaveChangesAsync();
+            _uow.Competition.Remove(competition);
+            await _uow.SaveChangesAsync();
 
             return competition;
         }
 
-        private bool CompetitionExists(int id)
-        {
-            return _context.Competitions.Any(e => e.Id == id);
-        }
+       
     }
 }

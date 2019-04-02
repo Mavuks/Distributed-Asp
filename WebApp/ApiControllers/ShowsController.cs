@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.DAL.App;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -14,25 +15,27 @@ namespace WebApp.ApiControllers
     [ApiController]
     public class ShowsController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly IAppUnitOfWork _uow;
 
-        public ShowsController(AppDbContext context)
+        public ShowsController(IAppUnitOfWork uow)
         {
-            _context = context;
+            _uow = uow;
+            
         }
 
         // GET: api/Shows
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Show>>> GetShows()
         {
-            return await _context.Shows.ToListAsync();
+            var shows = await _uow.Show.AllAsync();
+            return new ActionResult<IEnumerable<Show>>(shows);
         }
 
         // GET: api/Shows/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Show>> GetShow(int id)
         {
-            var show = await _context.Shows.FindAsync(id);
+            var show = await _uow.Show.FindAsync(id);
 
             if (show == null)
             {
@@ -51,23 +54,8 @@ namespace WebApp.ApiControllers
                 return BadRequest();
             }
 
-            _context.Entry(show).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ShowExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            _uow.Show.Update(show);
+            await _uow.SaveChangesAsync();
 
             return NoContent();
         }
@@ -76,8 +64,8 @@ namespace WebApp.ApiControllers
         [HttpPost]
         public async Task<ActionResult<Show>> PostShow(Show show)
         {
-            _context.Shows.Add(show);
-            await _context.SaveChangesAsync();
+            await _uow.Show.AddAsync(show);
+            await _uow.SaveChangesAsync();
 
             return CreatedAtAction("GetShow", new { id = show.Id }, show);
         }
@@ -86,21 +74,17 @@ namespace WebApp.ApiControllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Show>> DeleteShow(int id)
         {
-            var show = await _context.Shows.FindAsync(id);
+            var show = await _uow.Show.FindAsync(id);
             if (show == null)
             {
                 return NotFound();
             }
 
-            _context.Shows.Remove(show);
-            await _context.SaveChangesAsync();
+            _uow.Show.Remove(show);
+            await _uow.SaveChangesAsync();
 
             return show;
         }
 
-        private bool ShowExists(int id)
-        {
-            return _context.Shows.Any(e => e.Id == id);
-        }
     }
 }

@@ -1,8 +1,13 @@
-﻿@{
+﻿@model IEnumerable<Domain.Schooling>
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Tere Tulemast!!</h1>
+     @Html.DisplayNameFor(model => model.SchoolingName)
+           
+    
+
     
 </div>

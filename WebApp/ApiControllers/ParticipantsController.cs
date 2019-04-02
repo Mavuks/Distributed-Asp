@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.DAL.App;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -14,25 +15,27 @@ namespace WebApp.ApiControllers
     [ApiController]
     public class ParticipantsController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly IAppUnitOfWork _uow;
 
-        public ParticipantsController(AppDbContext context)
+        public ParticipantsController(IAppUnitOfWork uow)
         {
-            _context = context;
+            _uow = uow;
+            
         }
 
         // GET: api/Participants
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Participant>>> GetParticipants()
         {
-            return await _context.Participants.ToListAsync();
+            var participants = await _uow.Participant.AllAsync();
+            return new ActionResult<IEnumerable<Participant>>(participants);
         }
 
         // GET: api/Participants/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Participant>> GetParticipant(int id)
         {
-            var participant = await _context.Participants.FindAsync(id);
+            var participant = await _uow.Participant.FindAsync(id);
 
             if (participant == null)
             {
@@ -51,23 +54,8 @@ namespace WebApp.ApiControllers
                 return BadRequest();
             }
 
-            _context.Entry(participant).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ParticipantExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            _uow.Participant.Update(participant);
+            await _uow.SaveChangesAsync();
 
             return NoContent();
         }
@@ -76,8 +64,8 @@ namespace WebApp.ApiControllers
         [HttpPost]
         public async Task<ActionResult<Participant>> PostParticipant(Participant participant)
         {
-            _context.Participants.Add(participant);
-            await _context.SaveChangesAsync();
+            await _uow.Participant.AddAsync(participant);
+            await _uow.SaveChangesAsync();
 
             return CreatedAtAction("GetParticipant", new { id = participant.Id }, participant);
         }
@@ -86,21 +74,17 @@ namespace WebApp.ApiControllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Participant>> DeleteParticipant(int id)
         {
-            var participant = await _context.Participants.FindAsync(id);
+            var participant = await _uow.Participant.FindAsync(id);
             if (participant == null)
             {
                 return NotFound();
             }
 
-            _context.Participants.Remove(participant);
-            await _context.SaveChangesAsync();
+            _uow.Participant.Remove(participant);
+            await _uow.SaveChangesAsync();
 
             return participant;
         }
 
-        private bool ParticipantExists(int id)
-        {
-            return _context.Participants.Any(e => e.Id == id);
-        }
     }
 }

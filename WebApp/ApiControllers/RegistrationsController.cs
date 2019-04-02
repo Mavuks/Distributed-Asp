@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.DAL.App;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -14,25 +15,27 @@ namespace WebApp.ApiControllers
     [ApiController]
     public class RegistrationsController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly IAppUnitOfWork _uow;
 
-        public RegistrationsController(AppDbContext context)
+        public RegistrationsController( IAppUnitOfWork uow)
         {
-            _context = context;
+            _uow = uow;
+            
         }
 
         // GET: api/Registrations
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Registration>>> GetRegistrations()
         {
-            return await _context.Registrations.ToListAsync();
+            var registrations = await _uow.Registration.AllAsync();
+            return new ActionResult<IEnumerable<Registration>>(registrations);
         }
 
         // GET: api/Registrations/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Registration>> GetRegistration(int id)
         {
-            var registration = await _context.Registrations.FindAsync(id);
+            var registration = await _uow.Registration.FindAsync(id);
 
             if (registration == null)
             {
@@ -51,24 +54,9 @@ namespace WebApp.ApiControllers
                 return BadRequest();
             }
 
-            _context.Entry(registration).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!RegistrationExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
+            _uow.Registration.Update(registration);
+            await _uow.SaveChangesAsync();
+            
             return NoContent();
         }
 
@@ -76,8 +64,8 @@ namespace WebApp.ApiControllers
         [HttpPost]
         public async Task<ActionResult<Registration>> PostRegistration(Registration registration)
         {
-            _context.Registrations.Add(registration);
-            await _context.SaveChangesAsync();
+            await _uow.Registration.AddAsync(registration);
+            await _uow.SaveChangesAsync();
 
             return CreatedAtAction("GetRegistration", new { id = registration.Id }, registration);
         }
@@ -86,21 +74,17 @@ namespace WebApp.ApiControllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Registration>> DeleteRegistration(int id)
         {
-            var registration = await _context.Registrations.FindAsync(id);
+            var registration = await _uow.Registration.FindAsync(id);
             if (registration == null)
             {
                 return NotFound();
             }
 
-            _context.Registrations.Remove(registration);
-            await _context.SaveChangesAsync();
+            _uow.Registration.Remove(registration);
+            await _uow.SaveChangesAsync();
 
             return registration;
         }
 
-        private bool RegistrationExists(int id)
-        {
-            return _context.Registrations.Any(e => e.Id == id);
-        }
     }
 }
