@@ -1,0 +1,42 @@
+<template>
+
+  <h1>Breed - Index</h1>
+
+  <p>
+    <a route-href="route: breedsCreate">Breed - Create New</a>
+  </p>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>
+        Breed Name
+      </th>
+      <th>
+        Breeds
+      </th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- repeat this tr element, iterate over breeds -->
+    <tr repeat.for="breeds of breed">
+      <td>
+        <!-- string interpolation -->
+        ${breeds.breedName}
+      </td>
+      <td>
+        <!-- string interpolation -->
+        ${breeds.breedCount}
+      </td>
+      <td>
+        <!-- gdenerate links, based on routing table defined in main-router -->
+        <a route-href="route: breedsEdit; params.bind: {id: breeds.id}">Edit</a> |
+        <a route-href="route: breedsDetails; params.bind: {id: breeds.id}">Details</a> |
+        <a route-href="route: breedsDelete; params.bind: {id: breeds.id}">Delete</a>
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+  
+</template>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Contracts.DAL.App;
+using DAL.App.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -26,10 +27,10 @@ namespace WebApp.ApiControllers
 
         // GET: api/Breeds
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Breed>>> GetBreeds()
+        public async Task<ActionResult<IEnumerable<BreedDTO>>> GetBreeds()
         {
-            var breeds = await _uow.Breed.AllAsync();
-            return new ActionResult<IEnumerable<Breed>>(breeds);
+
+            return Ok(await _uow.Breed.GetAllWithBreedCountAsync());
         }
 
         // GET: api/Breeds/5
@@ -67,7 +68,7 @@ namespace WebApp.ApiControllers
         [HttpPost]
         public async Task<ActionResult<Breed>> PostBreed(Breed breed)
         {
-            _uow.Breed.AddAsync(breed);
+            await _uow.Breed.AddAsync(breed);
             await _uow.SaveChangesAsync();
 
             return CreatedAtAction("GetBreed", new { id = breed.Id }, breed);

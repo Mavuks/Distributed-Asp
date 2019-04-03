@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Contracts.DAL.App;
 using Contracts.DAL.App.Repositories;
@@ -23,6 +25,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using WebApp.Helpers;
 
 namespace WebApp
@@ -79,10 +83,59 @@ namespace WebApp
                 options.Password.RequireNonAlphanumeric = false;
 
             });
+            
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsAllowAll",
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin();
+                        builder.AllowAnyHeader();
+                        builder.AllowAnyMethod();
+                    });
+                
+            });
 
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = $"/Identity/Account/Login";
+                options.LogoutPath = $"/Identity/Account/Logout";
+                options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
+            });
+            
+            
             services.AddTransient<IEmailSender, EmailSender>();
             
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear(); // => remove default claims
+            services
+                .AddAuthentication()
+                .AddCookie(options => { options.SlidingExpiration = true; })
+                .AddJwtBearer(cfg =>
+                {
+                    cfg.RequireHttpsMetadata = false;
+                    cfg.SaveToken = true;
+                    cfg.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidIssuer = Configuration["JWT:Issuer"],
+                        ValidAudience = Configuration["JWT:Issuer"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Key"])),
+                        ClockSkew = TimeSpan.Zero // remove delay of token when expire
+                    };
+                });
+            
+            services
+                .AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .AddRazorPagesOptions(options =>
+                {
+                    options.AllowAreas = true;
+                    options.Conventions.AuthorizeAreaFolder("Identity", "/Account/Manage");
+                    options.Conventions.AuthorizeAreaPage("Identity", "/Account/Logout");
+                }).AddJsonOptions(options =>
+                {
+                    //options.SerializerSettings.PreserveReferencesHandling = PreserveReferencesHandling.Objects;
+                    options.SerializerSettings.Formatting = Formatting.Indented;
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -105,6 +158,8 @@ namespace WebApp
             app.UseCookiePolicy();
 
             app.UseAuthentication();
+            
+            app.UseCors("CorsAllowAll");
 
             app.UseMvc(routes =>
             {

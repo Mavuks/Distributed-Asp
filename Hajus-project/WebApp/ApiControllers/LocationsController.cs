@@ -64,7 +64,7 @@ namespace WebApp.ApiControllers
         [HttpPost]
         public async Task<ActionResult<Location>> PostLocation(Location location)
         {
-            _uow.Location.AddAsync(location);
+            await _uow.Location.AddAsync(location);
             await _uow.SaveChangesAsync();
 
             return CreatedAtAction("GetLocation", new { id = location.Id }, location);
