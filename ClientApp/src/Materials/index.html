@@ -1,0 +1,42 @@
+<template>
+
+  <h1>Material - Index</h1>
+
+  <p>
+    <a route-href="route: materialsCreate">Material - Create New</a>
+  </p>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>
+        Material Name
+      </th>
+      <th>
+        Counts
+      </th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- repeat this tr element, iterate over materials -->
+    <tr repeat.for="materials of material">
+      <td>
+        <!-- string interpolation -->
+        ${materials.MaterialName}
+      </td>
+      <td>
+        <!-- string interpolation -->
+        ${materials.MaterialCount}
+      </td>
+      <td>
+        <!-- gdenerate links, based on routing table defined in main-router -->
+        <a route-href="route: materialsEdit; params.bind: {id: materials.id}">Edit</a> |
+        <a route-href="route: materialsDetails; params.bind: {id: materials.id}">Details</a> |
+        <a route-href="route: materialsDelete; params.bind: {id: materials.id}">Delete</a>
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+  
+</template>

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Domain
 {
@@ -8,7 +9,7 @@ namespace Domain
         public string MaterialName { get; set; }
 
 
-        public List<Schooling> Schoolings { get; set; }
+        public ICollection<Schooling> Schoolings { get; set; }
         
     }
 }

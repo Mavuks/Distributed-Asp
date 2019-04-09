@@ -22,6 +22,9 @@ export class MainRouter {
       [
         {route: ['', 'home'], name: 'home', moduleId: PLATFORM.moduleName('home'), nav: true, title: 'Home'},
 
+        {route: 'identity/login', name: 'identity' + 'Login', moduleId: PLATFORM.moduleName('identity/login'), nav: false, title: 'Login'},
+        {route: 'identity/register', name: 'identity' + 'Register', moduleId: PLATFORM.moduleName('identity/register'), nav: false, title: 'Register'},
+        {route: 'identity/logout', name: 'identity' + 'Logout', moduleId: PLATFORM.moduleName('identity/logout'), nav: false, title: 'Logout'},
 
 
         {route: ['breeds','breeds/index'], name: 'breeds' + 'Index', moduleId: PLATFORM.moduleName('breeds/index'), nav: true, title: 'Breeds'},
@@ -30,6 +33,11 @@ export class MainRouter {
         {route: 'breeds/delete/:id', name: 'breeds' + 'Delete', moduleId: PLATFORM.moduleName('breeds/delete'), nav: false, title: 'Breeds Delete'},
         {route: 'breeds/details/:id', name: 'breeds' + 'Details', moduleId: PLATFORM.moduleName('breeds/details'), nav: false, title: 'Breeds Details'},
 
+        {route: ['materials','material/index'], name: 'materials' + 'Index', moduleId: PLATFORM.moduleName('materials/index'), nav: true, title: 'Materials'},
+        {route: 'materials/create', name: 'materials' + 'Create', moduleId: PLATFORM.moduleName('materials/create'), nav: false, title: 'Materials Create'},
+        {route: 'materials/edit/:id', name: 'materials' + 'Edit', moduleId: PLATFORM.moduleName('materials/edit'), nav: false, title: 'Materials Edit'},
+        {route: 'materials/delete/:id', name: 'materials' + 'Delete', moduleId: PLATFORM.moduleName('materials/delete'), nav: false, title: 'Materials Delete'},
+        {route: 'materials/details/:id', name: 'materials' + 'Details', moduleId: PLATFORM.moduleName('materials/details'), nav: false, title: 'Materials Details'},
       ]
     );
     // {route: 'identity/login', name: 'identity' + 'Login', moduleId: PLATFORM.moduleName('identity/login'), nav: false, title: 'Login'},

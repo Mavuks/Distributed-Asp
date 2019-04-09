@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Contracts.DAL.App;
+using DAL.App.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -25,11 +26,11 @@ namespace WebApp.ApiControllers
 
         // GET: api/Materials
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Material>>> GetMaterials()
+        public async Task<ActionResult<IEnumerable<MaterialDTO>>> GetMaterials()
         {
-            var materials = await _uow.Material.AllAsync();
-                
-            return new ActionResult<IEnumerable<Material>>(materials);
+
+
+            return Ok(await _uow.Material.GetAllWithMaterialCountAsync());
         }
 
         // GET: api/Materials/5

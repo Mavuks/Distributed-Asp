@@ -71,7 +71,7 @@ namespace WebApp.ApiControllers.Identity
         {
             if (ModelState.IsValid)
             {
-                var appUser = new AppUser { UserName = model.Email, Email = model.Email };
+                var appUser = new AppUser { UserName = model.Email, Email = model.Email, FirstName = model.Firstname, LastName = model.Lastname};
                 var result = await _userManager.CreateAsync(appUser, model.Password);
                 if (result.Succeeded)
                 {
@@ -122,6 +122,10 @@ namespace WebApp.ApiControllers.Identity
             [Required]
             [MinLength(6)]
             public string Password { get; set; }
+
+            public string Firstname { get; set; }
+
+            public string Lastname { get; set; }
         }
         
         

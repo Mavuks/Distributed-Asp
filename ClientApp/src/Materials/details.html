@@ -3,21 +3,21 @@
   <h1>Details</h1>
 
   <div>
-    <h4>Breed</h4>
+    <h4>Material</h4>
     <hr />
     <dl class="row">
       <dt class = "col-sm-2">
-        Breed Name
+        Material Name
       </dt>
       <dd class = "col-sm-10">
-        ${breed.breedName}
+        ${material.MaterialName}
       </dd>
     </dl>
   </div>
   <div>
     <!-- if.bind - add/remove element to dom based on predicate -->
-    <a if.bind="breed != null" route-href="route: breedsEdit; params.bind: {id: breed.id}">Edit</a> |
-    <a route-href="route: breedsIndex">Back to List</a>
+    <a if.bind="material != null" route-href="route: materialsEdit; params.bind: {id: material.id}">Edit</a> |
+    <a route-href="route: materialsIndex">Back to List</a>
   </div>
 
 </template>
