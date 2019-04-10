@@ -1,0 +1,42 @@
+<template>
+
+  <h1>Participant - Index</h1>
+
+  <p>
+    <a route-href="route: participantsCreate">Participant - Create New</a>
+  </p>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>
+        First Name
+      </th>
+      <th>
+        Last name
+      </th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- repeat this tr element, iterate over participants -->
+    <tr repeat.for="participants of participant">
+      <td>
+        <!-- string interpolation -->
+        ${participants.FirstName}
+      </td>
+      <td>
+        <!-- string interpolation -->
+        ${participants.LastName}
+      </td>
+      <td>
+        <!-- gdenerate links, based on routing table defined in main-router -->
+        <a route-href="route: participantsEdit; params.bind: {id: participants.id}">Edit</a> |
+        <a route-href="route: participantsDetails; params.bind: {id: participants.id}">Details</a> |
+        <a route-href="route: participantsDelete; params.bind: {id: participants.id}">Delete</a>
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+  
+</template>

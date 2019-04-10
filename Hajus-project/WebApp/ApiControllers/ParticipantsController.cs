@@ -27,8 +27,8 @@ namespace WebApp.ApiControllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Participant>>> GetParticipants()
         {
-            var participants = await _uow.Participant.AllAsync();
-            return new ActionResult<IEnumerable<Participant>>(participants);
+
+            return Ok(await _uow.Participant.GetAllParticipantAsync());
         }
 
         // GET: api/Participants/5

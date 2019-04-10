@@ -1,0 +1,29 @@
+<template>
+
+  <h1>Details</h1>
+
+  <div>
+    <h4>Participant</h4>
+    <hr />
+    <dl class="row">
+      <dt class = "col-sm-2">
+        First name
+      </dt>
+      <dd class = "col-sm-10">
+        ${participant.FirstName}
+      </dd>
+      <dt class = "col-sm-2">
+        last Name
+      </dt>
+      <dd class = "col-sm-10">
+        ${participant.LastName}
+      </dd>
+    </dl>
+  </div>
+  <div>
+    <!-- if.bind - add/remove element to dom based on predicate -->
+    <a if.bind="material != null" route-href="route: participantsEdit; params.bind: {id: participant.id}">Edit</a> |
+    <a route-href="route: participantsIndex">Back to List</a>
+  </div>
+
+</template>

@@ -2,15 +2,19 @@
 
   <h1>Edit</h1>
 
-  <h4>Material</h4>
+  <h4>Participant</h4>
   <hr />
   <div class="row">
     <div class="col-md-4">
       <form method="post" submit.delegate="submit()">
 
         <div class="form-group">
-          <label class="control-label" for="MaterialName">MaterialName</label>
-          <input class="form-control" type="text" value.bind="material.MaterialName" />
+          <label class="control-label" for="FirstName">First Name</label>
+          <input class="form-control" type="text" value.bind="participant.FirstName" />
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="LastName">Last name</label>
+          <input class="form-control" type="text" value.bind="participant.LastName" />
         </div>
         <div class="form-group">
           <input type="submit" value="Save" class="btn btn-primary" />

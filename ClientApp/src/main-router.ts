@@ -38,6 +38,12 @@ export class MainRouter {
         {route: 'materials/edit/:id', name: 'materials' + 'Edit', moduleId: PLATFORM.moduleName('materials/edit'), nav: false, title: 'Materials Edit'},
         {route: 'materials/delete/:id', name: 'materials' + 'Delete', moduleId: PLATFORM.moduleName('materials/delete'), nav: false, title: 'Materials Delete'},
         {route: 'materials/details/:id', name: 'materials' + 'Details', moduleId: PLATFORM.moduleName('materials/details'), nav: false, title: 'Materials Details'},
+
+        {route: ['participants','participant/index'], name: 'participants' + 'Index', moduleId: PLATFORM.moduleName('participants/index'), nav: true, title: 'Participants'},
+        {route: 'participants/create', name: 'participants' + 'Create', moduleId: PLATFORM.moduleName('participants/create'), nav: false, title: 'Participants Create'},
+        {route: 'participants/edit/:id', name: 'participants' + 'Edit', moduleId: PLATFORM.moduleName('participants/edit'), nav: false, title: 'Participants Edit'},
+        {route: 'participants/delete/:id', name: 'participants' + 'Delete', moduleId: PLATFORM.moduleName('participants/delete'), nav: false, title: 'Participants Delete'},
+        {route: 'participants/details/:id', name: 'participants' + 'Details', moduleId: PLATFORM.moduleName('participants/details'), nav: false, title: 'Participants Details'},
       ]
     );
     // {route: 'identity/login', name: 'identity' + 'Login', moduleId: PLATFORM.moduleName('identity/login'), nav: false, title: 'Login'},
