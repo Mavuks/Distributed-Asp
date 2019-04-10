@@ -15,8 +15,6 @@ namespace DAL.App.EF.Helpers
             RepositoryCreationMethods.Add(typeof(IDogRepository), 
                 dataContext => new  DogRepository(dataContext));
             
-            RepositoryCreationMethods.Add(typeof(IAwardRepository), 
-                dataContext => new  AwardRepository(dataContext));
             
             RepositoryCreationMethods.Add(typeof(IBreedRepository), 
                 dataContext => new  BreedRepository(dataContext));

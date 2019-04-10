@@ -10,9 +10,7 @@ namespace Domain
         public string Title { get; set; }
 
         public string Comment { get; set; }
-
-       
-        
+ 
         [Display(Name = "Start")]
         [DataType(DataType.Date)]
         public DateTime Start { get; set; }
@@ -31,7 +29,6 @@ namespace Domain
         public int ParticipantId { get; set; }
         public Participant Participant { get; set; }
 
-        public List<Award> Awards { get; set; }
 
         public List<Registration> Registrations { get; set; }
       

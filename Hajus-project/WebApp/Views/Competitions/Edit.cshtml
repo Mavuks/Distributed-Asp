@@ -23,11 +23,6 @@
                 <span asp-validation-for="Competition.Comment" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Competition.Award" class="control-label"></label>
-                <input asp-for="Competition.Award" class="form-control" />
-                <span asp-validation-for="Competition.Award" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Competition.Start" class="control-label"></label>
                 <input asp-for="Competition.Start" class="form-control" />
                 <span asp-validation-for="Competition.Start" class="text-danger"></span>
@@ -38,19 +33,9 @@
                 <span asp-validation-for="Competition.End" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Competition.DogId" class="control-label"></label>
-                <select asp-for="Competition.DogId" class="form-control" asp-items="Model.DogSelectList"></select>
-                <span asp-validation-for="Competition.DogId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Competition.LocationId" class="control-label"></label>
                 <select asp-for="Competition.LocationId" class="form-control" asp-items="Model.LocationSelectList"></select>
                 <span asp-validation-for="Competition.LocationId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Competition.ParticipantId" class="control-label"></label>
-                <select asp-for="Competition.ParticipantId" class="form-control" asp-items="Model.ParticipantSelectList"></select>
-                <span asp-validation-for="Competition.ParticipantId" class="text-danger"></span>
             </div>
             <input type="hidden" asp-for="Competition.Id" />
             <div class="form-group">

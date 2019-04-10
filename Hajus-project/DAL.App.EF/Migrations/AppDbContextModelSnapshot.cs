@@ -17,28 +17,6 @@ namespace DAL.App.EF.Migrations
                 .HasAnnotation("ProductVersion", "2.2.3-servicing-35854")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("Domain.Award", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Comment");
-
-                    b.Property<int?>("CompetitionId");
-
-                    b.Property<string>("Place");
-
-                    b.Property<int?>("ShowId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CompetitionId");
-
-                    b.HasIndex("ShowId");
-
-                    b.ToTable("Awards");
-                });
-
             modelBuilder.Entity("Domain.Breed", b =>
                 {
                     b.Property<int>("Id")
@@ -56,17 +34,11 @@ namespace DAL.App.EF.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Award");
-
                     b.Property<string>("Comment");
-
-                    b.Property<int>("DogId");
 
                     b.Property<DateTime>("End");
 
                     b.Property<int>("LocationId");
-
-                    b.Property<int>("ParticipantId");
 
                     b.Property<DateTime>("Start");
 
@@ -74,11 +46,7 @@ namespace DAL.App.EF.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DogId");
-
                     b.HasIndex("LocationId");
-
-                    b.HasIndex("ParticipantId");
 
                     b.ToTable("Competitions");
                 });
@@ -87,10 +55,6 @@ namespace DAL.App.EF.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<int>("AppUserId");
-
-                    b.Property<int?>("AwardId");
 
                     b.Property<int>("BreedId");
 
@@ -107,10 +71,6 @@ namespace DAL.App.EF.Migrations
                     b.Property<string>("Sex");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AppUserId");
-
-                    b.HasIndex("AwardId");
 
                     b.HasIndex("BreedId");
 
@@ -251,13 +211,9 @@ namespace DAL.App.EF.Migrations
 
                     b.Property<int>("DogId");
 
-                    b.Property<DateTime>("End");
-
                     b.Property<int>("ParticipantId");
 
                     b.Property<int?>("ShowId");
-
-                    b.Property<DateTime>("Start");
 
                     b.Property<string>("Title");
 
@@ -285,7 +241,7 @@ namespace DAL.App.EF.Migrations
 
                     b.Property<int>("MaterialId");
 
-                    b.Property<int?>("ParticipantId");
+                    b.Property<int>("ParticipantId");
 
                     b.Property<string>("SchoolingName");
 
@@ -413,49 +369,16 @@ namespace DAL.App.EF.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Domain.Award", b =>
-                {
-                    b.HasOne("Domain.Competition", "Competition")
-                        .WithMany("Awards")
-                        .HasForeignKey("CompetitionId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("Domain.Show", "Show")
-                        .WithMany("Awards")
-                        .HasForeignKey("ShowId")
-                        .OnDelete(DeleteBehavior.Restrict);
-                });
-
             modelBuilder.Entity("Domain.Competition", b =>
                 {
-                    b.HasOne("Domain.Dog", "Dog")
-                        .WithMany("Competitions")
-                        .HasForeignKey("DogId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
                     b.HasOne("Domain.Location", "Location")
                         .WithMany("Competitions")
                         .HasForeignKey("LocationId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("Domain.Participant", "Participant")
-                        .WithMany("Competitions")
-                        .HasForeignKey("ParticipantId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Domain.Dog", b =>
                 {
-                    b.HasOne("Domain.Identity.AppUser", "AppUser")
-                        .WithMany()
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("Domain.Award", "Award")
-                        .WithMany("Dogs")
-                        .HasForeignKey("AwardId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
                     b.HasOne("Domain.Breed", "Breed")
                         .WithMany("Dogs")
                         .HasForeignKey("BreedId")
@@ -497,7 +420,7 @@ namespace DAL.App.EF.Migrations
                         .HasForeignKey("MaterialId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("Domain.Participant")
+                    b.HasOne("Domain.Participant", "Participant")
                         .WithMany("Schoolings")
                         .HasForeignKey("ParticipantId")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -506,7 +429,7 @@ namespace DAL.App.EF.Migrations
             modelBuilder.Entity("Domain.Show", b =>
                 {
                     b.HasOne("Domain.Dog", "Dog")
-                        .WithMany("Shows")
+                        .WithMany()
                         .HasForeignKey("DogId")
                         .OnDelete(DeleteBehavior.Restrict);
 
@@ -516,7 +439,7 @@ namespace DAL.App.EF.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("Domain.Participant", "Participant")
-                        .WithMany("Shows")
+                        .WithMany()
                         .HasForeignKey("ParticipantId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });

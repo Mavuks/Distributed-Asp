@@ -13,7 +13,6 @@ namespace DAL.App.EF
         public DbSet<Dog> Dogs { get; set; }
         public DbSet<Breed> Breeds { get; set; }
         public DbSet<Competition> Competitions { get; set; }
-        public DbSet<Award> Awards { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<Material> Materials { get; set; }
         public DbSet<Participant> Participants { get; set; }

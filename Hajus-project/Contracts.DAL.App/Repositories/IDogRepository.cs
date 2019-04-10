@@ -8,6 +8,6 @@ namespace Contracts.DAL.App.Repositories
     public interface IDogRepository : IBaseRepositoryAsync<Dog>
     {
         // add here custom methods
-        Task<IEnumerable<Dog>> AllAsync(int userId);
+        Task<IEnumerable<Dog>> AllAsync();
     }
 }

@@ -9,6 +9,8 @@ using Domain;
  {
      public interface IParticipantRepository : IBaseRepositoryAsync<Participant>
      {
+         
+        
          // add here custom methods
          Task<IEnumerable<ParticipantDTO>> GetAllParticipantAsync();
      }

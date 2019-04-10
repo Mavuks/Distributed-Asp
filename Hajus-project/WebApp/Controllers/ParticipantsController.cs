@@ -14,13 +14,12 @@ namespace WebApp.Controllers
     public class ParticipantsController : Controller
     {
         
-
         private readonly IAppUnitOfWork _uow;
 
         public ParticipantsController( IAppUnitOfWork uow)
         {
-           
             _uow = uow;
+            
         }
 
         // GET: Participants
@@ -37,9 +36,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-
             var participant = await _uow.Participant.FindAsync(id);
-            
             if (participant == null)
             {
                 return NotFound();
@@ -100,11 +97,8 @@ namespace WebApp.Controllers
 
             if (ModelState.IsValid)
             {
-
                 _uow.Participant.Update(participant);
-                    await _uow.SaveChangesAsync();
-                
-                
+                await _uow.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(participant);
@@ -132,12 +126,11 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            
-            _uow.Participant.Remove(id);
+            var participant = await _uow.Participant.FindAsync(id);
+            _uow.Participant.Remove(participant);
             await _uow.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-       
     }
 }

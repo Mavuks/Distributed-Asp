@@ -13,6 +13,8 @@ namespace Domain
         [MinLength(2)]
         [Required]
         public string DogName { get; set; }
+        
+        
 
         
         [Display(Name = "Date of birth")]
@@ -32,20 +34,12 @@ namespace Domain
 
         public string Owner { get; set; }
         
-        public int AppUserId { get; set; }
-        public AppUser AppUser { get; set; }
-
         public List<Schooling> Schoolings { get; set; }
 
         public List<Registration> Registrations  { get; set; }
 
-        public List<Show> Shows { get; set; }
 
-        public List<Competition> Competitions { get; set; }
-
-        public int? AwardId { get; set; }
-        public Award Award { get; set; }
         
-       
+      
     }
 }

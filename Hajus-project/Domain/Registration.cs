@@ -8,16 +8,7 @@ namespace Domain
         public string Title { get; set; }
 
         public string Comment { get; set; }
-        
-        [Display(Name = "Start")]
-        [DataType(DataType.Date)]
-        public DateTime Start { get; set; }
-        
-        [Display(Name = "End")]
-        [DataType(DataType.Date)]
-        public DateTime End { get; set; }
-
-
+       
         public int DogId { get; set; }
         public Dog Dog { get; set; }
 

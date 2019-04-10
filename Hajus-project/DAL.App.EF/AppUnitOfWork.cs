@@ -20,8 +20,6 @@ namespace DAL.App.EF
 
         private readonly IRepositoryProvider _repositoryProvider;
 
-        public IAwardRepository Award =>  
-            _repositoryProvider.GetRepository<IAwardRepository>();
         public IBreedRepository Breed => 
             _repositoryProvider.GetRepository<IBreedRepository>();
         public IDogRepository Dog => 

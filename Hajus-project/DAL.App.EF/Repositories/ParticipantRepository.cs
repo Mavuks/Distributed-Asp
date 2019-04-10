@@ -20,6 +20,7 @@ namespace DAL.App.EF.Repositories
         }
 
 
+        
 
         public virtual async Task<IEnumerable<ParticipantDTO>> GetAllParticipantAsync()
         {

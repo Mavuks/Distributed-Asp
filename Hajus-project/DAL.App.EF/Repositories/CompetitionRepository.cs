@@ -18,9 +18,9 @@ namespace DAL.App.EF.Repositories
         public override async Task<IEnumerable<Competition>> AllAsync()
         {
             return await RepositoryDbSet
-                .Include(a => a.Dog)
+               // .Include(a => a.Dog)
                 .Include(b => b.Location)
-                .Include(c => c.Participant)
+              //  .Include(c => c.Participant)
                 .ToListAsync();
         }
     }    

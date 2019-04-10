@@ -26,5 +26,10 @@ namespace Domain
         public int DogId { get; set; }
 
         public Dog Dog { get; set; }
+
+
+        public int  ParticipantId { get; set; }
+
+        public Participant Participant { get; set; }
     }
 }

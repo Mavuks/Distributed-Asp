@@ -8,6 +8,6 @@ namespace Domain
 
         public string BreedName { get; set; }
 
-        public List<Dog> Dogs { get; set; }
+        public ICollection<Dog> Dogs { get; set; }
     }
 }

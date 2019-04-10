@@ -11,9 +11,7 @@ namespace Domain
 
         public string Comment { get; set; }
 
-        public string Award { get; set; }
-        
-        
+      
         [Display(Name = "Start")]
         [DataType(DataType.Date)]
         public DateTime Start { get; set; }
@@ -22,18 +20,10 @@ namespace Domain
         [DataType(DataType.Date)]
         public DateTime End { get; set; }
 
-
-        public int DogId { get; set; }
-        public Dog Dog { get; set; }
-
         public int LocationId { get; set; }
         public Location Location { get; set; }
 
-        public int ParticipantId { get; set; }
-        public Participant Participant { get; set; }
-
         public List<Registration> Registrations { get; set; }
 
-        public List<Award> Awards { get; set; }
     }
 }

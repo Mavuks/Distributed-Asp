@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
+using Domain.Identity;
 
 namespace Domain
 {
@@ -16,15 +18,14 @@ namespace Domain
         [Required]
         public string LastName { get; set; }
 
+        
 
-        public List<Schooling> Schoolings { get; set; }
-
-        public List<Show> Shows { get; set; }
+        public ICollection<Schooling> Schoolings { get; set; }
 
 
-        public List<Registration> Registrations { get; set; }
+        public ICollection<Registration> Registrations { get; set; }
 
-        public List<Competition> Competitions { get; set; }
+        
           
     }
 }

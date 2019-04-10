@@ -56,7 +56,7 @@ namespace WebApp.Controllers
                 DogSelectList = new SelectList(await _uow.Dog.AllAsync(), nameof(Dog.Id), nameof(Dog.DogName)),
                 LocationSelectList = new SelectList(await _uow.Location.AllAsync(), nameof(Location.Id),
                     nameof(Location.Locations)),
-                ParticipantSelectList = new SelectList(await _uow.Participant.AllAsync(), nameof(Participant.Id), nameof(Participant.FirstName))
+                
 
             };
 
@@ -77,11 +77,10 @@ namespace WebApp.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            vm.DogSelectList = new SelectList(await _uow.Dog.AllAsync(), nameof(Dog.Id), nameof(Dog.DogName), vm.Competition.DogId);
+           
             vm.LocationSelectList = new SelectList(await _uow.Location.AllAsync(), nameof(Location.Id),
                 nameof(Location.Locations), vm.Competition.LocationId);
-            vm.ParticipantSelectList = new SelectList(await _uow.Participant.AllAsync(), nameof(Participant.Id),
-                nameof(Participant.FirstName), vm.Competition.ParticipantId);
+            
 
             return View(vm);
         }
@@ -103,10 +102,8 @@ namespace WebApp.Controllers
             var vm = new CompetitionsCreateViewModel()
             {
                 Competition = competition,
-             DogSelectList   =  new SelectList(await _uow.Dog.AllAsync(), nameof(Dog.Id), nameof(Dog.DogName), competition.DogId),
              LocationSelectList = new SelectList(await _uow.Location.AllAsync(), nameof(Location.Id), nameof(Location.Locations), competition.LocationId),
-             ParticipantSelectList = new SelectList(await _uow.Participant.AllAsync(), nameof(Participant.Id),
-                 nameof(Participant.FirstName), competition.ParticipantId)
+
             };
 
             return View(vm);
@@ -131,11 +128,9 @@ namespace WebApp.Controllers
                 return RedirectToAction(nameof(Index));
             }
             
-            vm.DogSelectList = new SelectList(await _uow.Dog.AllAsync(), nameof(Dog.Id), nameof(Dog.DogName), vm.Competition.DogId);
             vm.LocationSelectList = new SelectList(await _uow.Location.AllAsync(), nameof(Location.Id),
                 nameof(Location.Locations), vm.Competition.LocationId);
-            vm.ParticipantSelectList = new SelectList(await _uow.Participant.AllAsync(), nameof(Participant.Id),
-                nameof(Participant.FirstName), vm.Competition.ParticipantId);
+
 
             return View(vm);
         }

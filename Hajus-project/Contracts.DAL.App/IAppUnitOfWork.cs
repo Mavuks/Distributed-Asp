@@ -6,8 +6,7 @@ namespace Contracts.DAL.App
     public interface IAppUnitOfWork : IUnitOfWork
     {
 
-        IAwardRepository Award { get; }
-        
+    
         IBreedRepository Breed { get; }
         
         IDogRepository Dog { get; }
