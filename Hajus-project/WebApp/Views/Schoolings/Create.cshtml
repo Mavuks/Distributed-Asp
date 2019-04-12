@@ -28,12 +28,10 @@
                 <span asp-validation-for="Schooling.End" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Schooling.MaterialId" class="control-label"></label>
-                <select asp-for="Schooling.MaterialId" class ="form-control" asp-items="Model.MaterialSelectList"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="Schooling.DogId" class="control-label"></label>
-                <select asp-for="Schooling.DogId" class ="form-control" asp-items="Model.DogSelectList"></select>
+                <label asp-for="Schooling.MaterialId" class="control-label" ></label>
+                <select asp-for="Schooling.MaterialId" class="form-control" asp-items="Model.MaterialSelectList">
+                    <option value="">Valige</option>
+                </select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

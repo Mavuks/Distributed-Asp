@@ -34,8 +34,7 @@ namespace Domain
 
         public string Owner { get; set; }
         
-        public List<Schooling> Schoolings { get; set; }
-
+       
         public List<Registration> Registrations  { get; set; }
 
 

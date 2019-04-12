@@ -33,19 +33,9 @@
                 <span asp-validation-for="Show.End" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Show.DogId" class="control-label"></label>
-                <select asp-for="Show.DogId" class="form-control" asp-items="Model.DogSelectList"></select>
-                <span asp-validation-for="Show.DogId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Show.LocationId" class="control-label"></label>
                 <select asp-for="Show.LocationId" class="form-control" asp-items="Model.LocationSelectList"></select>
                 <span asp-validation-for="Show.LocationId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Show.ParticipantId" class="control-label"></label>
-                <select asp-for="Show.ParticipantId" class="form-control" asp-items="Model.ParticipantSelectList"></select>
-                <span asp-validation-for="Show.ParticipantId" class="text-danger"></span>
             </div>
             <input type="hidden" asp-for="Show.Id" />
             <div class="form-group">

@@ -54,7 +54,7 @@ namespace WebApp.Controllers
 
             var vm = new SchoolingCreateViewModel()
             {
-                DogSelectList =  new SelectList(await _uow.Dog.AllAsync(),nameof(Dog.Id),nameof(Dog.DogName)),
+              
                 MaterialSelectList = new SelectList(await _uow.Material.AllAsync(),nameof(Material.Id), nameof(Material.MaterialName) )
 
             };
@@ -76,7 +76,7 @@ namespace WebApp.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            vm.DogSelectList = new SelectList(await _uow.Dog.AllAsync(), nameof(Dog.Id), nameof(Dog.DogName), vm.Schooling.DogId);
+           
             vm.MaterialSelectList = new SelectList(await _uow.Material.AllAsync(), nameof(Material.Id),
                 nameof(Material.MaterialName), vm.Schooling.MaterialId);
 
@@ -100,8 +100,7 @@ namespace WebApp.Controllers
             var vm = new SchoolingCreateViewModel()
             {
                 Schooling = schooling,
-                DogSelectList =  new SelectList(await _uow.Dog.AllAsync(),nameof(Dog.Id),nameof(Dog.DogName), schooling.DogId),
-                MaterialSelectList = new SelectList(await _uow.Material.AllAsync(),nameof(Material.Id), nameof(Material.MaterialName), schooling.MaterialId)
+             MaterialSelectList = new SelectList(await _uow.Material.AllAsync(),nameof(Material.Id), nameof(Material.MaterialName), schooling.MaterialId)
 
             };
 
@@ -128,7 +127,7 @@ namespace WebApp.Controllers
             }
             
             
-            vm.DogSelectList = new SelectList(await _uow.Dog.AllAsync(), nameof(Dog.Id), nameof(Dog.DogName), vm.Schooling.DogId);
+           
             vm.MaterialSelectList = new SelectList(await _uow.Material.AllAsync(), nameof(Material.Id),
                 nameof(Material.MaterialName), vm.Schooling.MaterialId);
 

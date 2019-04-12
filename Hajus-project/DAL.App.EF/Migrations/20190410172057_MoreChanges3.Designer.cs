@@ -3,14 +3,16 @@ using System;
 using DAL.App.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAL.App.EF.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190410172057_MoreChanges3")]
+    partial class MoreChanges3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -235,18 +237,25 @@ namespace DAL.App.EF.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int?>("DogId");
+
                     b.Property<DateTime>("End");
 
-                    b.Property<int?>("MaterialId");
+                    b.Property<int>("MaterialId");
 
-                    b.Property<string>("SchoolingName")
-                        .IsRequired();
+                    b.Property<int>("ParticipantId");
+
+                    b.Property<string>("SchoolingName");
 
                     b.Property<DateTime>("Start");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("DogId");
+
                     b.HasIndex("MaterialId");
+
+                    b.HasIndex("ParticipantId");
 
                     b.ToTable("Schoolings");
                 });
@@ -395,9 +404,19 @@ namespace DAL.App.EF.Migrations
 
             modelBuilder.Entity("Domain.Schooling", b =>
                 {
+                    b.HasOne("Domain.Dog")
+                        .WithMany("Schoolings")
+                        .HasForeignKey("DogId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.HasOne("Domain.Material", "Material")
                         .WithMany("Schoolings")
                         .HasForeignKey("MaterialId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Domain.Participant", "Participant")
+                        .WithMany("Schoolings")
+                        .HasForeignKey("ParticipantId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 

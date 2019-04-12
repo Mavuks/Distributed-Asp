@@ -19,15 +19,8 @@ namespace Domain
         [DataType(DataType.Date)]
         public DateTime End { get; set; }
 
-
-        public int DogId { get; set; }
-        public Dog Dog { get; set; }
-
         public int LocationId { get; set; }
         public Location Location { get; set; }
-
-        public int ParticipantId { get; set; }
-        public Participant Participant { get; set; }
 
 
         public List<Registration> Registrations { get; set; }

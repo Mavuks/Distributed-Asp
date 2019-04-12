@@ -9,7 +9,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F98F6167-7599-4A02-B7CB-AC66FAC5C7BD}"
 ProjectSection(SolutionItems) = preProject
 	generate-controllers.sh = generate-controllers.sh
-	.gitignore = .gitignore
 	..\..\..\Kennel.pdf = ..\..\..\Kennel.pdf
 	generate-resstcontrollers.sh = generate-resstcontrollers.sh
 EndProjectSection

@@ -19,10 +19,6 @@ namespace Domain
         public string LastName { get; set; }
 
         
-
-        public ICollection<Schooling> Schoolings { get; set; }
-
-
         public ICollection<Registration> Registrations { get; set; }
 
         

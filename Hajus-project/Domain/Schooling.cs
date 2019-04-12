@@ -5,6 +5,7 @@ namespace Domain
 {
     public class Schooling : BaseEntity
     {
+        [Required]
         public string SchoolingName { get; set; }
         
         [Display(Name = "Start")]
@@ -19,17 +20,10 @@ namespace Domain
         public DateTime End { get; set; }
 
 
-        public int MaterialId { get; set; }
+        public int? MaterialId { get; set; }
 
         public Material Material { get; set; }
 
-        public int DogId { get; set; }
 
-        public Dog Dog { get; set; }
-
-
-        public int  ParticipantId { get; set; }
-
-        public Participant Participant { get; set; }
     }
 }

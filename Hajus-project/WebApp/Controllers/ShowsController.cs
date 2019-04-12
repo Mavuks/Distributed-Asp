@@ -54,8 +54,7 @@ namespace WebApp.Controllers
 
             var vm = new ShowCreateViewModel()
             {
-                DogSelectList = new SelectList(await _uow.Dog.AllAsync(),nameof(Dog.Id),nameof(Dog.DogName)),
-                LocationSelectList = new SelectList(await _uow.Location.AllAsync(),nameof(Location.Id), nameof(Location.Locations)),
+               LocationSelectList = new SelectList(await _uow.Location.AllAsync(),nameof(Location.Id), nameof(Location.Locations)),
                 ParticipantSelectList = new SelectList(await _uow.Participant.AllAsync(),nameof(Participant.Id),nameof(Participant.FirstName))
             };
             
@@ -77,11 +76,9 @@ namespace WebApp.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            vm.DogSelectList = new SelectList(await _uow.Dog.AllAsync(), nameof(Dog.Id), nameof(Dog.DogName), vm.Show.DogId);
             vm.LocationSelectList = new SelectList(await _uow.Location.AllAsync(), nameof(Location.Id),
                 nameof(Location.Locations), vm.Show.LocationId);
-            vm.ParticipantSelectList = new SelectList(await _uow.Participant.AllAsync(), nameof(Participant.Id),
-                nameof(Participant.FirstName), vm.Show.ParticipantId);
+           
             
             return View(vm);
         }
@@ -103,9 +100,8 @@ namespace WebApp.Controllers
             var vm = new ShowCreateViewModel()
             {
                 Show = show,
-                DogSelectList = new SelectList(await _uow.Dog.AllAsync(),nameof(Dog.Id),nameof(Dog.DogName), show.DogId),
-                LocationSelectList = new SelectList(await _uow.Location.AllAsync(),nameof(Location.Id), nameof(Location.Locations), show.LocationId),
-                ParticipantSelectList = new SelectList(await _uow.Participant.AllAsync(),nameof(Participant.Id),nameof(Participant.FirstName), show.ParticipantId)
+              LocationSelectList = new SelectList(await _uow.Location.AllAsync(),nameof(Location.Id), nameof(Location.Locations), show.LocationId),
+               
             };
 
             
@@ -132,11 +128,9 @@ namespace WebApp.Controllers
                 return RedirectToAction(nameof(Index));
             }
             
-            vm.DogSelectList = new SelectList(await _uow.Dog.AllAsync(), nameof(Dog.Id), nameof(Dog.DogName), vm.Show.DogId);
             vm.LocationSelectList = new SelectList(await _uow.Location.AllAsync(), nameof(Location.Id),
                 nameof(Location.Locations), vm.Show.LocationId);
-            vm.ParticipantSelectList = new SelectList(await _uow.Participant.AllAsync(), nameof(Participant.Id),
-                nameof(Participant.FirstName), vm.Show.ParticipantId);
+         
 
             return View(vm);
         }

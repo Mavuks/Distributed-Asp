@@ -18,9 +18,8 @@ namespace DAL.App.EF.Repositories
         public override async Task<IEnumerable<Show>> AllAsync()
         {
             return await RepositoryDbSet
-                .Include(a => a.Dog)
-                .Include(b => b.Location)
-                .Include(c => c.Participant).ToListAsync();
+               .Include(b => b.Location)
+               .ToListAsync();
         }
     }    
 }

@@ -18,7 +18,7 @@ namespace DAL.App.EF.Repositories
         {
             return await RepositoryDbSet
                 .Include(a => a.Material)
-                .Include(b => b.Dog).ToListAsync();
+                .ToListAsync();
         }
     }    
 }

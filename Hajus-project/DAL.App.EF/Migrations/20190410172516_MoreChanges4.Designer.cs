@@ -3,14 +3,16 @@ using System;
 using DAL.App.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAL.App.EF.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190410172516_MoreChanges4")]
+    partial class MoreChanges4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -239,6 +241,8 @@ namespace DAL.App.EF.Migrations
 
                     b.Property<int?>("MaterialId");
 
+                    b.Property<int>("ParticipantId");
+
                     b.Property<string>("SchoolingName")
                         .IsRequired();
 
@@ -247,6 +251,8 @@ namespace DAL.App.EF.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("MaterialId");
+
+                    b.HasIndex("ParticipantId");
 
                     b.ToTable("Schoolings");
                 });
@@ -398,6 +404,11 @@ namespace DAL.App.EF.Migrations
                     b.HasOne("Domain.Material", "Material")
                         .WithMany("Schoolings")
                         .HasForeignKey("MaterialId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Domain.Participant", "Participant")
+                        .WithMany("Schoolings")
+                        .HasForeignKey("ParticipantId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
