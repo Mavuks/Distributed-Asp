@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.BLL.App;
 using Contracts.DAL.App;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -14,18 +15,19 @@ namespace WebApp.Controllers
     public class ParticipantsController : Controller
     {
         
-        private readonly IAppUnitOfWork _uow;
+        
+        private readonly IAppBLL _bll;
 
-        public ParticipantsController( IAppUnitOfWork uow)
+        public ParticipantsController(IAppBLL bll)
         {
-            _uow = uow;
             
+            _bll = bll;
         }
 
         // GET: Participants
         public async Task<IActionResult> Index()
         {
-            return View(await _uow.Participant.AllAsync());
+            return View(await _bll.Participant.AllAsync());
         }
 
         // GET: Participants/Details/5
@@ -36,7 +38,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var participant = await _uow.Participant.FindAsync(id);
+            var participant = await _bll.Participant.FindAsync(id);
             if (participant == null)
             {
                 return NotFound();
@@ -60,8 +62,8 @@ namespace WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _uow.Participant.AddAsync(participant);
-                await _uow.SaveChangesAsync();
+                await _bll.Participant.AddAsync(participant);
+                await _bll.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(participant);
@@ -75,7 +77,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var participant = await _uow.Participant.FindAsync(id);
+            var participant = await _bll.Participant.FindAsync(id);
             if (participant == null)
             {
                 return NotFound();
@@ -97,8 +99,8 @@ namespace WebApp.Controllers
 
             if (ModelState.IsValid)
             {
-                _uow.Participant.Update(participant);
-                await _uow.SaveChangesAsync();
+                _bll.Participant.Update(participant);
+                await _bll.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(participant);
@@ -112,7 +114,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var participant = await _uow.Participant.FindAsync(id);
+            var participant = await _bll.Participant.FindAsync(id);
             if (participant == null)
             {
                 return NotFound();
@@ -126,9 +128,9 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var participant = await _uow.Participant.FindAsync(id);
-            _uow.Participant.Remove(participant);
-            await _uow.SaveChangesAsync();
+            var participant = await _bll.Participant.FindAsync(id);
+            _bll.Participant.Remove(participant);
+            await _bll.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 

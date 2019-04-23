@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.BLL.App;
 using Contracts.DAL.App;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -14,18 +15,19 @@ namespace WebApp.Controllers
     public class LocationsController : Controller
     {
         
-        private readonly IAppUnitOfWork _uow;
+        
+        private readonly IAppBLL _bll;
 
-        public LocationsController(IAppUnitOfWork uow)
+        public LocationsController(IAppBLL bll)
         {
             
-            _uow = uow;
+            _bll = bll;
         }
 
         // GET: Locations
         public async Task<IActionResult> Index()
         {
-            return View(await _uow.Location.AllAsync());
+            return View(await _bll.Location.AllAsync());
         }
 
         // GET: Locations/Details/5
@@ -36,7 +38,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var location = await _uow.Location.FindAsync(id);
+            var location = await _bll.Location.FindAsync(id);
             if (location == null)
             {
                 return NotFound();
@@ -61,9 +63,9 @@ namespace WebApp.Controllers
             if (ModelState.IsValid)
             {
 
-                 await  _uow.Location.AddAsync(location);
+                 await  _bll.Location.AddAsync(location);
                 
-                await _uow.SaveChangesAsync();
+                await _bll.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(location);
@@ -77,7 +79,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var location = await _uow.Location.FindAsync(id);
+            var location = await _bll.Location.FindAsync(id);
             if (location == null)
             {
                 return NotFound();
@@ -99,8 +101,8 @@ namespace WebApp.Controllers
 
             if (ModelState.IsValid)
             {
-                _uow.Location.Update(location);
-                await _uow.SaveChangesAsync();
+                _bll.Location.Update(location);
+                await _bll.SaveChangesAsync();
                
                 return RedirectToAction(nameof(Index));
             }
@@ -116,7 +118,7 @@ namespace WebApp.Controllers
             }
 
 
-            var location = await _uow.Location.FindAsync(id);
+            var location = await _bll.Location.FindAsync(id);
             if (location == null)
             {
                 return NotFound();
@@ -132,8 +134,8 @@ namespace WebApp.Controllers
         {
             
             
-            _uow.Location.Remove(id);
-            await _uow.SaveChangesAsync();
+            _bll.Location.Remove(id);
+            await _bll.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 

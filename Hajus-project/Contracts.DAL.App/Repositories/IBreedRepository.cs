@@ -7,9 +7,10 @@ using Domain;
 
 namespace Contracts.DAL.App.Repositories
 {
-    public interface IBreedRepository : IBaseRepositoryAsync<Breed, int>
+    public interface IBreedRepository : IBaseRepository<Breed, int>
     {
         // add here custom methods
-        Task<IEnumerable<BreedDTO>> GetAllWithBreedCountAsync();
+        Task<List<BreedDTO>> GetAllWithBreedCountAsync();
+        
     }
 }

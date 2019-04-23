@@ -8,18 +8,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAL.App.EF.Repositories
 {
-    public class ShowRepository: BaseRepository<Show>, IShowRepository
+    public class ShowRepository: BaseRepository<Show, AppDbContext>, IShowRepository
     {
-        public ShowRepository(IDataContext dataContext) : base(dataContext)
+        public ShowRepository(AppDbContext repositoryDbContext) : base(repositoryDbContext)
         {
         }
 
 
-        public override async Task<IEnumerable<Show>> AllAsync()
+        public async Task<List<Show>> AllForUserAsync(int userId)
         {
             return await RepositoryDbSet
-               .Include(b => b.Location)
-               .ToListAsync();
+                .Include(b => b.Location)
+                .ToListAsync();
         }
     }    
 }

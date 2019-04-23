@@ -5,9 +5,12 @@ using Domain;
 
 namespace Contracts.DAL.App.Repositories
 {
-    public interface IDogRepository : IBaseRepositoryAsync<Dog>
+    public interface  IDogRepository : IBaseRepository<Dog>
     {
         // add here custom methods
-        Task<IEnumerable<Dog>> AllAsync();
+        Task<List<Dog>> AllForUserAsync(int userId);
+//        Task<Dog> FindForUserAsync(int id, int userId);
+//        Task<bool> BelongsToUserAsync(int id, int userId);
+
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Contracts.DAL.Base;
 using Contracts.DAL.Base.Repositories;
@@ -7,24 +8,26 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Base.EF.Repositories
 {
-
-    public class BaseRepositoryAsync<TEntity> : BaseRepositoryAsync<TEntity, int>
-        where TEntity: class, IBaseEntity<int>, new()
+    public class BaseRepository<TEntity, TDbContext> : BaseRepository<TEntity, TDbContext, int>,
+        IBaseRepository<TEntity>
+        where TEntity : class, IBaseEntity, new()
+        where TDbContext : DbContext
     {
-        public BaseRepositoryAsync(DbContext repositoryDbContext) : base(repositoryDbContext)
+        public BaseRepository(TDbContext repositoryDbContext) : base(repositoryDbContext)
         {
         }
     }
 
-    
-    public class BaseRepositoryAsync<TEntity,TKey>: IBaseRepositoryAsync<TEntity,TKey>
-        where TEntity: class, IBaseEntity<TKey>, new()
-        where TKey: struct, IComparable
+
+    public class BaseRepository<TEntity, TDbContext, TKey> : IBaseRepository<TEntity, TKey>
+        where TEntity : class, IBaseEntity<TKey>, new()
+        where TDbContext: DbContext
+        where TKey : struct, IComparable
     {
         protected readonly DbContext RepositoryDbContext;
         protected readonly DbSet<TEntity> RepositoryDbSet;
 
-        public  BaseRepositoryAsync(DbContext repositoryDbContext)
+        public BaseRepository(TDbContext repositoryDbContext)
         {
             RepositoryDbContext = repositoryDbContext;
             // get the dbset by type from db context
@@ -37,17 +40,17 @@ namespace DAL.Base.EF.Repositories
             return RepositoryDbSet.Update(entity).Entity;
         }
 
-        public virtual void  Remove(TEntity entity)
+        public virtual void Remove(TEntity entity)
         {
             RepositoryDbSet.Remove(entity);
         }
 
-        public virtual void  Remove(params object[] id)
+        public virtual void Remove(params object[] id)
         {
             RepositoryDbSet.Remove(FindAsync(id).Result);
         }
 
-        public virtual async Task<IEnumerable<TEntity>> AllAsync()
+        public virtual async Task<List<TEntity>> AllAsync()
         {
             return await RepositoryDbSet.ToListAsync();
         }
@@ -61,7 +64,20 @@ namespace DAL.Base.EF.Repositories
         {
             await RepositoryDbSet.AddAsync(entity);
         }
+
+        public List<TEntity> All()
+        {
+            return RepositoryDbSet.ToList();
+        }
+
+        public TEntity Find(params object[] id)
+        {
+            return RepositoryDbSet.Find(id);
+        }
+
+        public void Add(TEntity entity)
+        {
+            RepositoryDbSet.Add(entity);
+        }
     }
-    
-    
 }

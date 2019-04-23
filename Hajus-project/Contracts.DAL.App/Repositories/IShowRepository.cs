@@ -9,6 +9,6 @@ using Contracts.DAL.Base.Repositories;
      {
          // add here custom methods
          
-         Task<IEnumerable<Show>> AllAsync();
+         Task<List<Show>> AllForUserAsync(int userId);
      }
  }

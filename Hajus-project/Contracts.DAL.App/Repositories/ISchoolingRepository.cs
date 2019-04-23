@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Contracts.DAL.Base.Repositories;
  using Domain;
  
@@ -5,6 +7,7 @@ using Contracts.DAL.Base.Repositories;
  {
      public interface ISchoolingRepository : IBaseRepositoryAsync<Schooling>
      {
-         // add here custom methods
+         Task<List<Schooling>> AllForUserAsync(int userId);
+
      }
  }

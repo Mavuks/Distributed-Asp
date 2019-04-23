@@ -10,18 +10,19 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAL.App.EF.Repositories
 {
-    public class DogRepository:BaseRepository<Dog>, IDogRepository
+    public class DogRepository:BaseRepository<Dog, AppDbContext>, IDogRepository
     {
-        public DogRepository(IDataContext dataContext) : base(dataContext)
+        public DogRepository(AppDbContext repositoryDbContext) : base(repositoryDbContext)
         {
         }
 
-        public async Task<IEnumerable<Dog>> AllAsync()
+
+        public async Task<List<Dog>> AllForUserAsync(int userId)
         {
             return await RepositoryDbSet
                 //.Include(a => a.AppUser)
-               .Include(c => c.Breed)
-               // .Where(b => b.AppUserId == userId)
+                .Include(c => c.Breed)
+                // .Where(b => b.AppUserId == userId)
                 .ToListAsync();
         }
     }

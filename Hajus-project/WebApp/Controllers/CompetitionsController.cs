@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.BLL.App;
 using Contracts.DAL.App;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -15,19 +16,20 @@ namespace WebApp.Controllers
 {
     public class CompetitionsController : Controller
     {
-        private readonly IAppUnitOfWork _uow;
+       
+        private readonly IAppBLL _bll;
 
-        public CompetitionsController(IAppUnitOfWork uow)
+        public CompetitionsController(IAppBLL bll)
         {
-
-            _uow = uow;
+            
+            _bll = bll;
         }
 
         // GET: Competitions
         public async Task<IActionResult> Index()
         {
 
-            return View(await _uow.Competition.AllAsync());
+            return View(await _bll.Competition.AllAsync());
         }
 
         // GET: Competitions/Details/5
@@ -38,7 +40,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var competition = await _uow.Competition.FindAsync(id);
+            var competition = await _bll.Competition.FindAsync(id);
             if (competition == null)
             {
                 return NotFound();
@@ -53,8 +55,8 @@ namespace WebApp.Controllers
 
             var vm = new CompetitionsCreateViewModel()
             {
-                DogSelectList = new SelectList(await _uow.Dog.AllAsync(), nameof(Dog.Id), nameof(Dog.DogName)),
-                LocationSelectList = new SelectList(await _uow.Location.AllAsync(), nameof(Location.Id),
+                DogSelectList = new SelectList(await _bll.Dog.AllAsync(), nameof(Dog.Id), nameof(Dog.DogName)),
+                LocationSelectList = new SelectList(await _bll.Location.AllAsync(), nameof(Location.Id),
                     nameof(Location.Locations)),
                 
 
@@ -72,13 +74,13 @@ namespace WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _uow.Competition.AddAsync(vm.Competition);
-                await _uow.SaveChangesAsync();
+                await _bll.Competition.AddAsync(vm.Competition);
+                await _bll.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
 
            
-            vm.LocationSelectList = new SelectList(await _uow.Location.AllAsync(), nameof(Location.Id),
+            vm.LocationSelectList = new SelectList(await _bll.Location.AllAsync(), nameof(Location.Id),
                 nameof(Location.Locations), vm.Competition.LocationId);
             
 
@@ -93,7 +95,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var competition = await _uow.Competition.FindAsync(id);
+            var competition = await _bll.Competition.FindAsync(id);
             if (competition == null)
             {
                 return NotFound();
@@ -102,7 +104,7 @@ namespace WebApp.Controllers
             var vm = new CompetitionsCreateViewModel()
             {
                 Competition = competition,
-             LocationSelectList = new SelectList(await _uow.Location.AllAsync(), nameof(Location.Id), nameof(Location.Locations), competition.LocationId),
+             LocationSelectList = new SelectList(await _bll.Location.AllAsync(), nameof(Location.Id), nameof(Location.Locations), competition.LocationId),
 
             };
 
@@ -123,12 +125,12 @@ namespace WebApp.Controllers
 
             if (ModelState.IsValid)
             {
-                _uow.Competition.Update(vm.Competition);
-                await _uow.SaveChangesAsync();
+                _bll.Competition.Update(vm.Competition);
+                await _bll.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             
-            vm.LocationSelectList = new SelectList(await _uow.Location.AllAsync(), nameof(Location.Id),
+            vm.LocationSelectList = new SelectList(await _bll.Location.AllAsync(), nameof(Location.Id),
                 nameof(Location.Locations), vm.Competition.LocationId);
 
 
@@ -143,7 +145,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var competition = await _uow.Competition.FindAsync(id);
+            var competition = await _bll.Competition.FindAsync(id);
             if (competition == null)
             {
                 return NotFound();
@@ -158,8 +160,8 @@ namespace WebApp.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
 
-            _uow.Competition.Remove(id);
-            await _uow.SaveChangesAsync();
+            _bll.Competition.Remove(id);
+            await _bll.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
     }

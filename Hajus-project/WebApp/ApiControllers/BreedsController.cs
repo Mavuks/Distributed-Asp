@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.BLL.App;
 using Contracts.DAL.App;
 using DAL.App.DTO;
 using Microsoft.AspNetCore.Http;
@@ -19,12 +20,13 @@ namespace WebApp.ApiControllers
     public class BreedsController : ControllerBase
     {
         
-        private readonly IAppUnitOfWork _uow;
+        
+        private readonly IAppBLL _bll;
 
-        public BreedsController(IAppUnitOfWork uow)
+        public BreedsController( IAppBLL bll)
         {
             
-            _uow = uow;
+            _bll = bll;
         }
 
         // GET: api/Breeds
@@ -32,14 +34,14 @@ namespace WebApp.ApiControllers
         public async Task<ActionResult<IEnumerable<BreedDTO>>> GetBreeds()
         {
 
-            return Ok(await _uow.Breed.GetAllWithBreedCountAsync());
+            return Ok(await _bll.Breed.GetAllWithBreedCountAsync());
         }
 
         // GET: api/Breeds/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Breed>> GetBreed(int id)
         {
-            var breed = await _uow.Breed.FindAsync(id);
+            var breed = await _bll.Breed.FindAsync(id);
 
             if (breed == null)
             {
@@ -58,8 +60,8 @@ namespace WebApp.ApiControllers
                 return BadRequest();
             }
 
-            _uow.Breed.Update(breed);
-            await _uow.SaveChangesAsync();
+            _bll.Breed.Update(breed);
+            await _bll.SaveChangesAsync();
 
             
 
@@ -70,8 +72,8 @@ namespace WebApp.ApiControllers
         [HttpPost]
         public async Task<ActionResult<Breed>> PostBreed(Breed breed)
         {
-            await _uow.Breed.AddAsync(breed);
-            await _uow.SaveChangesAsync();
+            await _bll.Breed.AddAsync(breed);
+            await _bll.SaveChangesAsync();
 
             return CreatedAtAction("GetBreed", new { id = breed.Id }, breed);
         }
@@ -80,14 +82,14 @@ namespace WebApp.ApiControllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Breed>> DeleteBreed(int id)
         {
-            var breed = await _uow.Breed.FindAsync(id);
+            var breed = await _bll.Breed.FindAsync(id);
             if (breed == null)
             {
                 return NotFound();
             }
 
-            _uow.Breed.Remove(breed);
-            await _uow.SaveChangesAsync();
+            _bll.Breed.Remove(breed);
+            await _bll.SaveChangesAsync();
 
             return breed;
         }

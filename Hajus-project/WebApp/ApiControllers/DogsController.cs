@@ -2,12 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.BLL.App;
 using Contracts.DAL.App;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DAL.App.EF;
 using Domain;
+using Identity;
 
 namespace WebApp.ApiControllers
 {
@@ -16,27 +18,27 @@ namespace WebApp.ApiControllers
     public class DogsController : ControllerBase
     {
        
-        private readonly IAppUnitOfWork _uow;
+        
+        private readonly IAppBLL _bll;
 
-        public DogsController( IAppUnitOfWork uow)
+        public DogsController(IAppBLL bll)
         {
-            _uow = uow;
             
+            _bll = bll;
         }
 
         // GET: api/Dogs
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Dog>>> GetDogs()
         {
-            var dogs = await _uow.Dog.AllAsync();
-            return new ActionResult<IEnumerable<Dog>>(dogs);
+            return await _bll.Dog.AllForUserAsync(User.GetUserId());
         }
 
         // GET: api/Dogs/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Dog>> GetDog(int id)
         {
-            var dog = await _uow.Dog.FindAsync(id);
+            var dog = await _bll.Dog.FindAsync(id);
 
             if (dog == null)
             {
@@ -55,8 +57,8 @@ namespace WebApp.ApiControllers
                 return BadRequest();
             }
 
-            _uow.Dog.Update(dog);
-            await _uow.SaveChangesAsync();
+            _bll.Dog.Update(dog);
+            await _bll.SaveChangesAsync();
 
             return NoContent();
         }
@@ -65,8 +67,8 @@ namespace WebApp.ApiControllers
         [HttpPost]
         public async Task<ActionResult<Dog>> PostDog(Dog dog)
         {
-            await _uow.Dog.AddAsync(dog);
-            await _uow.SaveChangesAsync();
+            await _bll.Dog.AddAsync(dog);
+            await _bll.SaveChangesAsync();
 
             return CreatedAtAction("GetDog", new { id = dog.Id }, dog);
         }
@@ -75,14 +77,14 @@ namespace WebApp.ApiControllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Dog>> DeleteDog(int id)
         {
-            var dog = await _uow.Dog.FindAsync(id);
+            var dog = await _bll.Dog.FindAsync(id);
             if (dog == null)
             {
                 return NotFound();
             }
 
-            _uow.Dog.Remove(dog);
-            await _uow.SaveChangesAsync();
+            _bll.Dog.Remove(dog);
+            await _bll.SaveChangesAsync();
 
             return dog;
         }

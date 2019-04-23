@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.BLL.App;
 using Contracts.DAL.App;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,11 +16,12 @@ namespace WebApp.ApiControllers
     [ApiController]
     public class ParticipantsController : ControllerBase
     {
-        private readonly IAppUnitOfWork _uow;
+        
+        private readonly IAppBLL _bll;
 
-        public ParticipantsController(IAppUnitOfWork uow)
+        public ParticipantsController(IAppBLL bll)
         {
-            _uow = uow;
+            _bll = bll;
             
         }
 
@@ -28,14 +30,14 @@ namespace WebApp.ApiControllers
         public async Task<ActionResult<IEnumerable<Participant>>> GetParticipants()
         {
 
-            return Ok(await _uow.Participant.GetAllParticipantAsync());
+            return Ok(await _bll.Participant.GetAllParticipantAsync());
         }
 
         // GET: api/Participants/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Participant>> GetParticipant(int id)
         {
-            var participant = await _uow.Participant.FindAsync(id);
+            var participant = await _bll.Participant.FindAsync(id);
 
             if (participant == null)
             {
@@ -54,8 +56,8 @@ namespace WebApp.ApiControllers
                 return BadRequest();
             }
 
-            _uow.Participant.Update(participant);
-            await _uow.SaveChangesAsync();
+            _bll.Participant.Update(participant);
+            await _bll.SaveChangesAsync();
 
             return NoContent();
         }
@@ -64,8 +66,8 @@ namespace WebApp.ApiControllers
         [HttpPost]
         public async Task<ActionResult<Participant>> PostParticipant(Participant participant)
         {
-            await _uow.Participant.AddAsync(participant);
-            await _uow.SaveChangesAsync();
+            await _bll.Participant.AddAsync(participant);
+            await _bll.SaveChangesAsync();
 
             return CreatedAtAction("GetParticipant", new { id = participant.Id }, participant);
         }
@@ -74,14 +76,14 @@ namespace WebApp.ApiControllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Participant>> DeleteParticipant(int id)
         {
-            var participant = await _uow.Participant.FindAsync(id);
+            var participant = await _bll.Participant.FindAsync(id);
             if (participant == null)
             {
                 return NotFound();
             }
 
-            _uow.Participant.Remove(participant);
-            await _uow.SaveChangesAsync();
+            _bll.Participant.Remove(participant);
+            await _bll.SaveChangesAsync();
 
             return participant;
         }

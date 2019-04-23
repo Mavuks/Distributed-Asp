@@ -12,6 +12,6 @@ using Domain;
          
         
          // add here custom methods
-         Task<IEnumerable<ParticipantDTO>> GetAllParticipantAsync();
+         Task<List<ParticipantDTO>> GetAllParticipantAsync();
      }
  }

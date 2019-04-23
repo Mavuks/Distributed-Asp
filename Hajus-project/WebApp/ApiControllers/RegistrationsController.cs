@@ -2,12 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.BLL.App;
 using Contracts.DAL.App;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DAL.App.EF;
 using Domain;
+using Domain.Identity;
+using Identity;
 
 namespace WebApp.ApiControllers
 {
@@ -15,27 +18,27 @@ namespace WebApp.ApiControllers
     [ApiController]
     public class RegistrationsController : ControllerBase
     {
-        private readonly IAppUnitOfWork _uow;
+        
+        private readonly IAppBLL _bll;
 
-        public RegistrationsController( IAppUnitOfWork uow)
+        public RegistrationsController( IAppBLL bll)
         {
-            _uow = uow;
             
+            _bll = bll;
         }
 
         // GET: api/Registrations
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Registration>>> GetRegistrations()
         {
-            var registrations = await _uow.Registration.AllAsync();
-            return new ActionResult<IEnumerable<Registration>>(registrations);
+            return await _bll.Registration.AllForUserAsync(User.GetUserId());
         }
 
         // GET: api/Registrations/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Registration>> GetRegistration(int id)
         {
-            var registration = await _uow.Registration.FindAsync(id);
+            var registration = await _bll.Registration.FindAsync(id);
 
             if (registration == null)
             {
@@ -54,8 +57,8 @@ namespace WebApp.ApiControllers
                 return BadRequest();
             }
 
-            _uow.Registration.Update(registration);
-            await _uow.SaveChangesAsync();
+            _bll.Registration.Update(registration);
+            await _bll.SaveChangesAsync();
             
             return NoContent();
         }
@@ -64,8 +67,8 @@ namespace WebApp.ApiControllers
         [HttpPost]
         public async Task<ActionResult<Registration>> PostRegistration(Registration registration)
         {
-            await _uow.Registration.AddAsync(registration);
-            await _uow.SaveChangesAsync();
+            await _bll.Registration.AddAsync(registration);
+            await _bll.SaveChangesAsync();
 
             return CreatedAtAction("GetRegistration", new { id = registration.Id }, registration);
         }
@@ -74,14 +77,14 @@ namespace WebApp.ApiControllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Registration>> DeleteRegistration(int id)
         {
-            var registration = await _uow.Registration.FindAsync(id);
+            var registration = await _bll.Registration.FindAsync(id);
             if (registration == null)
             {
                 return NotFound();
             }
 
-            _uow.Registration.Remove(registration);
-            await _uow.SaveChangesAsync();
+            _bll.Registration.Remove(registration);
+            await _bll.SaveChangesAsync();
 
             return registration;
         }

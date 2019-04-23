@@ -10,6 +10,6 @@ using Domain;
      {
          // add here custom methods
          
-         Task<IEnumerable<MaterialDTO>> GetAllWithMaterialCountAsync();
+         Task<List<MaterialDTO>> GetAllWithMaterialCountAsync();
      }
  }

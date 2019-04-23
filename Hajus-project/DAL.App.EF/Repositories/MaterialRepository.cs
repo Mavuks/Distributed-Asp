@@ -10,14 +10,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAL.App.EF.Repositories
 {
-    public class MaterialRepository: BaseRepository<Material>, IMaterialRepository
+    public class MaterialRepository: BaseRepository<Material, AppDbContext>, IMaterialRepository
     {
-        public MaterialRepository(IDataContext dataContext) : base(dataContext)
+        public MaterialRepository(AppDbContext repositoryDbContext) : base(repositoryDbContext)
         {
         }
 
         
-        public virtual async Task<IEnumerable<MaterialDTO>> GetAllWithMaterialCountAsync()
+        public virtual async Task<List<MaterialDTO>> GetAllWithMaterialCountAsync()
         {
             return await RepositoryDbSet
                 .Select(b => new MaterialDTO()

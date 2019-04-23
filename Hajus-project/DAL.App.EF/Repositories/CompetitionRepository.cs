@@ -9,19 +9,27 @@ using Microsoft.EntityFrameworkCore.Internal;
 
 namespace DAL.App.EF.Repositories
 {
-    public class CompetitionRepository: BaseRepository<Competition>, ICompetitionRepository
+    public class CompetitionRepository: BaseRepository<Competition, AppDbContext>, ICompetitionRepository
     {
-        public CompetitionRepository(IDataContext dataContext) : base(dataContext)
+        public CompetitionRepository(AppDbContext repositoryDbContext) : base(repositoryDbContext)
         {
         }
 
-        public override async Task<IEnumerable<Competition>> AllAsync()
+//        public override async Task<List<Competition>> AllAsync()
+//        {
+//            return await RepositoryDbSet
+//               // .Include(a => a.Dog)
+//                .Include(b => b.Location)
+//              //  .Include(c => c.Participant)
+//                .ToListAsync();
+//        }
+
+        public async Task<List<Competition>> AllForUserAsync(int userId)
         {
             return await RepositoryDbSet
-               // .Include(a => a.Dog)
-                .Include(b => b.Location)
-              //  .Include(c => c.Participant)
-                .ToListAsync();
+                .Include(b => b.Location).ToListAsync();
         }
+
+
     }    
 }

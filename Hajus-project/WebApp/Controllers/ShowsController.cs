@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.BLL.App;
 using Contracts.DAL.App;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -16,19 +17,20 @@ namespace WebApp.Controllers
     {
         
 
-        private readonly IAppUnitOfWork _uow;
+        
+        private readonly IAppBLL _bll;
 
-        public ShowsController( IAppUnitOfWork uow)
+        public ShowsController(IAppBLL bll)
         {
-           
-            _uow = uow;
+            
+            _bll = bll;
         }
 
         // GET: Shows
         public async Task<IActionResult> Index()
         {
             //var appDbContext = _context.Shows.Include(s => s.Dog).Include(s => s.Location).Include(s => s.Participant);
-            return View(await _uow.Show.AllAsync());
+            return View(await _bll.Show.AllAsync());
         }
 
         // GET: Shows/Details/5
@@ -39,7 +41,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var show = await _uow.Show.FindAsync(id);
+            var show = await _bll.Show.FindAsync(id);
             if (show == null)
             {
                 return NotFound();
@@ -54,8 +56,8 @@ namespace WebApp.Controllers
 
             var vm = new ShowCreateViewModel()
             {
-               LocationSelectList = new SelectList(await _uow.Location.AllAsync(),nameof(Location.Id), nameof(Location.Locations)),
-                ParticipantSelectList = new SelectList(await _uow.Participant.AllAsync(),nameof(Participant.Id),nameof(Participant.FirstName))
+               LocationSelectList = new SelectList(await _bll.Location.AllAsync(),nameof(Location.Id), nameof(Location.Locations)),
+                ParticipantSelectList = new SelectList(await _bll.Participant.AllAsync(),nameof(Participant.Id),nameof(Participant.FirstName))
             };
             
             
@@ -71,12 +73,12 @@ namespace WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _uow.Show.AddAsync(vm.Show);
-                await _uow.SaveChangesAsync();
+                await _bll.Show.AddAsync(vm.Show);
+                await _bll.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
 
-            vm.LocationSelectList = new SelectList(await _uow.Location.AllAsync(), nameof(Location.Id),
+            vm.LocationSelectList = new SelectList(await _bll.Location.AllAsync(), nameof(Location.Id),
                 nameof(Location.Locations), vm.Show.LocationId);
            
             
@@ -91,7 +93,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var show = await _uow.Show.FindAsync(id);
+            var show = await _bll.Show.FindAsync(id);
             if (show == null)
             {
                 return NotFound();
@@ -100,7 +102,7 @@ namespace WebApp.Controllers
             var vm = new ShowCreateViewModel()
             {
                 Show = show,
-              LocationSelectList = new SelectList(await _uow.Location.AllAsync(),nameof(Location.Id), nameof(Location.Locations), show.LocationId),
+              LocationSelectList = new SelectList(await _bll.Location.AllAsync(),nameof(Location.Id), nameof(Location.Locations), show.LocationId),
                
             };
 
@@ -123,12 +125,12 @@ namespace WebApp.Controllers
 
             if (ModelState.IsValid)
             {
-                _uow.Show.Update(vm.Show);
-                await _uow.SaveChangesAsync();
+                _bll.Show.Update(vm.Show);
+                await _bll.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             
-            vm.LocationSelectList = new SelectList(await _uow.Location.AllAsync(), nameof(Location.Id),
+            vm.LocationSelectList = new SelectList(await _bll.Location.AllAsync(), nameof(Location.Id),
                 nameof(Location.Locations), vm.Show.LocationId);
          
 
@@ -143,7 +145,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var show = await _uow.Show.FindAsync(id);
+            var show = await _bll.Show.FindAsync(id);
             if (show == null)
             {
                 return NotFound();
@@ -158,8 +160,8 @@ namespace WebApp.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             
-            _uow.Show.Remove(id);
-            await _uow.SaveChangesAsync();
+            _bll.Show.Remove(id);
+            await _bll.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.BLL.App;
 using Contracts.DAL.App;
 using DAL.App.DTO;
 using Microsoft.AspNetCore.Http;
@@ -16,12 +17,13 @@ namespace WebApp.ApiControllers
     [ApiController]
     public class MaterialsController : ControllerBase
     {
-        private readonly IAppUnitOfWork _uow;
+        
+        private readonly IAppBLL _bll;
 
-        public MaterialsController(IAppUnitOfWork uow)
+        public MaterialsController(IAppBLL bll)
         {
-            _uow = uow;
             
+            _bll = bll;
         }
 
         // GET: api/Materials
@@ -30,14 +32,14 @@ namespace WebApp.ApiControllers
         {
 
 
-            return Ok(await _uow.Material.GetAllWithMaterialCountAsync());
+            return Ok(await _bll.Material.GetAllWithMaterialCountAsync());
         }
 
         // GET: api/Materials/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Material>> GetMaterial(int id)
         {
-            var material = await _uow.Material.FindAsync(id);
+            var material = await _bll.Material.FindAsync(id);
 
             if (material == null)
             {
@@ -56,8 +58,8 @@ namespace WebApp.ApiControllers
                 return BadRequest();
             }
 
-            _uow.Material.Update(material);
-            await _uow.SaveChangesAsync();
+            _bll.Material.Update(material);
+            await _bll.SaveChangesAsync();
             
             return NoContent();
         }
@@ -66,8 +68,8 @@ namespace WebApp.ApiControllers
         [HttpPost]
         public async Task<ActionResult<Material>> PostMaterial(Material material)
         {
-            await _uow.Material.AddAsync(material);
-            await _uow.SaveChangesAsync();
+            await _bll.Material.AddAsync(material);
+            await _bll.SaveChangesAsync();
 
             return CreatedAtAction("GetMaterial", new { id = material.Id }, material);
         }
@@ -76,14 +78,14 @@ namespace WebApp.ApiControllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Material>> DeleteMaterial(int id)
         {
-            var material = await _uow.Material.FindAsync(id);
+            var material = await _bll.Material.FindAsync(id);
             if (material == null)
             {
                 return NotFound();
             }
 
-            _uow.Material.Remove(material);
-            await _uow.SaveChangesAsync();
+            _bll.Material.Remove(material);
+            await _bll.SaveChangesAsync();
 
             return material;
         }

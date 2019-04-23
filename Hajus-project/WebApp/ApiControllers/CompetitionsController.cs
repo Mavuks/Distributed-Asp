@@ -2,12 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.BLL.App;
 using Contracts.DAL.App;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DAL.App.EF;
 using Domain;
+using Domain.Identity;
+using Identity;
 
 namespace WebApp.ApiControllers
 {
@@ -15,31 +18,29 @@ namespace WebApp.ApiControllers
     [ApiController]
     public class CompetitionsController : ControllerBase
     {
+       
+        
+        private readonly IAppBLL _bll;
         
 
-        private readonly IAppUnitOfWork _uow;
-        
-
-        public CompetitionsController( IAppUnitOfWork uow)
+        public CompetitionsController(  IAppBLL bll)
         {
             
-            _uow = uow;
+            _bll = bll;
         }
 
         // GET: api/Competitions
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Competition>>> GetCompetitions()
         {
-            var competitions = await _uow.Competition.AllAsync();
-            
-            return new ActionResult<IEnumerable<Competition>>(competitions);
+            return await _bll.Competition.AllForUserAsync(User.GetUserId());
         }
 
         // GET: api/Competitions/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Competition>> GetCompetition(int id)
         {
-            var competition = await _uow.Competition.FindAsync(id);
+            var competition = await _bll.Competition.FindAsync(id);
 
             if (competition == null)
             {
@@ -58,8 +59,8 @@ namespace WebApp.ApiControllers
                 return BadRequest();
             }
 
-            _uow.Competition.Update(competition);
-            await _uow.SaveChangesAsync();
+            _bll.Competition.Update(competition);
+            await _bll.SaveChangesAsync();
             
 
             return NoContent();
@@ -69,8 +70,8 @@ namespace WebApp.ApiControllers
         [HttpPost]
         public async Task<ActionResult<Competition>> PostCompetition(Competition competition)
         {
-            await _uow.Competition.AddAsync(competition);
-            await _uow.SaveChangesAsync();
+            await _bll.Competition.AddAsync(competition);
+            await _bll.SaveChangesAsync();
 
             return CreatedAtAction("GetCompetition", new { id = competition.Id }, competition);
         }
@@ -79,14 +80,14 @@ namespace WebApp.ApiControllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Competition>> DeleteCompetition(int id)
         {
-            var competition = await _uow.Competition.FindAsync(id);
+            var competition = await _bll.Competition.FindAsync(id);
             if (competition == null)
             {
                 return NotFound();
             }
 
-            _uow.Competition.Remove(competition);
-            await _uow.SaveChangesAsync();
+            _bll.Competition.Remove(competition);
+            await _bll.SaveChangesAsync();
 
             return competition;
         }

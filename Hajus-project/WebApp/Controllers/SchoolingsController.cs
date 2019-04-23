@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.BLL.App;
 using Contracts.DAL.App;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -17,18 +18,20 @@ namespace WebApp.Controllers
     {
         
 
-        private readonly IAppUnitOfWork _uow;
+        
+        private readonly IAppBLL _bll;
 
-        public SchoolingsController(IAppUnitOfWork uow)
+        public SchoolingsController(IAppBLL bll)
         {
-            _uow = uow;
+            _bll = bll;
+            
         }
 
         // GET: Schoolings
         public async Task<IActionResult> Index()
         {
         
-            return View(await _uow.Schooling.AllAsync());
+            return View(await _bll.Schooling.AllAsync());
         }
 
         // GET: Schoolings/Details/5
@@ -39,7 +42,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var schooling = await _uow.Schooling.FindAsync(id);
+            var schooling = await _bll.Schooling.FindAsync(id);
             if (schooling == null)
             {
                 return NotFound();
@@ -55,7 +58,7 @@ namespace WebApp.Controllers
             var vm = new SchoolingCreateViewModel()
             {
               
-                MaterialSelectList = new SelectList(await _uow.Material.AllAsync(),nameof(Material.Id), nameof(Material.MaterialName) )
+                MaterialSelectList = new SelectList(await _bll.Material.AllAsync(),nameof(Material.Id), nameof(Material.MaterialName) )
 
             };
 
@@ -71,13 +74,13 @@ namespace WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _uow.Schooling.AddAsync(vm.Schooling);
-                await _uow.SaveChangesAsync();
+                await _bll.Schooling.AddAsync(vm.Schooling);
+                await _bll.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
 
            
-            vm.MaterialSelectList = new SelectList(await _uow.Material.AllAsync(), nameof(Material.Id),
+            vm.MaterialSelectList = new SelectList(await _bll.Material.AllAsync(), nameof(Material.Id),
                 nameof(Material.MaterialName), vm.Schooling.MaterialId);
 
             return View(vm);
@@ -91,7 +94,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var schooling = await _uow.Schooling.FindAsync(id);
+            var schooling = await _bll.Schooling.FindAsync(id);
             if (schooling == null)
             {
                 return NotFound();
@@ -100,7 +103,7 @@ namespace WebApp.Controllers
             var vm = new SchoolingCreateViewModel()
             {
                 Schooling = schooling,
-             MaterialSelectList = new SelectList(await _uow.Material.AllAsync(),nameof(Material.Id), nameof(Material.MaterialName), schooling.MaterialId)
+             MaterialSelectList = new SelectList(await _bll.Material.AllAsync(),nameof(Material.Id), nameof(Material.MaterialName), schooling.MaterialId)
 
             };
 
@@ -121,14 +124,14 @@ namespace WebApp.Controllers
 
             if (ModelState.IsValid)
             {
-                _uow.Schooling.Update(vm.Schooling);
-                await _uow.SaveChangesAsync();
+                _bll.Schooling.Update(vm.Schooling);
+                await _bll.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             
             
            
-            vm.MaterialSelectList = new SelectList(await _uow.Material.AllAsync(), nameof(Material.Id),
+            vm.MaterialSelectList = new SelectList(await _bll.Material.AllAsync(), nameof(Material.Id),
                 nameof(Material.MaterialName), vm.Schooling.MaterialId);
 
 
@@ -143,7 +146,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var schooling = await _uow.Schooling.FindAsync(id);
+            var schooling = await _bll.Schooling.FindAsync(id);
             if (schooling == null)
             {
                 return NotFound();
@@ -157,8 +160,8 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            _uow.Schooling.Remove(id);
-            await _uow.SaveChangesAsync();
+            _bll.Schooling.Remove(id);
+            await _bll.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 

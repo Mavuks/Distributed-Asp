@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.BLL.App;
 using Contracts.DAL.App;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -13,18 +14,19 @@ namespace WebApp.Controllers
 {
     public class MaterialsController : Controller
     {
-        private readonly IAppUnitOfWork _uow;
+        
+        private readonly IAppBLL _bll;
 
-        public MaterialsController( IAppUnitOfWork uow)
+        public MaterialsController(IAppBLL bll)
         {
-            _uow = uow;
-            
+           
+            _bll = bll;
         }
 
         // GET: Materials
         public async Task<IActionResult> Index()
         {
-            return View(await _uow.Material.AllAsync());
+            return View(await _bll.Material.AllAsync());
         }
 
         // GET: Materials/Details/5
@@ -37,7 +39,7 @@ namespace WebApp.Controllers
 
 
 
-            var material = await _uow.Material.FindAsync(id);
+            var material = await _bll.Material.FindAsync(id);
             if (material == null)
             {
                 return NotFound();
@@ -62,8 +64,8 @@ namespace WebApp.Controllers
             
             if (ModelState.IsValid)
             {
-                await _uow.Material.AddAsync(material);
-                await _uow.SaveChangesAsync();
+                await _bll.Material.AddAsync(material);
+                await _bll.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(material);
@@ -77,7 +79,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var material = await _uow.Material.FindAsync(id);
+            var material = await _bll.Material.FindAsync(id);
             if (material == null)
             {
                 return NotFound();
@@ -99,8 +101,8 @@ namespace WebApp.Controllers
 
             if (ModelState.IsValid)
             {
-                _uow.Material.Update(material);
-                await _uow.SaveChangesAsync();
+                _bll.Material.Update(material);
+                await _bll.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(material);
@@ -115,7 +117,7 @@ namespace WebApp.Controllers
             }
 
 
-            var material = await _uow.Material.FindAsync(id);
+            var material = await _bll.Material.FindAsync(id);
             if (material == null)
             {
                 return NotFound();
@@ -129,9 +131,9 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var material = await _uow.Material.FindAsync(id);
-            _uow.Material.Remove(material);
-            await _uow.SaveChangesAsync();
+            var material = await _bll.Material.FindAsync(id);
+            _bll.Material.Remove(material);
+            await _bll.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 

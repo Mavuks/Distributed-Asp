@@ -1,45 +1,30 @@
 using Contracts.DAL.App.Repositories;
+using Contracts.DAL.Base.Helpers;
 using DAL.App.EF.Repositories;
 using DAL.Base.EF.Helpers;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace DAL.App.EF.Helpers
 {
-    public class AppRepositoryFactory : BaseRepositoryFactory
+    public class AppRepositoryFactory : BaseRepositoryFactory<AppDbContext>
     {
-
         public AppRepositoryFactory()
         {
-            // add to dictionary all the repo creation methods we might need!
-            
-            RepositoryCreationMethods.Add(typeof(IDogRepository), 
-                dataContext => new  DogRepository(dataContext));
-            
-            
-            RepositoryCreationMethods.Add(typeof(IBreedRepository), 
-                dataContext => new  BreedRepository(dataContext));
-            
-            RepositoryCreationMethods.Add(typeof(ICompetitionRepository), 
-                dataContext => new  CompetitionRepository(dataContext));
-            
-            RepositoryCreationMethods.Add(typeof(ILocationRepository), 
-                dataContext => new  LocationRepository(dataContext));
-            
-            RepositoryCreationMethods.Add(typeof(IMaterialRepository), 
-                dataContext => new  MaterialRepository(dataContext));
-            
-            RepositoryCreationMethods.Add(typeof(IParticipantRepository), 
-                dataContext => new  ParticipantRepository(dataContext));
-            
-            RepositoryCreationMethods.Add(typeof(IRegistrationRepository), 
-                dataContext => new  RegistrationRepository(dataContext));
-            
-            RepositoryCreationMethods.Add(typeof(ISchoolingRepository), 
-                dataContext => new  SchoolingRepository(dataContext));
-            
-            RepositoryCreationMethods.Add(typeof(IShowRepository), 
-                dataContext => new  ShowRepository(dataContext));
-            
+            RegisterRepositories();
+        }
+
+        private void RegisterRepositories()
+        {
+            AddToCreationMethods<IDogRepository>(dataContext => new DogRepository(dataContext));
+            AddToCreationMethods<IBreedRepository>(dataContext => new BreedRepository(dataContext));
+            AddToCreationMethods<ICompetitionRepository>(dataContext => new CompetitionRepository(dataContext));
+            AddToCreationMethods<ILocationRepository>(dataContext => new LocationRepository(dataContext));
+            AddToCreationMethods<IMaterialRepository>(dataContext => new MaterialRepository(dataContext));
+            AddToCreationMethods<IParticipantRepository>(dataContext => new ParticipantRepository(dataContext));
+            AddToCreationMethods<IRegistrationRepository>(dataContext => new RegistrationRepository(dataContext));
+            AddToCreationMethods<ISchoolingRepository>(dataContext => new SchoolingRepository(dataContext));
+            AddToCreationMethods<IShowRepository>(dataContext => new ShowRepository(dataContext));
         }
     }
+    
+    
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.BLL.App;
 using Contracts.DAL.App;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -15,20 +16,19 @@ namespace WebApp.Controllers
     public class RegistrationsController : Controller
     {
         
+        private readonly IAppBLL _bll;
 
-        private readonly IAppUnitOfWork _uow;
-
-        public RegistrationsController(IAppUnitOfWork uow)
+        public RegistrationsController(IAppBLL bll)
         {
             
-            _uow = uow;
+            _bll = bll;
         }
 
         // GET: Registrations
         public async Task<IActionResult> Index()
         {
          
-            return View(await _uow.Registration.AllAsync());
+            return View(await _bll.Registration.AllAsync());
         }
 
         // GET: Registrations/Details/5
@@ -39,7 +39,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var registration = await _uow.Registration.FindAsync(id);
+            var registration = await _bll.Registration.FindAsync(id);
             if (registration == null)
             {
                 return NotFound();
@@ -54,10 +54,10 @@ namespace WebApp.Controllers
 
             var vm = new RegistrationsCreateViewModel()
             {
-                CompetitionSelectList = new SelectList(await _uow.Competition.AllAsync(), nameof(Competition.Id),nameof(Competition.Title)),
-                DogSelectList = new SelectList(await _uow.Dog.AllAsync(), nameof(Dog.Id), nameof(Dog.DogName)),
-                ParticipantSelectList = new SelectList(await _uow.Participant.AllAsync(), nameof(Participant.Id), nameof(Participant.FirstName)),
-                ShowSelectList = new SelectList(await _uow.Show.AllAsync(), nameof(Show.Id), nameof(Show.Title))
+                CompetitionSelectList = new SelectList(await _bll.Competition.AllAsync(), nameof(Competition.Id),nameof(Competition.Title)),
+                DogSelectList = new SelectList(await _bll.Dog.AllAsync(), nameof(Dog.Id), nameof(Dog.DogName)),
+                ParticipantSelectList = new SelectList(await _bll.Participant.AllAsync(), nameof(Participant.Id), nameof(Participant.FirstName)),
+                ShowSelectList = new SelectList(await _bll.Show.AllAsync(), nameof(Show.Id), nameof(Show.Title))
             };
 
             return View(vm);
@@ -72,18 +72,18 @@ namespace WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _uow.Registration.AddAsync(vm.Registration);
-                await _uow.SaveChangesAsync();
+                await _bll.Registration.AddAsync(vm.Registration);
+                await _bll.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
 
 
-            vm.CompetitionSelectList = new SelectList(await _uow.Competition.AllAsync(), nameof(Competition.Id),
+            vm.CompetitionSelectList = new SelectList(await _bll.Competition.AllAsync(), nameof(Competition.Id),
                 nameof(Competition.Title), vm.Registration.CompetitionId);
-            vm.DogSelectList = new SelectList(await _uow.Dog.AllAsync(), nameof(Dog.Id), nameof(Dog.DogName), vm.Registration.DogId);
-            vm.ParticipantSelectList = new SelectList(await _uow.Participant.AllAsync(), nameof(Participant.Id),
+            vm.DogSelectList = new SelectList(await _bll.Dog.AllAsync(), nameof(Dog.Id), nameof(Dog.DogName), vm.Registration.DogId);
+            vm.ParticipantSelectList = new SelectList(await _bll.Participant.AllAsync(), nameof(Participant.Id),
                 nameof(Participant.FirstName), vm.Registration.ParticipantId);
-            vm.ShowSelectList = new SelectList(await _uow.Show.AllAsync(), nameof(Show.Id), nameof(Show.Title), vm.Registration.ShowId);
+            vm.ShowSelectList = new SelectList(await _bll.Show.AllAsync(), nameof(Show.Id), nameof(Show.Title), vm.Registration.ShowId);
 
             return View(vm);
         }
@@ -96,7 +96,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var registration = await _uow.Registration.FindAsync(id);
+            var registration = await _bll.Registration.FindAsync(id);
             if (registration == null)
             {
                 return NotFound();
@@ -105,10 +105,10 @@ namespace WebApp.Controllers
             var vm = new RegistrationsCreateViewModel()
             {
                 Registration = registration,
-                CompetitionSelectList = new SelectList(await _uow.Competition.AllAsync(), nameof(Competition.Id),nameof(Competition.Title), registration.CompetitionId),
-                DogSelectList = new SelectList(await _uow.Dog.AllAsync(), nameof(Dog.Id), nameof(Dog.DogName), registration.DogId),
-                ParticipantSelectList = new SelectList(await _uow.Participant.AllAsync(), nameof(Participant.Id), nameof(Participant.FirstName), registration.ParticipantId),
-                ShowSelectList = new SelectList(await _uow.Show.AllAsync(), nameof(Show.Id), nameof(Show.Title), registration.ShowId)
+                CompetitionSelectList = new SelectList(await _bll.Competition.AllAsync(), nameof(Competition.Id),nameof(Competition.Title), registration.CompetitionId),
+                DogSelectList = new SelectList(await _bll.Dog.AllAsync(), nameof(Dog.Id), nameof(Dog.DogName), registration.DogId),
+                ParticipantSelectList = new SelectList(await _bll.Participant.AllAsync(), nameof(Participant.Id), nameof(Participant.FirstName), registration.ParticipantId),
+                ShowSelectList = new SelectList(await _bll.Show.AllAsync(), nameof(Show.Id), nameof(Show.Title), registration.ShowId)
             };
 
             return View(vm);
@@ -128,17 +128,17 @@ namespace WebApp.Controllers
 
             if (ModelState.IsValid)
             {
-                _uow.Registration.Update(vm.Registration);
-                await _uow.SaveChangesAsync();
+                _bll.Registration.Update(vm.Registration);
+                await _bll.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             
-            vm.CompetitionSelectList = new SelectList(await _uow.Competition.AllAsync(), nameof(Competition.Id),
+            vm.CompetitionSelectList = new SelectList(await _bll.Competition.AllAsync(), nameof(Competition.Id),
                 nameof(Competition.Title), vm.Registration.CompetitionId);
-            vm.DogSelectList = new SelectList(await _uow.Dog.AllAsync(), nameof(Dog.Id), nameof(Dog.DogName), vm.Registration.DogId);
-            vm.ParticipantSelectList = new SelectList(await _uow.Participant.AllAsync(), nameof(Participant.Id),
+            vm.DogSelectList = new SelectList(await _bll.Dog.AllAsync(), nameof(Dog.Id), nameof(Dog.DogName), vm.Registration.DogId);
+            vm.ParticipantSelectList = new SelectList(await _bll.Participant.AllAsync(), nameof(Participant.Id),
                 nameof(Participant.FirstName), vm.Registration.ParticipantId);
-            vm.ShowSelectList = new SelectList(await _uow.Show.AllAsync(), nameof(Show.Id), nameof(Show.Title), vm.Registration.ShowId);
+            vm.ShowSelectList = new SelectList(await _bll.Show.AllAsync(), nameof(Show.Id), nameof(Show.Title), vm.Registration.ShowId);
 
             return View(vm);
         }
@@ -151,7 +151,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var registration = await _uow.Registration.FindAsync(id);
+            var registration = await _bll.Registration.FindAsync(id);
             
             if (registration == null)
             {
@@ -166,8 +166,8 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            _uow.Registration.Remove(id);
-            await _uow.SaveChangesAsync();
+            _bll.Registration.Remove(id);
+            await _bll.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 

@@ -5,9 +5,9 @@ using Domain;
 
 namespace Contracts.DAL.App.Repositories
 {
-    public interface ICompetitionRepository : IBaseRepositoryAsync<Competition>
+    public interface ICompetitionRepository : IBaseRepository<Competition>
     {
         // add here custom methods
-        Task<IEnumerable<Competition>> AllAsync();
+        Task<List<Competition>> AllForUserAsync(int userId);
     }
 }

@@ -2,12 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.BLL.App;
 using Contracts.DAL.App;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DAL.App.EF;
 using Domain;
+using Domain.Identity;
+using Identity;
 
 namespace WebApp.ApiControllers
 {
@@ -15,27 +18,27 @@ namespace WebApp.ApiControllers
     [ApiController]
     public class SchoolingsController : ControllerBase
     {
-        private readonly IAppUnitOfWork _uow;
+        
+        private readonly IAppBLL _bll;
 
-        public SchoolingsController( IAppUnitOfWork uow)
+        public SchoolingsController(IAppBLL bll)
         {
-            _uow = uow;
             
+            _bll = bll;
         }
 
         // GET: api/Schoolings
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Schooling>>> GetSchoolings()
         {
-            var schoolings = await _uow.Schooling.AllAsync();
-            return new ActionResult<IEnumerable<Schooling>>(schoolings);
+            return await _bll.Schooling.AllForUserAsync(User.GetUserId());
         }
 
         // GET: api/Schoolings/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Schooling>> GetSchooling(int id)
         {
-            var schooling = await _uow.Schooling.FindAsync(id);
+            var schooling = await _bll.Schooling.FindAsync(id);
 
             if (schooling == null)
             {
@@ -54,8 +57,8 @@ namespace WebApp.ApiControllers
                 return BadRequest();
             }
 
-            _uow.Schooling.Update(schooling);
-            await _uow.SaveChangesAsync();
+            _bll.Schooling.Update(schooling);
+            await _bll.SaveChangesAsync();
 
             return NoContent();
         }
@@ -64,8 +67,8 @@ namespace WebApp.ApiControllers
         [HttpPost]
         public async Task<ActionResult<Schooling>> PostSchooling(Schooling schooling)
         {
-            await _uow.Schooling.AddAsync(schooling);
-            await _uow.SaveChangesAsync();
+            await _bll.Schooling.AddAsync(schooling);
+            await _bll.SaveChangesAsync();
 
             return CreatedAtAction("GetSchooling", new { id = schooling.Id }, schooling);
         }
@@ -74,14 +77,14 @@ namespace WebApp.ApiControllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Schooling>> DeleteSchooling(int id)
         {
-            var schooling = await _uow.Schooling.FindAsync(id);
+            var schooling = await _bll.Schooling.FindAsync(id);
             if (schooling == null)
             {
                 return NotFound();
             }
 
-            _uow.Schooling.Remove(schooling);
-            await _uow.SaveChangesAsync();
+            _bll.Schooling.Remove(schooling);
+            await _bll.SaveChangesAsync();
 
             return schooling;
         }

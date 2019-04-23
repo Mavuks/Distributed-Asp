@@ -2,12 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.BLL.App;
 using Contracts.DAL.App;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DAL.App.EF;
 using Domain;
+using Identity;
 
 namespace WebApp.ApiControllers
 {
@@ -15,11 +17,12 @@ namespace WebApp.ApiControllers
     [ApiController]
     public class ShowsController : ControllerBase
     {
-        private readonly IAppUnitOfWork _uow;
+        
+        private readonly IAppBLL _bll;
 
-        public ShowsController(IAppUnitOfWork uow)
+        public ShowsController(IAppBLL bll)
         {
-            _uow = uow;
+            _bll = bll;
             
         }
 
@@ -27,15 +30,14 @@ namespace WebApp.ApiControllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Show>>> GetShows()
         {
-            var shows = await _uow.Show.AllAsync();
-            return new ActionResult<IEnumerable<Show>>(shows);
+            return await _bll.Show.AllForUserAsync(User.GetUserId());
         }
 
         // GET: api/Shows/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Show>> GetShow(int id)
         {
-            var show = await _uow.Show.FindAsync(id);
+            var show = await _bll.Show.FindAsync(id);
 
             if (show == null)
             {
@@ -54,8 +56,8 @@ namespace WebApp.ApiControllers
                 return BadRequest();
             }
 
-            _uow.Show.Update(show);
-            await _uow.SaveChangesAsync();
+            _bll.Show.Update(show);
+            await _bll.SaveChangesAsync();
 
             return NoContent();
         }
@@ -64,8 +66,8 @@ namespace WebApp.ApiControllers
         [HttpPost]
         public async Task<ActionResult<Show>> PostShow(Show show)
         {
-            await _uow.Show.AddAsync(show);
-            await _uow.SaveChangesAsync();
+            await _bll.Show.AddAsync(show);
+            await _bll.SaveChangesAsync();
 
             return CreatedAtAction("GetShow", new { id = show.Id }, show);
         }
@@ -74,14 +76,14 @@ namespace WebApp.ApiControllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Show>> DeleteShow(int id)
         {
-            var show = await _uow.Show.FindAsync(id);
+            var show = await _bll.Show.FindAsync(id);
             if (show == null)
             {
                 return NotFound();
             }
 
-            _uow.Show.Remove(show);
-            await _uow.SaveChangesAsync();
+            _bll.Show.Remove(show);
+            await _bll.SaveChangesAsync();
 
             return show;
         }

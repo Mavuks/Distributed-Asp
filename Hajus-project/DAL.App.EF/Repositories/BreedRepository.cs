@@ -11,14 +11,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAL.App.EF.Repositories
 {
-    public class BreedRepository: BaseRepository<Breed>, IBreedRepository
+    public class BreedRepository: BaseRepository<Breed, AppDbContext>, IBreedRepository
     {
-        public BreedRepository(IDataContext dataContext) : base(dataContext)
+        public BreedRepository(AppDbContext repositoryDbContext) : base(repositoryDbContext)
         {
            
         }
 
-        public virtual async Task<IEnumerable<BreedDTO>> GetAllWithBreedCountAsync()
+        public virtual async Task<List<BreedDTO>> GetAllWithBreedCountAsync()
         {
             return await RepositoryDbSet
                 .Select(b => new BreedDTO()

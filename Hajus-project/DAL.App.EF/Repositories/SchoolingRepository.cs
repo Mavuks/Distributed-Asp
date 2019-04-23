@@ -8,13 +8,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAL.App.EF.Repositories
 {
-    public class SchoolingRepository: BaseRepository<Schooling>, ISchoolingRepository
+    public class SchoolingRepository: BaseRepository<Schooling, AppDbContext>, ISchoolingRepository
     {
-        public SchoolingRepository(IDataContext dataContext) : base(dataContext)
+        public SchoolingRepository(AppDbContext repositoryDbContext) : base(repositoryDbContext)
         {
         }
         
-        public override async Task<IEnumerable<Schooling>> AllAsync()
+
+        public async Task<List<Schooling>> AllForUserAsync(int userId)
         {
             return await RepositoryDbSet
                 .Include(a => a.Material)

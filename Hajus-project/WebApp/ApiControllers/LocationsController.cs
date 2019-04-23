@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.BLL.App;
 using Contracts.DAL.App;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,19 +16,20 @@ namespace WebApp.ApiControllers
     [ApiController]
     public class LocationsController : ControllerBase
     {
-        private readonly IAppUnitOfWork _uow;
+        
+        private readonly IAppBLL _bll;
 
-        public LocationsController( IAppUnitOfWork uow)
+        public LocationsController(IAppBLL bll)
         {
-            _uow = uow;
-            
+            _bll = bll;
+           
         }
 
         // GET: api/Locations
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Location>>> GetLocations()
         {
-            var locations = await _uow.Location.AllAsync();
+            var locations = await _bll.Location.AllAsync();
             return new ActionResult<IEnumerable<Location>>(locations);
         }
 
@@ -35,7 +37,7 @@ namespace WebApp.ApiControllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Location>> GetLocation(int id)
         {
-            var location = await _uow.Location.FindAsync(id);
+            var location = await _bll.Location.FindAsync(id);
 
             if (location == null)
             {
@@ -54,8 +56,8 @@ namespace WebApp.ApiControllers
                 return BadRequest();
             }
 
-            _uow.Location.Update(location);
-            await _uow.SaveChangesAsync();
+            _bll.Location.Update(location);
+            await _bll.SaveChangesAsync();
             
             return NoContent();
         }
@@ -64,8 +66,8 @@ namespace WebApp.ApiControllers
         [HttpPost]
         public async Task<ActionResult<Location>> PostLocation(Location location)
         {
-            await _uow.Location.AddAsync(location);
-            await _uow.SaveChangesAsync();
+            await _bll.Location.AddAsync(location);
+            await _bll.SaveChangesAsync();
 
             return CreatedAtAction("GetLocation", new { id = location.Id }, location);
         }
@@ -74,14 +76,14 @@ namespace WebApp.ApiControllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Location>> DeleteLocation(int id)
         {
-            var location = await _uow.Location.FindAsync(id);
+            var location = await _bll.Location.FindAsync(id);
             if (location == null)
             {
                 return NotFound();
             }
 
-            _uow.Location.Remove(location);
-            await _uow.SaveChangesAsync();
+            _bll.Location.Remove(location);
+            await _bll.SaveChangesAsync();
 
             return location;
         }

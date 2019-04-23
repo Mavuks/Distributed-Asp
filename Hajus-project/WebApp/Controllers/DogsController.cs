@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.BLL.App;
 using Contracts.DAL.App;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -18,19 +19,20 @@ namespace WebApp.Controllers
     [Authorize]
     public class DogsController : Controller
     {
-        private readonly IAppUnitOfWork _uow;
+        
+        private readonly IAppBLL _bll;
 
-        public DogsController( IAppUnitOfWork uow)
+        public DogsController(IAppBLL bll)
         {
             
-            _uow = uow;
+            _bll = bll;
         }
 
         // GET: Dogs
         public async Task<IActionResult> Index()
         {
 
-            var dogs = await _uow.Dog.AllAsync();
+            var dogs = await _bll.Dog.AllAsync();
             return View(dogs);
         }
 
@@ -42,7 +44,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var dog = await _uow.Dog.FindAsync(id);
+            var dog = await _bll.Dog.FindAsync(id);
             if (dog == null)
             {
                 return NotFound();
@@ -57,7 +59,7 @@ namespace WebApp.Controllers
 
             var vm = new DogCreateViewModel()
             {
-                BreedSelectList = new SelectList(await _uow.Breed.AllAsync(), nameof(Breed.Id), nameof(Breed.BreedName))
+                BreedSelectList = new SelectList(await _bll.Breed.AllAsync(), nameof(Breed.Id), nameof(Breed.BreedName))
                 
             };
            
@@ -75,13 +77,13 @@ namespace WebApp.Controllers
             
             if (ModelState.IsValid)
             {
-                await _uow.Dog.AddAsync(vm.Dog);
-                await _uow.SaveChangesAsync();
+                await _bll.Dog.AddAsync(vm.Dog);
+                await _bll.SaveChangesAsync();
                 
                 return RedirectToAction(nameof(Index));
             }
 
-          vm.BreedSelectList  = new SelectList(await _uow.Breed.AllAsync(), nameof(Breed.Id),
+          vm.BreedSelectList  = new SelectList(await _bll.Breed.AllAsync(), nameof(Breed.Id),
                 nameof(Breed.BreedName), vm.Dog.BreedId );
 
 
@@ -98,7 +100,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var dog = await _uow.Dog.FindAsync((int)id);
+            var dog = await _bll.Dog.FindAsync((int)id);
             if (dog == null)
             {
                 return NotFound();
@@ -108,7 +110,7 @@ namespace WebApp.Controllers
             {
                 Dog = dog,
             
-             BreedSelectList = new SelectList(await _uow.Breed.AllAsync(), nameof(Breed.Id), nameof(Breed.BreedName), dog.BreedId)
+             BreedSelectList = new SelectList(await _bll.Breed.AllAsync(), nameof(Breed.Id), nameof(Breed.BreedName), dog.BreedId)
                 
             };
 
@@ -129,13 +131,13 @@ namespace WebApp.Controllers
 
             if (ModelState.IsValid)
             {
-                _uow.Dog.Update(vm.Dog);
-                await _uow.SaveChangesAsync();
+                _bll.Dog.Update(vm.Dog);
+                await _bll.SaveChangesAsync();
                 
                 return RedirectToAction(nameof(Index));
             }
             
-         vm.BreedSelectList  = new SelectList(await _uow.Breed.AllAsync(), nameof(Breed.Id),
+         vm.BreedSelectList  = new SelectList(await _bll.Breed.AllAsync(), nameof(Breed.Id),
                 nameof(Breed.BreedName), vm.Dog.BreedId );
 
             return View(vm);
@@ -149,7 +151,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var dog = await _uow.Dog.FindAsync(id);
+            var dog = await _bll.Dog.FindAsync(id);
                 
             if (dog == null)
             {
@@ -164,8 +166,8 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            _uow.Dog.Remove(id);
-            await _uow.SaveChangesAsync();
+            _bll.Dog.Remove(id);
+            await _bll.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 

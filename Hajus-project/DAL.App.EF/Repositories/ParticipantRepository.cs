@@ -11,18 +11,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAL.App.EF.Repositories
 {
-    public class ParticipantRepository : BaseRepository<Participant>, IParticipantRepository
+    public class ParticipantRepository : BaseRepository<Participant, AppDbContext>, IParticipantRepository
     {
         
 
-        public ParticipantRepository(IDataContext dataContext) : base(dataContext)
+        public ParticipantRepository(AppDbContext repositoryDbContext) : base(repositoryDbContext)
         {
         }
 
 
         
 
-        public virtual async Task<IEnumerable<ParticipantDTO>> GetAllParticipantAsync()
+        public virtual async Task<List<ParticipantDTO>> GetAllParticipantAsync()
         {
             return await RepositoryDbSet
                 .Select(p => new ParticipantDTO()
