@@ -28,7 +28,7 @@ namespace WebApp.ApiControllers
 
         // GET: api/Materials
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<MaterialDTO>>> GetMaterials()
+        public async Task<ActionResult<IEnumerable<MaterialCounts>>> GetMaterials()
         {
 
 

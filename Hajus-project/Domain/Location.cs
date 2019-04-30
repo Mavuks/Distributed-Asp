@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace Domain
 {
-    public class Location : BaseEntity
+    public class Location : DomainEntity
     {
 
         public string Locations { get; set; }

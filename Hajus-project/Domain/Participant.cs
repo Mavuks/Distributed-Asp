@@ -5,7 +5,7 @@ using Domain.Identity;
 
 namespace Domain
 {
-    public class Participant : BaseEntity
+    public class Participant : DomainEntity
     {
         [MaxLength(100)]
         [MinLength(2)]

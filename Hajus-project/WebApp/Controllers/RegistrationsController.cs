@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DAL.App.EF;
 using Domain;
+using Identity;
 using WebApp.ViewModels;
 
 namespace WebApp.Controllers
@@ -28,7 +29,7 @@ namespace WebApp.Controllers
         public async Task<IActionResult> Index()
         {
          
-            return View(await _bll.Registration.AllAsync());
+            return View(await _bll.Registration.AllForUserAsync(User.GetUserId()));
         }
 
         // GET: Registrations/Details/5

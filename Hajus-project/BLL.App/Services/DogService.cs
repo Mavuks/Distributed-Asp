@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using BLL.App.Mappers;
 using BLL.Base.Services;
 using Contracts.BLL.App.Services;
 using Contracts.DAL.App;
@@ -10,15 +12,15 @@ using Domain;
 
 namespace BLL.App.Services
 {
-    public class DogService : BaseEntityService<Dog, IAppUnitOfWork>, IDogService
+    public class DogService : BaseEntityService<BLL.App.DTO.Dog, DAL.App.DTO.Dog,  IAppUnitOfWork>, IDogService
     {
-        public DogService(IAppUnitOfWork uow) : base(uow)
+        public DogService(IAppUnitOfWork uow) : base(uow, new DogMapper())
         {
         }
 
-        public async Task<List<Dog>> AllForUserAsync(int userId)
+        public async Task<List<BLL.App.DTO.Dog>> AllForUserAsync(int userId)
         {
-            return await Uow.Dog.AllAsync();
+            return (await Uow.Dog.AllForUserAsync(userId)).Select(e => DogMapper.MapFromInternal(e)).ToList();
         }
 //
 //        public async Task<Dog> FindForUserAsync(int id, int userId)

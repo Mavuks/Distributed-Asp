@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using BLL.App.Mappers;
 using Contracts.DAL.App.Repositories;
 using Contracts.DAL.Base;
 using DAL.Base.EF.Repositories;
@@ -9,9 +10,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAL.App.EF.Repositories
 {
-    public class RegistrationRepository: BaseRepository<Registration, AppDbContext>, IRegistrationRepository
+    public class RegistrationRepository: BaseRepository<DAL.App.DTO.Registration, Domain.Registration, AppDbContext>, IRegistrationRepository
     {
-        public RegistrationRepository(AppDbContext repositoryDbContext) : base(repositoryDbContext)
+        public RegistrationRepository(AppDbContext repositoryDbContext) : base(repositoryDbContext, new RegistrationMapper())
         {
         }
 
@@ -25,7 +26,7 @@ namespace DAL.App.EF.Repositories
 //                .Include(e => e.Show).ToListAsync();
 //        }
 
-        public async Task<List<Registration>> AllForUserAsync(int userId)
+        public async Task<List<DAL.App.DTO.Registration>> AllForUserAsync(int userId)
         {
             return await  RepositoryDbSet
                 .Include(b => b.Dog)

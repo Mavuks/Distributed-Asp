@@ -29,7 +29,7 @@ namespace WebApp.Controllers
         // GET: Breeds
         public async Task<IActionResult> Index()
         {    
-            return View(await _bll.Breed.AllAsync());
+            return View(await _bll.Breed.GetAllWithBreedCountAsync());
         }
 
         // GET: Breeds/Details/5

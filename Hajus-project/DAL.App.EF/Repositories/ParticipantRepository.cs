@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BLL.App.Mappers;
 using Contracts.DAL.App.Repositories;
 using Contracts.DAL.Base;
 using DAL.App.DTO;
@@ -11,11 +12,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAL.App.EF.Repositories
 {
-    public class ParticipantRepository : BaseRepository<Participant, AppDbContext>, IParticipantRepository
+    public class ParticipantRepository : BaseRepository<DAL.App.DTO.Participant, Domain.Participant, AppDbContext>, IParticipantRepository
     {
         
 
-        public ParticipantRepository(AppDbContext repositoryDbContext) : base(repositoryDbContext)
+        public ParticipantRepository(AppDbContext repositoryDbContext) : base(repositoryDbContext, new ParticipantMapper())
         {
         }
 

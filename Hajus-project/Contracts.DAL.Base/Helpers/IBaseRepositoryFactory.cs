@@ -3,7 +3,6 @@ using System.Data.Common;
 using Contracts.DAL.Base.Repositories;
 using Microsoft.EntityFrameworkCore;
 
-
 namespace Contracts.DAL.Base.Helpers
 {
     public interface IBaseRepositoryFactory<TDbContext>
@@ -14,10 +13,11 @@ namespace Contracts.DAL.Base.Helpers
         
         Func<TDbContext, object> GetRepositoryFactory<TRepository>();
 
-        Func<TDbContext, object> GetEntityRepositoryFactory<TEntity>()
-            where TEntity : class, IBaseEntity, new();
-        
-        
+        Func<TDbContext, object> GetEntityRepositoryFactory<TDALEntity, TDomainEntity>()
+            where TDALEntity : class, new()
+            where TDomainEntity : class, IDomainEntity, new();
+
+
 
     }
 }

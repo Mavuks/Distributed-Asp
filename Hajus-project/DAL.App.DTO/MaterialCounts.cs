@@ -2,7 +2,7 @@ using System;
 
 namespace DAL.App.DTO
 {
-    public class MaterialDTO
+    public class MaterialCounts
     {
 
         public int Id { get; set; }

@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using BLL.App.Mappers;
 using BLL.Base.Services;
 using Contracts.BLL.App.Services;
 using Contracts.DAL.App;
@@ -8,15 +10,15 @@ using Domain;
 
 namespace BLL.App.Services
 {
-    public class SchoolingService : BaseEntityService<Schooling, IAppUnitOfWork>, ISchoolingService
+    public class SchoolingService : BaseEntityService<BLL.App.DTO.Schooling,DAL.App.DTO.Schooling , IAppUnitOfWork>, ISchoolingService
     {
-        public SchoolingService(IAppUnitOfWork uow) : base(uow)
+        public SchoolingService(IAppUnitOfWork uow) : base(uow, new SchoolingMapper())
         {
         }
 
-        public async Task<List<Schooling>> AllForUserAsync(int userId)
+        public async Task<List<BLL.App.DTO.Schooling>> AllForUserAsync(int userId)
         {
-            return await Uow.Schooling.AllForUserAsync(userId);
+            return (await Uow.Schooling.AllForUserAsync(userId)).Select(e => SchoolingMapper.MapFromInternal(e)).ToList();
         }
     }
 }

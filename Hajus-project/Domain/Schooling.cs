@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Domain
 {
-    public class Schooling : BaseEntity
+    public class Schooling : DomainEntity
     {
         [Required]
         public string SchoolingName { get; set; }

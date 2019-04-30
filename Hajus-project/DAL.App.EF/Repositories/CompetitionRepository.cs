@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using BLL.App.Mappers;
 using Contracts.DAL.App.Repositories;
 using Contracts.DAL.Base;
 using DAL.Base.EF.Repositories;
@@ -9,9 +10,9 @@ using Microsoft.EntityFrameworkCore.Internal;
 
 namespace DAL.App.EF.Repositories
 {
-    public class CompetitionRepository: BaseRepository<Competition, AppDbContext>, ICompetitionRepository
+    public class CompetitionRepository: BaseRepository<DAL.App.DTO.Competition, Domain.Competition,  AppDbContext>, ICompetitionRepository
     {
-        public CompetitionRepository(AppDbContext repositoryDbContext) : base(repositoryDbContext)
+        public CompetitionRepository(AppDbContext repositoryDbContext) : base(repositoryDbContext, new CompetitionMapper())
         {
         }
 
@@ -24,7 +25,7 @@ namespace DAL.App.EF.Repositories
 //                .ToListAsync();
 //        }
 
-        public async Task<List<Competition>> AllForUserAsync(int userId)
+        public async Task<List<DAL.App.DTO.Competition>> AllForUserAsync(int userId)
         {
             return await RepositoryDbSet
                 .Include(b => b.Location).ToListAsync();

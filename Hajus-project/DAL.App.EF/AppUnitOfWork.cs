@@ -44,9 +44,6 @@ namespace DAL.App.EF
             _repositoryProvider.GetRepository<IShowRepository>();
 
 
-        public IBaseRepositoryAsync<TEntity> BaseRepository<TEntity>() where TEntity : class, IBaseEntity, new()
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }

@@ -1,14 +1,15 @@
-﻿using System;
+using System.Collections.Generic;
 
 namespace DAL.App.DTO
 {
-    public class BreedDTO
+    public class Breed
+    
     {
-
+        
         public int Id { get; set; }
 
         public string BreedName { get; set; }
 
-        public int BreedCount { get; set; }
+        public ICollection<Dog> Dogs { get; set; }
     }
 }

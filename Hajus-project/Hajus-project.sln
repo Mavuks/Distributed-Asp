@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts.BLL.App", "Contra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts.BLL.Base", "Contracts.BLL.Base\Contracts.BLL.Base.csproj", "{B82758C4-F8BD-4801-93E3-CCB955880E61}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resources", "Resources\Resources.csproj", "{588A1DA8-C6BC-4DC4-9517-CCC35BB130C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,5 +99,9 @@ Global
 		{B82758C4-F8BD-4801-93E3-CCB955880E61}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B82758C4-F8BD-4801-93E3-CCB955880E61}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B82758C4-F8BD-4801-93E3-CCB955880E61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{588A1DA8-C6BC-4DC4-9517-CCC35BB130C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{588A1DA8-C6BC-4DC4-9517-CCC35BB130C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{588A1DA8-C6BC-4DC4-9517-CCC35BB130C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{588A1DA8-C6BC-4DC4-9517-CCC35BB130C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

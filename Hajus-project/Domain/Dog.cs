@@ -6,7 +6,7 @@ using Domain.Identity;
 
 namespace Domain
 {
-    public class Dog : BaseEntity
+    public class Dog : DomainEntity
     {
     
         [MaxLength(100)]

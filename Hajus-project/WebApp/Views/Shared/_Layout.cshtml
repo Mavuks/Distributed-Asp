@@ -1,4 +1,5 @@
-﻿@using Domain.Identity
+﻿@using System.Globalization
+@using Domain.Identity
 @using Microsoft.AspNetCore.Identity
 @inject SignInManager<AppUser> SignInManager
 
@@ -38,41 +39,41 @@
 
 
             <li class="nav-item d-none d-sm-inline-block">
-                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">@Resources.Views.Shared._Layout.NavHome</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a class="nav-link " asp-area="" asp-controller="Breeds" asp-action="Index">Breeds</a>
+                <a class="nav-link " asp-area="" asp-controller="Breeds" asp-action="Index">@Resources.Views.Shared._Layout.NavBreed</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a class="nav-link " asp-area="" asp-controller="Competitions" asp-action="Index">Competitions</a>
+                <a class="nav-link " asp-area="" asp-controller="Competitions" asp-action="Index">@Resources.Views.Shared._Layout.NavCompetition</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a class="nav-link " asp-area="" asp-controller="Dogs" asp-action="Index">Dogs</a>
+                <a class="nav-link " asp-area="" asp-controller="Dogs" asp-action="Index">@Resources.Views.Shared._Layout.NavDog</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a class="nav-link " asp-area="" asp-controller="Locations" asp-action="Index">Locations</a>
+                <a class="nav-link " asp-area="" asp-controller="Locations" asp-action="Index">@Resources.Views.Shared._Layout.NavLocation</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a class="nav-link " asp-area="" asp-controller="Materials" asp-action="Index">Materials</a>
+                <a class="nav-link " asp-area="" asp-controller="Materials" asp-action="Index">@Resources.Views.Shared._Layout.NavMaterial</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a class="nav-link " asp-area="" asp-controller="Participants" asp-action="Index">Participants</a>
+                <a class="nav-link " asp-area="" asp-controller="Participants" asp-action="Index">@Resources.Views.Shared._Layout.NavParticipant</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a class="nav-link " asp-area="" asp-controller="Registrations" asp-action="Index">Registrations</a>
+                <a class="nav-link " asp-area="" asp-controller="Registrations" asp-action="Index">@Resources.Views.Shared._Layout.NavRegistration</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a class="nav-link " asp-area="" asp-controller="Schoolings" asp-action="Index">Schoolings</a>
+                <a class="nav-link " asp-area="" asp-controller="Schoolings" asp-action="Index">@Resources.Views.Shared._Layout.NavSchooling</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a class="nav-link " asp-area="" asp-controller="Shows" asp-action="Index">Shows</a>
+                <a class="nav-link " asp-area="" asp-controller="Shows" asp-action="Index">@Resources.Views.Shared._Layout.NavShow</a>
             </li>
               
            }
                else
     {
         <li class="nav-item d-none d-sm-inline-block">
-            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">@Resources.Views.Shared._Layout.NavHome</a>
         </li>
     }
 
@@ -99,7 +100,11 @@
 
 <footer class="border-top footer text-muted">
     <div class="container">
-        &copy; 2019 - WebApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <div class="row">
+            <div class="col-md-4">&copy; 2019 - WebApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">@Resources.Views.Shared._Layout.Privacy</a></div>
+            <div class="col-md-4">UICulture: @CultureInfo.CurrentUICulture.Name Culture: @CultureInfo.CurrentUICulture.Name</div>
+            <div class="col-md-4"><partial name="_LanguageSelectionPartial"/></div>
+        </div>
     </div>
 </footer>
 

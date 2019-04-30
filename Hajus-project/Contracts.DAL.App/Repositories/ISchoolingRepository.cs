@@ -1,13 +1,20 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Contracts.DAL.Base.Repositories;
- using Domain;
+using DALAppDTO = DAL.App.DTO;
  
  namespace Contracts.DAL.App.Repositories
  {
-     public interface ISchoolingRepository : IBaseRepositoryAsync<Schooling>
+     public interface ISchoolingRepository : ISchoolingRepository<DALAppDTO.Schooling>
      {
-         Task<List<Schooling>> AllForUserAsync(int userId);
+         
+     }
+     
+     
+     public interface ISchoolingRepository<TDALEntity> : IBaseRepositoryAsync<TDALEntity>
+         where TDALEntity : class, new()
+     {
+         Task<List<TDALEntity>> AllForUserAsync(int userId);
 
      }
  }

@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using DAL.App.EF;
 using DAL.App.EF.Repositories;
 using Domain;
+using Identity;
 using WebApp.ViewModels;
 
 namespace WebApp.Controllers
@@ -31,7 +32,7 @@ namespace WebApp.Controllers
         public async Task<IActionResult> Index()
         {
         
-            return View(await _bll.Schooling.AllAsync());
+            return View(await _bll.Schooling.AllForUserAsync(User.GetUserId()));
         }
 
         // GET: Schoolings/Details/5
