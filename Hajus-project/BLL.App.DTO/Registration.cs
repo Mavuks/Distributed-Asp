@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace BLL.App.DTO
 {
     public class Registration
@@ -5,9 +7,14 @@ namespace BLL.App.DTO
         
         public int Id { get; set; }
         
-        
+        [MaxLength(64,ErrorMessageResourceName = "ErrorMessageMaxLength" ,ErrorMessageResourceType = typeof(Resources.Domain.Common))]
+        [MinLength(2, ErrorMessageResourceName = "ErrorMessageMinLength", ErrorMessageResourceType = typeof(Resources.Domain.Common))]
+        [Required(ErrorMessageResourceName = "ErrorMessageRequired", ErrorMessageResourceType = typeof(Resources.Domain.Common))]
+        [Display(Name = nameof(Title), ResourceType = typeof(Resources.Domain.Registration))]
         public string Title { get; set; }
 
+        
+        [Display(Name = nameof(Title), ResourceType = typeof(Resources.Domain.Registration))]
         public string Comment { get; set; }
        
         public int DogId { get; set; }

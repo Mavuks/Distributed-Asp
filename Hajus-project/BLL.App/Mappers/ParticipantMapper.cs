@@ -49,6 +49,17 @@ namespace BLL.App.Mappers
 
             return res;
         }
+        
+        public static BLL.App.DTO.ParticipantNames MapFromInternal(internalDTO.ParticipantNames participantNames)
+        {
+            var res = participantNames == null ? null : new BLL.App.DTO.ParticipantNames()
+            {
+                Id = participantNames.Id,
+                FirstName = participantNames.FirstName,
+                LastName = participantNames.LastName
+            };
+            return res;
+        }
 
     }
 }

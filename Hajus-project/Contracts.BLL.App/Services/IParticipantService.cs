@@ -10,6 +10,6 @@ namespace Contracts.BLL.App.Services
     public interface IParticipantService : IBaseEntityService<BLLAppDTO.Participant>, IParticipantRepository<BLLAppDTO.Participant>
     {
 
-        Task<List<BLLAppDTO.ParticipantDTO>> GetAllParticipantAsync();
+        Task<List<BLLAppDTO.ParticipantNames>> GetAllParticipantAsync();
     }
 }

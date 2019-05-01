@@ -1,6 +1,6 @@
 namespace DAL.App.DTO
 {
-    public class ParticipantDTO
+    public class ParticipantNames
     {
         public int Id { get; set; }
 

@@ -17,7 +17,7 @@ namespace BLL.App.Services
         {
         }
 
-        public async Task<List<BLL.App.DTO.ParticipantDTO>>  GetAllParticipantAsync()
+        public async Task<List<BLL.App.DTO.ParticipantNames>>  GetAllParticipantAsync()
         {
             return (await Uow.Participant.GetAllParticipantAsync()).Select(e => ParticipantMapper.MapFromInternal(e)).ToList();
         }

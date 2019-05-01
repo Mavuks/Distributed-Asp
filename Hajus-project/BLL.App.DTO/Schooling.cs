@@ -7,18 +7,21 @@ namespace BLL.App.DTO
     {
         public int Id { get; set; }
         
-        [Required]
+        [MaxLength(64,ErrorMessageResourceName = "ErrorMessageMaxLength" ,ErrorMessageResourceType = typeof(Resources.Domain.Common))]
+        [MinLength(2, ErrorMessageResourceName = "ErrorMessageMinLength", ErrorMessageResourceType = typeof(Resources.Domain.Common))]
+        [Required(ErrorMessageResourceName = "ErrorMessageRequired", ErrorMessageResourceType = typeof(Resources.Domain.Common))]
+        [Display(Name = nameof(SchoolingName), ResourceType = typeof(Resources.Domain.Schooling))]
         public string SchoolingName { get; set; }
         
-        [Display(Name = "Start")]
+        [Display(Name = nameof(Start), ResourceType = typeof(Resources.Domain.Schooling))]
         [DataType(DataType.Date)]
-        [Required]
+        [Required(ErrorMessageResourceName = "ErrorMessageRequired", ErrorMessageResourceType = typeof(Resources.Domain.Common))]
         public DateTime Start { get; set; }
         
         
-        [Display(Name = "End")]
+        [Display(Name = nameof(End), ResourceType = typeof(Resources.Domain.Schooling))]
         [DataType(DataType.Date)]
-        [Required]
+        [Required(ErrorMessageResourceName = "ErrorMessageRequired", ErrorMessageResourceType = typeof(Resources.Domain.Common))]
         public DateTime End { get; set; }
 
 

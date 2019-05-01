@@ -13,10 +13,10 @@ using Domain;
                   
         
          // add here custom methods
-         Task<List<DALAppDTO.ParticipantDTO>> GetAllParticipantAsync();
+         Task<List<DALAppDTO.ParticipantNames>> GetAllParticipantAsync();
      }
      
-     public interface IParticipantRepository<TDALEntity> : IBaseRepositoryAsync<TDALEntity>
+     public interface IParticipantRepository<TDALEntity> : IBaseRepository<TDALEntity>
          where TDALEntity : class, new()
      {
 
