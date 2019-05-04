@@ -59,7 +59,7 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MaterialName,Id")] Material material)
+        public async Task<IActionResult> Create([Bind("MaterialName,Id")]  BLL.App.DTO.Material material)
         {
             
             if (ModelState.IsValid)
@@ -92,7 +92,7 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("MaterialName,Id")] Material material)
+        public async Task<IActionResult> Edit(int id, [Bind("MaterialName,Id")]  BLL.App.DTO.Material material)
         {
             if (id != material.Id)
             {

@@ -1,19 +1,14 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Contracts.BLL.App;
-using Contracts.DAL.App;
 using DAL.App.DTO;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using DAL.App.EF;
-using Domain;
 
-namespace WebApp.ApiControllers
+namespace WebApp.ApiControllers.v1_0
 {
-    [Route("api/[controller]")]
+    [ApiVersion( "1.0" )]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     public class MaterialsController : ControllerBase
     {
@@ -28,18 +23,19 @@ namespace WebApp.ApiControllers
 
         // GET: api/Materials
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<MaterialCounts>>> GetMaterials()
+        public async Task<ActionResult<IEnumerable<PublicApi.v1.DTO.MaterialCounts>>> GetMaterials()
         {
 
-
-            return Ok(await _bll.Material.GetAllWithMaterialCountAsync());
+            return (await _bll.Material.GetAllWithMaterialCountAsync())
+                .Select(e => PublicApi.v1.Mappers.MaterialMapper.MapFromInternal(e)).ToList();
         }
 
         // GET: api/Materials/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Material>> GetMaterial(int id)
+        public async Task<ActionResult<PublicApi.v1.DTO.Material>> GetMaterial(int id)
         {
-            var material = await _bll.Material.FindAsync(id);
+            var material = PublicApi.v1.Mappers.MaterialMapper.MapFromInternal(
+                await _bll.Material.FindAsync(id));
 
             if (material == null)
             {
@@ -51,14 +47,14 @@ namespace WebApp.ApiControllers
 
         // PUT: api/Materials/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutMaterial(int id, Material material)
+        public async Task<IActionResult> PutMaterial(int id, PublicApi.v1.DTO.Material material)
         {
             if (id != material.Id)
             {
                 return BadRequest();
             }
 
-            _bll.Material.Update(material);
+            _bll.Material.Update(PublicApi.v1.Mappers.MaterialMapper.MapFromExternal(material));
             await _bll.SaveChangesAsync();
             
             return NoContent();
@@ -66,12 +62,18 @@ namespace WebApp.ApiControllers
 
         // POST: api/Materials
         [HttpPost]
-        public async Task<ActionResult<Material>> PostMaterial(Material material)
+        public async Task<ActionResult<PublicApi.v1.DTO.Material>> PostMaterial(PublicApi.v1.DTO.Material material)
         {
-            await _bll.Material.AddAsync(material);
+            await _bll.Material.AddAsync(PublicApi.v1.Mappers.MaterialMapper.MapFromExternal(material));
             await _bll.SaveChangesAsync();
 
-            return CreatedAtAction("GetMaterial", new { id = material.Id }, material);
+            return CreatedAtAction(
+                nameof(GetMaterial),
+                new
+                {
+                    version = HttpContext.GetRequestedApiVersion().ToString(),
+                    id = material.Id
+                }, material);
         }
 
         // DELETE: api/Materials/5
@@ -87,7 +89,7 @@ namespace WebApp.ApiControllers
             _bll.Material.Remove(material);
             await _bll.SaveChangesAsync();
 
-            return material;
+            return NoContent();
         }
 
     }

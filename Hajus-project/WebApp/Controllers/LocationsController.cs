@@ -58,7 +58,7 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Locations,Id")] Location location)
+        public async Task<IActionResult> Create([Bind("Locations,Id")]  BLL.App.DTO.Location location)
         {
             if (ModelState.IsValid)
             {
@@ -92,7 +92,7 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Locations,Id")] Location location)
+        public async Task<IActionResult> Edit(int id, [Bind("Locations,Id")]  BLL.App.DTO.Location location)
         {
             if (id != location.Id)
             {

@@ -29,6 +29,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -178,7 +179,7 @@ namespace WebApp
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IApiVersionDescriptionProvider provider)
         {
             if (env.IsDevelopment())
             {
@@ -203,6 +204,18 @@ namespace WebApp
             app.UseAuthentication();
             
             app.UseCors("CorsAllowAll");
+            
+            app.UseSwagger();
+            app.UseSwaggerUI(
+                options =>
+                {
+                    foreach ( var description in provider.ApiVersionDescriptions )
+                    {
+                        options.SwaggerEndpoint(
+                            $"/swagger/{description.GroupName}/swagger.json",
+                            description.GroupName.ToUpperInvariant() );
+                    }
+                } );
 
             app.UseMvc(routes =>
             {

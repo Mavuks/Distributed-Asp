@@ -1,18 +1,14 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Contracts.BLL.App;
-using Contracts.DAL.App;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using DAL.App.EF;
 using Domain;
+using Microsoft.AspNetCore.Mvc;
 
-namespace WebApp.ApiControllers
+namespace WebApp.ApiControllers.v1_0
 {
-    [Route("api/[controller]")]
+    [ApiVersion( "1.0" )]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     public class LocationsController : ControllerBase
     {
@@ -27,17 +23,18 @@ namespace WebApp.ApiControllers
 
         // GET: api/Locations
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Location>>> GetLocations()
+        public async Task<ActionResult<IEnumerable<PublicApi.v1.DTO.Location>>> GetLocations()
         {
-            var locations = await _bll.Location.AllAsync();
-            return new ActionResult<IEnumerable<Location>>(locations);
+            return (await _bll.Location.AllAsync())
+                .Select(e => PublicApi.v1.Mappers.LocationMapper.MapFromInternal(e)).ToList();
         }
 
         // GET: api/Locations/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Location>> GetLocation(int id)
+        public async Task<ActionResult<PublicApi.v1.DTO.Location>> GetLocation(int id)
         {
-            var location = await _bll.Location.FindAsync(id);
+            var location = PublicApi.v1.Mappers.LocationMapper.MapFromInternal(
+                await _bll.Location.FindAsync(id));
 
             if (location == null)
             {
@@ -49,14 +46,14 @@ namespace WebApp.ApiControllers
 
         // PUT: api/Locations/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutLocation(int id, Location location)
+        public async Task<IActionResult> PutLocation(int id, PublicApi.v1.DTO.Location location)
         {
             if (id != location.Id)
             {
                 return BadRequest();
             }
 
-            _bll.Location.Update(location);
+            _bll.Location.Update(PublicApi.v1.Mappers.LocationMapper.MapFromExternal(location));
             await _bll.SaveChangesAsync();
             
             return NoContent();
@@ -64,9 +61,9 @@ namespace WebApp.ApiControllers
 
         // POST: api/Locations
         [HttpPost]
-        public async Task<ActionResult<Location>> PostLocation(Location location)
+        public async Task<ActionResult<PublicApi.v1.DTO.Location>> PostLocation(PublicApi.v1.DTO.Location location)
         {
-            await _bll.Location.AddAsync(location);
+            await _bll.Location.AddAsync(PublicApi.v1.Mappers.LocationMapper.MapFromExternal(location));
             await _bll.SaveChangesAsync();
 
             return CreatedAtAction("GetLocation", new { id = location.Id }, location);
@@ -74,7 +71,7 @@ namespace WebApp.ApiControllers
 
         // DELETE: api/Locations/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Location>> DeleteLocation(int id)
+        public async Task<ActionResult> DeleteLocation(int id)
         {
             var location = await _bll.Location.FindAsync(id);
             if (location == null)
@@ -85,7 +82,7 @@ namespace WebApp.ApiControllers
             _bll.Location.Remove(location);
             await _bll.SaveChangesAsync();
 
-            return location;
+            return NoContent();
         }
 
     }

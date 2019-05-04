@@ -1,20 +1,15 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Contracts.BLL.App;
-using Contracts.DAL.App;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using DAL.App.EF;
 using Domain;
-using Domain.Identity;
 using Identity;
+using Microsoft.AspNetCore.Mvc;
 
-namespace WebApp.ApiControllers
+namespace WebApp.ApiControllers.v1_0
 {
-    [Route("api/[controller]")]
+    [ApiVersion( "1.0" )]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     public class RegistrationsController : ControllerBase
     {
@@ -29,16 +24,18 @@ namespace WebApp.ApiControllers
 
         // GET: api/Registrations
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Registration>>> GetRegistrations()
+        public async Task<ActionResult<IEnumerable<PublicApi.v1.DTO.Registration>>> GetRegistrations()
         {
-            return await _bll.Registration.AllForUserAsync(User.GetUserId());
+            return (await _bll.Registration.AllForUserAsync(User.GetUserId()))
+                .Select(e => PublicApi.v1.Mappers.RegistrationMapper.MapFromInternal(e)).ToList();
         }
 
         // GET: api/Registrations/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Registration>> GetRegistration(int id)
+        public async Task<ActionResult<PublicApi.v1.DTO.Registration>> GetRegistration(int id)
         {
-            var registration = await _bll.Registration.FindAsync(id);
+            var registration = PublicApi.v1.Mappers.RegistrationMapper.MapFromInternal(
+                await _bll.Registration.FindAsync(id));
 
             if (registration == null)
             {
@@ -50,14 +47,14 @@ namespace WebApp.ApiControllers
 
         // PUT: api/Registrations/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutRegistration(int id, Registration registration)
+        public async Task<IActionResult> PutRegistration(int id, PublicApi.v1.DTO.Registration registration)
         {
             if (id != registration.Id)
             {
                 return BadRequest();
             }
 
-            _bll.Registration.Update(registration);
+            _bll.Registration.Update(PublicApi.v1.Mappers.RegistrationMapper.MapFromExternal(registration));
             await _bll.SaveChangesAsync();
             
             return NoContent();
@@ -65,9 +62,9 @@ namespace WebApp.ApiControllers
 
         // POST: api/Registrations
         [HttpPost]
-        public async Task<ActionResult<Registration>> PostRegistration(Registration registration)
+        public async Task<ActionResult<PublicApi.v1.DTO.Registration>> PostRegistration(PublicApi.v1.DTO.Registration registration)
         {
-            await _bll.Registration.AddAsync(registration);
+            await _bll.Registration.AddAsync(PublicApi.v1.Mappers.RegistrationMapper.MapFromExternal(registration));
             await _bll.SaveChangesAsync();
 
             return CreatedAtAction("GetRegistration", new { id = registration.Id }, registration);
@@ -86,7 +83,7 @@ namespace WebApp.ApiControllers
             _bll.Registration.Remove(registration);
             await _bll.SaveChangesAsync();
 
-            return registration;
+            return NoContent();
         }
 
     }

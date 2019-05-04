@@ -40,7 +40,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var breed = await _bll.Breed.FindAsync(id);
+            var breed = await _bll.Breed.FindAsync(id.Value);
             if (breed == null)
             {
                 return NotFound();
@@ -60,7 +60,7 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BreedName,Id")] Breed breed)
+        public async Task<IActionResult> Create([Bind("BreedName,Id")] BLL.App.DTO.Breed breed)
         {
             if (ModelState.IsValid)
             {
@@ -92,7 +92,7 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BreedName,Id")] Breed breed)
+        public async Task<IActionResult> Edit(int id, [Bind("BreedName,Id")] BLL.App.DTO.Breed breed)
         {
             if (id != breed.Id)
             {

@@ -9,6 +9,7 @@ using DAL.App.DTO;
 using DAL.Base.EF.Repositories;
 using Domain;
 using Microsoft.EntityFrameworkCore;
+using ParticipantMapper = DAL.App.EF.Mappers.ParticipantMapper;
 
 namespace DAL.App.EF.Repositories
 {
@@ -23,10 +24,10 @@ namespace DAL.App.EF.Repositories
 
         
 
-        public virtual async Task<List<ParticipantDTO>> GetAllParticipantAsync()
+        public virtual async Task<List<ParticipantNames>> GetAllParticipantAsync()
         {
             return await RepositoryDbSet
-                .Select(p => new ParticipantDTO()
+                .Select(p => new ParticipantNames()
                 {
                     Id = p.Id,
                     FirstName = p.FirstName,

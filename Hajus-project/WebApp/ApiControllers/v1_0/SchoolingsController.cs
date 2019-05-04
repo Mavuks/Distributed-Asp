@@ -1,20 +1,15 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Contracts.BLL.App;
-using Contracts.DAL.App;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using DAL.App.EF;
 using Domain;
-using Domain.Identity;
 using Identity;
+using Microsoft.AspNetCore.Mvc;
 
-namespace WebApp.ApiControllers
+namespace WebApp.ApiControllers.v1_0
 {
-    [Route("api/[controller]")]
+    [ApiVersion( "1.0" )]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     public class SchoolingsController : ControllerBase
     {
@@ -29,16 +24,18 @@ namespace WebApp.ApiControllers
 
         // GET: api/Schoolings
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Schooling>>> GetSchoolings()
+        public async Task<ActionResult<IEnumerable<PublicApi.v1.DTO.Schooling>>> GetSchoolings()
         {
-            return await _bll.Schooling.AllForUserAsync(User.GetUserId());
+            return (await _bll.Schooling.AllForUserAsync(User.GetUserId()))
+                .Select(e => PublicApi.v1.Mappers.SchoolingMapper.MapFromInternal(e)).ToList();
         }
 
         // GET: api/Schoolings/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Schooling>> GetSchooling(int id)
+        public async Task<ActionResult<PublicApi.v1.DTO.Schooling>> GetSchooling(int id)
         {
-            var schooling = await _bll.Schooling.FindAsync(id);
+            var schooling = PublicApi.v1.Mappers.SchoolingMapper.MapFromInternal(
+                await _bll.Schooling.FindAsync(id));
 
             if (schooling == null)
             {
@@ -50,14 +47,14 @@ namespace WebApp.ApiControllers
 
         // PUT: api/Schoolings/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutSchooling(int id, Schooling schooling)
+        public async Task<IActionResult> PutSchooling(int id, PublicApi.v1.DTO.Schooling schooling)
         {
             if (id != schooling.Id)
             {
                 return BadRequest();
             }
 
-            _bll.Schooling.Update(schooling);
+            _bll.Schooling.Update(PublicApi.v1.Mappers.SchoolingMapper.MapFromExternal(schooling));
             await _bll.SaveChangesAsync();
 
             return NoContent();
@@ -65,9 +62,9 @@ namespace WebApp.ApiControllers
 
         // POST: api/Schoolings
         [HttpPost]
-        public async Task<ActionResult<Schooling>> PostSchooling(Schooling schooling)
+        public async Task<ActionResult<PublicApi.v1.DTO.Schooling>> PostSchooling(PublicApi.v1.DTO.Schooling schooling)
         {
-            await _bll.Schooling.AddAsync(schooling);
+            await _bll.Schooling.AddAsync(PublicApi.v1.Mappers.SchoolingMapper.MapFromExternal(schooling));
             await _bll.SaveChangesAsync();
 
             return CreatedAtAction("GetSchooling", new { id = schooling.Id }, schooling);
@@ -86,7 +83,7 @@ namespace WebApp.ApiControllers
             _bll.Schooling.Remove(schooling);
             await _bll.SaveChangesAsync();
 
-            return schooling;
+            return NoContent();
         }
 
     }

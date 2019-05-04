@@ -8,6 +8,7 @@ using DAL.App.DTO;
 using DAL.Base.EF.Repositories;
 using Domain;
 using Microsoft.EntityFrameworkCore;
+using MaterialMapper = DAL.App.EF.Mappers.MaterialMapper;
 
 namespace DAL.App.EF.Repositories
 {

@@ -5,7 +5,7 @@ namespace WebApp.ViewModels
 {
     public class ShowCreateViewModel
     {
-        public Show Show { get; set; }
+        public  BLL.App.DTO.Show Show { get; set; }
 
         public SelectList DogSelectList { get; set; }
         

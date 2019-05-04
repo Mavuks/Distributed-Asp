@@ -1,19 +1,15 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Contracts.BLL.App;
-using Contracts.DAL.App;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using DAL.App.EF;
 using Domain;
 using Identity;
+using Microsoft.AspNetCore.Mvc;
 
-namespace WebApp.ApiControllers
+namespace WebApp.ApiControllers.v1_0
 {
-    [Route("api/[controller]")]
+    [ApiVersion( "1.0" )]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     public class ShowsController : ControllerBase
     {
@@ -28,16 +24,18 @@ namespace WebApp.ApiControllers
 
         // GET: api/Shows
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Show>>> GetShows()
+        public async Task<ActionResult<IEnumerable<PublicApi.v1.DTO.Show>>> GetShows()
         {
-            return await _bll.Show.AllForUserAsync(User.GetUserId());
+            return (await _bll.Show.AllForUserAsync(User.GetUserId()))
+                .Select(e => PublicApi.v1.Mappers.ShowMapper.MapFromInternal(e)).ToList();
         }
 
         // GET: api/Shows/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Show>> GetShow(int id)
+        public async Task<ActionResult<PublicApi.v1.DTO.Show>> GetShow(int id)
         {
-            var show = await _bll.Show.FindAsync(id);
+            var show = PublicApi.v1.Mappers.ShowMapper.MapFromInternal(
+                await _bll.Show.FindAsync(id));
 
             if (show == null)
             {
@@ -49,14 +47,14 @@ namespace WebApp.ApiControllers
 
         // PUT: api/Shows/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutShow(int id, Show show)
+        public async Task<IActionResult> PutShow(int id, PublicApi.v1.DTO.Show show)
         {
             if (id != show.Id)
             {
                 return BadRequest();
             }
 
-            _bll.Show.Update(show);
+            _bll.Show.Update(PublicApi.v1.Mappers.ShowMapper.MapFromExternal(show));
             await _bll.SaveChangesAsync();
 
             return NoContent();
@@ -64,9 +62,9 @@ namespace WebApp.ApiControllers
 
         // POST: api/Shows
         [HttpPost]
-        public async Task<ActionResult<Show>> PostShow(Show show)
+        public async Task<ActionResult<PublicApi.v1.DTO.Show>> PostShow(PublicApi.v1.DTO.Show show)
         {
-            await _bll.Show.AddAsync(show);
+            await _bll.Show.AddAsync(PublicApi.v1.Mappers.ShowMapper.MapFromExternal(show));
             await _bll.SaveChangesAsync();
 
             return CreatedAtAction("GetShow", new { id = show.Id }, show);
@@ -85,7 +83,7 @@ namespace WebApp.ApiControllers
             _bll.Show.Remove(show);
             await _bll.SaveChangesAsync();
 
-            return show;
+            return NoContent();
         }
 
     }

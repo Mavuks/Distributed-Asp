@@ -6,7 +6,7 @@ namespace WebApp.ViewModels
 {
     public class RegistrationsCreateViewModel
     {
-        public Registration Registration { get; set; }
+        public  BLL.App.DTO.Registration Registration { get; set; }
 
         public SelectList CompetitionSelectList { get; set; }
 

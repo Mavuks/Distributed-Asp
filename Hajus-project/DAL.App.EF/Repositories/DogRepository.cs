@@ -8,6 +8,7 @@ using Contracts.DAL.Base.Repositories;
 using DAL.Base.EF.Repositories;
 using Domain;
 using Microsoft.EntityFrameworkCore;
+using DogMapper = DAL.App.EF.Mappers.DogMapper;
 
 namespace DAL.App.EF.Repositories
 {
@@ -25,6 +26,7 @@ namespace DAL.App.EF.Repositories
                 //.Include(a => a.AppUser)
                 .Include(c => c.Breed)
                 // .Where(b => b.AppUserId == userId)
+                .Select(d => DogMapper.MapFromDomain(d))
                 .ToListAsync();
         }
     }

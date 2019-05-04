@@ -57,8 +57,12 @@ namespace WebApp.Controllers
 
             var vm = new ShowCreateViewModel()
             {
-               LocationSelectList = new SelectList(await _bll.Location.AllAsync(),nameof(Location.Id), nameof(Location.Locations)),
-                ParticipantSelectList = new SelectList(await _bll.Participant.AllAsync(),nameof(Participant.Id),nameof(Participant.FirstName))
+               LocationSelectList = new SelectList(await _bll.Location.AllAsync(),
+                   nameof( BLL.App.DTO.Location.Id),
+                   nameof(Location.Locations)),
+                ParticipantSelectList = new SelectList(await _bll.Participant.AllAsync(),
+                    nameof( BLL.App.DTO.Participant.Id),
+                    nameof(Participant.FirstName))
             };
             
             
@@ -79,8 +83,9 @@ namespace WebApp.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            vm.LocationSelectList = new SelectList(await _bll.Location.AllAsync(), nameof(Location.Id),
-                nameof(Location.Locations), vm.Show.LocationId);
+            vm.LocationSelectList = new SelectList(await _bll.Location.AllAsync(),
+                nameof( BLL.App.DTO.Location.Id),
+                nameof( BLL.App.DTO.Location.Locations), vm.Show.LocationId);
            
             
             return View(vm);

@@ -9,6 +9,7 @@ using DAL.App.DTO;
 using DAL.Base.EF.Repositories;
 using Domain;
 using Microsoft.EntityFrameworkCore;
+using BreedMapper = DAL.App.EF.Mappers.BreedMapper;
 
 namespace DAL.App.EF.Repositories
 {

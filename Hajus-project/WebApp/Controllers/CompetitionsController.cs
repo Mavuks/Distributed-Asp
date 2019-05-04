@@ -6,9 +6,6 @@ using Contracts.BLL.App;
 using Contracts.DAL.App;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using DAL.App.EF;
-using Domain;
 using Identity;
 using WebApp.ViewModels;
 
@@ -55,9 +52,12 @@ namespace WebApp.Controllers
 
             var vm = new CompetitionsCreateViewModel()
             {
-                DogSelectList = new SelectList(await _bll.Dog.AllAsync(), nameof(Dog.Id), nameof(Dog.DogName)),
-                LocationSelectList = new SelectList(await _bll.Location.AllAsync(), nameof(Location.Id),
-                    nameof(Location.Locations)),
+                DogSelectList = new SelectList(await _bll.Dog.AllAsync(),
+                    nameof( BLL.App.DTO.Dog.Id),
+                    nameof( BLL.App.DTO.Dog.DogName)),
+                LocationSelectList = new SelectList(await _bll.Location.AllAsync(),
+                    nameof( BLL.App.DTO.Location.Id),
+                    nameof( BLL.App.DTO.Location.Locations)),
                 
 
             };
@@ -80,8 +80,10 @@ namespace WebApp.Controllers
             }
 
            
-            vm.LocationSelectList = new SelectList(await _bll.Location.AllAsync(), nameof(Location.Id),
-                nameof(Location.Locations), vm.Competition.LocationId);
+            vm.LocationSelectList = new SelectList(await _bll.Location.AllAsync(),
+                nameof( BLL.App.DTO.Location.Id),
+                nameof( BLL.App.DTO.Location.Locations),
+                vm.Competition.LocationId);
             
 
             return View(vm);
@@ -100,13 +102,16 @@ namespace WebApp.Controllers
             {
                 return NotFound();
             }
-            
-            var vm = new CompetitionsCreateViewModel()
-            {
-                Competition = competition,
-             LocationSelectList = new SelectList(await _bll.Location.AllAsync(), nameof(Location.Id), nameof(Location.Locations), competition.LocationId),
 
-            };
+            var vm = new CompetitionsCreateViewModel();
+            
+                vm.Competition = competition;
+                vm.LocationSelectList = new SelectList(await _bll.Location.AllAsync(),
+                    nameof(BLL.App.DTO.Location.Id),
+                    nameof(BLL.App.DTO.Location.Locations),
+                    competition.LocationId);
+
+            
 
             return View(vm);
         }
@@ -126,12 +131,16 @@ namespace WebApp.Controllers
             if (ModelState.IsValid)
             {
                 _bll.Competition.Update(vm.Competition);
+                
                 await _bll.SaveChangesAsync();
+                
                 return RedirectToAction(nameof(Index));
             }
             
-            vm.LocationSelectList = new SelectList(await _bll.Location.AllAsync(), nameof(Location.Id),
-                nameof(Location.Locations), vm.Competition.LocationId);
+            vm.LocationSelectList = new SelectList(await _bll.Location.AllAsync(),
+                nameof( BLL.App.DTO.Location.Id),
+                nameof( BLL.App.DTO.Location.Locations),
+                vm.Competition.LocationId);
 
 
             return View(vm);

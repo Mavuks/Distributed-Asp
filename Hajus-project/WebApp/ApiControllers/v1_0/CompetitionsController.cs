@@ -1,18 +1,12 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Contracts.BLL.App;
-using Contracts.DAL.App;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using DAL.App.EF;
 using Domain;
-using Domain.Identity;
 using Identity;
+using Microsoft.AspNetCore.Mvc;
 
-namespace WebApp.ApiControllers
+namespace WebApp.ApiControllers.v1_0
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -31,16 +25,18 @@ namespace WebApp.ApiControllers
 
         // GET: api/Competitions
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Competition>>> GetCompetitions()
+        public async Task<ActionResult<IEnumerable<PublicApi.v1.DTO.Competition>>> GetCompetitions()
         {
-            return await _bll.Competition.AllForUserAsync(User.GetUserId());
+            return (await _bll.Competition.AllForUserAsync(User.GetUserId()))
+                .Select(e => PublicApi.v1.Mappers.CompetitionMapper.MapFromInternal(e)).ToList();
         }
 
         // GET: api/Competitions/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Competition>> GetCompetition(int id)
+        public async Task<ActionResult<PublicApi.v1.DTO.Competition>> GetCompetition(int id)
         {
-            var competition = await _bll.Competition.FindAsync(id);
+            var competition = PublicApi.v1.Mappers.CompetitionMapper.MapFromInternal(
+                await _bll.Competition.FindAsync(id, User.GetUserId()));
 
             if (competition == null)
             {
@@ -52,14 +48,14 @@ namespace WebApp.ApiControllers
 
         // PUT: api/Competitions/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCompetition(int id, Competition competition)
+        public async Task<IActionResult> PutCompetition(int id, PublicApi.v1.DTO.Competition competition)
         {
             if (id != competition.Id)
             {
                 return BadRequest();
             }
 
-            _bll.Competition.Update(competition);
+            _bll.Competition.Update(PublicApi.v1.Mappers.CompetitionMapper.MapFromExternal(competition));
             await _bll.SaveChangesAsync();
             
 
@@ -68,9 +64,9 @@ namespace WebApp.ApiControllers
 
         // POST: api/Competitions
         [HttpPost]
-        public async Task<ActionResult<Competition>> PostCompetition(Competition competition)
+        public async Task<ActionResult<PublicApi.v1.DTO.Competition>> PostCompetition(PublicApi.v1.DTO.Competition competition)
         {
-            await _bll.Competition.AddAsync(competition);
+            await _bll.Competition.AddAsync(PublicApi.v1.Mappers.CompetitionMapper.MapFromExternal(competition));
             await _bll.SaveChangesAsync();
 
             return CreatedAtAction("GetCompetition", new { id = competition.Id }, competition);
@@ -89,7 +85,7 @@ namespace WebApp.ApiControllers
             _bll.Competition.Remove(competition);
             await _bll.SaveChangesAsync();
 
-            return competition;
+            return NoContent();
         }
 
        

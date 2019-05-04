@@ -83,8 +83,9 @@ namespace WebApp.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-          vm.BreedSelectList  = new SelectList(await _bll.Breed.AllAsync(), nameof(Breed.Id),
-                nameof(Breed.BreedName), vm.Dog.BreedId );
+          vm.BreedSelectList  = new SelectList(await _bll.Breed.AllAsync(),
+              nameof( BLL.App.DTO.Breed.Id),
+                nameof( BLL.App.DTO.Breed.BreedName), vm.Dog.BreedId );
 
 
             
@@ -110,7 +111,10 @@ namespace WebApp.Controllers
             {
                 Dog = dog,
             
-             BreedSelectList = new SelectList(await _bll.Breed.AllAsync(), nameof(Breed.Id), nameof(Breed.BreedName), dog.BreedId)
+             BreedSelectList = new SelectList(await _bll.Breed.AllAsync(),
+                 nameof( BLL.App.DTO.Breed.Id),
+                 nameof( BLL.App.DTO.Breed.BreedName),
+                 dog.BreedId)
                 
             };
 
@@ -137,8 +141,10 @@ namespace WebApp.Controllers
                 return RedirectToAction(nameof(Index));
             }
             
-         vm.BreedSelectList  = new SelectList(await _bll.Breed.AllAsync(), nameof(Breed.Id),
-                nameof(Breed.BreedName), vm.Dog.BreedId );
+         vm.BreedSelectList  = new SelectList(await _bll.Breed.AllAsync(), 
+             nameof( BLL.App.DTO.Breed.Id),
+                nameof( BLL.App.DTO.Breed.BreedName),
+                vm.Dog.BreedId );
 
             return View(vm);
         }

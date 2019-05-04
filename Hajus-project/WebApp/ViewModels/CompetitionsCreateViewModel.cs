@@ -5,7 +5,7 @@ namespace WebApp.ViewModels
 {
     public class CompetitionsCreateViewModel
     {
-        public Competition Competition { get; set; }
+        public  BLL.App.DTO.Competition Competition { get; set; }
 
         public SelectList DogSelectList { get; set; }
 

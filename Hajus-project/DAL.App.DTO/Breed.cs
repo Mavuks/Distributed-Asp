@@ -10,6 +10,6 @@ namespace DAL.App.DTO
 
         public string BreedName { get; set; }
 
-        public ICollection<Dog> Dogs { get; set; }
+       // public ICollection<Dog> Dogs { get; set; }
     }
 }

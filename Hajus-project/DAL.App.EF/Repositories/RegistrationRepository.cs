@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using BLL.App.Mappers;
 using Contracts.DAL.App.Repositories;
@@ -7,6 +8,7 @@ using DAL.Base.EF.Repositories;
 using Domain;
 using Domain.Identity;
 using Microsoft.EntityFrameworkCore;
+using RegistrationMapper = DAL.App.EF.Mappers.RegistrationMapper;
 
 namespace DAL.App.EF.Repositories
 {
@@ -32,7 +34,9 @@ namespace DAL.App.EF.Repositories
                 .Include(b => b.Dog)
                 .Include(c => c.Participant)
                 .Include(d => d.Competition)
-                .Include(e => e.Show).ToListAsync();
+                .Include(e => e.Show)
+                .Select(r => RegistrationMapper.MapFromDomain(r))
+                .ToListAsync();
                 
         }
     }    

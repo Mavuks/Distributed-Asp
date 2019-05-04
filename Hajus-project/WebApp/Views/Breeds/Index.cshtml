@@ -1,4 +1,4 @@
-@model IEnumerable<Domain.Breed>
+@model IEnumerable<BLL.App.DTO.BreedWithDogCounts>
 
 @{
     ViewData["Title"] = "Index";
@@ -16,6 +16,9 @@
         <th>
             @Html.DisplayNameFor(model => model.BreedName)
         </th>
+         <th>
+             @Html.DisplayNameFor(model => model.BreedCount)
+         </th>
         <th></th>
     </tr>
     </thead>
@@ -24,6 +27,9 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.BreedName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BreedCount)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

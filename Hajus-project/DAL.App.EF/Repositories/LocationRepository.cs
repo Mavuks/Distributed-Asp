@@ -6,6 +6,7 @@ using Contracts.DAL.Base;
 using DAL.Base.EF.Repositories;
 using Domain;
 using Microsoft.EntityFrameworkCore;
+using LocationMapper = DAL.App.EF.Mappers.LocationMapper;
 
 namespace DAL.App.EF.Repositories
 {

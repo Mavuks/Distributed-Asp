@@ -59,7 +59,7 @@ namespace WebApp.Controllers
             var vm = new SchoolingCreateViewModel()
             {
               
-                MaterialSelectList = new SelectList(await _bll.Material.AllAsync(),nameof(Material.Id), nameof(Material.MaterialName) )
+                MaterialSelectList = new SelectList(await _bll.Material.AllAsync(),nameof( BLL.App.DTO.Material.Id), nameof( BLL.App.DTO.Material.MaterialName) )
 
             };
 
@@ -81,8 +81,8 @@ namespace WebApp.Controllers
             }
 
            
-            vm.MaterialSelectList = new SelectList(await _bll.Material.AllAsync(), nameof(Material.Id),
-                nameof(Material.MaterialName), vm.Schooling.MaterialId);
+            vm.MaterialSelectList = new SelectList(await _bll.Material.AllAsync(), nameof( BLL.App.DTO.Material.Id),
+                nameof( BLL.App.DTO.Material.MaterialName), vm.Schooling.MaterialId);
 
             return View(vm);
         }

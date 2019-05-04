@@ -55,10 +55,10 @@ namespace WebApp.Controllers
 
             var vm = new RegistrationsCreateViewModel()
             {
-                CompetitionSelectList = new SelectList(await _bll.Competition.AllAsync(), nameof(Competition.Id),nameof(Competition.Title)),
-                DogSelectList = new SelectList(await _bll.Dog.AllAsync(), nameof(Dog.Id), nameof(Dog.DogName)),
-                ParticipantSelectList = new SelectList(await _bll.Participant.AllAsync(), nameof(Participant.Id), nameof(Participant.FirstName)),
-                ShowSelectList = new SelectList(await _bll.Show.AllAsync(), nameof(Show.Id), nameof(Show.Title))
+                CompetitionSelectList = new SelectList(await _bll.Competition.AllAsync(), nameof( BLL.App.DTO.Competition.Id),nameof( BLL.App.DTO.Competition.Title)),
+                DogSelectList = new SelectList(await _bll.Dog.AllAsync(), nameof( BLL.App.DTO.Dog.Id), nameof( BLL.App.DTO.Dog.DogName)),
+                ParticipantSelectList = new SelectList(await _bll.Participant.AllAsync(), nameof( BLL.App.DTO.Participant.Id), nameof( BLL.App.DTO.Participant.FirstName)),
+                ShowSelectList = new SelectList(await _bll.Show.AllAsync(), nameof( BLL.App.DTO.Show.Id), nameof( BLL.App.DTO.Show.Title))
             };
 
             return View(vm);
@@ -79,12 +79,12 @@ namespace WebApp.Controllers
             }
 
 
-            vm.CompetitionSelectList = new SelectList(await _bll.Competition.AllAsync(), nameof(Competition.Id),
-                nameof(Competition.Title), vm.Registration.CompetitionId);
-            vm.DogSelectList = new SelectList(await _bll.Dog.AllAsync(), nameof(Dog.Id), nameof(Dog.DogName), vm.Registration.DogId);
-            vm.ParticipantSelectList = new SelectList(await _bll.Participant.AllAsync(), nameof(Participant.Id),
-                nameof(Participant.FirstName), vm.Registration.ParticipantId);
-            vm.ShowSelectList = new SelectList(await _bll.Show.AllAsync(), nameof(Show.Id), nameof(Show.Title), vm.Registration.ShowId);
+            vm.CompetitionSelectList = new SelectList(await _bll.Competition.AllAsync(), nameof( BLL.App.DTO.Competition.Id),
+                nameof( BLL.App.DTO.Competition.Title), vm.Registration.CompetitionId);
+            vm.DogSelectList = new SelectList(await _bll.Dog.AllAsync(), nameof( BLL.App.DTO.Dog.Id), nameof( BLL.App.DTO.Dog.DogName), vm.Registration.DogId);
+            vm.ParticipantSelectList = new SelectList(await _bll.Participant.AllAsync(), nameof( BLL.App.DTO.Participant.Id),
+                nameof( BLL.App.DTO.Participant.FirstName), vm.Registration.ParticipantId);
+            vm.ShowSelectList = new SelectList(await _bll.Show.AllAsync(), nameof( BLL.App.DTO.Show.Id), nameof( BLL.App.DTO.Show.Title), vm.Registration.ShowId);
 
             return View(vm);
         }
@@ -106,10 +106,10 @@ namespace WebApp.Controllers
             var vm = new RegistrationsCreateViewModel()
             {
                 Registration = registration,
-                CompetitionSelectList = new SelectList(await _bll.Competition.AllAsync(), nameof(Competition.Id),nameof(Competition.Title), registration.CompetitionId),
-                DogSelectList = new SelectList(await _bll.Dog.AllAsync(), nameof(Dog.Id), nameof(Dog.DogName), registration.DogId),
-                ParticipantSelectList = new SelectList(await _bll.Participant.AllAsync(), nameof(Participant.Id), nameof(Participant.FirstName), registration.ParticipantId),
-                ShowSelectList = new SelectList(await _bll.Show.AllAsync(), nameof(Show.Id), nameof(Show.Title), registration.ShowId)
+                CompetitionSelectList = new SelectList(await _bll.Competition.AllAsync(), nameof( BLL.App.DTO.Competition.Id),nameof( BLL.App.DTO.Competition.Title), registration.CompetitionId),
+                DogSelectList = new SelectList(await _bll.Dog.AllAsync(), nameof( BLL.App.DTO.Dog.Id), nameof( BLL.App.DTO.Dog.DogName), registration.DogId),
+                ParticipantSelectList = new SelectList(await _bll.Participant.AllAsync(), nameof( BLL.App.DTO.Participant.Id), nameof( BLL.App.DTO.Participant.FirstName), registration.ParticipantId),
+                ShowSelectList = new SelectList(await _bll.Show.AllAsync(), nameof( BLL.App.DTO.Show.Id), nameof( BLL.App.DTO.Show.Title), registration.ShowId)
             };
 
             return View(vm);
