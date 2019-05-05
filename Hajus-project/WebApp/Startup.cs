@@ -31,11 +31,13 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
+using Swashbuckle.AspNetCore.SwaggerGen;
 using WebApp.Helpers;
 
 namespace WebApp
@@ -66,6 +68,7 @@ namespace WebApp
                     Configuration.GetConnectionString("MysqlConnection")));
 
 
+            //services.AddScoped<IDataContext, AppDbContext>();
             services.AddScoped<IBaseRepositoryProvider, BaseRepositoryProvider<AppDbContext>>();
             services.AddSingleton<IBaseRepositoryFactory<AppDbContext>, AppRepositoryFactory>();
             services.AddScoped<IAppUnitOfWork, AppUnitOfWork>();
@@ -73,15 +76,18 @@ namespace WebApp
             services.AddSingleton<IBaseServiceFactory<IAppUnitOfWork>, AppServiceFactory>();
             services.AddScoped<IBaseServiceProvider, BaseServiceProvider<IAppUnitOfWork>>();
             services.AddScoped<IAppBLL, AppBLL>();
-            
-            
+
+
+            /*
+            services.AddDefaultIdentity<AppUser>()
+                .AddDefaultUI(UIFramework.Bootstrap4)
+                .AddEntityFrameworkStores<AppDbContext>();
+*/
             services
                 .AddIdentity<AppUser, AppRole>()
-                //.AddDefaultIdentity<AppUser>()
-                //.AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
-            
+
 
             // Relax password requirements for easy testing
             // TODO: Remove in production
@@ -93,9 +99,8 @@ namespace WebApp
                 options.Password.RequireUppercase = false;
                 options.Password.RequiredUniqueChars = 0;
                 options.Password.RequireNonAlphanumeric = false;
-
             });
-            
+
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsAllowAll",
@@ -105,14 +110,10 @@ namespace WebApp
                         builder.AllowAnyHeader();
                         builder.AllowAnyMethod();
                     });
-                
             });
 
-            
-          
-            
             services
-                .AddMvc()
+                .AddMvc(options => options.EnableEndpointRouting = true)
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddRazorPagesOptions(options =>
                 {
@@ -124,19 +125,18 @@ namespace WebApp
                     //options.SerializerSettings.PreserveReferencesHandling = PreserveReferencesHandling.Objects;
                     options.SerializerSettings.Formatting = Formatting.Indented;
                 });
-            
-            
-            
+
+            services.AddApiVersioning(options => { options.ReportApiVersions = true; });
+
             services.ConfigureApplicationCookie(options =>
             {
                 options.LoginPath = $"/Identity/Account/Login";
                 options.LogoutPath = $"/Identity/Account/Logout";
                 options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
             });
-            
-              
-            services.AddTransient<IEmailSender, EmailSender>();
-            
+
+            services.AddSingleton<IEmailSender, EmailSender>();
+
             // =============== JWT support ===============
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear(); // => remove default claims
             services
@@ -154,10 +154,8 @@ namespace WebApp
                         ClockSkew = TimeSpan.Zero // remove delay of token when expire
                     };
                 });
-            
-     
-            
-            
+
+            //  =============== i18n support ===============
             services.Configure<RequestLocalizationOptions>(options =>
             {
                 var supportedCultures = new[]
@@ -176,11 +174,18 @@ namespace WebApp
                 options.SupportedUICultures = supportedCultures;
             });
             
+            // Api explorer + OpenAPI/Swagger
+            services.AddVersionedApiExplorer( options => options.GroupNameFormat = "'v'VVV" );
+            services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
+            services.AddSwaggerGen();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, IApiVersionDescriptionProvider provider)
         {
+            //TODO: Handle internal exception in case of API request - return correct response
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -196,14 +201,17 @@ namespace WebApp
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-            
+
+            app.UseAuthentication();
+
+            app.UseCors("CorsAllowAll");
+
+
+            // ======= plug i18n locale switcher into pipeline ================
             app.UseRequestLocalization(options:
                 app.ApplicationServices
                     .GetService<IOptions<RequestLocalizationOptions>>().Value);
 
-            app.UseAuthentication();
-            
-            app.UseCors("CorsAllowAll");
             
             app.UseSwagger();
             app.UseSwaggerUI(
@@ -217,18 +225,22 @@ namespace WebApp
                     }
                 } );
 
+            
+
             app.UseMvc(routes =>
             {
-
                 routes.MapRoute(
                     name: "area",
                     template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
-                
+
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            
+
+            
         }
     }
 }
