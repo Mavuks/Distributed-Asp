@@ -8,7 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebApp.ApiControllers.v1_0
 {
-    [Route("api/[controller]")]
+    [ApiVersion( "1.0" )]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     public class CompetitionsController : ControllerBase
     {

@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.IdentityModel.Xml;
-using WebApp.Models;
 using WebApp.ViewModels;
 
 namespace WebApp.Controllers

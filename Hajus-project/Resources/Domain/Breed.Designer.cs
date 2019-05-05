@@ -61,6 +61,15 @@ namespace Resources.Domain {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Breed Count.
+        /// </summary>
+        public static string BreedCount {
+            get {
+                return ResourceManager.GetString("BreedCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Breed name.
         /// </summary>
         public static string BreedName {

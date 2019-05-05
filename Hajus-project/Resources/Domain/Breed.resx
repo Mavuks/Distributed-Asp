@@ -120,5 +120,8 @@
   <data name="BreedName" xml:space="preserve">
     <value>Breed name</value>
   </data>
+  <data name="BreedCount" xml:space="preserve">
+    <value>Breed Count</value>
+  </data>
 
 </root>

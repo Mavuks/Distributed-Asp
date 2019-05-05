@@ -61,6 +61,15 @@ namespace Resources.Domain {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tõug.
+        /// </summary>
+        public static string Breed {
+            get {
+                return ResourceManager.GetString("Breed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Date of birth.
         /// </summary>
         public static string DateOfBirth {

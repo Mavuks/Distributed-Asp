@@ -21,13 +21,13 @@ namespace DAL.App.EF.Repositories
 
 
         public async Task<List<DAL.App.DTO.Dog>> AllForUserAsync(int userId)
-        {
-            return await RepositoryDbSet
-                //.Include(a => a.AppUser)
-                .Include(c => c.Breed)
-                // .Where(b => b.AppUserId == userId)
-                .Select(d => DogMapper.MapFromDomain(d))
-                .ToListAsync();
-        }
-    }
+             {
+                 return await RepositoryDbSet
+                     //.Include(a => a.AppUser)
+                     .Include(c => c.Breed)
+                     // .Where(b => b.AppUserId == userId)
+                     .Select(d => DogMapper.MapFromDomain(d))
+                     .ToListAsync();
+             }
+         }
 }

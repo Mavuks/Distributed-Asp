@@ -109,7 +109,7 @@ namespace WebApp.Controllers
                 vm.LocationSelectList = new SelectList(await _bll.Location.AllAsync(),
                     nameof(BLL.App.DTO.Location.Id),
                     nameof(BLL.App.DTO.Location.Locations),
-                    competition.LocationId);
+                    vm.Competition.LocationId);
 
             
 

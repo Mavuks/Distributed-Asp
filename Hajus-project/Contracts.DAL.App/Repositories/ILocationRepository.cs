@@ -12,6 +12,6 @@ using DALAppDTO = DAL.App.DTO;
      public interface ILocationRepository<TDALEntity> : IBaseRepository<TDALEntity>
          where TDALEntity : class, new()
      {
-
+         Task<List<TDALEntity>> AllForUserAsync(int userId);
      }
  }

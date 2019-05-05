@@ -13,6 +13,7 @@ namespace BLL.App.DTO
         [Display(Name = nameof(MaterialName), ResourceType = typeof(Resources.Domain.Material))]
         public string MaterialName { get; set; }
 
+        [Display(Name = nameof(MaterialCount), ResourceType = typeof(Resources.Domain.Material))]
         public int MaterialCount { get; set; }
     }
 }

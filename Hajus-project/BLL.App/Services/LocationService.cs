@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using BLL.App.Mappers;
 using BLL.Base.Services;
@@ -15,7 +16,11 @@ namespace BLL.App.Services
         {
         }
 
-
+        public async Task<List<BLL.App.DTO.Location>> AllForUserAsync(int userId)
+        {
+            return (await Uow.Location.AllForUserAsync(userId)).Select(e => LocationMapper.MapFromInternal(e))
+                .ToList();
+        }
 
   
     }

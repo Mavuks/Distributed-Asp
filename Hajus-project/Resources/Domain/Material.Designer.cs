@@ -61,6 +61,15 @@ namespace Resources.Domain {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Material Count.
+        /// </summary>
+        public static string MaterialCount {
+            get {
+                return ResourceManager.GetString("MaterialCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Material name.
         /// </summary>
         public static string MaterialName {

@@ -120,5 +120,8 @@
   <data name="BreedName" xml:space="preserve">
     <value>Tõug</value>
   </data>
+  <data name="BreedCount" xml:space="preserve">
+    <value>Arv</value>
+  </data>
 
 </root>

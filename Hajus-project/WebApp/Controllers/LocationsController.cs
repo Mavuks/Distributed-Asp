@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DAL.App.EF;
 using Domain;
+using Identity;
 
 namespace WebApp.Controllers
 {
@@ -27,7 +28,7 @@ namespace WebApp.Controllers
         // GET: Locations
         public async Task<IActionResult> Index()
         {
-            return View(await _bll.Location.AllAsync());
+            return View(await _bll.Location.AllForUserAsync(User.GetUserId()));
         }
 
         // GET: Locations/Details/5
@@ -38,7 +39,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var location = await _bll.Location.FindAsync(id);
+            var location = await _bll.Location.FindAsync(id.Value);
             if (location == null)
             {
                 return NotFound();
@@ -79,7 +80,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var location = await _bll.Location.FindAsync(id);
+            var location = await _bll.Location.FindAsync(id.Value);
             if (location == null)
             {
                 return NotFound();
@@ -118,7 +119,7 @@ namespace WebApp.Controllers
             }
 
 
-            var location = await _bll.Location.FindAsync(id);
+            var location = await _bll.Location.FindAsync(id.Value);
             if (location == null)
             {
                 return NotFound();

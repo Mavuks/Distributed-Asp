@@ -120,5 +120,8 @@
   <data name="MaterialName" xml:space="preserve">
     <value>Materjal</value>
   </data>
+  <data name="MaterialCount" xml:space="preserve">
+    <value>arv</value>
+  </data>
 
 </root>

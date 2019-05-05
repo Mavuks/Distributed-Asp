@@ -132,4 +132,7 @@
     <data name="Owner" xml:space="preserve">
     <value>Owner</value>
   </data>
+    <data name="Breed" xml:space="preserve">
+    <value>Tõug</value>
+  </data>
 </root>

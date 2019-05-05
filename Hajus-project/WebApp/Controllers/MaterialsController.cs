@@ -26,7 +26,7 @@ namespace WebApp.Controllers
         // GET: Materials
         public async Task<IActionResult> Index()
         {
-            return View(await _bll.Material.AllAsync());
+            return View(await _bll.Material.GetAllWithMaterialCountAsync());
         }
 
         // GET: Materials/Details/5

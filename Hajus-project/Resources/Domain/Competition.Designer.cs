@@ -72,9 +72,9 @@ namespace Resources.Domain {
         /// <summary>
         ///   Looks up a localized string similar to end.
         /// </summary>
-        public static string end {
+        public static string End {
             get {
-                return ResourceManager.GetString("end", resourceCulture);
+                return ResourceManager.GetString("End", resourceCulture);
             }
         }
         

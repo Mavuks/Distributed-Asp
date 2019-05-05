@@ -29,6 +29,12 @@
       <ProjectReference Include="..\Resources\Resources.csproj" />
     </ItemGroup>
 
+    <PropertyGroup>
+        <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\WebApp.xml</DocumentationFile>
+        <LangVersion>latest</LangVersion>
+        <NoWarn>$(NoWarn);1591</NoWarn>
+    </PropertyGroup>
+
     <ItemGroup>
       <_ContentIncludedByDefault Remove="Views\Competitions\Create.cshtml" />
       <_ContentIncludedByDefault Remove="Views\Competitions\Delete.cshtml" />

@@ -30,6 +30,7 @@ namespace BLL.App.DTO
         public DateTime End { get; set; }
 
         public int LocationId { get; set; }
+        [Display(Name = nameof(Location), ResourceType = typeof(Resources.Domain.Show))]
         public Location Location { get; set; }
 
 

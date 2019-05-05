@@ -33,4 +33,7 @@
     <data name="Owner" xml:space="preserve">
     <value>Omanik</value>
   </data>
+    <data name="Breed" xml:space="preserve">
+    <value>Tõug</value>
+  </data>
 </root>

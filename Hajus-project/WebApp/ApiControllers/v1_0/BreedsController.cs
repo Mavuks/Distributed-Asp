@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Contracts.BLL.App;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PublicApi.v1.Mappers;
 
@@ -24,6 +23,11 @@ namespace WebApp.ApiControllers.v1_0
             _bll = bll;
         }
 
+        
+        /// <summary>
+        /// Get all Breed Objects
+        /// </summary>
+        /// <returns>Array of all Breed With counts of contacts</returns>
         // GET: api/Breeds
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PublicApi.v1.DTO.BreedWithDogCounts>>> GetBreeds()

@@ -13,6 +13,7 @@ namespace BLL.App.DTO
         [Display(Name = nameof(BreedName), ResourceType = typeof(Resources.Domain.Breed))]
         public string BreedName { get; set; }
 
+            [Display(Name = nameof(BreedCount), ResourceType = typeof(Resources.Domain.Breed))]
         public int BreedCount { get; set; }
     }
 }
