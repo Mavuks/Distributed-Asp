@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using BLL.App.DTO;
-
 namespace PublicApi.v1.DTO
 {
     public class Show 

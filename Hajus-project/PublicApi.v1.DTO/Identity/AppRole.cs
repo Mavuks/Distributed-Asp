@@ -1,4 +1,4 @@
-namespace BLL.App.DTO.Identity
+namespace PublicApi.v1.DTO.Identity
 {
     public class AppRole
     {

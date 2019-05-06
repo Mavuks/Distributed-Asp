@@ -16,6 +16,7 @@ namespace BLL.App.Services
     {
         public DogService(IAppUnitOfWork uow) : base(uow, new DogMapper())
         {
+            ServiceRepository = Uow.Dog;
         }
 
         public async Task<List<BLL.App.DTO.Dog>> AllForUserAsync(int userId)

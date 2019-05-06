@@ -15,6 +15,7 @@ namespace BLL.App.Services
     {
         public MaterialService(IAppUnitOfWork uow) : base(uow, new MaterialMapper())
         {
+            ServiceRepository = Uow.Material;
         }
 
         public async Task<List<BLL.App.DTO.MaterialCounts>>  GetAllWithMaterialCountAsync()

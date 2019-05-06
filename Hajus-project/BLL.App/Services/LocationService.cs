@@ -14,6 +14,7 @@ namespace BLL.App.Services
     {
         public LocationService(IAppUnitOfWork uow) : base(uow, new LocationMapper())
         {
+            ServiceRepository = Uow.Location;
         }
 
         public async Task<List<BLL.App.DTO.Location>> AllForUserAsync(int userId)

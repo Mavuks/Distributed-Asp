@@ -6,7 +6,10 @@ using BLL.Base.Services;
 using Contracts.BLL.App.Services;
 using Contracts.DAL.App;
 using Contracts.DAL.Base;
+using Contracts.DAL.Base.Repositories;
+using DAL.App.DTO;
 using Domain;
+using Registration = DAL.App.DTO.Registration;
 
 namespace BLL.App.Services
 {
@@ -14,6 +17,7 @@ namespace BLL.App.Services
     {
         public RegistrationService(IAppUnitOfWork uow) : base(uow, new RegistrationMapper())
         {
+           ServiceRepository = (IBaseRepository<Registration>) Uow.Registration;
         }
 
         public async Task<List<BLL.App.DTO.Registration>> AllForUserAsync(int userId)

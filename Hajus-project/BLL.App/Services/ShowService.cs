@@ -14,6 +14,7 @@ namespace BLL.App.Services
     {
         public ShowService(IAppUnitOfWork uow) : base(uow, new ShowMapper())
         {
+            ServiceRepository = Uow.Show;
         }
 
         public async Task<List<BLL.App.DTO.Show>> AllForUserAsync(int userId)

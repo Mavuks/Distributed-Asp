@@ -15,6 +15,7 @@ namespace BLL.App.Services
     {
         public ParticipantService(IAppUnitOfWork uow) : base(uow, new ParticipantMapper())
         {
+            ServiceRepository = Uow.Participant;
         }
 
         public async Task<List<BLL.App.DTO.ParticipantNames>>  GetAllParticipantAsync()

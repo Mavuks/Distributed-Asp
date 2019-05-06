@@ -178,6 +178,15 @@ namespace WebApp
             services.AddVersionedApiExplorer( options => options.GroupNameFormat = "'v'VVV" );
             services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
             services.AddSwaggerGen();
+            services.ConfigureSwaggerGen(options =>
+            {
+                //your custom configuration goes here
+
+                
+
+                // UseFullTypeNameInSchemaIds replacement for .NET Core
+                options.CustomSchemaIds(x => x.FullName);
+            });
 
         }
 

@@ -1,4 +1,3 @@
-using BLL.App.DTO;
 
 namespace PublicApi.v1.DTO
 {
