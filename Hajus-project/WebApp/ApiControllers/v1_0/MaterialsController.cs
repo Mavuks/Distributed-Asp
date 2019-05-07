@@ -21,6 +21,11 @@ namespace WebApp.ApiControllers.v1_0
             _bll = bll;
         }
 
+        
+        /// <summary>
+        /// Get Material objects.
+        /// </summary>
+        /// <returns></returns>
         // GET: api/Materials
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PublicApi.v1.DTO.MaterialCounts>>> GetMaterials()
@@ -30,6 +35,12 @@ namespace WebApp.ApiControllers.v1_0
                 .Select(e => PublicApi.v1.Mappers.MaterialMapper.MapFromInternal(e)).ToList();
         }
 
+        
+        /// <summary>
+        /// Get material objects by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: api/Materials/5
         [HttpGet("{id}")]
         public async Task<ActionResult<PublicApi.v1.DTO.Material>> GetMaterial(int id)
@@ -45,6 +56,13 @@ namespace WebApp.ApiControllers.v1_0
             return material;
         }
 
+        
+        /// <summary>
+        /// Put Materials objects by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="material"></param>
+        /// <returns></returns>
         // PUT: api/Materials/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutMaterial(int id, PublicApi.v1.DTO.Material material)
@@ -60,6 +78,12 @@ namespace WebApp.ApiControllers.v1_0
             return NoContent();
         }
 
+        
+        /// <summary>
+        /// Post Material objects.
+        /// </summary>
+        /// <param name="material"></param>
+        /// <returns></returns>
         // POST: api/Materials
         [HttpPost]
         public async Task<ActionResult<PublicApi.v1.DTO.Material>> PostMaterial(PublicApi.v1.DTO.Material material)
@@ -76,6 +100,12 @@ namespace WebApp.ApiControllers.v1_0
                 }, material);
         }
 
+        
+        /// <summary>
+        /// Delete materials by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // DELETE: api/Materials/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Material>> DeleteMaterial(int id)

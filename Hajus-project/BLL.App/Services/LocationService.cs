@@ -19,8 +19,7 @@ namespace BLL.App.Services
 
         public async Task<List<BLL.App.DTO.Location>> AllForUserAsync(int userId)
         {
-            return (await Uow.Location.AllForUserAsync(userId)).Select(e => LocationMapper.MapFromInternal(e))
-                .ToList();
+            return (await Uow.Location.AllForUserAsync(userId)).Select(e => LocationMapper.MapFromInternal(e)).ToList();
         }
 
   

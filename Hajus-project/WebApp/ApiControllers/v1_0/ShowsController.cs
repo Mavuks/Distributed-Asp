@@ -22,6 +22,10 @@ namespace WebApp.ApiControllers.v1_0
             
         }
 
+        /// <summary>
+        /// Get Show objects.
+        /// </summary>
+        /// <returns></returns>
         // GET: api/Shows
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PublicApi.v1.DTO.Show>>> GetShows()
@@ -29,7 +33,12 @@ namespace WebApp.ApiControllers.v1_0
             return (await _bll.Show.AllForUserAsync(User.GetUserId()))
                 .Select(e => PublicApi.v1.Mappers.ShowMapper.MapFromInternal(e)).ToList();
         }
-
+        
+        
+        /// <summary>
+        /// Get Show objects by id.
+        /// </summary>
+        /// <returns></returns>
         // GET: api/Shows/5
         [HttpGet("{id}")]
         public async Task<ActionResult<PublicApi.v1.DTO.Show>> GetShow(int id)
@@ -45,6 +54,11 @@ namespace WebApp.ApiControllers.v1_0
             return show;
         }
 
+        
+        /// <summary>
+        /// Put Show objects.
+        /// </summary>
+        /// <returns></returns>
         // PUT: api/Shows/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutShow(int id, PublicApi.v1.DTO.Show show)
@@ -60,6 +74,11 @@ namespace WebApp.ApiControllers.v1_0
             return NoContent();
         }
 
+        
+        /// <summary>
+        /// Post Show objects.
+        /// </summary>
+        /// <returns></returns>
         // POST: api/Shows
         [HttpPost]
         public async Task<ActionResult<PublicApi.v1.DTO.Show>> PostShow(PublicApi.v1.DTO.Show show)
@@ -70,6 +89,11 @@ namespace WebApp.ApiControllers.v1_0
             return CreatedAtAction("GetShow", new { id = show.Id }, show);
         }
 
+        
+        /// <summary>
+        /// Delete Show objects by id..
+        /// </summary>
+        /// <returns></returns>
         // DELETE: api/Shows/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Show>> DeleteShow(int id)

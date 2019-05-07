@@ -21,6 +21,10 @@ namespace WebApp.ApiControllers.v1_0
            
         }
 
+        /// <summary>
+        /// Get all Locations objects.
+        /// </summary>
+        /// <returns></returns>
         // GET: api/Locations
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PublicApi.v1.DTO.Location>>> GetLocations()
@@ -29,6 +33,11 @@ namespace WebApp.ApiControllers.v1_0
                 .Select(e => PublicApi.v1.Mappers.LocationMapper.MapFromInternal(e)).ToList();
         }
 
+        /// <summary>
+        /// Get Locations objects by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: api/Locations/5
         [HttpGet("{id}")]
         public async Task<ActionResult<PublicApi.v1.DTO.Location>> GetLocation(int id)
@@ -43,7 +52,14 @@ namespace WebApp.ApiControllers.v1_0
 
             return location;
         }
-
+        
+        
+        /// <summary>
+        /// Put Locations objects by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="location"></param>
+        /// <returns></returns>
         // PUT: api/Locations/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutLocation(int id, PublicApi.v1.DTO.Location location)
@@ -59,6 +75,12 @@ namespace WebApp.ApiControllers.v1_0
             return NoContent();
         }
 
+        
+        /// <summary>
+        /// Post Locations objects .
+        /// </summary>
+        /// <param name="location"></param>
+        /// <returns></returns>
         // POST: api/Locations
         [HttpPost]
         public async Task<ActionResult<PublicApi.v1.DTO.Location>> PostLocation(PublicApi.v1.DTO.Location location)
@@ -69,6 +91,12 @@ namespace WebApp.ApiControllers.v1_0
             return CreatedAtAction("GetLocation", new { id = location.Id }, location);
         }
 
+        
+        /// <summary>
+        /// delete locations by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // DELETE: api/Locations/5
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteLocation(int id)

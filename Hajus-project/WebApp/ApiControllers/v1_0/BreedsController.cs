@@ -27,7 +27,7 @@ namespace WebApp.ApiControllers.v1_0
         /// <summary>
         /// Get all Breed Objects
         /// </summary>
-        /// <returns>Array of all Breed With counts of contacts</returns>
+        /// <returns>Array of all Breed With counts </returns>
         // GET: api/Breeds
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PublicApi.v1.DTO.BreedWithDogCounts>>> GetBreeds()
@@ -37,6 +37,12 @@ namespace WebApp.ApiControllers.v1_0
                 .Select(e => PublicApi.v1.Mappers.BreedMapper.MapFromInternal(e)).ToList();
         }
 
+        
+        /// <summary>
+        /// Get all Breed objects by Id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: api/Breeds/5
         [HttpGet("{id}")]
         public async Task<ActionResult<PublicApi.v1.DTO.Breed>> GetBreed(int id)
@@ -50,7 +56,14 @@ namespace WebApp.ApiControllers.v1_0
 
             return breed;
         }
-
+        
+        
+        /// <summary>
+        /// Put all breed objects
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="breed"></param>
+        /// <returns></returns>
         // PUT: api/Breeds/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutBreed(int id, PublicApi.v1.DTO.Breed breed)
@@ -67,7 +80,11 @@ namespace WebApp.ApiControllers.v1_0
 
             return NoContent();
         }
-
+        /// <summary>
+        /// Post all breed objects
+        /// </summary>
+        /// <param name="breed"></param>
+        /// <returns></returns>
         // POST: api/Breeds
         [HttpPost]
         public async Task<ActionResult<PublicApi.v1.DTO.Breed>> PostBreed(PublicApi.v1.DTO.Breed breed)
@@ -82,7 +99,12 @@ namespace WebApp.ApiControllers.v1_0
                     id = breed.Id
                 }, breed);
         }
-
+        
+        /// <summary>
+        /// Delete all breed objects
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // DELETE: api/Breeds/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<PublicApi.v1.DTO.Breed>> DeleteBreed(int id)

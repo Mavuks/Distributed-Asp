@@ -180,11 +180,6 @@ namespace WebApp
             services.AddSwaggerGen();
             services.ConfigureSwaggerGen(options =>
             {
-                //your custom configuration goes here
-
-                
-
-                // UseFullTypeNameInSchemaIds replacement for .NET Core
                 options.CustomSchemaIds(x => x.FullName);
             });
 

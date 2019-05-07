@@ -24,6 +24,10 @@ namespace WebApp.ApiControllers.v1_0
             _bll = bll;
         }
 
+        /// <summary>
+        /// Get all Competition objects.
+        /// </summary>
+        /// <returns></returns>
         // GET: api/Competitions
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PublicApi.v1.DTO.Competition>>> GetCompetitions()
@@ -31,6 +35,10 @@ namespace WebApp.ApiControllers.v1_0
             return (await _bll.Competition.AllForUserAsync(User.GetUserId()))
                 .Select(e => PublicApi.v1.Mappers.CompetitionMapper.MapFromInternal(e)).ToList();
         }
+        /// <summary>
+        /// Get all Competition objects by id.
+        /// </summary>
+        /// <returns></returns>
 
         // GET: api/Competitions/5
         [HttpGet("{id}")]
@@ -47,6 +55,13 @@ namespace WebApp.ApiControllers.v1_0
             return competition;
         }
 
+        
+        /// <summary>
+        /// Put all Competition objects.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="competition"></param>
+        /// <returns></returns>
         // PUT: api/Competitions/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCompetition(int id, PublicApi.v1.DTO.Competition competition)
@@ -63,6 +78,12 @@ namespace WebApp.ApiControllers.v1_0
             return NoContent();
         }
 
+        
+        /// <summary>
+        /// Post All competitions
+        /// </summary>
+        /// <param name="competition"></param>
+        /// <returns></returns>
         // POST: api/Competitions
         [HttpPost]
         public async Task<ActionResult<PublicApi.v1.DTO.Competition>> PostCompetition(PublicApi.v1.DTO.Competition competition)
@@ -73,6 +94,13 @@ namespace WebApp.ApiControllers.v1_0
             return CreatedAtAction("GetCompetition", new { id = competition.Id }, competition);
         }
 
+        
+        
+        /// <summary>
+        /// Delete  Competitions objects by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // DELETE: api/Competitions/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Competition>> DeleteCompetition(int id)

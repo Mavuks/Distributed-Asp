@@ -21,7 +21,12 @@ namespace WebApp.ApiControllers.v1_0
             
             _bll = bll;
         }
-
+        
+        
+        /// <summary>
+        /// Get Registrations objects.
+        /// </summary>
+        /// <returns></returns>
         // GET: api/Registrations
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PublicApi.v1.DTO.Registration>>> GetRegistrations()
@@ -30,6 +35,12 @@ namespace WebApp.ApiControllers.v1_0
                 .Select(e => PublicApi.v1.Mappers.RegistrationMapper.MapFromInternal(e)).ToList();
         }
 
+        
+        /// <summary>
+        /// Get Registrations objects by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: api/Registrations/5
         [HttpGet("{id}")]
         public async Task<ActionResult<PublicApi.v1.DTO.Registration>> GetRegistration(int id)
@@ -45,6 +56,13 @@ namespace WebApp.ApiControllers.v1_0
             return registration;
         }
 
+        
+        /// <summary>
+        /// Put Registrations objects by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="registration"></param>
+        /// <returns></returns>
         // PUT: api/Registrations/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutRegistration(int id, PublicApi.v1.DTO.Registration registration)
@@ -60,6 +78,13 @@ namespace WebApp.ApiControllers.v1_0
             return NoContent();
         }
 
+        
+        
+        /// <summary>
+        /// Post Registrations.
+        /// </summary>
+        /// <param name="registration"></param>
+        /// <returns></returns>
         // POST: api/Registrations
         [HttpPost]
         public async Task<ActionResult<PublicApi.v1.DTO.Registration>> PostRegistration(PublicApi.v1.DTO.Registration registration)
@@ -70,6 +95,13 @@ namespace WebApp.ApiControllers.v1_0
             return CreatedAtAction("GetRegistration", new { id = registration.Id }, registration);
         }
 
+        
+        
+        /// <summary>
+        /// Delete registrations objects by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // DELETE: api/Registrations/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Registration>> DeleteRegistration(int id)

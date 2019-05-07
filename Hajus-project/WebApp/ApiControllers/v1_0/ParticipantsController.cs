@@ -21,6 +21,11 @@ namespace WebApp.ApiControllers.v1_0
             
         }
 
+        
+        /// <summary>
+        /// Get Participants objects.
+        /// </summary>
+        /// <returns></returns>
         // GET: api/Participants
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PublicApi.v1.DTO.ParticipantNames>>> GetParticipants()
@@ -29,6 +34,11 @@ namespace WebApp.ApiControllers.v1_0
                 .Select(e => PublicApi.v1.Mappers.ParticipantMapper.MapFromInternal(e)).ToList();
         }
 
+        /// <summary>
+        /// Get participants object by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: api/Participants/5
         [HttpGet("{id}")]
         public async Task<ActionResult<PublicApi.v1.DTO.Participant>> GetParticipant(int id)
@@ -44,6 +54,13 @@ namespace WebApp.ApiControllers.v1_0
             return participant;
         }
 
+        
+        /// <summary>
+        /// Put Participants by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="participant"></param>
+        /// <returns></returns>
         // PUT: api/Participants/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutParticipant(int id, PublicApi.v1.DTO.Participant participant)
@@ -59,6 +76,12 @@ namespace WebApp.ApiControllers.v1_0
             return NoContent();
         }
 
+        
+        /// <summary>
+        /// Post parcitipants
+        /// </summary>
+        /// <param name="participant"></param>
+        /// <returns></returns>
         // POST: api/Participants
         [HttpPost]
         public async Task<ActionResult<PublicApi.v1.DTO.Participant>> PostParticipant(
@@ -73,7 +96,13 @@ namespace WebApp.ApiControllers.v1_0
                 id = participant.Id
             }, participant);
         }
-
+        
+        
+        /// <summary>
+        /// Delete participants by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // DELETE: api/Participants/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<PublicApi.v1.DTO.Participant>> DeleteParticipant(int id)

@@ -22,6 +22,11 @@ namespace WebApp.ApiControllers.v1_0
             _bll = bll;
         }
 
+        
+        /// <summary>
+        /// Get Schooling objects.
+        /// </summary>
+        /// <returns></returns>
         // GET: api/Schoolings
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PublicApi.v1.DTO.Schooling>>> GetSchoolings()
@@ -30,6 +35,11 @@ namespace WebApp.ApiControllers.v1_0
                 .Select(e => PublicApi.v1.Mappers.SchoolingMapper.MapFromInternal(e)).ToList();
         }
 
+        
+        /// <summary>
+        /// Get Schooling objects by id.
+        /// </summary>
+        /// <returns></returns>
         // GET: api/Schoolings/5
         [HttpGet("{id}")]
         public async Task<ActionResult<PublicApi.v1.DTO.Schooling>> GetSchooling(int id)
@@ -45,6 +55,11 @@ namespace WebApp.ApiControllers.v1_0
             return schooling;
         }
 
+        
+        /// <summary>
+        /// Put Schooling objects.
+        /// </summary>
+        /// <returns></returns>
         // PUT: api/Schoolings/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutSchooling(int id, PublicApi.v1.DTO.Schooling schooling)
@@ -60,6 +75,11 @@ namespace WebApp.ApiControllers.v1_0
             return NoContent();
         }
 
+        
+        /// <summary>
+        /// Post Schooling objects.
+        /// </summary>
+        /// <returns></returns>
         // POST: api/Schoolings
         [HttpPost]
         public async Task<ActionResult<PublicApi.v1.DTO.Schooling>> PostSchooling(PublicApi.v1.DTO.Schooling schooling)
@@ -70,6 +90,11 @@ namespace WebApp.ApiControllers.v1_0
             return CreatedAtAction("GetSchooling", new { id = schooling.Id }, schooling);
         }
 
+        
+        /// <summary>
+        /// Delete Schooling objects by id.
+        /// </summary>
+        /// <returns></returns>
         // DELETE: api/Schoolings/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Schooling>> DeleteSchooling(int id)
