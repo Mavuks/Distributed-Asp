@@ -3,7 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Contracts.BLL.App;
 using Domain;
-using Identity;
+using ee.itcollege.mavuks.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApp.ApiControllers.v1_0

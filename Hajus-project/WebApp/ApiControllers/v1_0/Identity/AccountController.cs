@@ -1,9 +1,7 @@
 using System.ComponentModel.DataAnnotations;
-using System.IdentityModel.Tokens.Jwt;
-using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Domain.Identity;
-using Identity;
+using ee.itcollege.mavuks.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -11,7 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using WebApp.Areas.Identity.Pages.Account;
 
-namespace WebApp.ApiControllers.Identity
+namespace WebApp.ApiControllers.v1_0.Identity
 {
     [Route("api/[controller]/[action]")]
     [ApiController]

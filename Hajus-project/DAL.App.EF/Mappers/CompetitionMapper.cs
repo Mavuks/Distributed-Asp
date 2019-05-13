@@ -1,5 +1,5 @@
 using System;
-using Contracts.DAL.Base.Mappers;
+using ee.itcollege.mavuks.Contracts.DAL.Base.Mappers;
 using internalDTO = Domain;
 using externalDTO = DAL.App.DTO;
 

@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Contracts.DAL.Base.Repositories;
 using DALAppDTO = DAL.App.DTO;
 using Domain;
+using ee.itcollege.mavuks.Contracts.DAL.Base.Repositories;
 
 namespace Contracts.DAL.App.Repositories
 {

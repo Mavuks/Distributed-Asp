@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageVersion>1.0.0</PackageVersion>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RootNamespace>ee.itcollege.mavuks.Contracts.BLL.Base</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ee.itcollege.mavuks.Contracts.Base\ee.itcollege.mavuks.Contracts.Base.csproj" />
+      <ProjectReference Include="..\ee.itcollege.mavuks.Contracts.DAL.Base\ee.itcollege.mavuks.Contracts.DAL.Base.csproj" />
+    </ItemGroup>
+
+</Project>

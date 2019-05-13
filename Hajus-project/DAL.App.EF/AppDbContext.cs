@@ -1,7 +1,7 @@
 ﻿using System.Linq;
-using Contracts.DAL.Base;
 using Domain;
 using Domain.Identity;
+using ee.itcollege.mavuks.Contracts.DAL.Base;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 

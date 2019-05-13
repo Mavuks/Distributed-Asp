@@ -1,5 +1,5 @@
 
-using Contracts.DAL.Base;
+using ee.itcollege.mavuks.Contracts.DAL.Base;
 using Microsoft.AspNetCore.Identity;
 
 namespace Domain.Identity

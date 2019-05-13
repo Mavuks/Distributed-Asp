@@ -1,6 +1,6 @@
 using System;
-using Contracts.BLL.Base.Mappers;
 using Domain;
+using ee.itcollege.mavuks.Contracts.BLL.Base.Mappers;
 using internalDTO = DAL.App.DTO;
 using externalDTO = BLL.App.DTO;
 

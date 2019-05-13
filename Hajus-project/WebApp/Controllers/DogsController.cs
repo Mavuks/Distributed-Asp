@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using DAL.App.EF;
 using Domain;
 using Domain.Identity;
-using Identity;
+using ee.itcollege.mavuks.Identity;
 using Microsoft.AspNetCore.Authorization;
 using WebApp.ViewModels;
 

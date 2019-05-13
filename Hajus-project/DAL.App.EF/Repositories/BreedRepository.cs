@@ -4,10 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using BLL.App.Mappers;
 using Contracts.DAL.App.Repositories;
-using Contracts.DAL.Base;
 using DAL.App.DTO;
-using DAL.Base.EF.Repositories;
 using Domain;
+using ee.itcollege.mavuks.DAL.Base.EF.Repositories;
 using Microsoft.EntityFrameworkCore;
 using BreedMapper = DAL.App.EF.Mappers.BreedMapper;
 

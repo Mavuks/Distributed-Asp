@@ -1,4 +1,6 @@
-using Contracts.DAL.Base;
+
+
+using ee.itcollege.mavuks.Contracts.DAL.Base;
 
 namespace Domain
 {

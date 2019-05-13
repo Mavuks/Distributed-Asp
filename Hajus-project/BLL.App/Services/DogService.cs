@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BLL.App.Mappers;
-using BLL.Base.Services;
 using Contracts.BLL.App.Services;
 using Contracts.DAL.App;
 using Contracts.DAL.App.Repositories;
-using Contracts.DAL.Base;
 using Domain;
+using ee.itcollege.mavuks.BLL.Base.Services;
 
 namespace BLL.App.Services
 {

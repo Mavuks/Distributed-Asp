@@ -34,8 +34,8 @@ namespace BLL.App.DTO
 
         public int BreedId { get; set; }
         
-//        [Required(ErrorMessageResourceName = "ErrorMessageRequired", ErrorMessageResourceType = typeof(Resources.Domain.Common))]
-//        [Display(Name = nameof(Breed), ResourceType = typeof(Resources.Domain.Dog))]
+       
+        [Display(Name = nameof(Breed), ResourceType = typeof(Resources.Domain.Dog))]
         public Breed Breed { get; set; }
 
         [Required(ErrorMessageResourceName = "ErrorMessageRequired", ErrorMessageResourceType = typeof(Resources.Domain.Common))]

@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Contracts.DAL.App;
 using Contracts.DAL.App.Repositories;
-using Contracts.DAL.Base;
-using Contracts.DAL.Base.Helpers;
-using Contracts.DAL.Base.Repositories;
 
 using DAL.App.EF.Repositories;
-using DAL.Base.EF;
-using DAL.Base.EF.Repositories;
+using ee.itcollege.mavuks.Contracts.DAL.Base.Helpers;
+using ee.itcollege.mavuks.DAL.Base.EF;
 
 
 namespace DAL.App.EF

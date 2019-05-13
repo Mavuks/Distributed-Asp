@@ -1,10 +1,9 @@
 ﻿using System;
-using BLL.Base;
 using Contracts.BLL.App;
 using Contracts.BLL.App.Services;
-using Contracts.BLL.Base.Helpers;
 using Contracts.DAL.App;
-using Contracts.DAL.Base;
+using ee.itcollege.mavuks.BLL.Base;
+using ee.itcollege.mavuks.Contracts.BLL.Base.Helpers;
 
 namespace BLL.App
 {

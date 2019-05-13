@@ -3,9 +3,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using BLL.App.Mappers;
 using Contracts.DAL.App.Repositories;
-using Contracts.DAL.Base;
-using DAL.Base.EF.Repositories;
 using Domain;
+using ee.itcollege.mavuks.DAL.Base.EF.Repositories;
 using Microsoft.EntityFrameworkCore;
 using ShowMapper = DAL.App.EF.Mappers.ShowMapper;
 

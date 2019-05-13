@@ -3,10 +3,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using BLL.App.Mappers;
 using Contracts.DAL.App.Repositories;
-using Contracts.DAL.Base;
-using Contracts.DAL.Base.Repositories;
-using DAL.Base.EF.Repositories;
 using Domain;
+using ee.itcollege.mavuks.DAL.Base.EF.Repositories;
 using Microsoft.EntityFrameworkCore;
 using DogMapper = DAL.App.EF.Mappers.DogMapper;
 

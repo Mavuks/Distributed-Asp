@@ -2,15 +2,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BLL.App.Mappers;
-using BLL.Base.Services;
 using Contracts.BLL.App.Services;
 using Contracts.DAL.App;
-using Contracts.DAL.Base;
 using DAL.App.DTO;
 using Domain;
+using ee.itcollege.mavuks.BLL.Base.Services;
 
- 
- namespace BLL.App.Services
+
+namespace BLL.App.Services
  {
      public class CompetitionService : BaseEntityService<BLL.App.DTO.Competition,DAL.App.DTO.Competition,IAppUnitOfWork>, ICompetitionService
      {

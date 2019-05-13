@@ -11,6 +11,12 @@
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="ee.itcollege.mavuks.BLL.Base" Version="1.0.0" />
+      <PackageReference Include="ee.itcollege.mavuks.Contracts.Base" Version="1.0.0" />
+      <PackageReference Include="ee.itcollege.mavuks.Contracts.BLL.Base" Version="1.0.0" />
+      <PackageReference Include="ee.itcollege.mavuks.Contracts.DAL.Base" Version="1.0.0" />
+      <PackageReference Include="ee.itcollege.mavuks.DAL.Base.EF" Version="1.0.0" />
+      <PackageReference Include="ee.itcollege.mavuks.Identity" Version="1.0.0" />
       <PackageReference Include="System.ComponentModel.Annotations" Version="4.5.0" />
     </ItemGroup>
 

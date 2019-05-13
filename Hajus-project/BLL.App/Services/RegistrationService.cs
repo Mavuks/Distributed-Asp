@@ -2,13 +2,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BLL.App.Mappers;
-using BLL.Base.Services;
 using Contracts.BLL.App.Services;
 using Contracts.DAL.App;
-using Contracts.DAL.Base;
-using Contracts.DAL.Base.Repositories;
+
 using DAL.App.DTO;
 using Domain;
+using ee.itcollege.mavuks.BLL.Base.Services;
+using ee.itcollege.mavuks.Contracts.DAL.Base.Repositories;
 using Registration = DAL.App.DTO.Registration;
 
 namespace BLL.App.Services

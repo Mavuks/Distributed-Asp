@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Contracts.BLL.App;
 using Contracts.DAL.App;
+using ee.itcollege.mavuks.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Identity;
 using WebApp.ViewModels;
 
 namespace WebApp.Controllers

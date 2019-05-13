@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DAL.App.EF;
 using Domain;
-using Identity;
+using ee.itcollege.mavuks.Identity;
 using WebApp.ViewModels;
 
 namespace WebApp.Controllers
