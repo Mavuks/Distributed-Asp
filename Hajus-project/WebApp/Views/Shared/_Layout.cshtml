@@ -22,6 +22,7 @@
     </environment>
     @* <link rel="stylesheet" href="~/css/site.css" /> *@
     <link rel="stylesheet" href="~/AdminLTE/dist/css/adminlte.min.css" />
+    <link rel="stylesheet" href="~/css/site.css"/>
     
     @RenderSection("CSS", required: false)
     @RenderSection("HeaderScripts", required: false)
@@ -83,7 +84,7 @@
 
    
          <!-- Right navbar links --> 
-         <ul class="navbar-nav ml-auto" style="background-color:"> 
+         <ul class="navbar-nav ml-auto"> 
             <partial name="_LoginPartial"/> 
          </ul> 
      </nav> 
@@ -101,7 +102,7 @@
 <footer class="border-top footer text-muted">
     <div class="container">
         <div class="row">
-            <div class="col-md-4">&copy; 2019 - WebApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">@Resources.Views.Shared._Layout.Privacy</a></div>
+            <div class="col-md-4">&copy; 2019 - Ringokris - <a asp-area="" asp-controller="Home" asp-action="Privacy">@Resources.Views.Shared._Layout.Privacy</a></div>
             <div class="col-md-4">UICulture: @CultureInfo.CurrentUICulture.Name Culture: @CultureInfo.CurrentUICulture.Name</div>
             <div class="col-md-4"><partial name="_LanguageSelectionPartial"/></div>
         </div>

@@ -45,7 +45,7 @@ namespace WebApp.Areas.Identity.Pages.Account.Manage
             public string Email { get; set; }
 
             [Phone]
-            [Display(Name = "Phone number")]
+            [Display(Name = nameof(PhoneNumber), ResourceType = typeof(Resources.Views.Common))]
             public string PhoneNumber { get; set; }
         }
 

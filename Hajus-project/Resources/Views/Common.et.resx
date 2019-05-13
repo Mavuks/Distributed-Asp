@@ -109,6 +109,12 @@
   </data>
 	<data name="OK" xml:space="preserve">
     <value>OK</value>
+  </data>S
+	<data name="LastName" xml:space="preserve">
+    <value>Perenimi</value>
+  </data>
+	<data name="FirstName" xml:space="preserve">
+    <value>Eesnimi</value>
   </data>
 	<data name="Remove" xml:space="preserve">
     <value>Eemalda</value>
@@ -119,4 +125,97 @@
 	<data name="Yes" xml:space="preserve">
     <value>Jah</value>
   </data>
+	<data name="Edit" xml:space="preserve">
+    <value>Muuda</value>
+  </data>
+	<data name="Details" xml:space="preserve">
+    <value>Detailid</value>
+  </data>
+	<data name="Delete" xml:space="preserve">
+    <value>Kustuta</value>
+  </data>
+	<data name="Create" xml:space="preserve">
+    <value>Koosta</value>
+  </data>
+	<data name="CreateNew" xml:space="preserve">
+    <value>Koosta Uus</value>
+  </data>
+	<data name="BackToList" xml:space="preserve">
+    <value>Tagasi nimekirja</value>
+  </data>
+	<data name="AreYou" xml:space="preserve">
+    <value>Kas soovite kindlasti selle kustutada?</value>
+  </data>
+	<data name="Profile" xml:space="preserve">
+    <value>Profiil</value>
+	</data>
+	<data name="UserName" xml:space="preserve">
+    <value>Kasutajanimi</value>
+	</data>
+	<data name="Email" xml:space="preserve">
+    <value>Email</value>
+	</data>
+	<data name="PhoneNumber" xml:space="preserve">
+    <value>Telefoni number</value>
+	</data>
+	<data name="ManageAccount" xml:space="preserve">
+    <value>Hallake oma kontot</value>
+	</data>
+	<data name="ChangeSettings" xml:space="preserve">
+    <value>Muutke oma konto seadeid</value>
+	</data>
+	<data name="Password" xml:space="preserve">
+    <value>Parool</value>
+	</data>
+	<data name="ChangePassword" xml:space="preserve">
+    <value>Muuda Salasõna</value>
+	</data>
+	<data name="CurrentPassword" xml:space="preserve">
+    <value>Praegune Salasõna</value>
+	</data>
+	<data name="NewPassword" xml:space="preserve">
+    <value>Uus Salasõna</value>
+	</data>
+	<data name="ConfirmPassword" xml:space="preserve">
+    <value>Kinnita Uus salasõna</value>
+	</data>
+	<data name="UpdatePassword" xml:space="preserve">
+    <value>Uuenda Salasõna</value>
+	</data>
+	<data name="Two-factor" xml:space="preserve">
+    <value>Kahe faktoriga autentimine(2FA)</value>
+	</data>
+	<data name="AuthenticatorApp" xml:space="preserve">
+    <value>Autentimise rakendus</value>
+	</data>
+	<data name="PersonalData" xml:space="preserve">
+    <value>Isiklikud andmed</value>
+	</data>
+	<data name="ContainsPersonal" xml:space="preserve">
+    <value>Teie konto sisaldab meile antud isikuandmeid. Sellel lehel saate neid andmeid alla laadida või kustutada.</value>
+	</data>
+	<data name="DeletingData" xml:space="preserve">
+    <value>Nende andmete kustutamine eemaldab teie konto jäädavalt ja seda ei saa taastada.</value>
+	</data>
+	<data name="Download" xml:space="preserve">
+    <value>Lae Alla</value>
+	</data>
+	<data name="ExternalLogins" xml:space="preserve">
+    <value>Välised sisselogimised</value>
+	</data>
+	<data name="CreateNewAccount" xml:space="preserve">
+    <value>Loo uus konto.</value>
+	</data>
+	<data name="Register" xml:space="preserve">
+    <value>Registeeri</value>
+	</data>
+	<data name="Login" xml:space="preserve">
+    <value>Logi Sisse</value>
+	</data>
+	<data name="RegisterNew" xml:space="preserve">
+    <value>Registreeru uue kasutajana</value>
+	</data>
+	<data name="Save" xml:space="preserve">
+    <value>Salvesta</value>
+	</data>
 </root>

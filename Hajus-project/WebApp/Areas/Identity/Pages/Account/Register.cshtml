@@ -1,7 +1,7 @@
 ﻿@page
 @model RegisterModel
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = @Resources.Views.Common.Register;
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -9,33 +9,33 @@
 <div class="">
     <div class="">
         <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h4>Create a new account.</h4>
+            <h4>@Resources.Views.Common.CreateNewAccount</h4>
             <hr />
             <div asp-validation-summary="All" class="text-danger"></div>
 
             <div class="form-group">
-                <input asp-for="Input.FirstName" class="form-control" placeholder="First Name" />
+                <input asp-for="Input.FirstName" class="form-control" placeholder="@Resources.Views.Common.FirstName" />
                 <span asp-validation-for="Input.FirstName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input asp-for="Input.LastName" class="form-control"  placeholder="Last Name"/>
+                <input asp-for="Input.LastName" class="form-control"  placeholder="@Resources.Views.Common.LastName"/>
                 <span asp-validation-for="Input.LastName" class="text-danger"></span>
             </div>
             
             
             <div class="form-group">
-                <input asp-for="Input.Email" class="form-control" placeholder="Email" />
+                <input asp-for="Input.Email" class="form-control" placeholder="@Resources.Views.Common.Email" />
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input asp-for="Input.Password" class="form-control" placeholder="Password"/>
+                <input asp-for="Input.Password" class="form-control" placeholder="@Resources.Views.Common.Password"/>
                 <span asp-validation-for="Input.Password" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input asp-for="Input.ConfirmPassword" class="form-control"  placeholder="Confirm Passsword"/>
+                <input asp-for="Input.ConfirmPassword" class="form-control"  placeholder="@Resources.Views.Common.ConfirmPassword"/>
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
-            <button type="submit" class=" btn-primary btn-block btn-flat">Register</button>
+            <button type="submit" class=" btn-primary btn-block btn-flat">@Resources.Views.Common.Register</button>
         </form>
     </div>
 </div>
