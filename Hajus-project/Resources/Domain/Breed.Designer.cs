@@ -72,9 +72,9 @@ namespace Resources.Domain {
         /// <summary>
         ///   Looks up a localized string similar to Breed name.
         /// </summary>
-        public static string BreedName {
+        public static string BreedNameValue {
             get {
-                return ResourceManager.GetString("BreedName", resourceCulture);
+                return ResourceManager.GetString("BreedNameValue", resourceCulture);
             }
         }
     }

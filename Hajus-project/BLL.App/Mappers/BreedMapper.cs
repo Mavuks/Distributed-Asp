@@ -27,7 +27,7 @@ namespace BLL.App.Mappers
             var res = breed == null ? null : new externalDTO.Breed
             {
                 Id = breed.Id,
-                BreedName = breed.BreedName,
+                BreedNameValue = breed.BreedNameValue,
 
             };
 
@@ -39,7 +39,7 @@ namespace BLL.App.Mappers
             var res = breed == null ? null : new internalDTO.Breed
             {
                 Id = breed.Id,
-                BreedName = breed.BreedName,
+                BreedNameValue = breed.BreedNameValue,
 
             };
             return res;
@@ -50,7 +50,7 @@ namespace BLL.App.Mappers
             var res = breedWithDogCounts == null ? null : new BLL.App.DTO.BreedWithDogCounts()
             {
                 Id = breedWithDogCounts.Id,
-                BreedName = breedWithDogCounts.BreedName,
+                BreedNameValue = breedWithDogCounts.BreedNameValue,
                 BreedCount = breedWithDogCounts.BreedCount
             };
             return res;

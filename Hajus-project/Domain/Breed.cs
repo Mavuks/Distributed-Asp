@@ -5,8 +5,10 @@ namespace Domain
     public class Breed : DomainEntity
     
     {
-
-        public string BreedName { get; set; }
+        public int BreedValueId { get; set; }
+        
+        
+        public MultiLangString BreedNameValue { get; set; }
 
         public ICollection<Dog> Dogs { get; set; }
     }

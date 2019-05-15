@@ -22,9 +22,13 @@ namespace DAL.App.EF.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("BreedName");
+                    b.Property<int?>("BreedNameValueId");
+
+                    b.Property<int>("BreedValueId");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BreedNameValueId");
 
                     b.ToTable("Breeds");
                 });
@@ -182,6 +186,19 @@ namespace DAL.App.EF.Migrations
                     b.ToTable("Materials");
                 });
 
+            modelBuilder.Entity("Domain.MultiLangString", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Value")
+                        .HasMaxLength(10240);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MultiLangString");
+                });
+
             modelBuilder.Entity("Domain.Participant", b =>
                 {
                     b.Property<int>("Id")
@@ -273,6 +290,26 @@ namespace DAL.App.EF.Migrations
                     b.ToTable("Shows");
                 });
 
+            modelBuilder.Entity("Domain.Translation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Culture")
+                        .HasMaxLength(5);
+
+                    b.Property<int>("MultiLangStringId");
+
+                    b.Property<string>("Value")
+                        .HasMaxLength(10240);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MultiLangStringId");
+
+                    b.ToTable("Translation");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
                 {
                     b.Property<int>("Id")
@@ -354,6 +391,14 @@ namespace DAL.App.EF.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("Domain.Breed", b =>
+                {
+                    b.HasOne("Domain.MultiLangString", "BreedNameValue")
+                        .WithMany()
+                        .HasForeignKey("BreedNameValueId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
             modelBuilder.Entity("Domain.Competition", b =>
                 {
                     b.HasOne("Domain.Location", "Location")
@@ -406,6 +451,14 @@ namespace DAL.App.EF.Migrations
                     b.HasOne("Domain.Location", "Location")
                         .WithMany("Shows")
                         .HasForeignKey("LocationId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("Domain.Translation", b =>
+                {
+                    b.HasOne("Domain.MultiLangString", "MultiLangString")
+                        .WithMany("Translations")
+                        .HasForeignKey("MultiLangStringId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 

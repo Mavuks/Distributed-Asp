@@ -59,7 +59,7 @@ namespace WebApp.Controllers
 
             var vm = new DogCreateViewModel()
             {
-                BreedSelectList = new SelectList(await _bll.Breed.AllAsync(), nameof(Breed.Id), nameof(Breed.BreedName))
+                BreedSelectList = new SelectList(await _bll.Breed.AllAsync(), nameof(Breed.Id), nameof(Breed.BreedNameValue))
                 
             };
            
@@ -85,7 +85,7 @@ namespace WebApp.Controllers
 
           vm.BreedSelectList  = new SelectList(await _bll.Breed.AllAsync(),
               nameof( BLL.App.DTO.Breed.Id),
-                nameof( BLL.App.DTO.Breed.BreedName), vm.Dog.BreedId );
+                nameof( BLL.App.DTO.Breed.BreedNameValue), vm.Dog.BreedId );
 
 
             
@@ -113,7 +113,7 @@ namespace WebApp.Controllers
             
              BreedSelectList = new SelectList(await _bll.Breed.AllAsync(),
                  nameof( BLL.App.DTO.Breed.Id),
-                 nameof( BLL.App.DTO.Breed.BreedName),
+                 nameof( BLL.App.DTO.Breed.BreedNameValue),
                  dog.BreedId)
                 
             };
@@ -143,7 +143,7 @@ namespace WebApp.Controllers
             
          vm.BreedSelectList  = new SelectList(await _bll.Breed.AllAsync(), 
              nameof( BLL.App.DTO.Breed.Id),
-                nameof( BLL.App.DTO.Breed.BreedName),
+                nameof( BLL.App.DTO.Breed.BreedNameValue),
                 vm.Dog.BreedId );
 
             return View(vm);

@@ -9,14 +9,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.App.EF.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20190410172516_MoreChanges4")]
-    partial class MoreChanges4
+    [Migration("20190515122923_InitialDbCreation")]
+    partial class InitialDbCreation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.3-servicing-35854")
+                .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("Domain.Breed", b =>
@@ -24,9 +24,13 @@ namespace DAL.App.EF.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("BreedName");
+                    b.Property<int?>("BreedNameValueId");
+
+                    b.Property<int>("BreedValueId");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BreedNameValueId");
 
                     b.ToTable("Breeds");
                 });
@@ -184,6 +188,19 @@ namespace DAL.App.EF.Migrations
                     b.ToTable("Materials");
                 });
 
+            modelBuilder.Entity("Domain.MultiLangString", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Value")
+                        .HasMaxLength(10240);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MultiLangString");
+                });
+
             modelBuilder.Entity("Domain.Participant", b =>
                 {
                     b.Property<int>("Id")
@@ -241,8 +258,6 @@ namespace DAL.App.EF.Migrations
 
                     b.Property<int?>("MaterialId");
 
-                    b.Property<int>("ParticipantId");
-
                     b.Property<string>("SchoolingName")
                         .IsRequired();
 
@@ -251,8 +266,6 @@ namespace DAL.App.EF.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("MaterialId");
-
-                    b.HasIndex("ParticipantId");
 
                     b.ToTable("Schoolings");
                 });
@@ -277,6 +290,26 @@ namespace DAL.App.EF.Migrations
                     b.HasIndex("LocationId");
 
                     b.ToTable("Shows");
+                });
+
+            modelBuilder.Entity("Domain.Translation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Culture")
+                        .HasMaxLength(5);
+
+                    b.Property<int>("MultiLangStringId");
+
+                    b.Property<string>("Value")
+                        .HasMaxLength(10240);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MultiLangStringId");
+
+                    b.ToTable("Translation");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -360,6 +393,14 @@ namespace DAL.App.EF.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("Domain.Breed", b =>
+                {
+                    b.HasOne("Domain.MultiLangString", "BreedNameValue")
+                        .WithMany()
+                        .HasForeignKey("BreedNameValueId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
             modelBuilder.Entity("Domain.Competition", b =>
                 {
                     b.HasOne("Domain.Location", "Location")
@@ -405,11 +446,6 @@ namespace DAL.App.EF.Migrations
                         .WithMany("Schoolings")
                         .HasForeignKey("MaterialId")
                         .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("Domain.Participant", "Participant")
-                        .WithMany("Schoolings")
-                        .HasForeignKey("ParticipantId")
-                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Domain.Show", b =>
@@ -417,6 +453,14 @@ namespace DAL.App.EF.Migrations
                     b.HasOne("Domain.Location", "Location")
                         .WithMany("Shows")
                         .HasForeignKey("LocationId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("Domain.Translation", b =>
+                {
+                    b.HasOne("Domain.MultiLangString", "MultiLangString")
+                        .WithMany("Translations")
+                        .HasForeignKey("MultiLangStringId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 

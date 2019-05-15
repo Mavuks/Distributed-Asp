@@ -89,9 +89,20 @@ namespace WebApp.ApiControllers.v1_0
         [HttpPost]
         public async Task<ActionResult<PublicApi.v1.DTO.Breed>> PostBreed(PublicApi.v1.DTO.Breed breed)
         {
-            await _bll.Breed.AddAsync(BreedMapper.MapFromExternal(breed));
+            
+            breed = PublicApi.v1.Mappers.BreedMapper.MapFromInternal(
+                await _bll.Breed.AddAsync(PublicApi.v1.Mappers.BreedMapper.MapFromExternal(breed)));
+            
+            
+            //await _bll.Breed.AddAsync(BreedMapper.MapFromExternal(breed));
             await _bll.SaveChangesAsync();
 
+            breed = PublicApi.v1.Mappers.BreedMapper.MapFromInternal(
+                _bll.Breed.GetUpdatesAfterUOWSaveChanges(
+                    PublicApi.v1.Mappers.BreedMapper.MapFromExternal(breed)));
+            
+            
+            
             return CreatedAtAction(
                 nameof(GetBreed), new
                 {
