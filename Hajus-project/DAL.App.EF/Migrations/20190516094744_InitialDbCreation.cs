@@ -78,7 +78,7 @@ namespace DAL.App.EF.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "MultiLangString",
+                name: "MultiLangStrings",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -87,7 +87,7 @@ namespace DAL.App.EF.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MultiLangString", x => x.Id);
+                    table.PrimaryKey("PK_MultiLangStrings", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -284,22 +284,21 @@ namespace DAL.App.EF.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    BreedValueId = table.Column<int>(nullable: false),
                     BreedNameValueId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Breeds", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Breeds_MultiLangString_BreedNameValueId",
+                        name: "FK_Breeds_MultiLangStrings_BreedNameValueId",
                         column: x => x.BreedNameValueId,
-                        principalTable: "MultiLangString",
+                        principalTable: "MultiLangStrings",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Translation",
+                name: "Translations",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -310,11 +309,11 @@ namespace DAL.App.EF.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Translation", x => x.Id);
+                    table.PrimaryKey("PK_Translations", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Translation_MultiLangString_MultiLangStringId",
+                        name: "FK_Translations_MultiLangStrings_MultiLangStringId",
                         column: x => x.MultiLangStringId,
-                        principalTable: "MultiLangString",
+                        principalTable: "MultiLangStrings",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -468,8 +467,8 @@ namespace DAL.App.EF.Migrations
                 column: "LocationId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Translation_MultiLangStringId",
-                table: "Translation",
+                name: "IX_Translations_MultiLangStringId",
+                table: "Translations",
                 column: "MultiLangStringId");
         }
 
@@ -497,7 +496,7 @@ namespace DAL.App.EF.Migrations
                 name: "Schoolings");
 
             migrationBuilder.DropTable(
-                name: "Translation");
+                name: "Translations");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -527,7 +526,7 @@ namespace DAL.App.EF.Migrations
                 name: "Locations");
 
             migrationBuilder.DropTable(
-                name: "MultiLangString");
+                name: "MultiLangStrings");
         }
     }
 }

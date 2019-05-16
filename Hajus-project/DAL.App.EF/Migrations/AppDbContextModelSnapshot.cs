@@ -24,8 +24,6 @@ namespace DAL.App.EF.Migrations
 
                     b.Property<int?>("BreedNameValueId");
 
-                    b.Property<int>("BreedValueId");
-
                     b.HasKey("Id");
 
                     b.HasIndex("BreedNameValueId");
@@ -196,7 +194,7 @@ namespace DAL.App.EF.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("MultiLangString");
+                    b.ToTable("MultiLangStrings");
                 });
 
             modelBuilder.Entity("Domain.Participant", b =>
@@ -307,7 +305,7 @@ namespace DAL.App.EF.Migrations
 
                     b.HasIndex("MultiLangStringId");
 
-                    b.ToTable("Translation");
+                    b.ToTable("Translations");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>

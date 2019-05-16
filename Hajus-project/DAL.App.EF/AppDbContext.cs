@@ -19,6 +19,9 @@ namespace DAL.App.EF
         public DbSet<Registration> Registrations { get; set; }
         public DbSet<Schooling> Schoolings { get; set; }
         public DbSet<Show> Shows { get; set; }
+        
+        public DbSet<MultiLangString> MultiLangStrings { get; set; }
+        public DbSet<Translation> Translations { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {

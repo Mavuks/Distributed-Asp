@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.App.EF.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20190515122923_InitialDbCreation")]
+    [Migration("20190516094744_InitialDbCreation")]
     partial class InitialDbCreation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,8 +25,6 @@ namespace DAL.App.EF.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<int?>("BreedNameValueId");
-
-                    b.Property<int>("BreedValueId");
 
                     b.HasKey("Id");
 
@@ -198,7 +196,7 @@ namespace DAL.App.EF.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("MultiLangString");
+                    b.ToTable("MultiLangStrings");
                 });
 
             modelBuilder.Entity("Domain.Participant", b =>
@@ -309,7 +307,7 @@ namespace DAL.App.EF.Migrations
 
                     b.HasIndex("MultiLangStringId");
 
-                    b.ToTable("Translation");
+                    b.ToTable("Translations");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>

@@ -64,7 +64,7 @@ namespace WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _bll.Breed.AddAsync(breed);
+                _bll.Breed.Add(breed);
                 await _bll.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }

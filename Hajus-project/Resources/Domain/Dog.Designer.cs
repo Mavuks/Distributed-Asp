@@ -61,7 +61,7 @@ namespace Resources.Domain {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tõug.
+        ///   Looks up a localized string similar to Breed.
         /// </summary>
         public static string Breed {
             get {
