@@ -27,8 +27,8 @@ namespace DAL.App.EF.Mappers
             var res = competition == null ? null : new externalDTO.Competition
             {
                 Id = competition.Id,
-                Title = competition.Title,
-                Comment = competition.Comment,
+                Title = competition.Title.Translate(),
+                Comment = competition.Comment.Translate(),
                 Start = competition.Start,
                 End = competition.End,
                 LocationId = competition.LocationId,
@@ -44,8 +44,8 @@ namespace DAL.App.EF.Mappers
             var res = competition == null ? null : new internalDTO.Competition
             {
                 Id = competition.Id,
-                Title = competition.Title,
-                Comment = competition.Comment,
+                Title = new internalDTO.MultiLangString(competition.Title),
+                Comment = new internalDTO.MultiLangString(competition.Comment),
                 Start = competition.Start,
                 End = competition.End,
                 LocationId = competition.LocationId,

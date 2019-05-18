@@ -149,7 +149,7 @@
 	<data name="Profile" xml:space="preserve">
     <value>Profiil</value>
 	</data>
-	<data name="UserName" xml:space="preserve">
+	<data name="Username" xml:space="preserve">
     <value>Kasutajanimi</value>
 	</data>
 	<data name="Email" xml:space="preserve">
@@ -170,7 +170,7 @@
 	<data name="ChangePassword" xml:space="preserve">
     <value>Muuda Salasõna</value>
 	</data>
-	<data name="CurrentPassword" xml:space="preserve">
+	<data name="OldPassword" xml:space="preserve">
     <value>Praegune Salasõna</value>
 	</data>
 	<data name="NewPassword" xml:space="preserve">
@@ -217,5 +217,8 @@
 	</data>
 	<data name="Save" xml:space="preserve">
     <value>Salvesta</value>
+	</data>
+	<data name="SendVerEmail" xml:space="preserve">
+    <value>Saada kinnitusmeil</value>
 	</data>
 </root>

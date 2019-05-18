@@ -36,7 +36,7 @@ namespace WebApp.Areas.Identity.Pages.Account.Manage
         {
             [Required]
             [DataType(DataType.Password)]
-//            [Display(Name = nameof(CurrentPassword), ResourceType = typeof(Resources.Views.Common))]
+            [Display(Name = nameof(OldPassword), ResourceType = typeof(Resources.Views.Common))]
             public string OldPassword { get; set; }
 
             [Required]
@@ -45,6 +45,7 @@ namespace WebApp.Areas.Identity.Pages.Account.Manage
             [Display(Name = nameof(NewPassword), ResourceType = typeof(Resources.Views.Common))]
             public string NewPassword { get; set; }
 
+            [Required]
             [DataType(DataType.Password)]
             [Display(Name = nameof(ConfirmPassword), ResourceType = typeof(Resources.Views.Common))]
             [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]

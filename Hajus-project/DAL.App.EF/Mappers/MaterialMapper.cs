@@ -27,7 +27,7 @@ namespace DAL.App.EF.Mappers
             var res = material == null ? null : new externalDTO.Material
             {
                 Id = material.Id,
-                MaterialName = material.MaterialName,
+                MaterialName = material.MaterialName.Translate()
     
                 
             };
@@ -40,7 +40,7 @@ namespace DAL.App.EF.Mappers
             var res = material == null ? null : new internalDTO.Material
             {
                 Id = material.Id,
-                MaterialName = material.MaterialName,
+                MaterialName = new internalDTO.MultiLangString(material.MaterialName)
 
                 
                 

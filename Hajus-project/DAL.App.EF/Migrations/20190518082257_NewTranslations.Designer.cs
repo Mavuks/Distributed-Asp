@@ -3,14 +3,16 @@ using System;
 using DAL.App.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAL.App.EF.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190518082257_NewTranslations")]
+    partial class NewTranslations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -165,11 +167,9 @@ namespace DAL.App.EF.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("LocationsId");
+                    b.Property<string>("Locations");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("LocationsId");
 
                     b.ToTable("Locations");
                 });
@@ -414,14 +414,6 @@ namespace DAL.App.EF.Migrations
                     b.HasOne("Domain.Breed", "Breed")
                         .WithMany("Dogs")
                         .HasForeignKey("BreedId")
-                        .OnDelete(DeleteBehavior.Restrict);
-                });
-
-            modelBuilder.Entity("Domain.Location", b =>
-                {
-                    b.HasOne("Domain.MultiLangString", "Locations")
-                        .WithMany()
-                        .HasForeignKey("LocationsId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 

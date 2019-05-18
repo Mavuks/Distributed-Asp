@@ -27,7 +27,7 @@ namespace DAL.App.EF.Mappers
             var res = schooling == null ? null : new externalDTO.Schooling
             {
                 Id = schooling.Id,
-                SchoolingName = schooling.SchoolingName,
+                SchoolingName = schooling.SchoolingName.Translate(),
                 Start = schooling.Start,
                 End = schooling.End,
                 MaterialId = schooling.MaterialId,
@@ -43,7 +43,7 @@ namespace DAL.App.EF.Mappers
             var res = schooling == null ? null : new internalDTO.Schooling
             {
                 Id = schooling.Id,
-                SchoolingName = schooling.SchoolingName,
+                SchoolingName = new internalDTO.MultiLangString(schooling.SchoolingName),
                 Start = schooling.Start,
                 End = schooling.End,
                 MaterialId = schooling.MaterialId,

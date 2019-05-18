@@ -28,6 +28,8 @@ namespace WebApp.Areas.Identity.Pages.Account.Manage
             _emailSender = emailSender;
         }
 
+        
+        [Display(Name = nameof(Username), ResourceType = typeof(Resources.Views.Common))]
         public string Username { get; set; }
 
         public bool IsEmailConfirmed { get; set; }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using BLL.App.Mappers;
 using Contracts.DAL.App.Repositories;
@@ -19,10 +20,70 @@ namespace DAL.App.EF.Repositories
 
         public async Task<List<DAL.App.DTO.Schooling>> AllForUserAsync(int userId)
         {
-            return await RepositoryDbSet
+            var culture = Thread.CurrentThread.CurrentUICulture.Name.Substring(0, 2).ToLower();
+            
+            var res =  await RepositoryDbSet
                 .Include(a => a.Material)
-                .Select( s => SchoolingMapper.MapFromDomain(s))
+                .Select(c => new
+                {
+                    Id = c.Id,
+                    SchoolingName = c.SchoolingName,
+                    Translations = c.SchoolingName.Translations,
+
+                })
                 .ToListAsync();
+            
+            var resultList = res.Select(c => new  DTO.Schooling()
+            {
+                Id = c.Id,
+                SchoolingName = c.SchoolingName.Translate(),
+                
+                     
+            }).ToList();
+            return resultList;
+        }
+        
+        
+        public override async Task<DTO.Schooling> FindAsync(params object[] id)
+        {
+            var culture = Thread.CurrentThread.CurrentUICulture.Name.Substring(0, 2).ToLower();
+            
+            var schooling = await RepositoryDbSet.FindAsync(id);
+            if (schooling != null)
+            {
+                await RepositoryDbContext.Entry(schooling)
+                    .Reference(c => c.SchoolingName)
+                    .LoadAsync();
+                await RepositoryDbContext.Entry(schooling.SchoolingName)
+                    .Collection(b => b.Translations)
+                    .Query()
+                    .Where(t => t.Culture == culture)
+                    .LoadAsync();
+            }
+ 
+            return SchoolingMapper.MapFromDomain(schooling);
+        }
+        
+        
+        public override DTO.Schooling Update(DTO.Schooling entity)
+        {
+            var entityInDb = RepositoryDbSet
+                .Include(m => m.SchoolingName)
+                .ThenInclude(t => t.Translations)
+                .FirstOrDefault(x => x.Id == entity.Id);
+            
+            entityInDb.SchoolingName.SetTranslation(entity.SchoolingName);
+
+            return entity;
+        }
+        
+        public override async Task<List<DAL.App.DTO.Schooling>> AllAsync()
+        {
+            return await RepositoryDbSet
+                .Include(m => m.SchoolingName)
+                .ThenInclude(t => t.Translations)
+                .Include(c => c.Material)
+                .Select(e => SchoolingMapper.MapFromDomain(e)).ToListAsync();
         }
     }    
 }

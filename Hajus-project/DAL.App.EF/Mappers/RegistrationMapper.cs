@@ -28,8 +28,8 @@ namespace DAL.App.EF.Mappers
             var res = registration == null ? null : new externalDTO.Registration
             {
                 Id = registration.Id,
-                Title = registration.Title,
-                Comment = registration.Comment,
+                Title = registration.Title.Translate(),
+                Comment = registration.Comment.Translate(),
                 DogId = registration.DogId,
                 Dog = DAL.App.EF.Mappers.DogMapper.MapFromDomain(registration.Dog),
                 ParticipantId = registration.ParticipantId,
@@ -51,8 +51,8 @@ namespace DAL.App.EF.Mappers
             var res = registration == null ? null : new internalDTO.Registration
             {
                 Id = registration.Id,
-                Title = registration.Title,
-                Comment = registration.Comment,
+                Title = new internalDTO.MultiLangString(registration.Title),
+                Comment = new internalDTO.MultiLangString(registration.Comment),
                 DogId = registration.DogId,
                 Dog = DAL.App.EF.Mappers.DogMapper.MapFromDAL(registration.Dog),
                 ParticipantId = registration.ParticipantId,

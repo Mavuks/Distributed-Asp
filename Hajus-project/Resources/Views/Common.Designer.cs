@@ -169,15 +169,6 @@ namespace Resources.Views {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Current Password.
-        /// </summary>
-        public static string CurrentPassword {
-            get {
-                return ResourceManager.GetString("CurrentPassword", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         public static string Delete {
@@ -304,6 +295,15 @@ namespace Resources.Views {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Current Password.
+        /// </summary>
+        public static string OldPassword {
+            get {
+                return ResourceManager.GetString("OldPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string Password {
@@ -376,6 +376,15 @@ namespace Resources.Views {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Send verification email.
+        /// </summary>
+        public static string SendVerEmail {
+            get {
+                return ResourceManager.GetString("SendVerEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Submit.
         /// </summary>
         public static string Submit {
@@ -403,11 +412,11 @@ namespace Resources.Views {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to UserName.
+        ///   Looks up a localized string similar to Username.
         /// </summary>
-        public static string UserName {
+        public static string Username {
             get {
-                return ResourceManager.GetString("UserName", resourceCulture);
+                return ResourceManager.GetString("Username", resourceCulture);
             }
         }
         

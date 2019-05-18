@@ -27,8 +27,8 @@ namespace DAL.App.EF.Mappers
             var res = show == null ? null : new externalDTO.Show
             {
                 Id = show.Id,
-                Title = show.Title,
-                Comment = show.Comment,
+                Title = show.Title.Translate(),
+                Comment = show.Comment.Translate(),
                 Start = show.Start,
                 End = show.End,
                 LocationId = show.LocationId,
@@ -45,8 +45,8 @@ namespace DAL.App.EF.Mappers
             var res = show == null ? null : new internalDTO.Show
             {
                 Id = show.Id,
-                Title = show.Title,
-                Comment = show.Comment,
+                Title = new internalDTO.MultiLangString(show.Title),
+                Comment = new internalDTO.MultiLangString(show.Comment),
                 Start = show.Start,
                 End = show.End,
                 LocationId = show.LocationId,

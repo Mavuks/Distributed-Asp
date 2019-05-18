@@ -29,7 +29,7 @@ namespace DAL.App.EF.Mappers
             var res = location == null ? null : new externalDTO.Location()
             {
                 Id = location.Id,
-                Locations = location.Locations
+                Locations = location.Locations.Translate()
                 
             };
 
@@ -41,7 +41,7 @@ namespace DAL.App.EF.Mappers
             var res = location == null ? null : new internalDTO.Location()
             {
                 Id = location.Id,
-                Locations = location.Locations
+                Locations = new internalDTO.MultiLangString(location.Locations)
             };
 
             return res;

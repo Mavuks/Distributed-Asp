@@ -30,7 +30,7 @@ namespace DAL.App.EF.Mappers
                 DogName = dog.DogName,
                 DateOfBirth = dog.DateOfBirth,
                 DateOfDeath = dog.DateOfDeath,
-                Sex = dog.Sex,
+                Sex = dog.Sex.Translate(),
                 BreedId = dog.BreedId,
                 Breed = BreedMapper.MapFromDomain(dog.Breed),
                 Owner = dog.Owner
@@ -47,7 +47,7 @@ namespace DAL.App.EF.Mappers
                 DogName = dog.DogName,
                 DateOfBirth = dog.DateOfBirth,
                 DateOfDeath = dog.DateOfDeath,
-                Sex = dog.Sex,
+                Sex = new internalDTO.MultiLangString(dog.Sex),
                 BreedId = dog.BreedId,
                 Breed = BreedMapper.MapFromDAL(dog.Breed),
                 Owner = dog.Owner

@@ -27,7 +27,7 @@ namespace Domain
         [DataType(DataType.Date)]
         public DateTime? DateOfDeath { get; set; }
 
-        public string Sex { get; set; }
+        public MultiLangString Sex { get; set; }
 
         public int BreedId { get; set; }
         public Breed Breed { get; set; }

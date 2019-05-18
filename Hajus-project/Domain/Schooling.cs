@@ -6,7 +6,7 @@ namespace Domain
     public class Schooling : DomainEntity
     {
         [Required]
-        public string SchoolingName { get; set; }
+        public MultiLangString SchoolingName { get; set; }
         
         [Display(Name = "Start")]
         [DataType(DataType.Date)]

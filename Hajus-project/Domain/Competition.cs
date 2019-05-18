@@ -7,9 +7,9 @@ namespace Domain
     public class Competition : DomainEntity
     {
         
-        public string Title { get; set; }
+        public MultiLangString Title { get; set; }
 
-        public string Comment { get; set; }
+        public MultiLangString Comment { get; set; }
 
       
         [Display(Name = "Start")]
