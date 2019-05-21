@@ -34,8 +34,11 @@ namespace Domain
 
         public string Owner { get; set; }
         
+        public int AppUserId { get; set; }
+        public AppUser AppUser { get; set; }
+        
        
-        public List<Registration> Registrations  { get; set; }
+        public ICollection<Registration> Registrations  { get; set; }
 
 
         

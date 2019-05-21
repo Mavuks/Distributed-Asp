@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using DAL.App.DTO.Identity;
 
 namespace DAL.App.DTO
 {
@@ -33,6 +34,9 @@ namespace DAL.App.DTO
         public Breed Breed { get; set; }
 
         public string Owner { get; set; }
+        
+        public int AppUserId { get; set; }
+        public AppUser AppUser { get; set; }
         
        
         public List<Registration> Registrations  { get; set; }

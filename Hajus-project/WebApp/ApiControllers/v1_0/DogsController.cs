@@ -71,6 +71,8 @@ namespace WebApp.ApiControllers.v1_0
                 return BadRequest();
             }
 
+            dog.AppUserId = User.GetUserId();
+
             _bll.Dog.Update(PublicApi.v1.Mappers.DogMapper.MapFromExternal(dog));
             
             
@@ -89,6 +91,8 @@ namespace WebApp.ApiControllers.v1_0
         [HttpPost]
         public async Task<ActionResult<PublicApi.v1.DTO.Dog>> PostDog(PublicApi.v1.DTO.Dog dog)
         {
+            dog.AppUserId = User.GetUserId();
+            
             await _bll.Dog.AddAsync(PublicApi.v1.Mappers.DogMapper.MapFromExternal(dog));
             await _bll.SaveChangesAsync();
 

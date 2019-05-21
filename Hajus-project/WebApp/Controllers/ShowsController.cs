@@ -42,7 +42,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var show = await _bll.Show.FindAsync(id);
+            var show = await _bll.Show.FindAsync(id.Value);
             if (show == null)
             {
                 return NotFound();
@@ -60,9 +60,9 @@ namespace WebApp.Controllers
                LocationSelectList = new SelectList(await _bll.Location.AllAsync(),
                    nameof( BLL.App.DTO.Location.Id),
                    nameof(Location.Locations)),
-                ParticipantSelectList = new SelectList(await _bll.Participant.AllAsync(),
-                    nameof( BLL.App.DTO.Participant.Id),
-                    nameof(Participant.FirstName))
+//                ParticipantSelectList = new SelectList(await _bll.Participant.AllAsync(),
+//                    nameof( BLL.App.DTO.Participant.Id),
+//                    nameof(Participant.FirstName))
             };
             
             
@@ -99,7 +99,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var show = await _bll.Show.FindAsync(id);
+            var show = await _bll.Show.FindAsync(id.Value);
             if (show == null)
             {
                 return NotFound();

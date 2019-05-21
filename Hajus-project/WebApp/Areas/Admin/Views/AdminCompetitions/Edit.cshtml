@@ -1,0 +1,54 @@
+@model WebApp.ViewModels.CompetitionsCreateViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>@Resources.Views.Common.Edit</h1>
+
+<h4>@Resources.Views.Shared._Layout.NavCompetition</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Competition.Title" class="control-label"></label>
+                <input asp-for="Competition.Title" class="form-control" />
+                <span asp-validation-for="Competition.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Competition.Comment" class="control-label"></label>
+                <input asp-for="Competition.Comment" class="form-control" />
+                <span asp-validation-for="Competition.Comment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Competition.Start" class="control-label"></label>
+                <input asp-for="Competition.Start" class="form-control" />
+                <span asp-validation-for="Competition.Start" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Competition.End" class="control-label"></label>
+                <input asp-for="Competition.End" class="form-control" />
+                <span asp-validation-for="Competition.End" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Competition.LocationId" class="control-label"></label>
+                <select asp-for="Competition.LocationId" class="form-control" asp-items="Model.LocationSelectList"></select>
+                <span asp-validation-for="Competition.LocationId" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Competition.Id" />
+            <div class="form-group">
+                <input type="submit" value="@Resources.Views.Common.Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">@Resources.Views.Common.BackToList</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

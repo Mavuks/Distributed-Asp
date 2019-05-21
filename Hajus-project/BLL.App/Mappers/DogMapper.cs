@@ -33,7 +33,8 @@ namespace BLL.App.Mappers
                 Sex = dog.Sex,
                 BreedId = dog.BreedId,
                 Breed = BreedMapper.MapFromInternal(dog.Breed),
-                Owner = dog.Owner
+                Owner = dog.Owner,
+                AppUserId = dog.AppUserId
             };
 
             return res;
@@ -50,7 +51,8 @@ namespace BLL.App.Mappers
                 Sex = dog.Sex,
                 BreedId = dog.BreedId,
                 Breed = BreedMapper.MapFromExternal(dog.Breed),
-                Owner = dog.Owner
+                Owner = dog.Owner,
+                AppUserId = dog.AppUserId
             };
             return res;
         }

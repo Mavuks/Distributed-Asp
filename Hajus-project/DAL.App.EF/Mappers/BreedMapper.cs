@@ -27,7 +27,7 @@ namespace DAL.App.EF.Mappers
             var res = breed == null ? null : new externalDTO.Breed
             {
                 Id = breed.Id,
-                BreedNameValue = breed.BreedNameValue.Translate()
+                BreedName = breed.BreedName.Translate()
 
             };
 
@@ -39,7 +39,7 @@ namespace DAL.App.EF.Mappers
             var res = breed == null ? null : new internalDTO.Breed
             {
                 Id = breed.Id,
-                BreedNameValue = new internalDTO.MultiLangString(breed.BreedNameValue)
+                BreedName = new internalDTO.MultiLangString(breed.BreedName)
 
             };
             return res;

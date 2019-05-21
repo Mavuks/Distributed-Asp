@@ -11,7 +11,7 @@ namespace DAL.App.DTO
         public string MaterialName { get; set; }
 
 
-        public List<Schooling> Schoolings { get; set; }
+        public ICollection<Schooling> Schoolings { get; set; }
         
     }
 }

@@ -1,0 +1,59 @@
+@model WebApp.ViewModels.DogCreateViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>@Resources.Views.Common.Edit</h1>
+
+<h4>@Resources.Views.Shared._Layout.NavDog</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Dog.DogName" class="control-label"></label>
+                <input asp-for="Dog.DogName" class="form-control" />
+                <span asp-validation-for="Dog.DogName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dog.DateOfBirth" class="control-label"></label>
+                <input asp-for="Dog.DateOfBirth" class="form-control" />
+                <span asp-validation-for="Dog.DateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dog.DateOfDeath" class="control-label"></label>
+                <input asp-for="Dog.DateOfDeath" class="form-control" />
+                <span asp-validation-for="Dog.DateOfDeath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dog.Sex" class="control-label"></label>
+                <input asp-for="Dog.Sex" class="form-control" />
+                <span asp-validation-for="Dog.Sex" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dog.BreedId" class="control-label"></label>
+                <select asp-for="Dog.BreedId" class="form-control" asp-items="Model.BreedSelectList"></select>
+                <span asp-validation-for="Dog.BreedId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dog.Owner" class="control-label"></label>
+                <input asp-for="Dog.Owner" class="form-control" />
+                <span asp-validation-for="Dog.Owner" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Dog.Id" />
+            <div class="form-group">
+                <input type="submit" value="@Resources.Views.Common.Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">@Resources.Views.Common.BackToList</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

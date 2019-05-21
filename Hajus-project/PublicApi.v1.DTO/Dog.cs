@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using PublicApi.v1.DTO.Identity;
 
 namespace PublicApi.v1.DTO
 {
@@ -37,6 +38,9 @@ namespace PublicApi.v1.DTO
 //        [Required(ErrorMessageResourceName = "ErrorMessageRequired", ErrorMessageResourceType = typeof(Resources.Domain.Common))]
 //        [Display(Name = nameof(Owner), ResourceType = typeof(Resources.Domain.Dog))]
         public string Owner { get; set; }
+        
+        public int AppUserId { get; set; }
+        public AppUser AppUser { get; set; }
         
        
         public List<Registration> Registrations  { get; set; }

@@ -24,11 +24,16 @@ namespace DAL.App.EF.Repositories
             
             var res =  await RepositoryDbSet
                 .Include(a => a.Material)
+                .ThenInclude( a=> a.MaterialName)
                 .Select(c => new
                 {
                     Id = c.Id,
+                    Start = c.Start,
+                    End = c.End,
+                    
                     SchoolingName = c.SchoolingName,
                     Translations = c.SchoolingName.Translations,
+                    
 
                 })
                 .ToListAsync();
@@ -37,6 +42,10 @@ namespace DAL.App.EF.Repositories
             {
                 Id = c.Id,
                 SchoolingName = c.SchoolingName.Translate(),
+                
+                Start = c.Start,
+                End = c.End,
+                
                 
                      
             }).ToList();
@@ -54,6 +63,9 @@ namespace DAL.App.EF.Repositories
                 await RepositoryDbContext.Entry(schooling)
                     .Reference(c => c.SchoolingName)
                     .LoadAsync();
+                await RepositoryDbContext.Entry(schooling)
+                    .Reference(c => c.Material)
+                    .LoadAsync();
                 await RepositoryDbContext.Entry(schooling.SchoolingName)
                     .Collection(b => b.Translations)
                     .Query()
@@ -68,6 +80,10 @@ namespace DAL.App.EF.Repositories
         public override DTO.Schooling Update(DTO.Schooling entity)
         {
             var entityInDb = RepositoryDbSet
+                .Include(a => a.Material)
+                .ThenInclude(a => a.MaterialName)
+                .Include( a=> a.Start)
+                .Include(a => a.End)
                 .Include(m => m.SchoolingName)
                 .ThenInclude(t => t.Translations)
                 .FirstOrDefault(x => x.Id == entity.Id);
@@ -81,8 +97,12 @@ namespace DAL.App.EF.Repositories
         {
             return await RepositoryDbSet
                 .Include(m => m.SchoolingName)
+                
                 .ThenInclude(t => t.Translations)
                 .Include(c => c.Material)
+                .ThenInclude( a=> a.MaterialName)
+                .Include(a => a.End)
+                .Include(a => a.Start)
                 .Select(e => SchoolingMapper.MapFromDomain(e)).ToListAsync();
         }
     }    

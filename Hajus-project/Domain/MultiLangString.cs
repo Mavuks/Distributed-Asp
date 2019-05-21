@@ -5,7 +5,8 @@ using System.Threading;
 
 namespace Domain
 {
-    public class MultiLangString : DomainEntity
+    public class 
+        MultiLangString : DomainEntity
     {
         private static string _defaultCulture = "en";
 

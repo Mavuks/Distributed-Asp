@@ -25,7 +25,7 @@ namespace DAL.App.DTO
         public Location Location { get; set; }
 
 
-        public List<Registration> Registrations { get; set; }
+        public ICollection<Registration> Registrations { get; set; }
       
         
     }

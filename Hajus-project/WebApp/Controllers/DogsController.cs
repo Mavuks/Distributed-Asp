@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BLL.App.Mappers;
 using Contracts.BLL.App;
 using Contracts.DAL.App;
 using Microsoft.AspNetCore.Mvc;
@@ -59,7 +60,7 @@ namespace WebApp.Controllers
 
             var vm = new DogCreateViewModel()
             {
-                BreedSelectList = new SelectList(await _bll.Breed.AllAsync(), nameof(Breed.Id), nameof(Breed.BreedNameValue))
+                BreedSelectList = new SelectList(await _bll.Breed.AllAsync(), nameof(Breed.Id), nameof(Breed.BreedName))
                 
             };
            
@@ -73,6 +74,8 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(DogCreateViewModel vm)
         {
+
+            vm.Dog.AppUserId = User.GetUserId();
             
             
             if (ModelState.IsValid)
@@ -85,7 +88,7 @@ namespace WebApp.Controllers
 
           vm.BreedSelectList  = new SelectList(await _bll.Breed.AllAsync(),
               nameof( BLL.App.DTO.Breed.Id),
-                nameof( BLL.App.DTO.Breed.BreedNameValue), vm.Dog.BreedId );
+                nameof( BLL.App.DTO.Breed.BreedName), vm.Dog.BreedId );
 
 
             
@@ -113,7 +116,7 @@ namespace WebApp.Controllers
             
              BreedSelectList = new SelectList(await _bll.Breed.AllAsync(),
                  nameof( BLL.App.DTO.Breed.Id),
-                 nameof( BLL.App.DTO.Breed.BreedNameValue),
+                 nameof( BLL.App.DTO.Breed.BreedName),
                  dog.BreedId)
                 
             };
@@ -133,6 +136,8 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
+            vm.Dog.AppUserId = User.GetUserId();
+            
             if (ModelState.IsValid)
             {
                 _bll.Dog.Update(vm.Dog);
@@ -143,7 +148,7 @@ namespace WebApp.Controllers
             
          vm.BreedSelectList  = new SelectList(await _bll.Breed.AllAsync(), 
              nameof( BLL.App.DTO.Breed.Id),
-                nameof( BLL.App.DTO.Breed.BreedNameValue),
+                nameof( BLL.App.DTO.Breed.BreedName),
                 vm.Dog.BreedId );
 
             return View(vm);

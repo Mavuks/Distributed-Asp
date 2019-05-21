@@ -23,14 +23,15 @@ namespace DAL.App.EF.Repositories
             var culture = Thread.CurrentThread.CurrentUICulture.Name.Substring(0, 2).ToLower();
             
             var res =  await RepositoryDbSet
-                .Include(a => a.Location)
                 .Select(c => new
                 {
                     Id = c.Id,
                     Title = c.Title,
+                    Start = c.Start,
+                    End = c.End,
                     Translations = c.Title.Translations,
                     Comment = c.Comment,
-                    Translations = c.Comment.Translations,
+                    Translations2 = c.Comment.Translations,
 
                 })
                 .ToListAsync();
@@ -39,7 +40,9 @@ namespace DAL.App.EF.Repositories
             {
                 Id = c.Id,
                 Title = c.Title.Translate(),
-                Comment = c.Comment.Translate()
+                Comment = c.Comment.Translate(),
+                Start = c.Start,
+                End = c.End,
                 
                      
             }).ToList();
@@ -57,6 +60,10 @@ namespace DAL.App.EF.Repositories
                 await RepositoryDbContext.Entry(show)
                     .Reference(c => c.Title)
                     .LoadAsync();
+                await RepositoryDbContext.Entry(show)
+                    .Reference(c => c.Location)
+                    .LoadAsync();
+                
                 await RepositoryDbContext.Entry(show)
                     .Reference(c => c.Comment)
                     .LoadAsync();
@@ -80,12 +87,16 @@ namespace DAL.App.EF.Repositories
         {
             var entityInDb = RepositoryDbSet
                 .Include(m => m.Title)
+                .Include( a=> a.Start)
+                .Include( a => a.End)
+                .Include( a=> a.Location)
                 .Include( n => n.Comment)
                 .ThenInclude(t => t.Translations)
                 .FirstOrDefault(x => x.Id == entity.Id);
             
             entityInDb.Title.SetTranslation(entity.Title);
             entityInDb.Comment.SetTranslation(entity.Comment);
+            
 
             return entity;
         }
@@ -94,6 +105,8 @@ namespace DAL.App.EF.Repositories
         {
             return await RepositoryDbSet
                 .Include(m => m.Title)
+                .Include(a => a.Start)
+                .Include( a => a.End)
                 .Include( n=> n.Comment)
                 .ThenInclude(t => t.Translations)
                 .Include(c => c.Location)

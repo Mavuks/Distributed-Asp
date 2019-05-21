@@ -33,7 +33,8 @@ namespace DAL.App.EF.Mappers
                 Sex = dog.Sex.Translate(),
                 BreedId = dog.BreedId,
                 Breed = BreedMapper.MapFromDomain(dog.Breed),
-                Owner = dog.Owner
+                Owner = dog.Owner,
+                AppUserId = dog.AppUserId
             };
 
             return res;
@@ -50,7 +51,8 @@ namespace DAL.App.EF.Mappers
                 Sex = new internalDTO.MultiLangString(dog.Sex),
                 BreedId = dog.BreedId,
                 Breed = BreedMapper.MapFromDAL(dog.Breed),
-                Owner = dog.Owner
+                Owner = dog.Owner,
+                AppUserId = dog.AppUserId
             };
             return res;
         }

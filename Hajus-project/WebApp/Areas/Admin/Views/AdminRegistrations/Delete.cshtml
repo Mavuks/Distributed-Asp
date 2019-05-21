@@ -1,0 +1,57 @@
+@model BLL.App.DTO.Registration
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>@Resources.Views.Common.Delete</h1>
+
+<h3>@Resources.Views.Common.AreYou</h3>
+<div>
+    <h4>@Resources.Views.Shared._Layout.NavRegistration</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Comment)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Comment)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Dog)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Dog.DogName)
+        </dd >
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Participant)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Participant.FirstName)
+        </dd >
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Competition)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Competition.Id)
+        </dd >
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Show)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Show.Id)
+        </dd >
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="@Resources.Views.Common.Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">@Resources.Views.Common.AreYou</a>
+    </form>
+</div>

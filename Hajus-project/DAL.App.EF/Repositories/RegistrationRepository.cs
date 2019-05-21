@@ -44,7 +44,7 @@ namespace DAL.App.EF.Repositories
                     title = c.Title,
                     comment = c.Comment,
                     Translations = c.Comment.Translations,
-                    Translations = c.Title.Translations,
+                    Translations2 = c.Title.Translations,
 
                 })
                 .ToListAsync();

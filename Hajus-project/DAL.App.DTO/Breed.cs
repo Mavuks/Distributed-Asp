@@ -8,8 +8,8 @@ namespace DAL.App.DTO
         
         public int Id { get; set; }
 
-        public string BreedNameValue { get; set; }
+        public string BreedName { get; set; }
 
-       // public ICollection<Dog> Dogs { get; set; }
+        public ICollection<Dog> Dogs { get; set; }
     }
 }

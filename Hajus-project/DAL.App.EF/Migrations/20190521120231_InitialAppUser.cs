@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DAL.App.EF.Migrations
 {
-    public partial class InitialDbCreation : Migration
+    public partial class InitialAppUser : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -49,32 +49,6 @@ namespace DAL.App.EF.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Locations",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Locations = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Locations", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Materials",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    MaterialName = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Materials", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -211,87 +185,57 @@ namespace DAL.App.EF.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Competitions",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Title = table.Column<string>(nullable: true),
-                    Comment = table.Column<string>(nullable: true),
-                    Start = table.Column<DateTime>(nullable: false),
-                    End = table.Column<DateTime>(nullable: false),
-                    LocationId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Competitions", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Competitions_Locations_LocationId",
-                        column: x => x.LocationId,
-                        principalTable: "Locations",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Shows",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Title = table.Column<string>(nullable: true),
-                    Comment = table.Column<string>(nullable: true),
-                    Start = table.Column<DateTime>(nullable: false),
-                    End = table.Column<DateTime>(nullable: false),
-                    LocationId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Shows", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Shows_Locations_LocationId",
-                        column: x => x.LocationId,
-                        principalTable: "Locations",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Schoolings",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    SchoolingName = table.Column<string>(nullable: false),
-                    Start = table.Column<DateTime>(nullable: false),
-                    End = table.Column<DateTime>(nullable: false),
-                    MaterialId = table.Column<int>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Schoolings", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Schoolings_Materials_MaterialId",
-                        column: x => x.MaterialId,
-                        principalTable: "Materials",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Breeds",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    BreedNameValueId = table.Column<int>(nullable: true)
+                    BreedNameId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Breeds", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Breeds_MultiLangStrings_BreedNameValueId",
-                        column: x => x.BreedNameValueId,
+                        name: "FK_Breeds_MultiLangStrings_BreedNameId",
+                        column: x => x.BreedNameId,
+                        principalTable: "MultiLangStrings",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Locations",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    LocationsId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Locations", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Locations_MultiLangStrings_LocationsId",
+                        column: x => x.LocationsId,
+                        principalTable: "MultiLangStrings",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Materials",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    MaterialNameId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Materials", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Materials_MultiLangStrings_MaterialNameId",
+                        column: x => x.MaterialNameId,
                         principalTable: "MultiLangStrings",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -327,17 +271,128 @@ namespace DAL.App.EF.Migrations
                     DogName = table.Column<string>(maxLength: 100, nullable: false),
                     DateOfBirth = table.Column<DateTime>(nullable: false),
                     DateOfDeath = table.Column<DateTime>(nullable: true),
-                    Sex = table.Column<string>(nullable: true),
+                    SexId = table.Column<int>(nullable: true),
                     BreedId = table.Column<int>(nullable: false),
-                    Owner = table.Column<string>(nullable: true)
+                    Owner = table.Column<string>(nullable: true),
+                    AppUserId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Dogs", x => x.Id);
                     table.ForeignKey(
+                        name: "FK_Dogs_AspNetUsers_AppUserId",
+                        column: x => x.AppUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
                         name: "FK_Dogs_Breeds_BreedId",
                         column: x => x.BreedId,
                         principalTable: "Breeds",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Dogs_MultiLangStrings_SexId",
+                        column: x => x.SexId,
+                        principalTable: "MultiLangStrings",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Competitions",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    TitleId = table.Column<int>(nullable: true),
+                    CommentId = table.Column<int>(nullable: true),
+                    Start = table.Column<DateTime>(nullable: false),
+                    End = table.Column<DateTime>(nullable: false),
+                    LocationId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Competitions", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Competitions_MultiLangStrings_CommentId",
+                        column: x => x.CommentId,
+                        principalTable: "MultiLangStrings",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Competitions_Locations_LocationId",
+                        column: x => x.LocationId,
+                        principalTable: "Locations",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Competitions_MultiLangStrings_TitleId",
+                        column: x => x.TitleId,
+                        principalTable: "MultiLangStrings",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Shows",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    TitleId = table.Column<int>(nullable: true),
+                    CommentId = table.Column<int>(nullable: true),
+                    Start = table.Column<DateTime>(nullable: false),
+                    End = table.Column<DateTime>(nullable: false),
+                    LocationId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Shows", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Shows_MultiLangStrings_CommentId",
+                        column: x => x.CommentId,
+                        principalTable: "MultiLangStrings",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Shows_Locations_LocationId",
+                        column: x => x.LocationId,
+                        principalTable: "Locations",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Shows_MultiLangStrings_TitleId",
+                        column: x => x.TitleId,
+                        principalTable: "MultiLangStrings",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Schoolings",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    SchoolingNameId = table.Column<int>(nullable: false),
+                    Start = table.Column<DateTime>(nullable: false),
+                    End = table.Column<DateTime>(nullable: false),
+                    MaterialId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Schoolings", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Schoolings_Materials_MaterialId",
+                        column: x => x.MaterialId,
+                        principalTable: "Materials",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Schoolings_MultiLangStrings_SchoolingNameId",
+                        column: x => x.SchoolingNameId,
+                        principalTable: "MultiLangStrings",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -348,8 +403,8 @@ namespace DAL.App.EF.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Title = table.Column<string>(nullable: true),
-                    Comment = table.Column<string>(nullable: true),
+                    TitleId = table.Column<int>(nullable: true),
+                    CommentId = table.Column<int>(nullable: true),
                     DogId = table.Column<int>(nullable: false),
                     ParticipantId = table.Column<int>(nullable: false),
                     CompetitionId = table.Column<int>(nullable: true),
@@ -358,6 +413,12 @@ namespace DAL.App.EF.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Registrations", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Registrations_MultiLangStrings_CommentId",
+                        column: x => x.CommentId,
+                        principalTable: "MultiLangStrings",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Registrations_Competitions_CompetitionId",
                         column: x => x.CompetitionId,
@@ -380,6 +441,12 @@ namespace DAL.App.EF.Migrations
                         name: "FK_Registrations_Shows_ShowId",
                         column: x => x.ShowId,
                         principalTable: "Shows",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Registrations_MultiLangStrings_TitleId",
+                        column: x => x.TitleId,
+                        principalTable: "MultiLangStrings",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -422,9 +489,14 @@ namespace DAL.App.EF.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Breeds_BreedNameValueId",
+                name: "IX_Breeds_BreedNameId",
                 table: "Breeds",
-                column: "BreedNameValueId");
+                column: "BreedNameId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Competitions_CommentId",
+                table: "Competitions",
+                column: "CommentId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Competitions_LocationId",
@@ -432,9 +504,39 @@ namespace DAL.App.EF.Migrations
                 column: "LocationId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Competitions_TitleId",
+                table: "Competitions",
+                column: "TitleId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Dogs_AppUserId",
+                table: "Dogs",
+                column: "AppUserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Dogs_BreedId",
                 table: "Dogs",
                 column: "BreedId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Dogs_SexId",
+                table: "Dogs",
+                column: "SexId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Locations_LocationsId",
+                table: "Locations",
+                column: "LocationsId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Materials_MaterialNameId",
+                table: "Materials",
+                column: "MaterialNameId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Registrations_CommentId",
+                table: "Registrations",
+                column: "CommentId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Registrations_CompetitionId",
@@ -457,14 +559,34 @@ namespace DAL.App.EF.Migrations
                 column: "ShowId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Registrations_TitleId",
+                table: "Registrations",
+                column: "TitleId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Schoolings_MaterialId",
                 table: "Schoolings",
                 column: "MaterialId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Schoolings_SchoolingNameId",
+                table: "Schoolings",
+                column: "SchoolingNameId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Shows_CommentId",
+                table: "Shows",
+                column: "CommentId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Shows_LocationId",
                 table: "Shows",
                 column: "LocationId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Shows_TitleId",
+                table: "Shows",
+                column: "TitleId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Translations_MultiLangStringId",
@@ -502,9 +624,6 @@ namespace DAL.App.EF.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
                 name: "Competitions");
 
             migrationBuilder.DropTable(
@@ -518,6 +637,9 @@ namespace DAL.App.EF.Migrations
 
             migrationBuilder.DropTable(
                 name: "Materials");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
                 name: "Breeds");

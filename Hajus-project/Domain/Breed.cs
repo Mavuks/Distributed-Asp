@@ -6,8 +6,8 @@ namespace Domain
     
     {
        
-        public MultiLangString BreedNameValue { get; set; }
+        public MultiLangString BreedName { get; set; }
 
-        public ICollection<Dog> Dogs { get; set; }
+        public List<Dog> Dogs { get; set; }
     }
 }

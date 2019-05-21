@@ -1,12 +1,12 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>@ViewData["Title"] - WebApp</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Ringokris</title>
 
     <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css"/>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
@@ -15,13 +15,85 @@
               crossorigin="anonymous"
               integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE="/>
     </environment>
+    @* <link rel="stylesheet" href="~/css/site.css" /> *@
+    <link rel="stylesheet" href="~/AdminLTE/dist/css/adminlte.min.css" />
     <link rel="stylesheet" href="~/css/site.css"/>
+    
+    @RenderSection("CSS", required: false)
+    @RenderSection("HeaderScripts", required: false)
 </head>
-<body style="background-color:  red">
+<body style="background-color: beige">
+
+<header>
+
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom" >
+        <!-- Left navbar links -->
+        <ul class="navbar-nav" style="background-color: lightblue">
+          
 
 
-@RenderBody()
+            <li class="nav-item d-none d-sm-inline-block">
+                <a class="nav-link"  asp-controller="Home" asp-action="Index">@Resources.Views.Shared._Layout.NavHome</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a class="nav-link " asp-area="admin" asp-controller="AdminBreeds" asp-action="Index">@Resources.Views.Shared._Layout.NavBreed</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a class="nav-link " asp-area="Admin" asp-controller="AdminCompetitions" asp-action="Index">@Resources.Views.Shared._Layout.NavCompetition</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a class="nav-link " asp-area="Admin" asp-controller="AdminDogs" asp-action="Index">@Resources.Views.Shared._Layout.NavDog</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a class="nav-link " asp-area="Admin" asp-controller="AdminLocations" asp-action="Index">@Resources.Views.Shared._Layout.NavLocation</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a class="nav-link " asp-area="Admin" asp-controller="AdminMaterials" asp-action="Index">@Resources.Views.Shared._Layout.NavMaterial</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a class="nav-link " asp-area="Admin" asp-controller="AdminParticipants" asp-action="Index">@Resources.Views.Shared._Layout.NavParticipant</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a class="nav-link " asp-area="Admin" asp-controller="AdminRegistrations" asp-action="Index">@Resources.Views.Shared._Layout.NavRegistration</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a class="nav-link " asp-area="Admin" asp-controller="AdminSchoolings" asp-action="Index">@Resources.Views.Shared._Layout.NavSchooling</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a class="nav-link " asp-area="Admin" asp-controller="AdminShows" asp-action="Index">@Resources.Views.Shared._Layout.NavShow</a>
+            </li>
+              
+           
+           
+           
+        </ul>
 
+   
+         <!-- Right navbar links --> 
+         @* <ul class="navbar-nav ml-auto">  *@
+         @*     <partial name="_LoginPartial"/> *@
+         @* </ul>  *@
+     </nav> 
+     <!-- /.navbar --> 
+
+
+</header>
+<div class="container">
+    @* <partial name="_CookieConsentPartial"/> *@
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div>
+
+<footer class="border-top footer text-muted">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">&copy; 2019 - Ringokris - <a asp-area="" asp-controller="Home" asp-action="Privacy">@Resources.Views.Shared._Layout.Privacy</a></div>
+            
+        </div>
+    </div>
+</footer>
 
 <environment include="Development">
     <script src="~/lib/jquery/dist/jquery.js"></script>

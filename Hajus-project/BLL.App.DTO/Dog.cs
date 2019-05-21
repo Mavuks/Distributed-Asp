@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using BLL.App.DTO.Identity;
 
 
 namespace BLL.App.DTO
@@ -41,6 +42,9 @@ namespace BLL.App.DTO
         [Required(ErrorMessageResourceName = "ErrorMessageRequired", ErrorMessageResourceType = typeof(Resources.Domain.Common))]
         [Display(Name = nameof(Owner), ResourceType = typeof(Resources.Domain.Dog))]
         public string Owner { get; set; }
+        
+        public int AppUserId { get; set; }
+        public AppUser AppUser { get; set; }
         
        
         public List<Registration> Registrations  { get; set; }

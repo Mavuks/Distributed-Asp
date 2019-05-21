@@ -1,0 +1,59 @@
+@model WebApp.ViewModels.RegistrationsCreateViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>@Resources.Views.Common.Edit</h1>
+
+<h4>@Resources.Views.Shared._Layout.NavRegistration</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Registration.Title" class="control-label"></label>
+                <input asp-for="Registration.Title" class="form-control" />
+                <span asp-validation-for="Registration.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Registration.Comment" class="control-label"></label>
+                <input asp-for="Registration.Comment" class="form-control" />
+                <span asp-validation-for="Registration.Comment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Registration.DogId" class="control-label"></label>
+                <select asp-for="Registration.DogId" class="form-control" asp-items="Model.DogSelectList"></select>
+                <span asp-validation-for="Registration.DogId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Registration.ParticipantId" class="control-label"></label>
+                <select asp-for="Registration.ParticipantId" class="form-control" asp-items="Model.ParticipantSelectList"></select>
+                <span asp-validation-for="Registration.ParticipantId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Registration.CompetitionId" class="control-label"></label>
+                <select asp-for="Registration.CompetitionId" class="form-control" asp-items="Model.CompetitionSelectList"></select>
+                <span asp-validation-for="Registration.CompetitionId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Registration.ShowId" class="control-label"></label>
+                <select asp-for="Registration.ShowId" class="form-control" asp-items="Model.ShowSelectList"></select>
+                <span asp-validation-for="Registration.ShowId" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Registration.Id" />
+            <div class="form-group">
+                <input type="submit" value="@Resources.Views.Common.Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">@Resources.Views.Common.BackToList</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

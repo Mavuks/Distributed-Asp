@@ -28,9 +28,9 @@ namespace DAL.App.EF.Repositories
             if (breed != null)
             {
                 await RepositoryDbContext.Entry(breed)
-                    .Reference(c => c.BreedNameValue)
+                    .Reference(c => c.BreedName)
                     .LoadAsync();
-                await RepositoryDbContext.Entry(breed.BreedNameValue)
+                await RepositoryDbContext.Entry(breed.BreedName)
                     .Collection(b => b.Translations)
                     .Query()
                     .Where(t => t.Culture == culture)
@@ -44,11 +44,11 @@ namespace DAL.App.EF.Repositories
         public override DTO.Breed Update(DTO.Breed entity)
         {
             var entityInDb = RepositoryDbSet
-                .Include(m => m.BreedNameValue)
+                .Include(m => m.BreedName)
                 .ThenInclude(t => t.Translations)
                 .FirstOrDefault(x => x.Id == entity.Id);
             
-            entityInDb.BreedNameValue.SetTranslation(entity.BreedNameValue);
+            entityInDb.BreedName.SetTranslation(entity.BreedName);
 
             return entity;
         }
@@ -56,7 +56,7 @@ namespace DAL.App.EF.Repositories
         public override async Task<List<DAL.App.DTO.Breed>> AllAsync()
         {
             return await RepositoryDbSet
-                .Include(m => m.BreedNameValue)
+                .Include(m => m.BreedName)
                 .ThenInclude(t => t.Translations)
                 .Include(c => c.Dogs)
                 .Select(e => BreedMapper.MapFromDomain(e)).ToListAsync();
@@ -79,14 +79,14 @@ namespace DAL.App.EF.Repositories
             var culture = Thread.CurrentThread.CurrentUICulture.Name.Substring(0, 2).ToLower();
         
             var res = await RepositoryDbSet
-                .Include(m => m.BreedNameValue)
+                .Include(m => m.BreedName)
                 .ThenInclude(t => t.Translations)
                 //.Where(x => x.ContactTypeValue.Translations.Any(t => t.Culture == culture))
                 .Select(c => new
                 {
                     Id = c.Id,
-                    BreedNameValue = c.BreedNameValue,
-                    Translations = c.BreedNameValue.Translations,
+                    BreedName = c.BreedName,
+                    Translations = c.BreedName.Translations,
                     BreedCount = c.Dogs.Count
                 })
                 .ToListAsync();
@@ -96,7 +96,7 @@ namespace DAL.App.EF.Repositories
             {
                 Id = c.Id,
                 BreedCount = c.BreedCount,
-                BreedNameValue = c.BreedNameValue.Translate()
+                BreedName = c.BreedName.Translate()
                      
             }).ToList();
             return resultList;

@@ -1,0 +1,57 @@
+@model BLL.App.DTO.Dog
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>@Resources.Views.Common.Delete</h1>
+
+<h3>@Resources.Views.Common.AreYou</h3>
+<div>
+    <h4>@Resources.Views.Shared._Layout.NavDog</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DogName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DogName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateOfBirth)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DateOfDeath)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateOfDeath)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Sex)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Sex)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Breed)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Breed.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Owner)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Owner)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="@Resources.Views.Common.Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">@Resources.Views.Common.BackToList</a>
+    </form>
+</div>

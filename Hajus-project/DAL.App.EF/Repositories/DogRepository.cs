@@ -26,11 +26,17 @@ namespace DAL.App.EF.Repositories
 
             var res = await RepositoryDbSet
                 .Include(c => c.Breed)
+                .Include( a=> a.DogName)
                 .Include(s => s.Sex)
-                // .Where(b => b.AppUserId == userId)
+                 .Where(b => b.AppUserId == userId)
                 .Select(c => new
                 {
                     Id = c.Id,
+                    DogName = c.DogName,
+                    Breed = c.Breed,
+                    Owner = c.Owner,
+                    DateOfBirth = c.DateOfBirth,
+                    DateOfDeath = c.DateOfDeath,
                     Sex = c.Sex,
                     Translations = c.Sex.Translations,
 
@@ -40,6 +46,11 @@ namespace DAL.App.EF.Repositories
             var resultList = res.Select(c => new  DTO.Dog()
             {
                 Id = c.Id,
+                DogName = c.DogName,
+                //Breed = c.Breed,
+                DateOfBirth = c.DateOfBirth,
+                DateOfDeath = c.DateOfDeath,
+                Owner = c.Owner,
                 Sex = c.Sex.Translate(),
                 
                      
@@ -72,8 +83,10 @@ namespace DAL.App.EF.Repositories
         public override DTO.Dog Update(DTO.Dog entity)
         {
             var entityInDb = RepositoryDbSet
+                .Include(m => m.DogName)
                 .Include(m => m.Sex)
                 .ThenInclude(t => t.Translations)
+                .Include(a => a.Breed)
                 .FirstOrDefault(x => x.Id == entity.Id);
             
             entityInDb.Sex.SetTranslation(entity.Sex);
@@ -85,7 +98,9 @@ namespace DAL.App.EF.Repositories
         {
             return await RepositoryDbSet
                 .Include(m => m.Sex)
+                
                 .ThenInclude(t => t.Translations)
+                .Include(a => a.Breed)
                 .Include(c => c.Registrations)
                 .Select(e => DogMapper.MapFromDomain(e)).ToListAsync();
         }

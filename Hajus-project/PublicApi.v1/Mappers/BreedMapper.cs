@@ -26,7 +26,7 @@ namespace PublicApi.v1.Mappers
             var res = breed == null ? null : new externalDTO.Breed
             {
                 Id = breed.Id,
-                BreedName = breed.BreedNameValue,
+                BreedName = breed.BreedName,
 
             };
 
@@ -38,7 +38,7 @@ namespace PublicApi.v1.Mappers
             var res = breed == null ? null : new internalDTO.Breed
             {
                 Id = breed.Id,
-                BreedNameValue = breed.BreedName,
+                BreedName = breed.BreedName,
 
             };
             return res;
@@ -49,7 +49,7 @@ namespace PublicApi.v1.Mappers
             var res = breedWithDogCounts == null ? null : new externalDTO.BreedWithDogCounts()
             {
                 Id = breedWithDogCounts.Id,
-                BreedName = breedWithDogCounts.BreedNameValue,
+                BreedName = breedWithDogCounts.BreedName,
                 BreedCount = breedWithDogCounts.BreedCount
             };
             return res;
