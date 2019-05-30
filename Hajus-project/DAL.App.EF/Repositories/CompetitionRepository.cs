@@ -29,10 +29,7 @@ namespace DAL.App.EF.Repositories
             
             var res = await RepositoryDbSet
                 .Include(b => b.Comment)
-                .Include(a=> a.Location)
-                .ThenInclude( a=> a.Locations )
                 .Include( a => a.Title)
-                
                 .ThenInclude( t => t.Translations)
                 .Include(a => a.Start)
                 .Select(c => new
@@ -55,6 +52,7 @@ namespace DAL.App.EF.Repositories
                 Comment = c.Comment.Translate(),
                 Start = c.Start,
                 End = c.End,
+                //Location = c.Location,
                 
                 
                      
@@ -70,6 +68,9 @@ namespace DAL.App.EF.Repositories
             var competition = await RepositoryDbSet.FindAsync(id);
             if (competition != null)
             {
+//                await RepositoryDbContext.Entry(competition)
+//                    .Reference(c => c.Location)
+//                    .LoadAsync();
                 await RepositoryDbContext.Entry(competition)
                     .Reference(c => c.Title)
                     .LoadAsync();
@@ -95,13 +96,11 @@ namespace DAL.App.EF.Repositories
         {
             var entityInDb = RepositoryDbSet
                 .Include(m => m.Title)
-                
+                .Include(a => a.Start)
                 
                 .Include( n => n.Comment)
                 .ThenInclude(t => t.Translations)
                 .Include(a => a.Location)
-                .Include( a=> a.Start)
-                .Include( a => a.End)
                 .FirstOrDefault(x => x.Id == entity.Id);
             
             entityInDb.Title.SetTranslation(entity.Title);
@@ -114,13 +113,8 @@ namespace DAL.App.EF.Repositories
         {
             return await RepositoryDbSet
                 .Include(m => m.Title)
-                
                 .Include( n=> n.Comment)
                 .ThenInclude(t => t.Translations)
-                .Include(a =>a.Location)
-                .Include(a => a.Start)
-                .Include( a => a.End)
-                .Include(c => c.Registrations)
                 .Select(e => CompetitionMapper.MapFromDomain(e)).ToListAsync();
         }
     }

@@ -29,7 +29,7 @@ namespace WebApp.Areas.Admin.Controllers
         public async Task<IActionResult> Index()
         {
             //var appDbContext = _context.Shows.Include(s => s.Dog).Include(s => s.Location).Include(s => s.Participant);
-            return View(await _bll.Show.AllForUserAsync(User.GetUserId()));
+            return View(await _bll.Show.AllAsync());
         }
 
         // GET: Shows/Details/5

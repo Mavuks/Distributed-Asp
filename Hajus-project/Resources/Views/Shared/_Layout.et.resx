@@ -165,4 +165,10 @@
   <data name="Register" xml:space="preserve">
     <value>Registreeru</value>
   </data>
+  <data name="News" xml:space="preserve">
+    <value>Uudised</value>
+  </data>
+  <data name="Puppies" xml:space="preserve">
+    <value>Kutsikad</value>
+  </data>
 </root>

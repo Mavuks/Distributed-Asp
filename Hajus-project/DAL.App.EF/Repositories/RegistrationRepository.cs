@@ -34,7 +34,6 @@ namespace DAL.App.EF.Repositories
             var culture = Thread.CurrentThread.CurrentUICulture.Name.Substring(0, 2).ToLower();
             
             var res = await  RepositoryDbSet
-                .Include(b => b.Dog)
                 .Include(c => c.Participant)
                 .Include(d => d.Competition)
                 .Include(e => e.Show)
@@ -43,8 +42,10 @@ namespace DAL.App.EF.Repositories
                     Id = c.Id,
                     title = c.Title,
                     comment = c.Comment,
+                    Dog = c.Dog,
                     Translations = c.Comment.Translations,
                     Translations2 = c.Title.Translations,
+                    Participant = c.Participant
 
                 })
                 .ToListAsync();
@@ -53,7 +54,10 @@ namespace DAL.App.EF.Repositories
                 {
                 Id = c.Id,
                 Title = c.title.Translate(),
-                Comment = c.comment.Translate()
+                Comment = c.comment.Translate(),
+               
+//                Participant = c.Participant,
+//                Dog = c.Dog
                 
                      
                 }).ToList();
@@ -110,6 +114,7 @@ namespace DAL.App.EF.Repositories
                 .Include( n=> n.Comment)
                 .ThenInclude(t => t.Translations)
                 .Include(c => c.Participant)
+                .Include(a=> a. Dog)
                 .Include(t => t.Show)
                 .Include( e => e.Competition)
                 .Select(e => RegistrationMapper.MapFromDomain(e)).ToListAsync();

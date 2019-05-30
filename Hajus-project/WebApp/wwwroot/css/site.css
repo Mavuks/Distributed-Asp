@@ -54,3 +54,19 @@ body {
   height: 60px;
   line-height: 60px; /* Vertically center the text there */
 }
+p{
+  font-family: "Times New Roman";
+  font-size: 17px;
+}
+img{
+  float: left;
+  padding: 20px;
+}
+.zlata{
+  
+  margin-bottom: 50px;
+}
+.olku{
+  float:right;
+}
+

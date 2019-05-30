@@ -10,7 +10,6 @@ using WebApp.ViewModels;
 namespace WebApp.Areas.Admin.Controllers
 { 
     [Area("Admin")]
-    [Authorize]
     public class AdminDogsController : Controller
     {
         

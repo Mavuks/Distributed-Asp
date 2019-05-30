@@ -9,9 +9,9 @@ namespace DAL.App.DTO
 
         public string Locations { get; set; }
 
-        public ICollection<Competition> Competitions { get; set; }
+       // public ICollection<Competition> Competitions { get; set; }
 
-        public ICollection<Show> Shows { get; set; }
+       // public ICollection<Show> Shows { get; set; }
         
     }
 }

@@ -137,7 +137,7 @@ namespace WebApp.Controllers
                 return RedirectToAction(nameof(Index));
             }
             
-            vm.LocationSelectList = new SelectList(await _bll.Location.AllAsync(),
+            vm.LocationSelectList = new SelectList(await _bll.Location.AllForUserAsync(User.GetUserId()),
                 nameof( BLL.App.DTO.Location.Id),
                 nameof( BLL.App.DTO.Location.Locations),
                 vm.Competition.LocationId);

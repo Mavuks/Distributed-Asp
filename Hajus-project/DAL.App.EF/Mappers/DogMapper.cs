@@ -1,4 +1,5 @@
 using System;
+using Domain.Identity;
 using ee.itcollege.mavuks.Contracts.DAL.Base.Mappers;
 using internalDTO = Domain;
 using externalDTO = DAL.App.DTO;
@@ -34,7 +35,8 @@ namespace DAL.App.EF.Mappers
                 BreedId = dog.BreedId,
                 Breed = BreedMapper.MapFromDomain(dog.Breed),
                 Owner = dog.Owner,
-                AppUserId = dog.AppUserId
+                AppUserId = dog.AppUserId,
+
             };
 
             return res;
@@ -52,7 +54,7 @@ namespace DAL.App.EF.Mappers
                 BreedId = dog.BreedId,
                 Breed = BreedMapper.MapFromDAL(dog.Breed),
                 Owner = dog.Owner,
-                AppUserId = dog.AppUserId
+                AppUserId = dog.AppUserId,
             };
             return res;
         }

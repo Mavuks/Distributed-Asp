@@ -27,7 +27,7 @@ namespace WebApp.Areas.Admin.Controllers
         public async Task<IActionResult> Index()
         {
          
-            return View(await _bll.Registration.AllForUserAsync(User.GetUserId()));
+            return View(await _bll.Registration.AllAsync());
         }
 
         // GET: Registrations/Details/5

@@ -28,7 +28,7 @@ namespace WebApp.Areas.Admin.Controllers
         public async Task<IActionResult> Index()
         {
         
-            return View(await _bll.Schooling.AllForUserAsync(User.GetUserId()));
+            return View(await _bll.Schooling.AllAsync());
         }
 
         // GET: Schoolings/Details/5

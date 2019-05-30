@@ -14,7 +14,7 @@ namespace BLL.App.DTO
         public string Title { get; set; }
 
         
-        [Display(Name = nameof(Title), ResourceType = typeof(Resources.Domain.Registration))]
+        [Display(Name = nameof(Comment), ResourceType = typeof(Resources.Domain.Registration))]
         public string Comment { get; set; }
        
         public int DogId { get; set; }

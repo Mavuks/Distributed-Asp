@@ -1,13 +1,42 @@
-﻿
+﻿@model IEnumerable<BLL.App.DTO.Competition>
+
+
 @{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Tere Tulemast!!</h1>
-    
-           
-    
 
+    <h1 class="display-4">Tere Tulemast!!</h1>
+@*      *@
+@* *@
+@*     <thead> *@
+@*         <tr> *@
+@*             <th> *@
+@*                 @Html.DisplayNameFor(model => model.Title) *@
+@*             </th> *@
+@*             $1$ <th> #1# *@
+@*             $1$     @Html.DisplayNameFor(model => model.Comment) #1# *@
+@*             $1$ </th> #1# *@
+@*             $1$ <th> #1# *@
+@*             $1$     @Html.DisplayNameFor(model => model.Start) #1# *@
+@*             $1$ </th> #1# *@
+@*             $1$ <th> #1# *@
+@*             $1$     @Html.DisplayNameFor(model => model.End) #1# *@
+@*             $1$ </th> #1# *@
+@*             $1$ <th> #1# *@
+@*             $1$     @Html.DisplayNameFor(model => model.Location) #1# *@
+@*             $1$ </th> #1# *@
+@* *@
+@*             <th></th> *@
+@*         </tr> *@
+@*     </thead> *@
+@*     <tbody> *@
+@*         @foreach (var item in Model) { *@
+@*                 <tr> *@
+@*     <td> *@
+@*         @Html.DisplayFor(modelItem => item.Title) *@
+@*     </td> *@
+@*     </tr> *@
+@*         } *@
+@*     </tbody> *@
     
-</div>

@@ -98,9 +98,7 @@ namespace DAL.App.EF.Repositories
         {
             return await RepositoryDbSet
                 .Include(m => m.Sex)
-                
                 .ThenInclude(t => t.Translations)
-                .Include(a => a.Breed)
                 .Include(c => c.Registrations)
                 .Select(e => DogMapper.MapFromDomain(e)).ToListAsync();
         }

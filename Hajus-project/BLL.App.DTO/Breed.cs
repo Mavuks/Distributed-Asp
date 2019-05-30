@@ -16,6 +16,6 @@ namespace BLL.App.DTO
         [Display(Name = nameof(BreedName), ResourceType = typeof(Resources.Domain.Breed))]
         public string BreedName { get; set; }
 
-       // public ICollection<Dog> Dogs { get; set; }
+        public ICollection<Dog> Dogs { get; set; }
     }
 }

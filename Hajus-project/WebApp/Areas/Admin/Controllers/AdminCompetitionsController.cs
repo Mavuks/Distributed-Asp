@@ -25,7 +25,7 @@ namespace WebApp.Areas.Admin.Controllers
         public async Task<IActionResult> Index()
         {
 
-            return View(await _bll.Competition.AllForUserAsync(User.GetUserId()));
+            return View(await _bll.Competition.AllAsync());
         }
 
         // GET: Competitions/Details/5

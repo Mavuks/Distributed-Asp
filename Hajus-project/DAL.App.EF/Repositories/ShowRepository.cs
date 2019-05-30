@@ -105,12 +105,9 @@ namespace DAL.App.EF.Repositories
         {
             return await RepositoryDbSet
                 .Include(m => m.Title)
-                .Include(a => a.Start)
-                .Include( a => a.End)
                 .Include( n=> n.Comment)
                 .ThenInclude(t => t.Translations)
-                .Include(c => c.Location)
-               
+
                 .Select(e => ShowMapper.MapFromDomain(e)).ToListAsync();
         }
     }    

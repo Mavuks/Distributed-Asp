@@ -116,62 +116,87 @@
     </resheader>
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <data name="Hello" xml:space="preserve">
-    <value>Hello</value>
-  </data>
-    <data name="Language" xml:space="preserve">
-    <value>Language:</value>
-  </data>
-    <data name="Login" xml:space="preserve">
-    <value>Login</value>
-  </data>
-    <data name="Logout" xml:space="preserve">
-    <value>Logout</value>
-  </data>
-    <data name="NavBreed" xml:space="preserve">
-    <value>Breed</value>
-  </data>
-    <data name="NavCompetition" xml:space="preserve">
-    <value>Competition</value>
-  </data>
-    <data name="NavHome" xml:space="preserve">
-    <value>Home</value>
-  </data>
-    <data name="NavDog" xml:space="preserve">
-    <value>Dog</value>
-  </data>
-    <data name="NavLocation" xml:space="preserve">
-    <value>Location</value>
-  </data>
-    <data name="NavMaterial" xml:space="preserve">
-    <value>Material</value>
-  </data>
-    <data name="NavParticipant" xml:space="preserve">
-    <value>Participant</value>
-  </data>
-    <data name="NavRegistration" xml:space="preserve">
-    <value>Registration</value>
-  </data>
-    <data name="NavSchooling" xml:space="preserve">
-    <value>Shooling</value>
-  </data>
-    <data name="NavShow" xml:space="preserve">
-    <value>Show</value>
-  </data>
-    <data name="Privacy" xml:space="preserve">
-    <value>Privacy</value>
-  </data>
-    <data name="Register" xml:space="preserve">
-    <value>Register</value>
-  </data>
-    <data name="News" xml:space="preserve">
-    <value>News</value>
-  </data>
-   <data name="Puppies" xml:space="preserve">
-    <value>Puppies</value>
-  </data>
+    </resheader>s
 
+    <data name="SoovKutsikatVotta" xml:space="preserve">
+    <value>If you consider a Ringokris puppy, please send an email (ringokris.goldens@gmail.com).
+    </value>
+  </data>
+    <data name="SoovKutsikatVottaStrong" xml:space="preserve">
+    <value>
+    Please let us have as much information about your family, home and circumstances, as well as your wishes and circumstances in regard of the dog.
+    Before deciding about the dog, please check that neither you nor any of your family members is allergic to dogs!</value>
+  </data>
+    <data name="Price" xml:space="preserve">
+    <value>
+        The most commonly asked question is price — a well bred Golden Retriever or from a caring breeder will cost anything between &lt;strong&gt; 900—1300 EUR.
+        &lt;/strong&gt; This is quite an average price for pedigree dogs in Estonia today (they are more expensive abroad, starting from 1200 EUR),
+        and though Golden Retriever puppies are sometimes available much more cheaply, it is often from dubious sources or with questionable conditions.
+    </value>
+  </data>
+    <data name="Price1" xml:space="preserve">
+    <value>
+        Our puppies are not cheap — we have too much respect for the breeders’ work prior to us (thanks to whom we have these dogs), our own dogs and ourselves for that.
+    </value>
+  </data>
+    <data name="Price2" xml:space="preserve">
+        <value> 
+            All puppies are ready to leave for new homes after they are 8 weeks old.
+            They are wormed, vaccinated, Estonian Kennel Club registered, and microchipped.
+            All puppies are reared in the home; they have access to the fresh air daily from 4-5 weeks of age in the garden.
+            They are allowed to explore inside our home and all are partially house trained before they leave.
+            Puppies are handled all the time, mix and play with the adult dogs and cats, and are exposed to all of the normal household sights and sounds.
+    </value>
+  </data>
+    <data name="PuppyLeaves" xml:space="preserve">
+    <value>
+        &lt;strong&gt;Every puppy leaves home with extensive and detailed rearing guidelines and an information and starter pack.
+        We ask all puppy buyers to stay in touch and are thrilled to receive news and photos of our extended family.&lt;/strong&gt;
+        &lt;/br&gt;
+        &lt;/br&gt;
+        &lt;strong&gt;We ask all puppy buyers to sign a contract, as the Estonian Kennel Club advises.
+        This contract states amongst other things, that should you for whatever reason ever have to part with your dog,
+        that we will be informed first and have the option to take him or her back if you are ever faced with having to re-homet.&lt;/strong&gt;
+        &lt;/br&gt;
+        &lt;/br&gt;
+        &lt;strong&gt;We are always available to offer help and advice to anyone interested in either breed, and offer discount services for our progeny.
+        If you are interested in meeting our family, or just to find out more about dogs in general, Goldens in particular – please contact us.&lt;/strong&gt;
+</value>
+  </data>
+    <data name="StayTouch" xml:space="preserve">
+    <value></value>
+  </data>
+    <data name="GRBreeders" xml:space="preserve">
+    <value>
+        Like all other Golden Retriever breeders, we also claim that we want to breed typical, good natured, healthy representatives of the breed – we love “sound nature”,
+      as our slogan says. Besides this, we have some special interests:
+    &lt;ul&gt;
+      &lt;li&gt;
+     we consciously look for sound, for less known and not so popular lines, since we consider their maintance essential for the breed&lt;/br&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+    we collect as much information as possible about the lines we use: visit breeders and owners, consult people with long history in the breed, and conduct research (assisted here by Heili’s experience as a research worker) &lt;/br&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+    in order to follow the trends in the breed we attend shows and breed events in various countries – not to show us and our dogs but to watch and see others&lt;/br&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+    we wish to copy nobody in our activites, even the most successful breeders, for whatis the reason to do something that someone else is already doing well.
+      &lt;/li&gt;
+      &lt;/ul&gt;
+    </value>
+  </data>
+    <data name="LastPara" xml:space="preserve">
+    <value>
+        Since all of us have our main activities and jobs, in order to keep our hobby a hobby, we do not wish to breed many litters.
+        We do only the combinations we wish to continue with in principle and from which we would pick a dog for ourselves,
+        therefore we are open to collaboration with other breeders and the owners of our and our males’ progeny.
+        We are willing to build the dogs’ show careers, that is to prepare the dogs for and handle them at shows
+        (Tõnu and Heili have attended handling courses with Inga Siil and Gerard O’Shea, and Heili has studied trimming in England).
+        &lt;/br&gt; 
+        &lt;/br&gt;
+        We also welcome our prgeny and our males’ progeny to visit us, are happy to learn about their lives, and if possible, take them in for their owners’ holidays.</value>
+  </data>
 
 
 </root>

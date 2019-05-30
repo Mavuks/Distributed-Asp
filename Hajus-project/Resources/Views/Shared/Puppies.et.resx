@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="SoovKutsikatVotta" xml:space="preserve">
+    <value>Kui soovite endale kutsikat, saatke e-kiri kasvatajale. Kutsikasoovi korral palun rääkige meile oma perest, kodust ning koeraga seotud võimalustest ja soovidest. Enne kutsika koju võtmist palun tehke kindlaks, et Teil või pereliikmel poleks koeraallergiat!</value>
+  </data>
+  <data name="SoovKutsikatVottaStrong" xml:space="preserve">
+    <value>
+    Enne kutsika koju võtmist palun tehke kindlaks, et Teil või pereliikmel poleks koeraallergiat!</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Kõige sagedasem küsimus on kutsika hind: läbimõeldult aretatud kuldse retriiveri kutsikas vastutustundlikult kasvatajalt maksab keskmiselt 900—1300 eurot, mis on tõukoera tavaline hind Eestis (mujal Euroopas algavad hinnad 1200-1300 eurost).&lt;strong&gt; Meie kutsikad ei ole odavad – selleks peame liiga palju lugu eelkäijate tööst (tänu kellele meil sellised koerad on), oma koertest ja iseendast.&lt;/strong&gt;</value>
+  </data>
+  <data name="Price1" xml:space="preserve">
+    <value>Kutsikahind sisaldab: kõigi eelnevate kasvatajate tööd tõu säilitamiseks sellisena, nagu ta meile jõudnud on (mida kinnitab tõutunnistus);
+      kutskate vanemate hooldust ja vastavust tõustandardile (mida tõendavad näituste ja koolituste ning töökatsete tulemused),
+      terviseuuringuid pärilike haiguste osas (et vanemad oleksid kontrollitavate pärilike haiguste — puusa-ja küünarliigese düsplaasia ning silmade — osas terved),
+      paaritustasu isasele (mõnes riigis võetakse see kohe ette, vastavalt isasele 1000-2000 eurot,
+      või makstakse iga kutsika pealt 100-200 eurot + nn hüppemaks, mis jääb “kutsikatasuga” samasse suurusjärku), kutsikate üleskasvatamisega seotud kulusid (ussikuure,
+      vaktsineerimisi, kutsikatele sobivat kvaliteetset toitu, kutsikate hooldust ja juhendamist esmaste “koeratarkuste” osas),
+      dokumentatsiooni (EKL tõutunnistust, veterinaarpassi, kasvatusjuhendeid, lemmikloomaregistrisse kandmine) ja “stardipaketti” (toit ja toidulisandid).</value>
+  </data>
+  <data name="Price2" xml:space="preserve">
+    <value>Loomulikult on võimalikud ka mitmesugused tasumisvariandid — kõik on kokkuleppe ja vastastikuse koostöö küsimus,
+      kuid kõik kokkulepped (sh järelmaks, hinnasoodustused jms) tehakse silmast silma kohtudes, mitte e-kirja või telefoni teel.
+      Me võime teha alghinnast järelandmisi siis, kui inimesed on kindlad, et nad tahavad just meie kutsikat, aga me ei tee võidujooksu vähempakkumisele.
+      &lt;/br&gt;
+      &lt;/br&gt;
+      Kuigi kutsikaid võib saada (mõnikord isegi palju) odavamalt, võib tegu olla kahtlase päritolu või küsitavate lepingutingimustega loomaga
+      (seega – &lt;strong&gt; enne koeravõttu tehke enne kodutöö ja ärge tormake uisapäisa “soodsamate” tingimuste otsa, mis pärast võivad kalliks maksma minna nii rahas kui ka närvikulus). &lt;/strong&gt;
+      &lt;/br&gt;
+      &lt;/br&gt;
+      &lt;a href="http://www.mastifid.ee/tahelepanu-kutsikasoovijad/" target="_blank"&gt;Paberiteta “tõukoertest&lt;/a&gt; ehk mida tähendavad “paberid”
+      
+    </value>
+  </data>
+  <data name="PuppyLeaves" xml:space="preserve">
+    <value>
+      Kutsikad on valmis uude koju minema peale 8. elunädalat.
+      Nad on saanud ussikuurid, on vaktsineeritud ja märgistatud ning registreeritud Eesti Kennelliidus (st neil on põlvnemist tõendav ametlik tunnistus).
+      Kõik kutsikad kasvavad kodus: neil on alates 4-5 elunädalast võimalus liikuda iga päev aias, nad saavad uurida kodu ja on osaliselt puhtaks õppinud
+      (st teevad oma hädad ajalehele ja võimalusel õue).
+      &lt;/br&gt;
+      &lt;/br&gt;
+
+      &lt;strong&gt;Kutsikad on sotsialiseeritud, saavad suhelda täiskasvanud koerte ja kassiga ning on kokku puutunud koduse majapidamise häältega.&lt;/strong&gt;
+      &lt;/br&gt;
+      &lt;/br&gt;
+      Iga kutsikas saab kaasa:
+      &lt;strong&gt;EL lemmikloomapassi, EKL registreerimistunnistuse, kutsikaraamatu,
+      mõned mänguasjad, esmase toidu ja vajalikud toidulisandid.
+      Registreerime koera Lemmkloomaregistris ja EKL-is ning soovi korral korraldame täiendavad kutsikavaktsineerimised oma kodus.&lt;/strong&gt;
+</value>
+  </data>
+  <data name="StayTouch" xml:space="preserve">
+    <value>
+      Soovime, et kutsikaomanikud jääksid meiega ühendusse; meil on hea meel saada teateid ja fotosid oma kasvandike kohta.&lt;/br&gt; &lt;/br&gt;
+
+      Vastavalt Eesti Kennelliidu soovitusele sõlmime kutsikaomanikega lepingu, mis muuhulgas sätestab, et kui te peaksite mingil põhjusel meie kasvandikust loobuma,
+      on meil õigus sellest esimesena teada saada ning kasvandik enda juurde võtta.
+      &lt;/br&gt;
+      &lt;/br&gt;
+      Oleme alati valmis oma aitama kõiki meie tõugudest huvitatud inimesi ning pakume oma kasvandike omanikele oma teenuseid soodushinnaga.
+      &lt;/br&gt;
+      &lt;/br&gt;
+      
+      &lt;strong&gt;Kui soovite meie koerperega kohtuda või rohkem teada saada koertest ja meie tõust, siis võtke meiega ühendust.&lt;/strong&gt;
+</value>
+  </data>
+  <data name="GRBreeders" xml:space="preserve">
+    <value>
+      Nagu kõik teised kuldse retriiveri aretajad, kinnitame ka meie, et tahame aretada tüüpilisi, hea iseloomuga, terveid tõu esindajaid – meid huvitab „terve/ helisev loomus/loodus“,
+      nagu ütleb meie juhtlause. Lisaks sellele on meil veel mõned erihuvid:
+    &lt;ul&gt;
+      &lt;li&gt;
+      soovime, et kuldne retriiver oleks alati tasakaalus, seega püüame jälgida, et ükski iseloomujoon või välimuse tahk ei kalduks äärmusesse&lt;/br&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+      otsime teadlikult häid, kuid vähemtuntud ja mitte väga populaarseid liine, sest peame nende säilitamist tõu seisukohalt vajalikuks, peame geneetilist mitmekesisust ja tüüpide paljusust tõu tuleviku seisukohalt väga oluliseks ning püüame anda sellesse oma panuse&lt;/br&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+     kogume võimalikult palju teavet nende liinide kohta, mida kasutame: külastame kasvatajaid ja omanikke, peame nõu tõuga pikka aega tegelenud inimestega ning teeme ka arhiivitööd (kus tuleb kasuks Heili teadurikogemus)&lt;/br&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+      tõu arengusuundade jälgimiseks käime erinevate riikide näitustel ja üritustel – mitte niivõrd ennast ja oma koeri näitamas, kui just teisi vaatamas,&lt;/br&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+      me ei taha kedagi, ka mitte kõige edukamaid kasvatajaid oma tegevuses kopeerida, sest milleks teha seda, mida keegi teine juba hästi teeb.
+      &lt;/li&gt;
+      &lt;/ul&gt;
+</value>
+  </data>
+  <data name="LastPara" xml:space="preserve">
+    <value>
+      Kuna meil kõigil on põhitegevus ja töö, siis selleks, et meie hobi jääks hobiks, ei soovi me kasvatada palju pesakondi.
+      Teeme üksnes selliseid kombinatsioone, millega tahame põhimõtteliselt jätkata ja kust tahaks omale koera, mistõttu teeme meelsasti koostööd teiste kasvatajate
+      ja oma kasvandike omanikega. Oleme valmis aitama „näitusekarjääriga“, st valmistama koera näituseks ette ja teda ka ise näitama
+      (Tõnu ja Heili on käinud hänlderkoolitusel Inga Siili ja Gerard O’Shea juures ning Heili trimmimiskoolitusel Inglismaal)
+      &lt;/br&gt;&lt;/br&gt;
+     &lt;strong&gt; Ootame oma kasvandikke ja oma isaste järglasi külla, soovime teada nende käekäigust ja võtame võimalusel hoiule.&lt;/strong&gt;</value>
+  </data>
+
+</root>

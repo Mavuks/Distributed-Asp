@@ -1,0 +1,45 @@
+@model object
+
+<br/>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>@Resources.Views.Shared._Layout.Puppies</h2>
+<div>
+<p>
+    @Resources.Views.Shared.Puppies.SoovKutsikatVotta
+    <strong> @Resources.Views.Shared.Puppies.SoovKutsikatVottaStrong</strong>
+</p>
+
+<br/>
+<p>
+    @Html.Raw(Resources.Views.Shared.Puppies.Price)
+</p>
+<p>
+  @Resources.Views.Shared.Puppies.Price1
+  </p>
+<p>
+    @Html.Raw(Resources.Views.Shared.Puppies.Price2)
+</p>
+<br/>
+<br/>
+<p>
+    @Html.Raw(Resources.Views.Shared.Puppies.PuppyLeaves)
+</p>
+<br/>
+
+<p>
+    @Html.Raw(Resources.Views.Shared.Puppies.StayTouch)
+</p>
+<br/>
+<br/>
+<p>
+    @Html.Raw(Resources.Views.Shared.Puppies.GRBreeders)
+</p>
+<p>
+    @Html.Raw(Resources.Views.Shared.Puppies.LastPara)
+</p>
+</div>

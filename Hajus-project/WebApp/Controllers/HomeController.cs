@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.BLL.App;
+using ee.itcollege.mavuks.Identity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
@@ -14,9 +16,18 @@ namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        
+              
+        private readonly IAppBLL _bll;
+
+        public HomeController(IAppBLL bll)
         {
-            return View();
+            
+            _bll = bll;
+        }
+        public async Task<IActionResult> Index()
+        {
+            return View(await _bll.Competition.AllAsync());
         }
 
         public IActionResult Privacy()

@@ -62,7 +62,7 @@ namespace DAL.App.EF.Repositories
             {
                 await RepositoryDbContext.Entry(schooling)
                     .Reference(c => c.SchoolingName)
-                    .LoadAsync();
+                    .LoadAsync();    
                 await RepositoryDbContext.Entry(schooling)
                     .Reference(c => c.Material)
                     .LoadAsync();
@@ -97,12 +97,7 @@ namespace DAL.App.EF.Repositories
         {
             return await RepositoryDbSet
                 .Include(m => m.SchoolingName)
-                
                 .ThenInclude(t => t.Translations)
-                .Include(c => c.Material)
-                .ThenInclude( a=> a.MaterialName)
-                .Include(a => a.End)
-                .Include(a => a.Start)
                 .Select(e => SchoolingMapper.MapFromDomain(e)).ToListAsync();
         }
     }    

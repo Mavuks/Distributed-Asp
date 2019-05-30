@@ -25,6 +25,7 @@ namespace DAL.App.EF.Repositories
             
             var res = await RepositoryDbSet
                 .Include(c => c.Locations)
+                
                 .ThenInclude( t => t.Translations)
                 .Select(c => new
                 {

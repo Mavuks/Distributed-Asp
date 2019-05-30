@@ -23,7 +23,7 @@ namespace WebApp.Areas.Admin.Controllers
         // GET: Locations
         public async Task<IActionResult> Index()
         {
-            return View(await _bll.Location.AllForUserAsync(User.GetUserId()));
+            return View(await _bll.Location.AllAsync());
         }
 
         // GET: Locations/Details/5
