@@ -34,7 +34,7 @@ namespace BLL.App.DTO
         public Location Location { get; set; }
 
 
-        public List<Registration> Registrations { get; set; }
+        //public List<Registration> Registrations { get; set; }
       
         
     }

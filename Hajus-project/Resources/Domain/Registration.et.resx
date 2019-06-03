@@ -135,4 +135,7 @@
   <data name="Show" xml:space="preserve">
     <value>Näitus</value>
   </data>
+  <data name="Schooling" xml:space="preserve">
+    <value>Koolitus</value>
+  </data>
 </root>

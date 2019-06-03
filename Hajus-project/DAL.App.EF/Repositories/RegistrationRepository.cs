@@ -8,6 +8,7 @@ using Domain;
 using Domain.Identity;
 using ee.itcollege.mavuks.DAL.Base.EF.Repositories;
 using Microsoft.EntityFrameworkCore;
+using DogMapper = DAL.App.EF.Mappers.DogMapper;
 using RegistrationMapper = DAL.App.EF.Mappers.RegistrationMapper;
 
 namespace DAL.App.EF.Repositories
@@ -18,31 +19,25 @@ namespace DAL.App.EF.Repositories
         {
         }
 
-//        public override async Task<List<Registration>> AllAsync()
-//        {
-//            return await RepositoryDbSet
-//                
-//                .Include(b => b.Dog)
-//                .Include(c => c.Participant)
-//                .Include(d => d.Competition)
-//                .Include(e => e.Show).ToListAsync();
-//        }
-
         public async Task<List<DAL.App.DTO.Registration>> AllForUserAsync(int userId)
         {
             
             var culture = Thread.CurrentThread.CurrentUICulture.Name.Substring(0, 2).ToLower();
             
+            
             var res = await  RepositoryDbSet
-                .Include(c => c.Participant)
-                .Include(d => d.Competition)
-                .Include(e => e.Show)
+                .Include( a=> a.Title)
+                .Include( a=> a.Comment)
+                .Include( a=> a.Dog)
+                .ThenInclude( a=> a.DogName)
                 .Select(c => new
                 {
                     Id = c.Id,
                     title = c.Title,
                     comment = c.Comment,
-                    Dog = c.Dog,
+                    
+                    
+                    //Dog = c.Dog,
                     Translations = c.Comment.Translations,
                     Translations2 = c.Title.Translations,
                     Participant = c.Participant
@@ -53,15 +48,18 @@ namespace DAL.App.EF.Repositories
                 var resultList = res.Select(c => new  DTO.Registration()
                 {
                 Id = c.Id,
+                //Dog = c.Dog,
                 Title = c.title.Translate(),
                 Comment = c.comment.Translate(),
+               // Participant = c.Participant
+                
                
 //                Participant = c.Participant,
 //                Dog = c.Dog
                 
                      
                 }).ToList();
-                return resultList;
+               return resultList;
         }
         
         public override async Task<DTO.Registration> FindAsync(params object[] id)
@@ -72,21 +70,44 @@ namespace DAL.App.EF.Repositories
             if (registration != null)
             {
                 await RepositoryDbContext.Entry(registration)
+                    .Reference(c => c.Show)
+                    .LoadAsync();
+                await RepositoryDbContext.Entry(registration.Show)
                     .Reference(c => c.Title)
                     .LoadAsync();
+                await RepositoryDbContext.Entry(registration.Show.Title)
+                    .Collection(b => b.Translations)
+                    .Query()
+                    .Where(t => t.Culture == culture)
+                    .LoadAsync();
                 await RepositoryDbContext.Entry(registration)
-                    .Reference(c => c.Comment)
+                    .Reference(c => c.Schooling)
+                    .LoadAsync();
+                await RepositoryDbContext.Entry(registration.Schooling)
+                    .Reference(c => c.SchoolingName)
+                    .LoadAsync();
+                await RepositoryDbContext.Entry(registration.Schooling.SchoolingName)
+                    .Collection(b => b.Translations)
+                    .Query()
+                    .Where(t => t.Culture == culture)
+                    .LoadAsync();
+                await RepositoryDbContext.Entry(registration)
+                    .Reference(c => c.Title)
                     .LoadAsync();
                 await RepositoryDbContext.Entry(registration.Title)
                     .Collection(b => b.Translations)
                     .Query()
                     .Where(t => t.Culture == culture)
                     .LoadAsync();
+                await RepositoryDbContext.Entry(registration)
+                    .Reference(c => c.Comment)
+                    .LoadAsync();
                 await RepositoryDbContext.Entry(registration.Comment)
                     .Collection(b => b.Translations)
                     .Query()
                     .Where(t => t.Culture == culture)
                     .LoadAsync();
+//                
             }
  
             return RegistrationMapper.MapFromDomain(registration);
@@ -110,13 +131,20 @@ namespace DAL.App.EF.Repositories
         public override async Task<List<DAL.App.DTO.Registration>> AllAsync()
         {
             return await RepositoryDbSet
+                //.Include(a => a.Dog)
+                //.ThenInclude( a=> a.DogName)
                 .Include(m => m.Title)
+                .ThenInclude(t => t.Translations)
                 .Include( n=> n.Comment)
                 .ThenInclude(t => t.Translations)
-                .Include(c => c.Participant)
-                .Include(a=> a. Dog)
-                .Include(t => t.Show)
-                .Include( e => e.Competition)
+                .Include( a => a.Schooling)
+                .ThenInclude(a => a.SchoolingName)
+                .ThenInclude( a=> a.Translations)
+                .Include( a => a.Show)
+                .ThenInclude(a => a.Title)
+                .ThenInclude( a=> a.Translations)
+
+                
                 .Select(e => RegistrationMapper.MapFromDomain(e)).ToListAsync();
         }
     }    

@@ -8,6 +8,7 @@ using Contracts.DAL.App.Repositories;
 using Domain;
 using ee.itcollege.mavuks.DAL.Base.EF.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Breed = DAL.App.DTO.Breed;
 using DogMapper = DAL.App.EF.Mappers.DogMapper;
 
 namespace DAL.App.EF.Repositories
@@ -24,11 +25,22 @@ namespace DAL.App.EF.Repositories
         {
             var culture = Thread.CurrentThread.CurrentUICulture.Name.Substring(0, 2).ToLower();
 
+//            var resultList = await RepositoryDbSet
+//                .Include(a=> a.Breed)
+//                .ThenInclude( a=> a.BreedName)
+//                .ThenInclude( a=> a.Translations)
+//                .Include(a => a.Sex)
+//                .ThenInclude( a=> a.Translations)
+//                .Include( a=> a.Owner)
+//                .Include( a=> a.DateOfBirth)
+//                
+//                
+//                .Where( a=> a.AppUserId == userId)
+//                .Select(c => DogMapper.MapFromDomain(c))
+//                .ToListAsync();
+            
             var res = await RepositoryDbSet
-                .Include(c => c.Breed)
-                .Include( a=> a.DogName)
-                .Include(s => s.Sex)
-                 .Where(b => b.AppUserId == userId)
+                .Where(b => b.AppUserId == userId)
                 .Select(c => new
                 {
                     Id = c.Id,
@@ -47,7 +59,7 @@ namespace DAL.App.EF.Repositories
             {
                 Id = c.Id,
                 DogName = c.DogName,
-                //Breed = c.Breed,
+               // Breed = c.Breed,
                 DateOfBirth = c.DateOfBirth,
                 DateOfDeath = c.DateOfDeath,
                 Owner = c.Owner,
@@ -74,6 +86,17 @@ namespace DAL.App.EF.Repositories
                     .Query()
                     .Where(t => t.Culture == culture)
                     .LoadAsync();
+                await RepositoryDbContext.Entry(dog)
+                    .Reference(c => c.Breed)
+                    .LoadAsync();
+                await RepositoryDbContext.Entry(dog.Breed)
+                    .Reference(c => c.BreedName)
+                    .LoadAsync();
+                await RepositoryDbContext.Entry(dog.Breed.BreedName)
+                    .Collection(b => b.Translations)
+                    .Query()
+                    .Where(t => t.Culture == culture)
+                    .LoadAsync();
             }
  
             return DogMapper.MapFromDomain(dog);
@@ -83,10 +106,8 @@ namespace DAL.App.EF.Repositories
         public override DTO.Dog Update(DTO.Dog entity)
         {
             var entityInDb = RepositoryDbSet
-                .Include(m => m.DogName)
                 .Include(m => m.Sex)
                 .ThenInclude(t => t.Translations)
-                .Include(a => a.Breed)
                 .FirstOrDefault(x => x.Id == entity.Id);
             
             entityInDb.Sex.SetTranslation(entity.Sex);
@@ -99,7 +120,9 @@ namespace DAL.App.EF.Repositories
             return await RepositoryDbSet
                 .Include(m => m.Sex)
                 .ThenInclude(t => t.Translations)
-                .Include(c => c.Registrations)
+                .Include(a => a.Breed)
+                .ThenInclude( a => a.BreedName)
+                .ThenInclude( t => t.Translations)
                 .Select(e => DogMapper.MapFromDomain(e)).ToListAsync();
         }
         

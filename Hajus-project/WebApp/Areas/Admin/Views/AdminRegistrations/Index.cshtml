@@ -27,6 +27,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Competition)
             </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Schooling)
+                        </th>
             <th>
                 @Html.DisplayNameFor(model => model.Show)
             </th>
@@ -51,6 +54,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Competition.Title)
             </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Schooling.SchoolingName)
+                        </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Show.Title)
             </td>

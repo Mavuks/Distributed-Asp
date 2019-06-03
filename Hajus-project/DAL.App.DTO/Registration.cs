@@ -21,5 +21,9 @@ namespace DAL.App.DTO
 
         public int? ShowId { get; set; }
         public Show Show { get; set; }
+
+        public int? SchoolingId { get; set; }
+
+        public Schooling Schooling { get; set; }
     }
 }

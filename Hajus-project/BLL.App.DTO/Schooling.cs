@@ -17,12 +17,6 @@ namespace BLL.App.DTO
         [DataType(DataType.Date)]
         [Required(ErrorMessageResourceName = "ErrorMessageRequired", ErrorMessageResourceType = typeof(Resources.Domain.Common))]
         public DateTime Start { get; set; }
-        
-        
-        [Display(Name = nameof(End), ResourceType = typeof(Resources.Domain.Schooling))]
-        [DataType(DataType.Date)]
-        [Required(ErrorMessageResourceName = "ErrorMessageRequired", ErrorMessageResourceType = typeof(Resources.Domain.Common))]
-        public DateTime End { get; set; }
 
 
         public int? MaterialId { get; set; }

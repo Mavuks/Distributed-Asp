@@ -29,8 +29,7 @@ namespace DAL.App.EF.Repositories
                 {
                     Id = c.Id,
                     Start = c.Start,
-                    End = c.End,
-                    
+
                     SchoolingName = c.SchoolingName,
                     Translations = c.SchoolingName.Translations,
                     
@@ -44,10 +43,9 @@ namespace DAL.App.EF.Repositories
                 SchoolingName = c.SchoolingName.Translate(),
                 
                 Start = c.Start,
-                End = c.End,
-                
-                
-                     
+
+
+
             }).ToList();
             return resultList;
         }
@@ -62,15 +60,25 @@ namespace DAL.App.EF.Repositories
             {
                 await RepositoryDbContext.Entry(schooling)
                     .Reference(c => c.SchoolingName)
-                    .LoadAsync();    
-                await RepositoryDbContext.Entry(schooling)
-                    .Reference(c => c.Material)
-                    .LoadAsync();
+                    .LoadAsync();  
                 await RepositoryDbContext.Entry(schooling.SchoolingName)
                     .Collection(b => b.Translations)
                     .Query()
                     .Where(t => t.Culture == culture)
                     .LoadAsync();
+                await RepositoryDbContext.Entry(schooling)
+                    .Reference(c => c.Material)
+                    .LoadAsync();
+                await RepositoryDbContext.Entry(schooling.Material)
+                    .Reference(c => c.MaterialName)
+                    .LoadAsync();
+                await RepositoryDbContext.Entry(schooling.Material.MaterialName)
+                    .Collection(b => b.Translations)
+                    .Query()
+                    .Where(t => t.Culture == culture)
+                    .LoadAsync();
+               
+               
             }
  
             return SchoolingMapper.MapFromDomain(schooling);
@@ -82,8 +90,7 @@ namespace DAL.App.EF.Repositories
             var entityInDb = RepositoryDbSet
                 .Include(a => a.Material)
                 .ThenInclude(a => a.MaterialName)
-                .Include( a=> a.Start)
-                .Include(a => a.End)
+                //.Include( a=> a.Start)
                 .Include(m => m.SchoolingName)
                 .ThenInclude(t => t.Translations)
                 .FirstOrDefault(x => x.Id == entity.Id);
@@ -98,6 +105,10 @@ namespace DAL.App.EF.Repositories
             return await RepositoryDbSet
                 .Include(m => m.SchoolingName)
                 .ThenInclude(t => t.Translations)
+                .Include(m => m.Material)
+                .ThenInclude( a=> a.MaterialName)
+                .ThenInclude(t => t.Translations)
+                
                 .Select(e => SchoolingMapper.MapFromDomain(e)).ToListAsync();
         }
     }    

@@ -41,6 +41,12 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Competition.Id)
         </dd >
+                <dt class = "col-sm-2">
+                    @Html.DisplayNameFor(model => model.Schooling)
+                </dt>
+                <dd class = "col-sm-10">
+                    @Html.DisplayFor(model => model.Schooling.Id)
+                </dd >
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Show)
         </dt>
@@ -52,6 +58,6 @@
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="@Resources.Views.Common.Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">@Resources.Views.Common.BackToList</a>
+        <a asp-action="Index">@Resources.Views.Common.AreYou</a>
     </form>
 </div>

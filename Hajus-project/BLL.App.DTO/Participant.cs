@@ -23,7 +23,7 @@ namespace BLL.App.DTO
         public string LastName { get; set; }
 
         
-        public ICollection<Registration> Registrations { get; set; }
+        //public List<Registration> Registrations { get; set; }
 
         
           

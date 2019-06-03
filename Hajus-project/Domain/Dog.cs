@@ -14,9 +14,6 @@ namespace Domain
         [Required]
         public string DogName { get; set; }
         
-        
-
-        
         [Display(Name = "Date of birth")]
         [DataType(DataType.Date)]
         [Required]
@@ -38,7 +35,7 @@ namespace Domain
         public AppUser AppUser { get; set; }
         
        
-        public ICollection<Registration> Registrations  { get; set; }
+        public List<Registration> Registrations  { get; set; }
 
 
         

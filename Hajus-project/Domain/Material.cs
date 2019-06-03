@@ -9,7 +9,7 @@ namespace Domain
         public MultiLangString MaterialName { get; set; }
 
 
-        public ICollection<Schooling> Schoolings { get; set; }
+        public List<Schooling> Schoolings { get; set; }
         
     }
 }

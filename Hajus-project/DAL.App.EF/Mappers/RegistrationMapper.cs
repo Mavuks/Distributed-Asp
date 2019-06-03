@@ -31,13 +31,15 @@ namespace DAL.App.EF.Mappers
                 Title = registration.Title.Translate(),
                 Comment = registration.Comment.Translate(),
                 DogId = registration.DogId,
-                Dog = DAL.App.EF.Mappers.DogMapper.MapFromDomain(registration.Dog),
+                Dog = DogMapper.MapFromDomain(registration.Dog),
                 ParticipantId = registration.ParticipantId,
                 Participant = DAL.App.EF.Mappers.ParticipantMapper.MapFromDomain(registration.Participant),
                 CompetitionId = registration.CompetitionId,
                 Competition = DAL.App.EF.Mappers.CompetitionMapper.MapFromDomain(registration.Competition),
                 ShowId = registration.ShowId,
-                Show = ShowMapper.MapFromDomain(registration.Show)
+                Show = DAL.App.EF.Mappers.ShowMapper.MapFromDomain(registration.Show),
+                SchoolingId = registration.SchoolingId,
+                Schooling = DAL.App.EF.Mappers.SchoolingMapper.MapFromDomain(registration.Schooling)
                 
                 
                 
@@ -60,7 +62,9 @@ namespace DAL.App.EF.Mappers
                 CompetitionId = registration.CompetitionId,
                 Competition = DAL.App.EF.Mappers.CompetitionMapper.MapFromDAL(registration.Competition),
                 ShowId = registration.ShowId,
-                Show = ShowMapper.MapFromDAL(registration.Show)
+                Show = DAL.App.EF.Mappers.ShowMapper.MapFromDAL(registration.Show),
+                SchoolingId = registration.SchoolingId,
+                Schooling = DAL.App.EF.Mappers.SchoolingMapper.MapFromDAL(registration.Schooling)
             };
             return res;
         }

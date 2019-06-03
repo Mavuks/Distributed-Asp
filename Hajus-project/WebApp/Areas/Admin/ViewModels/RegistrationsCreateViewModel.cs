@@ -1,8 +1,7 @@
-using System.Reflection.Metadata.Ecma335;
-using Domain;
+using System.IO;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace WebApp.ViewModels
+namespace WebApp.Areas.Admin.ViewModels
 {
     public class RegistrationsCreateViewModel
     {

@@ -19,6 +19,8 @@ namespace Domain.Identity
         [MinLength(1)]
         [Required]
         public string LastName { get; set; }
+
+        public ICollection<Dog> Dogs { get; set; }
         
         public string FirstLastName => FirstName + " " + LastName;
     }

@@ -31,7 +31,7 @@ namespace WebApp.ApiControllers.v1_0
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PublicApi.v1.DTO.Dog>>> GetDogs()
         {
-            return (await _bll.Dog.AllForUserAsync(User.GetUserId()))
+            return (await _bll.Dog.AllAsync())
                 .Select(e => PublicApi.v1.Mappers.DogMapper.MapFromInternal(e)).ToList();
         }
 

@@ -97,6 +97,15 @@ namespace Resources.Domain {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Schooling.
+        /// </summary>
+        public static string Schooling {
+            get {
+                return ResourceManager.GetString("Schooling", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show.
         /// </summary>
         public static string Show {

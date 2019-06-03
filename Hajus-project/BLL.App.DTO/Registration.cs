@@ -33,5 +33,10 @@ namespace BLL.App.DTO
         public int? ShowId { get; set; }
         [Display(Name = nameof(Show), ResourceType = typeof(Resources.Domain.Registration))]
         public Show Show { get; set; }
+        
+        public int? SchoolingId { get; set; }
+        
+        [Display(Name = nameof(Schooling), ResourceType = typeof(Resources.Domain.Registration))]
+        public Schooling Schooling { get; set; }
     }
 }

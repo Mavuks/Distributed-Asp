@@ -87,6 +87,12 @@ namespace DAL.App.EF.Repositories
                     .Query()
                     .Where(t => t.Culture == culture)
                     .LoadAsync();
+                await RepositoryDbContext.Entry(competition)
+                    .Reference(c => c.Location)
+                    .LoadAsync();
+                await RepositoryDbContext.Entry(competition.Location)
+                    .Reference(c => c.Locations)
+                    .LoadAsync();
             }
 
             return CompetitionMapper.MapFromDomain(competition);
@@ -96,11 +102,9 @@ namespace DAL.App.EF.Repositories
         {
             var entityInDb = RepositoryDbSet
                 .Include(m => m.Title)
-                .Include(a => a.Start)
-                
+                .ThenInclude(t => t.Translations)
                 .Include( n => n.Comment)
                 .ThenInclude(t => t.Translations)
-                .Include(a => a.Location)
                 .FirstOrDefault(x => x.Id == entity.Id);
             
             entityInDb.Title.SetTranslation(entity.Title);
@@ -113,8 +117,12 @@ namespace DAL.App.EF.Repositories
         {
             return await RepositoryDbSet
                 .Include(m => m.Title)
+                .ThenInclude(t => t.Translations)
                 .Include( n=> n.Comment)
                 .ThenInclude(t => t.Translations)
+                .Include( a=> a.Location)
+                .ThenInclude(t => t.Locations)
+                .ThenInclude( t => t.Translations)
                 .Select(e => CompetitionMapper.MapFromDomain(e)).ToListAsync();
         }
     }

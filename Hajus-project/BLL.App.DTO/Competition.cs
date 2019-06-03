@@ -33,7 +33,7 @@ namespace BLL.App.DTO
         [MinLength(2, ErrorMessageResourceName = "ErrorMessageMinLength", ErrorMessageResourceType = typeof(Resources.Domain.Common))]
         public Location Location { get; set; }
 
-        public List<Registration> Registrations { get; set; }
+      //  public List<Registration> Registrations { get; set; }
 
     }
 }

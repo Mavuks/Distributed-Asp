@@ -39,7 +39,7 @@ namespace WebApp.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var schooling = await _bll.Schooling.FindAsync(id);
+            var schooling = await _bll.Schooling.FindAsync(id.Value);
             if (schooling == null)
             {
                 return NotFound();
@@ -91,7 +91,7 @@ namespace WebApp.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var schooling = await _bll.Schooling.FindAsync(id);
+            var schooling = await _bll.Schooling.FindAsync(id.Value);
             if (schooling == null)
             {
                 return NotFound();

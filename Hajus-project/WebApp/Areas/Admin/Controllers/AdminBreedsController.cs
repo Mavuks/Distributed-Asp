@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace WebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class AdminBreedsController : Controller
     {
        

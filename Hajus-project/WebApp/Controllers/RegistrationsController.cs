@@ -29,7 +29,7 @@ namespace WebApp.Controllers
         public async Task<IActionResult> Index()
         {
          
-            return View(await _bll.Registration.AllForUserAsync(User.GetUserId()));
+            return View(await _bll.Registration.AllAsync());
         }
 
         // GET: Registrations/Details/5
@@ -40,7 +40,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var registration = await _bll.Registration.FindAsync(id);
+            var registration = await _bll.Registration.FindAsync(id.Value);
             if (registration == null)
             {
                 return NotFound();
@@ -58,7 +58,8 @@ namespace WebApp.Controllers
                 CompetitionSelectList = new SelectList(await _bll.Competition.AllAsync(), nameof( BLL.App.DTO.Competition.Id),nameof( BLL.App.DTO.Competition.Title)),
                 DogSelectList = new SelectList(await _bll.Dog.AllAsync(), nameof( BLL.App.DTO.Dog.Id), nameof( BLL.App.DTO.Dog.DogName)),
                 ParticipantSelectList = new SelectList(await _bll.Participant.AllAsync(), nameof( BLL.App.DTO.Participant.Id), nameof( BLL.App.DTO.Participant.FirstName)),
-                ShowSelectList = new SelectList(await _bll.Show.AllAsync(), nameof( BLL.App.DTO.Show.Id), nameof( BLL.App.DTO.Show.Title))
+                ShowSelectList = new SelectList(await _bll.Show.AllAsync(), nameof( BLL.App.DTO.Show.Id), nameof( BLL.App.DTO.Show.Title)),
+                SchoolingSelectList =  new SelectList(await _bll.Schooling.AllAsync(), nameof(BLL.App.DTO.Schooling.Id),  nameof(BLL.App.DTO.Schooling.SchoolingName))
             };
 
             return View(vm);
@@ -85,6 +86,8 @@ namespace WebApp.Controllers
             vm.ParticipantSelectList = new SelectList(await _bll.Participant.AllAsync(), nameof( BLL.App.DTO.Participant.Id),
                 nameof( BLL.App.DTO.Participant.FirstName), vm.Registration.ParticipantId);
             vm.ShowSelectList = new SelectList(await _bll.Show.AllAsync(), nameof( BLL.App.DTO.Show.Id), nameof( BLL.App.DTO.Show.Title), vm.Registration.ShowId);
+            vm.SchoolingSelectList = new SelectList(await _bll.Schooling.AllAsync(), nameof(BLL.App.DTO.Schooling.Id),
+                nameof(BLL.App.DTO.Schooling.SchoolingName), vm.Registration.SchoolingId);
 
             return View(vm);
         }
@@ -97,7 +100,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var registration = await _bll.Registration.FindAsync(id);
+            var registration = await _bll.Registration.FindAsync(id.Value);
             if (registration == null)
             {
                 return NotFound();
@@ -109,7 +112,8 @@ namespace WebApp.Controllers
                 CompetitionSelectList = new SelectList(await _bll.Competition.AllAsync(), nameof( BLL.App.DTO.Competition.Id),nameof( BLL.App.DTO.Competition.Title), registration.CompetitionId),
                 DogSelectList = new SelectList(await _bll.Dog.AllAsync(), nameof( BLL.App.DTO.Dog.Id), nameof( BLL.App.DTO.Dog.DogName), registration.DogId),
                 ParticipantSelectList = new SelectList(await _bll.Participant.AllAsync(), nameof( BLL.App.DTO.Participant.Id), nameof( BLL.App.DTO.Participant.FirstName), registration.ParticipantId),
-                ShowSelectList = new SelectList(await _bll.Show.AllAsync(), nameof( BLL.App.DTO.Show.Id), nameof( BLL.App.DTO.Show.Title), registration.ShowId)
+                ShowSelectList = new SelectList(await _bll.Show.AllAsync(), nameof( BLL.App.DTO.Show.Id), nameof( BLL.App.DTO.Show.Title), registration.ShowId),
+                SchoolingSelectList =  new SelectList(await _bll.Schooling.AllAsync(), nameof(BLL.App.DTO.Schooling.Id),  nameof(BLL.App.DTO.Schooling.SchoolingName))
             };
 
             return View(vm);
@@ -140,6 +144,8 @@ namespace WebApp.Controllers
             vm.ParticipantSelectList = new SelectList(await _bll.Participant.AllAsync(), nameof(Participant.Id),
                 nameof(Participant.FirstName), vm.Registration.ParticipantId);
             vm.ShowSelectList = new SelectList(await _bll.Show.AllAsync(), nameof(Show.Id), nameof(Show.Title), vm.Registration.ShowId);
+            vm.SchoolingSelectList = new SelectList(await _bll.Schooling.AllAsync(), nameof(BLL.App.DTO.Schooling.Id),
+                nameof(BLL.App.DTO.Schooling.SchoolingName), vm.Registration.SchoolingId);
 
             return View(vm);
         }

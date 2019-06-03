@@ -37,6 +37,11 @@
                 <select asp-for="Registration.CompetitionId" class="form-control" asp-items="Model.CompetitionSelectList"></select>
                 <span asp-validation-for="Registration.CompetitionId" class="text-danger"></span>
             </div>
+                        <div class="form-group">
+                            <label asp-for="Registration.SchoolingId" class="control-label"></label>
+                            <select asp-for="Registration.SchoolingId" class="form-control" asp-items="Model.SchoolingSelectList"></select>
+                            <span asp-validation-for="Registration.SchoolingId" class="text-danger"></span>
+                        </div>
             <div class="form-group">
                 <label asp-for="Registration.ShowId" class="control-label"></label>
                 <select asp-for="Registration.ShowId" class="form-control" asp-items="Model.ShowSelectList"></select>

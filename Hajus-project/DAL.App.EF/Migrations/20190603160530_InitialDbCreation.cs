@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DAL.App.EF.Migrations
 {
-    public partial class InitialAppUser : Migration
+    public partial class InitialDbCreation : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -377,7 +377,6 @@ namespace DAL.App.EF.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     SchoolingNameId = table.Column<int>(nullable: false),
                     Start = table.Column<DateTime>(nullable: false),
-                    End = table.Column<DateTime>(nullable: false),
                     MaterialId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -408,7 +407,8 @@ namespace DAL.App.EF.Migrations
                     DogId = table.Column<int>(nullable: false),
                     ParticipantId = table.Column<int>(nullable: false),
                     CompetitionId = table.Column<int>(nullable: true),
-                    ShowId = table.Column<int>(nullable: true)
+                    ShowId = table.Column<int>(nullable: true),
+                    SchoolingId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -435,6 +435,12 @@ namespace DAL.App.EF.Migrations
                         name: "FK_Registrations_Participants_ParticipantId",
                         column: x => x.ParticipantId,
                         principalTable: "Participants",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Registrations_Schoolings_SchoolingId",
+                        column: x => x.SchoolingId,
+                        principalTable: "Schoolings",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
@@ -554,6 +560,11 @@ namespace DAL.App.EF.Migrations
                 column: "ParticipantId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Registrations_SchoolingId",
+                table: "Registrations",
+                column: "SchoolingId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Registrations_ShowId",
                 table: "Registrations",
                 column: "ShowId");
@@ -615,9 +626,6 @@ namespace DAL.App.EF.Migrations
                 name: "Registrations");
 
             migrationBuilder.DropTable(
-                name: "Schoolings");
-
-            migrationBuilder.DropTable(
                 name: "Translations");
 
             migrationBuilder.DropTable(
@@ -633,16 +641,19 @@ namespace DAL.App.EF.Migrations
                 name: "Participants");
 
             migrationBuilder.DropTable(
-                name: "Shows");
+                name: "Schoolings");
 
             migrationBuilder.DropTable(
-                name: "Materials");
+                name: "Shows");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
                 name: "Breeds");
+
+            migrationBuilder.DropTable(
+                name: "Materials");
 
             migrationBuilder.DropTable(
                 name: "Locations");

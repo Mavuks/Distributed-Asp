@@ -63,7 +63,14 @@ namespace DAL.App.EF.Repositories
                 await RepositoryDbContext.Entry(show)
                     .Reference(c => c.Location)
                     .LoadAsync();
-                
+                await RepositoryDbContext.Entry(show.Location)
+                    .Reference(c => c.Locations)
+                    .LoadAsync();
+                await RepositoryDbContext.Entry(show.Location.Locations)
+                    .Collection(b => b.Translations)
+                    .Query()
+                    .Where(t => t.Culture == culture)
+                    .LoadAsync();
                 await RepositoryDbContext.Entry(show)
                     .Reference(c => c.Comment)
                     .LoadAsync();
@@ -86,10 +93,9 @@ namespace DAL.App.EF.Repositories
         public override DTO.Show Update(DTO.Show entity)
         {
             var entityInDb = RepositoryDbSet
-                .Include(m => m.Title)
-                .Include( a=> a.Start)
-                .Include( a => a.End)
                 .Include( a=> a.Location)
+                .Include(m => m.Title)
+                .ThenInclude(t => t.Translations)
                 .Include( n => n.Comment)
                 .ThenInclude(t => t.Translations)
                 .FirstOrDefault(x => x.Id == entity.Id);
@@ -105,7 +111,11 @@ namespace DAL.App.EF.Repositories
         {
             return await RepositoryDbSet
                 .Include(m => m.Title)
+                .ThenInclude(t => t.Translations)
                 .Include( n=> n.Comment)
+                .ThenInclude(t => t.Translations)
+                .Include( n=> n.Location)
+                .ThenInclude( a=> a.Locations)
                 .ThenInclude(t => t.Translations)
 
                 .Select(e => ShowMapper.MapFromDomain(e)).ToListAsync();

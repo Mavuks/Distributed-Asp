@@ -33,7 +33,7 @@ namespace WebApp.Controllers
         public async Task<IActionResult> Index()
         {
 
-            var dogs = await _bll.Dog.AllForUserAsync(User.GetUserId());
+            var dogs = await _bll.Dog.AllAsync();
             return View(dogs);
         }
 

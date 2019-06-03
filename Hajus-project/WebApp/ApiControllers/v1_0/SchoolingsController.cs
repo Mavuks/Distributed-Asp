@@ -31,7 +31,7 @@ namespace WebApp.ApiControllers.v1_0
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PublicApi.v1.DTO.Schooling>>> GetSchoolings()
         {
-            return (await _bll.Schooling.AllForUserAsync(User.GetUserId()))
+            return (await _bll.Schooling.AllAsync())
                 .Select(e => PublicApi.v1.Mappers.SchoolingMapper.MapFromInternal(e)).ToList();
         }
 

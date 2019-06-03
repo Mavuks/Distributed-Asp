@@ -29,7 +29,6 @@ namespace DAL.App.EF.Mappers
                 Id = schooling.Id,
                 SchoolingName = schooling.SchoolingName.Translate(),
                 Start = schooling.Start,
-                End = schooling.End,
                 MaterialId = schooling.MaterialId,
                 Material = DAL.App.EF.Mappers.MaterialMapper.MapFromDomain(schooling.Material)
                 
@@ -45,7 +44,6 @@ namespace DAL.App.EF.Mappers
                 Id = schooling.Id,
                 SchoolingName = new internalDTO.MultiLangString(schooling.SchoolingName),
                 Start = schooling.Start,
-                End = schooling.End,
                 MaterialId = schooling.MaterialId,
                 Material = DAL.App.EF.Mappers.MaterialMapper.MapFromDAL(schooling.Material)
                 

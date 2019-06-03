@@ -40,7 +40,7 @@ namespace WebApp.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var show = await _bll.Show.FindAsync(id.Value);
+            var show = await _bll.Show.FindAsync(id);
             if (show == null)
             {
                 return NotFound();
@@ -97,7 +97,7 @@ namespace WebApp.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var show = await _bll.Show.FindAsync(id.Value);
+            var show = await _bll.Show.FindAsync(id);
             if (show == null)
             {
                 return NotFound();

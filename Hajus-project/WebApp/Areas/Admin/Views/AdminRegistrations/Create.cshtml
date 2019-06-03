@@ -24,19 +24,33 @@
             </div>
             <div class="form-group">
                 <label asp-for="Registration.DogId" class="control-label"></label>
-                <select asp-for="Registration.DogId" class ="form-control" asp-items="Model.DogSelectList"></select>
+                <select asp-for="Registration.DogId" class="form-control" asp-items="Model.DogSelectList">
+                    <option value="">Valige</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Registration.ParticipantId" class="control-label"></label>
-                <select asp-for="Registration.ParticipantId" class ="form-control" asp-items="Model.ParticipantSelectList"></select>
+                <select asp-for="Registration.ParticipantId" class="form-control" asp-items="Model.ParticipantSelectList">
+                    <option value="">Valige</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Registration.CompetitionId" class="control-label"></label>
-                <select asp-for="Registration.CompetitionId" class ="form-control" asp-items="Model.CompetitionSelectList"></select>
+                <select asp-for="Registration.CompetitionId" class="form-control" asp-items="Model.CompetitionSelectList">
+                    <option value="">Valige</option>
+                </select>
             </div>
+                        <div class="form-group">
+                            <label asp-for="Registration.SchoolingId" class="control-label"></label>
+                            <select asp-for="Registration.SchoolingId" class="form-control" asp-items="Model.SchoolingSelectList">
+                                <option value="">Valige</option>
+                            </select>
+                        </div>
             <div class="form-group">
                 <label asp-for="Registration.ShowId" class="control-label"></label>
-                <select asp-for="Registration.ShowId" class ="form-control" asp-items="Model.ShowSelectList"></select>
+                <select asp-for="Registration.ShowId" class="form-control" asp-items="Model.ShowSelectList">
+                    <option value="">Valige</option>
+                </select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

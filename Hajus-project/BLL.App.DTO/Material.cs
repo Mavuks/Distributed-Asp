@@ -15,7 +15,7 @@ namespace BLL.App.DTO
         public string MaterialName { get; set; }
 
 
-        public List<Schooling> Schoolings { get; set; }
+       // public List<Schooling> Schoolings { get; set; }
         
     }
 }

@@ -35,7 +35,9 @@ namespace PublicApi.v1.Mappers
                 CompetitionId = registration.CompetitionId,
                 Competition = CompetitionMapper.MapFromInternal(registration.Competition),
                 ShowId = registration.ShowId,
-                Show = ShowMapper.MapFromInternal(registration.Show)
+                Show = ShowMapper.MapFromInternal(registration.Show),
+                SchoolingId = registration.SchoolingId,
+                Schooling = SchoolingMapper.MapFromInternal(registration.Schooling)
                 
                 
                 
@@ -58,7 +60,10 @@ namespace PublicApi.v1.Mappers
                 CompetitionId = registration.CompetitionId,
                 Competition = CompetitionMapper.MapFromExternal(registration.Competition),
                 ShowId = registration.ShowId,
-                Show = ShowMapper.MapFromExternal(registration.Show)
+                Show = ShowMapper.MapFromExternal(registration.Show),
+                SchoolingId = registration.SchoolingId,
+                Schooling = SchoolingMapper.MapFromExternal(registration.Schooling)
+                
             };
             return res;
         }

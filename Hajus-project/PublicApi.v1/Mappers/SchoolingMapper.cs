@@ -28,7 +28,6 @@ namespace PublicApi.v1.Mappers
                 Id = schooling.Id,
                 SchoolingName = schooling.SchoolingName,
                 Start = schooling.Start,
-                End = schooling.End,
                 MaterialId = schooling.MaterialId,
                 Material = MaterialMapper.MapFromInternal(schooling.Material)
                 
@@ -44,7 +43,6 @@ namespace PublicApi.v1.Mappers
                 Id = schooling.Id,
                 SchoolingName = schooling.SchoolingName,
                 Start = schooling.Start,
-                End = schooling.End,
                 MaterialId = schooling.MaterialId,
                 Material = MaterialMapper.MapFromExternal(schooling.Material)
                 

@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.App.EF.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20190521120553_Changes")]
-    partial class Changes
+    [Migration("20190603160530_InitialDbCreation")]
+    partial class InitialDbCreation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -244,6 +244,8 @@ namespace DAL.App.EF.Migrations
 
                     b.Property<int>("ParticipantId");
 
+                    b.Property<int?>("SchoolingId");
+
                     b.Property<int?>("ShowId");
 
                     b.Property<int?>("TitleId");
@@ -258,6 +260,8 @@ namespace DAL.App.EF.Migrations
 
                     b.HasIndex("ParticipantId");
 
+                    b.HasIndex("SchoolingId");
+
                     b.HasIndex("ShowId");
 
                     b.HasIndex("TitleId");
@@ -269,8 +273,6 @@ namespace DAL.App.EF.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("End");
 
                     b.Property<int?>("MaterialId");
 
@@ -443,7 +445,7 @@ namespace DAL.App.EF.Migrations
             modelBuilder.Entity("Domain.Dog", b =>
                 {
                     b.HasOne("Domain.Identity.AppUser", "AppUser")
-                        .WithMany()
+                        .WithMany("Dogs")
                         .HasForeignKey("AppUserId")
                         .OnDelete(DeleteBehavior.Restrict);
 
@@ -494,6 +496,11 @@ namespace DAL.App.EF.Migrations
                     b.HasOne("Domain.Participant", "Participant")
                         .WithMany("Registrations")
                         .HasForeignKey("ParticipantId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Domain.Schooling", "Schooling")
+                        .WithMany("Registrations")
+                        .HasForeignKey("SchoolingId")
                         .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("Domain.Show", "Show")

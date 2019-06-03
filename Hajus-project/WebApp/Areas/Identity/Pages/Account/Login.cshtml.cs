@@ -77,6 +77,10 @@ namespace WebApp.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: true);
                 if (result.Succeeded)
                 {
+                    if (Input.Email == "admin@admin.ee")
+                    {
+                        return LocalRedirect(returnUrl + "admin");
+                    }
                     _logger.LogInformation("User logged in.");
                     return LocalRedirect(returnUrl);
                 }
