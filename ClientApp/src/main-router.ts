@@ -16,11 +16,14 @@ export class MainRouter {
   configureRouter(config: RouterConfiguration, router: Router):void {
     log.debug('configureRouter');
     
+    
     this.router = router;
-    config.title = "Contact App - Aurelia";
+    config.title = "Ringokris Goldens";
     config.map(
       [
         {route: ['', 'home'], name: 'home', moduleId: PLATFORM.moduleName('home'), nav: true, title: 'Home'},
+        {route: ['News', 'news'], name: 'news', moduleId: PLATFORM.moduleName('news'), nav: true, title: 'News'},
+        {route: ['Puppy', 'puppy'], name: 'puppy', moduleId: PLATFORM.moduleName('puppy'), nav: true, title: 'puppy'},
 
         {route: 'identity/login', name: 'identity' + 'Login', moduleId: PLATFORM.moduleName('identity/login'), nav: false, title: 'Login'},
         {route: 'identity/register', name: 'identity' + 'Register', moduleId: PLATFORM.moduleName('identity/register'), nav: false, title: 'Register'},
@@ -44,6 +47,9 @@ export class MainRouter {
         {route: 'participants/edit/:id', name: 'participants' + 'Edit', moduleId: PLATFORM.moduleName('participants/edit'), nav: false, title: 'Participants Edit'},
         {route: 'participants/delete/:id', name: 'participants' + 'Delete', moduleId: PLATFORM.moduleName('participants/delete'), nav: false, title: 'Participants Delete'},
         {route: 'participants/details/:id', name: 'participants' + 'Details', moduleId: PLATFORM.moduleName('participants/details'), nav: false, title: 'Participants Details'},
+
+
+        {route: ['shows','shows/index'], name: 'shows' + 'Index', moduleId: PLATFORM.moduleName('shows/index'), nav: true, title: 'Shows'},
       ]
     );
     // {route: 'identity/login', name: 'identity' + 'Login', moduleId: PLATFORM.moduleName('identity/login'), nav: false, title: 'Login'},

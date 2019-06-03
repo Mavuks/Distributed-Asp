@@ -1,0 +1,63 @@
+<template>
+
+  <h1>Show - Index</h1>
+
+<!--  <p>-->
+<!--    <a route-href="route: materialsCreate">Material - Create New</a>-->
+<!--  </p>-->
+  <table class="table">
+    <thead>
+    <tr>
+      <th>
+         Title
+      </th>
+      <th>
+        Comment
+      </th>
+      <th>
+        Start
+      </th>
+      <th>
+        End
+      </th>
+      <th>
+        Location
+      </th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- repeat this tr element, iterate over materials -->
+    <tr repeat.for="shows of show">
+      <td>
+        <!-- string interpolation -->
+        ${shows.title}
+      </td>
+      <td>
+        <!-- string interpolation -->
+        ${shows.comment}
+      </td>
+      <td>
+        <!-- string interpolation -->
+        ${shows.start}
+      </td>
+      <td>
+        <!-- string interpolation -->
+        ${shows.end}
+      </td>
+      <td>
+        <!-- string interpolation -->
+        ${shows.location.locations}
+      </td>
+<!--      <td>-->
+<!--        &lt;!&ndash; gdenerate links, based on routing table defined in main-router &ndash;&gt;-->
+<!--        <a route-href="route: materialsEdit; params.bind: {id: materials.id}">Edit</a> |-->
+<!--        <a route-href="route: materialsDetails; params.bind: {id: materials.id}">Details</a> |-->
+<!--        <a route-href="route: materialsDelete; params.bind: {id: materials.id}">Delete</a>-->
+<!--      </td>-->
+    </tr>
+
+    </tbody>
+  </table>
+  
+</template>

@@ -23,11 +23,14 @@
                     <a class="nav-link text-dark" route-href="route: identityLogout">Logout</a>
                 </li>
             </ul>
+          
 
 
-          <ul class="navbar-nav flex-grow-1">
+          <ul class="navbar-nav flex-xl-grow-1">
             <li class="nav-item"  show.bind="appConfig.jwt == null">
-              <a class="nav-link text-dark" route-href="route: home" >Home </a>
+              <a class="nav-item text-dark" route-href="route: home" >Home </a>
+              <a class="nav-item text-dark" route-href="route: news" >News </a>
+              <a class="nav-item text-dark" route-href="route: puppy" >Puppies </a>
             </li>
             <!--<li class="nav-item" repeat.for="nav of router.navigation" show.bind="appConfig.jwt != null">-->
               <!--<a class="nav-link text-dark" href.bind="nav.href">${nav.title}</a>-->

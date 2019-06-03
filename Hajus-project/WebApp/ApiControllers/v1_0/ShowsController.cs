@@ -30,7 +30,7 @@ namespace WebApp.ApiControllers.v1_0
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PublicApi.v1.DTO.Show>>> GetShows()
         {
-            return (await _bll.Show.AllForUserAsync(User.GetUserId()))
+            return (await _bll.Show.AllAsync())
                 .Select(e => PublicApi.v1.Mappers.ShowMapper.MapFromInternal(e)).ToList();
         }
         

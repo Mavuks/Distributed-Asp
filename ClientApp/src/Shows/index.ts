@@ -1,23 +1,19 @@
-import { IdentityService } from '../services/identity-service';
 import {LogManager, View, autoinject} from "aurelia-framework";
-import {RouteConfig, NavigationInstruction, Router} from "aurelia-router";
-import { AppConfig } from 'app-config';
+import {RouteConfig, NavigationInstruction} from "aurelia-router";
+import {IShow} from "../interfaces/IShow";
+import {ShowService} from "../services/show-service";
 
-export var log = LogManager.getLogger('Identity.Login');
+export var log = LogManager.getLogger('Show.Index');
 
 // automatically inject dependencies declared as private constructor parameters
 // will be accessible as this.<variablename> in class
 @autoinject
-export class Login {
+export class Index {
 
-  // TODO: Remove fixed username and password
-  private email: string = "a@a.ee";
-  private password: string = "Password";
+  private show: IShow[] = [];
 
   constructor(
-    private identityService: IdentityService,
-    private appConfig: AppConfig,
-    private router: Router
+    private showsService: ShowService
   ) {
     log.debug('constructor');
   }
@@ -33,6 +29,12 @@ export class Login {
 
   attached() {
     log.debug('attached');
+    this.showsService.fetchAll().then(
+      jsonData => {
+        log.debug('jsonData', jsonData);
+        this.show = jsonData;
+      }
+    );
   }
 
   detached() {
@@ -58,18 +60,5 @@ export class Login {
 
   deactivate() {
     log.debug('deactivate');
-  }
-
-  // ==================== View methods ================
-  submit():void{
-    log.debug("submit", this.email, this.password);
-    this.identityService.login(this.email, this.password)
-    .then(jwtDTO => {
-      if (jwtDTO.token !== undefined){
-        log.debug("submit token", jwtDTO);
-        this.appConfig.jwt = jwtDTO.token;
-        this.router.navigateToRoute('home');
-      }
-    });
   }
 }
