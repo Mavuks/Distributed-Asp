@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using Contracts.BLL.App;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using WebApp.Areas.Admin.ViewModels;
 
 namespace WebApp.Areas.Admin.Controllers
 {
@@ -39,7 +40,11 @@ namespace WebApp.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            return View(breed);
+            var vm = new DogBreedDetailsViewModel();
+            vm.Breed = breed;
+            vm.Breed.Dogs = await _bll.Dog.AllForBreedAsync(id);
+
+            return View(vm);
         }
 
         // GET: Breeds/Create

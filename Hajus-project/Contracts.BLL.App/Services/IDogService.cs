@@ -8,5 +8,7 @@ namespace Contracts.BLL.App.Services
 {
     public interface IDogService : IBaseEntityService<BLLAppDTO.Dog>, IDogRepository<BLLAppDTO.Dog>
     {
+
+        Task<List<BLLAppDTO.Dog>> AllForBreedAsync(int breedId);
     }
 }

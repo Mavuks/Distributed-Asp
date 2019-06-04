@@ -10,6 +10,7 @@ using Domain;
 using ee.itcollege.mavuks.DAL.Base.EF.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Breed = DAL.App.DTO.Breed;
+using Dog = DAL.App.DTO.Dog;
 using DogMapper = DAL.App.EF.Mappers.DogMapper;
 
 namespace DAL.App.EF.Repositories
@@ -87,6 +88,15 @@ namespace DAL.App.EF.Repositories
 //                     
 //            }).ToList();
             return resultList;
+        }
+
+        public async Task<List<Dog>> AllForBreedAsync(int breedId)
+        {
+            return await RepositoryDbSet
+                .Include(a => a.Breed)
+                .Where(a => a.BreedId == breedId)
+                .Select(e => DogMapper.MapFromDomain(e))
+                .ToListAsync();
         }
 
 

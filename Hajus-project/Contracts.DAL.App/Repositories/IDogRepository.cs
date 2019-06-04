@@ -11,6 +11,7 @@ namespace Contracts.DAL.App.Repositories
        
 //        Task<Dog> FindForUserAsync(int id, int userId);
 //        Task<bool> BelongsToUserAsync(int id, int userId);
+        Task<List<DALAppDTO.Dog>> AllForBreedAsync(int breedId);
 
     }
 

@@ -8,6 +8,7 @@ using Contracts.DAL.App;
 using Contracts.DAL.App.Repositories;
 using Domain;
 using ee.itcollege.mavuks.BLL.Base.Services;
+using Dog = BLL.App.DTO.Dog;
 
 namespace BLL.App.Services
 {
@@ -21,6 +22,12 @@ namespace BLL.App.Services
         public async Task<List<BLL.App.DTO.Dog>> AllForUserAsync(int userId)
         {
             return (await Uow.Dog.AllForUserAsync(userId)).Select(e => DogMapper.MapFromInternal(e)).ToList();
+        }
+
+        public async Task<List<Dog>> AllForBreedAsync(int breedId)
+        {
+            return (await Uow.Dog.AllForBreedAsync(breedId))
+                .Select(e => DogMapper.MapFromInternal(e)).ToList();
         }
 //
 //        public async Task<Dog> FindForUserAsync(int id, int userId)
