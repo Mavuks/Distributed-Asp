@@ -1,4 +1,5 @@
-using DAL.App.DTO;
+
+using BLL.App.DTO;
 
 namespace WebApp.Areas.Admin.ViewModels
 {

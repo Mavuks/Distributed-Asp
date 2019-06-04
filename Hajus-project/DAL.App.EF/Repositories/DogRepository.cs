@@ -90,7 +90,7 @@ namespace DAL.App.EF.Repositories
             return resultList;
         }
 
-        public async Task<List<Dog>> AllForBreedAsync(int breedId)
+        public async Task<List<DAL.App.DTO.Dog>> AllForBreedAsync(int breedId)
         {
             return await RepositoryDbSet
                 .Include(a => a.Breed)

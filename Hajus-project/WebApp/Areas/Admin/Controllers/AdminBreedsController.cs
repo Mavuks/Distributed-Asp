@@ -42,7 +42,7 @@ namespace WebApp.Areas.Admin.Controllers
 
             var vm = new DogBreedDetailsViewModel();
             vm.Breed = breed;
-            vm.Breed.Dogs = await _bll.Dog.AllForBreedAsync(id);
+            vm.Breed.Dogs = await _bll.Dog.AllForBreedAsync(id.Value);
 
             return View(vm);
         }

@@ -1,4 +1,4 @@
-@model BLL.App.DTO.Breed
+@model WebApp.Areas.Admin.ViewModels.DogBreedDetailsViewModel
 
 @{
     ViewData["Title"] = "Details";
@@ -11,14 +11,32 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BreedName)
+            @Html.DisplayNameFor(model => model.Breed)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BreedName)
+            @Html.DisplayFor(model => model.Breed.BreedName)
         </dd>
+        
+         <dt class="col-sm-2">
+                @Resources.Domain.Dog.DogName
+         </dt>
+        <dd class="col-sm-10">
+                 <ul> 
+                     @foreach (var dog in Model.Breed.Dogs) 
+                     {
+                          <li>
+                              <a asp-action="Details"
+                                 asp-controller="AdminDogs" asp-route-id="@dog.DogName">
+                                  @dog.DogName
+                              </a>
+                          </li>
+                     }
+                 </ul>
+             </dd>
+        
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">@Resources.Views.Common.Edit</a> |
-    <a asp-action="Index">@Resources.Views.Common.BackToList</a>
-</div>
+@* <div> *@
+@*     <a asp-action="Edit" asp-route-id="@Model.Id">@Resources.Views.Common.Edit</a> | *@
+@*     <a asp-action="Index">@Resources.Views.Common.BackToList</a> *@
+@* </div> *@
