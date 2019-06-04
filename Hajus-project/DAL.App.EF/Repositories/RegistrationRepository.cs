@@ -23,43 +23,60 @@ namespace DAL.App.EF.Repositories
         {
             
             var culture = Thread.CurrentThread.CurrentUICulture.Name.Substring(0, 2).ToLower();
-            
-            
-            var res = await  RepositoryDbSet
-                .Include( a=> a.Title)
-                .Include( a=> a.Comment)
-                .Include( a=> a.Dog)
-                .ThenInclude( a=> a.DogName)
-                .Select(c => new
-                {
-                    Id = c.Id,
-                    title = c.Title,
-                    comment = c.Comment,
-                    
-                    
-                    //Dog = c.Dog,
-                    Translations = c.Comment.Translations,
-                    Translations2 = c.Title.Translations,
-                    Participant = c.Participant
 
-                })
+
+            var res = await RepositoryDbSet
+                .Include(a => a.Title)
+                .ThenInclude(a => a.Translations)
+                .Include(a => a.Comment)
+                .ThenInclude(a => a.Translations)
+                //.Include(a => a.Dog)
+                .Include(a => a.Participant)
+                .Include(a => a.Schooling)
+                .ThenInclude(a => a.SchoolingName)
+                .ThenInclude(a => a.Translations)
+                .Include(a => a.Show)
+                .ThenInclude(a => a.Title)
+                .ThenInclude(a => a.Translations)
+                .Include(a => a.Competition)
+                .ThenInclude(a => a.Title)
+                .ThenInclude(a => a.Translations)
+                .Include(a => a.Schooling)
+                .ThenInclude(a => a.SchoolingName)
+                .ThenInclude(a => a.Translations)
+                .Select(e => RegistrationMapper.MapFromDomain(e))
                 .ToListAsync();
-                
-                var resultList = res.Select(c => new  DTO.Registration()
-                {
-                Id = c.Id,
-                //Dog = c.Dog,
-                Title = c.title.Translate(),
-                Comment = c.comment.Translate(),
-               // Participant = c.Participant
-                
-               
-//                Participant = c.Participant,
-//                Dog = c.Dog
-                
-                     
-                }).ToList();
-               return resultList;
+//                .Select(c => new
+//                {
+//                    Id = c.Id,
+//                    title = c.Title,
+//                    comment = c.Comment,
+//                    
+//                    
+//                    //Dog = c.Dog,
+//                    Translations = c.Comment.Translations,
+//                    Translations2 = c.Title.Translations,
+//                    Participant = c.Participant
+//
+//                })
+//                .ToListAsync();
+//                
+//                var resultList = res.Select(c => new  DTO.Registration()
+//                {
+//                Id = c.Id,
+//                //Dog = c.Dog,
+//                Title = c.title.Translate(),
+//                Comment = c.comment.Translate(),
+//               // Participant = c.Participant
+//                
+//               
+////                Participant = c.Participant,
+////                Dog = c.Dog
+//                
+//                     
+//                }).ToList();
+               //return resultList;
+               return res;
         }
         
         public override async Task<DTO.Registration> FindAsync(params object[] id)

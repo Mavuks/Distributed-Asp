@@ -31,7 +31,10 @@ namespace BLL.App.Mappers
                 SchoolingName = schooling.SchoolingName,
                 Start = schooling.Start,
                 MaterialId = schooling.MaterialId,
-                Material = MaterialMapper.MapFromInternal(schooling.Material)
+                Material = MaterialMapper.MapFromInternal(schooling.Material),
+                LocationId = schooling.LocationId,
+                Location = LocationMapper.MapFromInternal(schooling.Location)
+                
                 
             };
 
@@ -46,7 +49,9 @@ namespace BLL.App.Mappers
                 SchoolingName = schooling.SchoolingName,
                 Start = schooling.Start,
                 MaterialId = schooling.MaterialId,
-                Material = MaterialMapper.MapFromExternal(schooling.Material)
+                Material = MaterialMapper.MapFromExternal(schooling.Material),
+                LocationId = schooling.LocationId,
+                Location = LocationMapper.MapFromExternal(schooling.Location)
                 
                 
             };

@@ -5,10 +5,10 @@ import {AppConfig} from "../app-config";
 import {ICompetition} from "../interfaces/ICompetition";
 
 
-export var log = LogManager.getLogger('CompetitionsService');
+export var log = LogManager.getLogger('CompetitionService');
 
 @autoinject
-export class CompetitionsService extends BaseService<ICompetition> {
+export class CompetitionService extends BaseService<ICompetition> {
 
   constructor(
     private httpClient: HttpClient,

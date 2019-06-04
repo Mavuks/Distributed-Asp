@@ -19,7 +19,7 @@ namespace Contracts.DAL.App.Repositories
      public interface IParticipantRepository<TDALEntity> : IBaseRepository<TDALEntity>
          where TDALEntity : class, new()
      {
-
+         Task<List<TDALEntity>> AllForUserAsync(int userId);
      }
 
 

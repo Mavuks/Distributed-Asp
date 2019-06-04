@@ -114,7 +114,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var participant = await _bll.Participant.FindAsync(id);
+            var participant = await _bll.Participant.FindAsync(id.Value);
             if (participant == null)
             {
                 return NotFound();
@@ -128,8 +128,8 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var participant = await _bll.Participant.FindAsync(id);
-            _bll.Participant.Remove(participant);
+            
+            _bll.Participant.Remove(id);
             await _bll.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

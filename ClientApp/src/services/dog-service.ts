@@ -4,10 +4,10 @@ import {IDog} from "../interfaces/IDog";
 import {BaseService} from "./base-service";
 import {AppConfig} from "../app-config";
 
-export var log = LogManager.getLogger('BreedsService');
+export var log = LogManager.getLogger('DogsService');
 
 @autoinject
-export class BreedsService extends BaseService<IDog> {
+export class DogsService extends BaseService<IDog> {
 
   constructor(
     private httpClient: HttpClient,

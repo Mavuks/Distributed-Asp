@@ -4,6 +4,6 @@ import {IShow} from "./IShow";
 
 export interface ILocation extends IBaseEntity{
   locations: string;
-  competitions: ICompetition[],
+  competition: ICompetition[],
   show: IShow[],
 }

@@ -272,6 +272,8 @@ namespace DAL.App.EF.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int>("LocationId");
+
                     b.Property<int?>("MaterialId");
 
                     b.Property<int>("SchoolingNameId");
@@ -279,6 +281,8 @@ namespace DAL.App.EF.Migrations
                     b.Property<DateTime>("Start");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("LocationId");
 
                     b.HasIndex("MaterialId");
 
@@ -514,6 +518,11 @@ namespace DAL.App.EF.Migrations
 
             modelBuilder.Entity("Domain.Schooling", b =>
                 {
+                    b.HasOne("Domain.Location", "Location")
+                        .WithMany("Schoolings")
+                        .HasForeignKey("LocationId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.HasOne("Domain.Material", "Material")
                         .WithMany("Schoolings")
                         .HasForeignKey("MaterialId")

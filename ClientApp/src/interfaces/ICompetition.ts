@@ -1,5 +1,4 @@
 import {IBaseEntity} from "./IBaseEntity";
-import {IBreed} from "./IBreed";
 import {ILocation} from "./ILocation";
 import {IRegistration} from "./IRegistration";
 
@@ -10,5 +9,5 @@ export interface ICompetition extends IBaseEntity{
   end: Date,
   locationId: number,
   location: ILocation,
-  registration: IRegistration
+  registration: IRegistration[]
 }

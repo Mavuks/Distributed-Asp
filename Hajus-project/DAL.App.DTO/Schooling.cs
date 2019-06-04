@@ -26,6 +26,10 @@ namespace DAL.App.DTO
 
         public Material Material { get; set; }
 
+        public int LocationId { get; set; }
+
+        public Location Location { get; set; }
+
 
     }
 }

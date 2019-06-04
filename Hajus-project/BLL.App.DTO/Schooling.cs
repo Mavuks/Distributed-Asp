@@ -20,8 +20,14 @@ namespace BLL.App.DTO
 
 
         public int? MaterialId { get; set; }
-
+        [Display(Name = nameof(Material), ResourceType = typeof(Resources.Domain.Schooling))]
         public Material Material { get; set; }
+
+        public int LocationId { get; set; }
+
+        [Display(Name = nameof(Location), ResourceType = typeof(Resources.Domain.Competition))]
+        [MinLength(2, ErrorMessageResourceName = "ErrorMessageMinLength", ErrorMessageResourceType = typeof(Resources.Domain.Common))]
+        public Location Location { get; set; }
 
 
     }

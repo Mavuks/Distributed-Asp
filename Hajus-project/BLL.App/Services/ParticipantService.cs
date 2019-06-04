@@ -16,6 +16,12 @@ namespace BLL.App.Services
         {
             ServiceRepository = Uow.Participant;
         }
+        
+        public async Task<List<BLL.App.DTO.Participant>> AllForUserAsync(int userId)
+        {
+            return (await Uow.Participant.AllForUserAsync(userId)).Select(e => ParticipantMapper.MapFromInternal(e)).ToList();
+        }
+//
 
         public async Task<List<BLL.App.DTO.ParticipantNames>>  GetAllParticipantAsync()
         {

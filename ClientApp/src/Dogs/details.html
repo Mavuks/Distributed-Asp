@@ -1,0 +1,53 @@
+<template>
+
+  <h1>Details</h1>
+
+  <div>
+    <h4>Dog</h4>
+    <hr />
+    <dl class="row">
+      <dt class = "col-sm-2">
+        Dog Name
+      </dt>
+      <dd class = "col-sm-10">
+        ${dog.dogName}
+      </dd>
+      <dt class = "col-sm-2">
+        Date Of Birth
+      </dt>
+      <dd class = "col-sm-10">
+        ${dog.dateOfBirth}
+      </dd>
+      <dt class = "col-sm-2">
+        Date of Death
+      </dt>
+      <dd class = "col-sm-10">
+        ${dog.dateOfDeath}
+      </dd>
+      <dt class = "col-sm-2">
+        sex
+      </dt>
+      <dd class = "col-sm-10">
+        ${dog.sex}
+      </dd>
+      <dt class = "col-sm-2">
+        Breed Name
+      </dt>
+      <dd class = "col-sm-10">
+        ${dog.breed.breedName}
+      </dd>
+      <dt class = "col-sm-2">
+        owner
+      </dt>
+      <dd class = "col-sm-10">
+        ${dog.owner}
+      </dd>
+    </dl>
+  </div>
+  <div>
+    <!-- if.bind - add/remove element to dom based on predicate -->
+    <a if.bind="dog != null" route-href="route: dogsEdit; params.bind: {id: dog.id}">Edit</a> |
+    <a route-href="route: dogsIndex">Back to List</a>
+  </div>
+
+</template>

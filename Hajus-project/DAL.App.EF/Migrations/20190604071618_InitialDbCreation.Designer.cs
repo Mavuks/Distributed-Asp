@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.App.EF.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20190603160530_InitialDbCreation")]
+    [Migration("20190604071618_InitialDbCreation")]
     partial class InitialDbCreation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -274,6 +274,8 @@ namespace DAL.App.EF.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int>("LocationId");
+
                     b.Property<int?>("MaterialId");
 
                     b.Property<int>("SchoolingNameId");
@@ -281,6 +283,8 @@ namespace DAL.App.EF.Migrations
                     b.Property<DateTime>("Start");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("LocationId");
 
                     b.HasIndex("MaterialId");
 
@@ -516,6 +520,11 @@ namespace DAL.App.EF.Migrations
 
             modelBuilder.Entity("Domain.Schooling", b =>
                 {
+                    b.HasOne("Domain.Location", "Location")
+                        .WithMany("Schoolings")
+                        .HasForeignKey("LocationId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.HasOne("Domain.Material", "Material")
                         .WithMany("Schoolings")
                         .HasForeignKey("MaterialId")

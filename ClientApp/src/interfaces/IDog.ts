@@ -1,5 +1,4 @@
 import {IBaseEntity} from "./IBaseEntity";
-import DateTimeFormat = Intl.DateTimeFormat;
 import {IBreed} from "./IBreed";
 import {IAppUser} from "./IAppUser";
 import {IRegistration} from "./IRegistration";

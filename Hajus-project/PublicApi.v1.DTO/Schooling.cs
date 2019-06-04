@@ -23,6 +23,10 @@ namespace PublicApi.v1.DTO
 
         public Material Material { get; set; }
 
+        public int LocationId { get; set; }
+
+        public Location Location { get; set; }
+
 
     }
 }

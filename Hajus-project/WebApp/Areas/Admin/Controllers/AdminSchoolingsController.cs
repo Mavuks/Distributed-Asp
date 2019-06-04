@@ -55,7 +55,8 @@ namespace WebApp.Areas.Admin.Controllers
             var vm = new SchoolingCreateViewModel()
             {
               
-                MaterialSelectList = new SelectList(await _bll.Material.AllAsync(),nameof( BLL.App.DTO.Material.Id), nameof( BLL.App.DTO.Material.MaterialName) )
+                MaterialSelectList = new SelectList(await _bll.Material.AllAsync(),nameof( BLL.App.DTO.Material.Id), nameof( BLL.App.DTO.Material.MaterialName) ),
+                LocationSelectList = new SelectList(await _bll.Location.AllAsync(), nameof(BLL.App.DTO.Location.Id), nameof(BLL.App.DTO.Location.Locations))
 
             };
 
@@ -79,6 +80,8 @@ namespace WebApp.Areas.Admin.Controllers
            
             vm.MaterialSelectList = new SelectList(await _bll.Material.AllAsync(), nameof( BLL.App.DTO.Material.Id),
                 nameof( BLL.App.DTO.Material.MaterialName), vm.Schooling.MaterialId);
+            vm.LocationSelectList = new SelectList(await _bll.Location.AllAsync(), nameof(BLL.App.DTO.Location.Id),
+                nameof(BLL.App.DTO.Location.Locations), vm.Schooling.LocationId);
 
             return View(vm);
         }
@@ -100,7 +103,8 @@ namespace WebApp.Areas.Admin.Controllers
             var vm = new SchoolingCreateViewModel()
             {
                 Schooling = schooling,
-             MaterialSelectList = new SelectList(await _bll.Material.AllAsync(),nameof(Material.Id), nameof(Material.MaterialName), schooling.MaterialId)
+             MaterialSelectList = new SelectList(await _bll.Material.AllAsync(),nameof(Material.Id), nameof(Material.MaterialName), schooling.MaterialId),
+             LocationSelectList = new SelectList(await _bll.Location.AllAsync(), nameof(BLL.App.DTO.Location.Id), nameof(BLL.App.DTO.Location.Locations), schooling.LocationId)
 
             };
 
@@ -130,6 +134,8 @@ namespace WebApp.Areas.Admin.Controllers
            
             vm.MaterialSelectList = new SelectList(await _bll.Material.AllAsync(), nameof(Material.Id),
                 nameof(Material.MaterialName), vm.Schooling.MaterialId);
+            vm.LocationSelectList = new SelectList(await _bll.Location.AllAsync(), nameof(BLL.App.DTO.Location.Id),
+                nameof(BLL.App.DTO.Location.Locations), vm.Schooling.LocationId);
 
 
             return View(vm);

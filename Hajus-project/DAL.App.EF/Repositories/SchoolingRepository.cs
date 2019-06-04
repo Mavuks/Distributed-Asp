@@ -77,6 +77,17 @@ namespace DAL.App.EF.Repositories
                     .Query()
                     .Where(t => t.Culture == culture)
                     .LoadAsync();
+                await RepositoryDbContext.Entry(schooling)
+                    .Reference(c => c.Location)
+                    .LoadAsync();
+                await RepositoryDbContext.Entry(schooling.Location)
+                    .Reference(c => c.Locations)
+                    .LoadAsync();
+                await RepositoryDbContext.Entry(schooling.Location.Locations)
+                    .Collection(b => b.Translations)
+                    .Query()
+                    .Where(t => t.Culture == culture)
+                    .LoadAsync();
                
                
             }
@@ -88,6 +99,9 @@ namespace DAL.App.EF.Repositories
         public override DTO.Schooling Update(DTO.Schooling entity)
         {
             var entityInDb = RepositoryDbSet
+                .Include(a=> a.Location)
+                .ThenInclude(a => a.Locations)
+                .ThenInclude(a => a.Translations)
                 .Include(a => a.Material)
                 .ThenInclude(a => a.MaterialName)
                 //.Include( a=> a.Start)
@@ -108,6 +122,9 @@ namespace DAL.App.EF.Repositories
                 .Include(m => m.Material)
                 .ThenInclude( a=> a.MaterialName)
                 .ThenInclude(t => t.Translations)
+                .Include(a=> a.Location)
+                .ThenInclude(a => a.Locations)
+                .ThenInclude(a => a.Translations)
                 
                 .Select(e => SchoolingMapper.MapFromDomain(e)).ToListAsync();
         }

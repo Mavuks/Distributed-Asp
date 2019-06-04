@@ -33,7 +33,7 @@ namespace WebApp.ApiControllers.v1_0
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PublicApi.v1.DTO.Competition>>> GetCompetitions()
         {
-            return (await _bll.Competition.AllForUserAsync(User.GetUserId()))
+            return (await _bll.Competition.AllAsync())
                 .Select(e => PublicApi.v1.Mappers.CompetitionMapper.MapFromInternal(e)).ToList();
         }
         /// <summary>

@@ -31,7 +31,7 @@ namespace WebApp.ApiControllers.v1_0
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PublicApi.v1.DTO.Registration>>> GetRegistrations()
         {
-            return (await _bll.Registration.AllAsync())
+            return (await _bll.Registration.AllForUserAsync(User.GetUserId()))
                 .Select(e => PublicApi.v1.Mappers.RegistrationMapper.MapFromInternal(e)).ToList();
         }
 

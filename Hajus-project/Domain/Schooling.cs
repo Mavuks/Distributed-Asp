@@ -19,6 +19,10 @@ namespace Domain
         public int? MaterialId { get; set; }
 
         public Material Material { get; set; }
+
+        public int LocationId { get; set; }
+
+        public Location Location { get; set; }
         
         public List<Registration> Registrations { get; set; }
 

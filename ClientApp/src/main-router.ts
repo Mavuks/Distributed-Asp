@@ -30,17 +30,23 @@ export class MainRouter {
         {route: 'identity/logout', name: 'identity' + 'Logout', moduleId: PLATFORM.moduleName('identity/logout'), nav: false, title: 'Logout'},
 
 
-        {route: ['breeds','breeds/index'], name: 'breeds' + 'Index', moduleId: PLATFORM.moduleName('breeds/index'), nav: true, title: 'Breeds'},
-        {route: 'breeds/create', name: 'breeds' + 'Create', moduleId: PLATFORM.moduleName('breeds/create'), nav: false, title: 'Breeds Create'},
-        {route: 'breeds/edit/:id', name: 'breeds' + 'Edit', moduleId: PLATFORM.moduleName('breeds/edit'), nav: false, title: 'Breeds Edit'},
-        {route: 'breeds/delete/:id', name: 'breeds' + 'Delete', moduleId: PLATFORM.moduleName('breeds/delete'), nav: false, title: 'Breeds Delete'},
-        {route: 'breeds/details/:id', name: 'breeds' + 'Details', moduleId: PLATFORM.moduleName('breeds/details'), nav: false, title: 'Breeds Details'},
+        // {route: ['breeds','breeds/index'], name: 'breeds' + 'Index', moduleId: PLATFORM.moduleName('breeds/index'), nav: true, title: 'Breeds'},
+        // {route: 'breeds/create', name: 'breeds' + 'Create', moduleId: PLATFORM.moduleName('breeds/create'), nav: false, title: 'Breeds Create'},
+        // {route: 'breeds/edit/:id', name: 'breeds' + 'Edit', moduleId: PLATFORM.moduleName('breeds/edit'), nav: false, title: 'Breeds Edit'},
+        // {route: 'breeds/delete/:id', name: 'breeds' + 'Delete', moduleId: PLATFORM.moduleName('breeds/delete'), nav: false, title: 'Breeds Delete'},
+        // {route: 'breeds/details/:id', name: 'breeds' + 'Details', moduleId: PLATFORM.moduleName('breeds/details'), nav: false, title: 'Breeds Details'},
 
-        {route: ['materials','material/index'], name: 'materials' + 'Index', moduleId: PLATFORM.moduleName('materials/index'), nav: true, title: 'Materials'},
-        {route: 'materials/create', name: 'materials' + 'Create', moduleId: PLATFORM.moduleName('materials/create'), nav: false, title: 'Materials Create'},
-        {route: 'materials/edit/:id', name: 'materials' + 'Edit', moduleId: PLATFORM.moduleName('materials/edit'), nav: false, title: 'Materials Edit'},
-        {route: 'materials/delete/:id', name: 'materials' + 'Delete', moduleId: PLATFORM.moduleName('materials/delete'), nav: false, title: 'Materials Delete'},
-        {route: 'materials/details/:id', name: 'materials' + 'Details', moduleId: PLATFORM.moduleName('materials/details'), nav: false, title: 'Materials Details'},
+        {route: ['dogs','dogs/index'], name: 'dogs' + 'Index', moduleId: PLATFORM.moduleName('dogs/index'), nav: true, title: 'Dogs'},
+        {route: 'dogs/create', name: 'dogs' + 'Create', moduleId: PLATFORM.moduleName('dogs/create'), nav: false, title: 'Dogs Create'},
+        {route: 'dogs/edit/:id', name: 'dogs' + 'Edit', moduleId: PLATFORM.moduleName('dogs/edit'), nav: false, title: 'Dogs Edit'},
+        {route: 'dogs/delete/:id', name: 'dogs' + 'Delete', moduleId: PLATFORM.moduleName('dogs/delete'), nav: false, title: 'Dogs Delete'},
+        {route: 'dogs/details/:id', name: 'dogs' + 'Details', moduleId: PLATFORM.moduleName('dogs/details'), nav: false, title: 'Dogs Details'},
+
+        // {route: ['materials','material/index'], name: 'materials' + 'Index', moduleId: PLATFORM.moduleName('materials/index'), nav: true, title: 'Materials'},
+        // {route: 'materials/create', name: 'materials' + 'Create', moduleId: PLATFORM.moduleName('materials/create'), nav: false, title: 'Materials Create'},
+        // {route: 'materials/edit/:id', name: 'materials' + 'Edit', moduleId: PLATFORM.moduleName('materials/edit'), nav: false, title: 'Materials Edit'},
+        // {route: 'materials/delete/:id', name: 'materials' + 'Delete', moduleId: PLATFORM.moduleName('materials/delete'), nav: false, title: 'Materials Delete'},
+        // {route: 'materials/details/:id', name: 'materials' + 'Details', moduleId: PLATFORM.moduleName('materials/details'), nav: false, title: 'Materials Details'},
 
         {route: ['participants','participant/index'], name: 'participants' + 'Index', moduleId: PLATFORM.moduleName('participants/index'), nav: true, title: 'Participants'},
         {route: 'participants/create', name: 'participants' + 'Create', moduleId: PLATFORM.moduleName('participants/create'), nav: false, title: 'Participants Create'},
@@ -50,6 +56,11 @@ export class MainRouter {
 
 
         {route: ['shows','shows/index'], name: 'shows' + 'Index', moduleId: PLATFORM.moduleName('shows/index'), nav: true, title: 'Shows'},
+
+        {route: ['schoolings','schoolings/index'], name: 'schoolings' + 'Index', moduleId: PLATFORM.moduleName('schoolings/index'), nav: true, title: 'Schoolings'},
+        
+        
+        {route: ['competitions','competitions/index'], name: 'competitions' + 'Index', moduleId: PLATFORM.moduleName('competitions/index'), nav: true, title: 'Competitions'},
       ]
     );
     // {route: 'identity/login', name: 'identity' + 'Login', moduleId: PLATFORM.moduleName('identity/login'), nav: false, title: 'Login'},

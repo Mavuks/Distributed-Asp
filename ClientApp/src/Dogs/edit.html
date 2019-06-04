@@ -1,0 +1,52 @@
+<template>
+
+  <h1>Edit</h1>
+
+  <h4>Dog</h4>
+  <hr />
+  <div class="row">
+    <div class="col-md-4">
+      <form method="post" submit.delegate="submit()">
+
+        <div class="form-group">
+          <label class="control-label" for="dogName">Dog Name</label>
+          <input class="form-control" type="text" value.bind="dog.DogName" />
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="DateOfBirth">Date of Birth</label>
+          <input class="form-control" type="text" value.bind="dog.DateOfBirth" />
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="DateOfDeath">Date Of Death</label>
+          <input class="form-control" type="text" value.bind="dog.DateOfDeath" />
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="sex">sex</label>
+          <input class="form-control" type="text" value.bind="dog.Sex" />
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="Breed">BreedName</label>
+          <select class="form-control" data-val="true" id="Dog_BreedId" name="Dog.BreedId"
+                  value.bind="dog.BreedId">
+            <option model.bind="dog.BreedId">Choose...</option>
+            <option repeat.for="breed of breed"
+                    model.bind="breed.breedName">
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="Owner">Owner</label>
+          <input class="form-control" type="text" value.bind="dog.Owner" />
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div>
+    <a route-href="route: dogsIndex">Back to List</a>
+  </div>
+
+</template>

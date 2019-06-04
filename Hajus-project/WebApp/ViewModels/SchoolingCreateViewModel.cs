@@ -10,6 +10,8 @@ namespace WebApp.ViewModels
         public SelectList DogSelectList { get; set; }
 
         public SelectList MaterialSelectList { get; set; }
+
+        public SelectList LocationSelectList { get; set; }
         
         
     }

@@ -1,0 +1,69 @@
+<template>
+
+  <h1>Dog </h1>
+  <p>
+    <a route-href="route: dogsCreate">Dog- Create New</a>
+  </p>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>
+        Dog Name
+      </th>
+      <th>
+        Date of Birth
+      </th>
+      <th>
+        Date of Death
+      </th>
+      <th>
+        Sex
+      </th>
+      <th>
+        Breed
+      </th>
+      <th>
+        Owner
+      </th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- repeat this tr element, iterate over breeds -->
+    <tr repeat.for="dogs of dog">
+      <td>
+        <!-- string interpolation -->
+        ${dogs.dogName}
+      </td>
+      <td>
+        <!-- string interpolation -->
+        ${dogs.dateOfBirth}
+      </td>
+      <td>
+        <!-- string interpolation -->
+        ${dogs.dateOfDeath}
+      </td><td>
+      <!-- string interpolation -->
+      ${dogs.sex}
+    </td><td>
+      <!-- string interpolation -->
+      ${dogs.breed.breedName}
+    </td><td>
+      <!-- string interpolation -->
+      ${dogs.owner}
+    </td>
+      
+      
+      
+      <td>
+        <!-- gdenerate links, based on routing table defined in main-router -->
+        <a route-href="route: dogsEdit; params.bind: {id: dogs.id}">Edit</a> |
+        <a route-href="route: dogsDetails; params.bind: {id: dogs.id}">Details</a> |
+        <a route-href="route: dogsDelete; params.bind: {id: dogs.id}">Delete</a>
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+  
+</template>

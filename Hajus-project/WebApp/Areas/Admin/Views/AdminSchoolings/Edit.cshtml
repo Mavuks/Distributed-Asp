@@ -27,6 +27,11 @@
                 <select asp-for="Schooling.MaterialId" class="form-control" asp-items="Model.MaterialSelectList"></select>
                 <span asp-validation-for="Schooling.MaterialId" class="text-danger"></span>
             </div>
+             <div class="form-group">
+                            <label asp-for="Schooling.LocationId" class="control-label"></label>
+                            <select asp-for="Schooling.LocationId" class="form-control" asp-items="Model.LocationSelectList"></select>
+                            <span asp-validation-for="Schooling.LocationId" class="text-danger"></span>
+                        </div>
             <input type="hidden" asp-for="Schooling.Id" />
             <div class="form-group">
                 <input type="submit" value="@Resources.Views.Common.Save" class="btn btn-primary" />

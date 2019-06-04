@@ -1,0 +1,52 @@
+<template>
+  <h1>Competition </h1>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>
+         Title
+      </th>
+      <th>
+        Comment
+      </th>
+      <th>
+        Start
+      </th>
+      <th>
+        End
+      </th>
+      <th>
+        Location
+      </th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- repeat this tr element, iterate over materials -->
+    <tr repeat.for="competitions of competition">
+      <td>
+        <!-- string interpolation -->
+        ${competitions.title}
+      </td>
+      <td>
+        <!-- string interpolation -->
+        ${competitions.comment}
+      </td>
+      <td>
+        <!-- string interpolation -->
+        ${competitions.start}
+      </td>d
+      <td>
+        <!-- string interpolation -->
+        ${competitions.end}
+      </td>
+      <td>
+        <!-- string interpolation -->
+        ${competitions.location.locations}
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+  
+</template>

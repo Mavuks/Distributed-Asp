@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Threading;
 using System.Threading.Tasks;
 using Contracts.DAL.App.Repositories;
@@ -26,38 +27,43 @@ namespace DAL.App.EF.Repositories
         {
             
             var culture = Thread.CurrentThread.CurrentUICulture.Name.Substring(0, 2).ToLower();
-            
+
             var res = await RepositoryDbSet
                 .Include(b => b.Comment)
-                .Include( a => a.Title)
-                .ThenInclude( t => t.Translations)
-                .Include(a => a.Start)
-                .Select(c => new
-                {
-                    Id = c.Id,
-                    Title = c.Title,
-                    Comment = c.Comment,
-                    Location = c.Location,
-                    End = c.End,
-                    Start = c.Start,
-                    Translations = c.Title.Translations,
-                    Translations1 = c.Comment.Translations
-                }).ToListAsync();
-            
-            
-            var resultList = res.Select(c => new  DTO.Competition()
-            {
-                Id = c.Id,
-                Title = c.Title.Translate(),
-                Comment = c.Comment.Translate(),
-                Start = c.Start,
-                End = c.End,
-                //Location = c.Location,
-                
-                
-                     
-            }).ToList();
-            return resultList;
+                .Include(a => a.Location)
+                .ThenInclude(a => a.Locations)
+                .ThenInclude(a => a.Translations)
+                .Include(a => a.Title)
+                .ThenInclude(t => t.Translations)
+                .Select(e => CompetitionMapper.MapFromDomain(e))
+                .ToListAsync();
+//                .Select(c => new
+//                {
+//                    Id = c.Id,
+//                    Title = c.Title,
+//                    Comment = c.Comment,
+//                    Location = c.Location,
+//                    End = c.End,
+//                    Start = c.Start,
+//                    Translations = c.Title.Translations,
+//                    Translations1 = c.Comment.Translations
+//                }).ToListAsync();
+//            
+//            
+//            var resultList = res.Select(c => new  DTO.Competition()
+//            {
+//                Id = c.Id,
+//                Title = c.Title.Translate(),
+//                Comment = c.Comment.Translate(),
+//                Start = c.Start,
+//                End = c.End,
+//                Location = lo
+//                
+//                
+//                     
+//            }).ToList();
+            //return resultList;
+            return res;
         }    
 
 

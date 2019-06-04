@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Security.Policy;
 using System.Threading;
 using System.Threading.Tasks;
@@ -25,7 +26,25 @@ namespace DAL.App.EF.Repositories
         {
             var culture = Thread.CurrentThread.CurrentUICulture.Name.Substring(0, 2).ToLower();
 
-//            var resultList = await RepositoryDbSet
+            var resultList = await RepositoryDbSet
+                .Include(a => a.Breed)
+                .ThenInclude(a => a.BreedName)
+                .ThenInclude( a=> a.Translations)
+                .Include(a => a.AppUser)
+                .Include(a => a.Sex)
+                .ThenInclude(a => a.Translations)
+                .Where(p => p.AppUserId == userId)
+                .Select(c => DogMapper.MapFromDomain(c))
+                .ToListAsync();
+
+
+
+
+
+
+
+
+//           var resultList = await RepositoryDbSet
 //                .Include(a=> a.Breed)
 //                .ThenInclude( a=> a.BreedName)
 //                .ThenInclude( a=> a.Translations)
@@ -38,35 +57,35 @@ namespace DAL.App.EF.Repositories
 //                .Where( a=> a.AppUserId == userId)
 //                .Select(c => DogMapper.MapFromDomain(c))
 //                .ToListAsync();
-            
-            var res = await RepositoryDbSet
-                .Where(b => b.AppUserId == userId)
-                .Select(c => new
-                {
-                    Id = c.Id,
-                    DogName = c.DogName,
-                    Breed = c.Breed,
-                    Owner = c.Owner,
-                    DateOfBirth = c.DateOfBirth,
-                    DateOfDeath = c.DateOfDeath,
-                    Sex = c.Sex,
-                    Translations = c.Sex.Translations,
-
-                })
-                .ToListAsync();
-            
-            var resultList = res.Select(c => new  DTO.Dog()
-            {
-                Id = c.Id,
-                DogName = c.DogName,
-               // Breed = c.Breed,
-                DateOfBirth = c.DateOfBirth,
-                DateOfDeath = c.DateOfDeath,
-                Owner = c.Owner,
-                Sex = c.Sex.Translate(),
-                
-                     
-            }).ToList();
+//            
+//            var res = await RepositoryDbSet
+//                .Where(b => b.AppUserId == userId)
+//                .Select(c => new
+//                {
+//                    Id = c.Id,
+//                    DogName = c.DogName,
+//                    Breed = c.Breed,
+//                    Owner = c.Owner,
+//                    DateOfBirth = c.DateOfBirth,
+//                    DateOfDeath = c.DateOfDeath,
+//                    Sex = c.Sex,
+//                    Translations = c.Sex.Translations,
+//
+//                })
+//                .ToListAsync();
+//            
+//            var resultList = res.Select(c => new  DTO.Dog()
+//            {
+//                Id = c.Id,
+//                DogName = c.DogName,
+//               // Breed = c.Breed,
+//                DateOfBirth = c.DateOfBirth,
+//                DateOfDeath = c.DateOfDeath,
+//                Owner = c.Owner,
+//                Sex = c.Sex.Translate(),
+//                
+//                     
+//            }).ToList();
             return resultList;
         }
 

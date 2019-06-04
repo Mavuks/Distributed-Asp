@@ -22,14 +22,14 @@
     @RenderSection("CSS", required: false)
     @RenderSection("HeaderScripts", required: false)
 </head>
-<body style="background-color: beige">
-
+<body>
+<div class="wrapper">
 <header>
 
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom" >
+    <nav class="main-header navbar navbar-expand bg-dark navbar-light border-bottom" >
         <!-- Left navbar links -->
-        <ul class="navbar-nav" style="background-color: lightblue">
+        <ul class="navbar-nav">
           
 
 
@@ -79,23 +79,25 @@
 
 
 </header>
-<div class="container">
-    <partial name="_CookieConsentPartial"/>
-    <main role="main" class="pb-3">
-        @RenderBody()
-    </main>
-</div>
+ <div class="content-wrapper">
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
 
-<footer class="border-top footer text-muted">
+<footer class="main-footer">
     <div class="container">
         <div class="row">
             <div class="col-md-4">&copy; 2019 - Ringokris - <a asp-area="" asp-controller="Home" asp-action="Privacy">@Resources.Views.Shared._Layout.Privacy</a></div>
             <div> </div>
-               <div class="col-md-4"><partial name="_LanguageSelectionPartial"/></div>
+            <div class="col-md-4"><partial name="_LanguageSelectionPartial"/></div>
             
         </div>
     </div>
 </footer>
+</div>
 
 <environment include="Development">
     <script src="~/lib/jquery/dist/jquery.js"></script>    

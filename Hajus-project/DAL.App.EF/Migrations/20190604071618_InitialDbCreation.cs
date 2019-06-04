@@ -377,11 +377,18 @@ namespace DAL.App.EF.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     SchoolingNameId = table.Column<int>(nullable: false),
                     Start = table.Column<DateTime>(nullable: false),
-                    MaterialId = table.Column<int>(nullable: true)
+                    MaterialId = table.Column<int>(nullable: true),
+                    LocationId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Schoolings", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Schoolings_Locations_LocationId",
+                        column: x => x.LocationId,
+                        principalTable: "Locations",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Schoolings_Materials_MaterialId",
                         column: x => x.MaterialId,
@@ -573,6 +580,11 @@ namespace DAL.App.EF.Migrations
                 name: "IX_Registrations_TitleId",
                 table: "Registrations",
                 column: "TitleId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Schoolings_LocationId",
+                table: "Schoolings",
+                column: "LocationId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Schoolings_MaterialId",

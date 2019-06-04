@@ -1,0 +1,56 @@
+<template>
+  <h1>Create</h1>
+
+  <h4>Dog</h4>
+  <hr/>
+  <div class="row">
+    <div class="col-md-4">
+      <!-- remove "on" from front of on<somethingevent> ad point out method in your aurelia class-->
+      <form method="post" submit.delegate="submit()">
+
+        <div class="form-group">
+        <label class="control-label" for="DogName">Dog Name</label>
+        <!-- value.bind - bind this value to class variable -->
+        <input class="form-control" type="text"
+               id="DogName" name="DogName" value.bind="breed.breedName"/>
+      </div>
+        <div class="form-group">
+          <label class="control-label" for="DateOfBirth">Date of Birth</label>
+          <input class="form-control" id="DateOfBirth" name="DateOfBirth" type="text" value.bind="dog.DateOfBirth" />
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="DateOfDeath">Date Of Death</label>
+          <input class="form-control" id="DateOfDeath" name="DateOfDeath" type="text" value.bind="dog.DateOfDeath" />
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="Sex">sex</label>
+          <input class="form-control" id="Sex" name="Sex" type="text" value.bind="dog.Sex" />
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="Breed">BreedName</label>
+          <select class="form-control" data-val="true">
+            <option value="">Choose...</option>
+            <option repeat.for="breed of breeds"
+                  value.bind="breed"
+                    ${breed}
+            
+            ></option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="Owner">Owner</label>
+          <input class="form-control" id="Owner" name="Owner" type="text" value.bind="dog.Owner" />
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Create" class="btn btn-primary"/>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div>
+    <a route-href="route: dogsIndex">Back to List</a>
+  </div>
+
+
+</template>

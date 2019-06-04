@@ -124,8 +124,8 @@ namespace WebApp.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var participant = await _bll.Participant.FindAsync(id);
-            _bll.Participant.Remove(participant);
+            
+            _bll.Participant.Remove(id);
             await _bll.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

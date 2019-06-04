@@ -1,0 +1,56 @@
+<template>
+
+  <h1>Schooling</h1>
+
+<!--  <p>-->
+<!--    <a route-href="route: materialsCreate">Material - Create New</a>-->
+<!--  </p>-->
+  <table class="table">
+    <thead>
+    <tr>
+      <th>
+         Name
+      </th>
+      <th>
+        Start
+      </th>
+      <th>
+        Material
+      </th>
+      <th>
+        Location
+      </th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- repeat this tr element, iterate over materials -->
+    <tr repeat.for="schoolings of schooling">
+      <td>
+        <!-- string interpolation -->
+        ${schoolings.schoolingName}
+      </td>
+      <td>
+        <!-- string interpolation -->
+        ${schoolings.start}
+      </td>
+      <td>
+        <!-- string interpolation -->
+        ${schoolings.material.materialName}
+      </td>
+      <td>
+        <!-- string interpolation -->
+        ${schoolings.location.locations}
+      </td>
+<!--      <td>-->
+<!--        &lt;!&ndash; gdenerate links, based on routing table defined in main-router &ndash;&gt;-->
+<!--        <a route-href="route: materialsEdit; params.bind: {id: materials.id}">Edit</a> |-->
+<!--        <a route-href="route: materialsDetails; params.bind: {id: materials.id}">Details</a> |-->
+<!--        <a route-href="route: materialsDelete; params.bind: {id: materials.id}">Delete</a>-->
+<!--      </td>-->
+    </tr>
+
+    </tbody>
+  </table>
+  
+</template>

@@ -20,8 +20,21 @@ namespace DAL.App.EF.Repositories
         {
         }
 
+        public virtual async Task<List<DAL.App.DTO.Participant>> AllForUserAsync(int userId)
+        {
 
-        
+
+
+            var Res = await RepositoryDbSet
+                .Include(a => a.FirstName)
+                .Include(a => a.LastName)
+                .Select(c => ParticipantMapper.MapFromDomain(c))
+                .ToListAsync();
+
+            return Res;
+
+
+        }
 
         public virtual async Task<List<ParticipantNames>> GetAllParticipantAsync()
         {
