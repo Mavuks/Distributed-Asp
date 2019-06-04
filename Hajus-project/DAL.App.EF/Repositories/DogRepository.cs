@@ -147,6 +147,7 @@ namespace DAL.App.EF.Repositories
         public override async Task<List<DAL.App.DTO.Dog>> AllAsync()
         {
             return await RepositoryDbSet
+                .Include(a => a.AppUser)
                 .Include(m => m.Sex)
                 .ThenInclude(t => t.Translations)
                 .Include(a => a.Breed)
