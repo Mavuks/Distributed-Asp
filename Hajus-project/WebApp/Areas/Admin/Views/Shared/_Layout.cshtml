@@ -37,14 +37,12 @@
                 <a class="nav-link"  asp-controller="Home" asp-action="Index">@Resources.Views.Shared._Layout.NavHome</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
+                            <a class="nav-link " asp-area="Admin" asp-controller="AdminDogs" asp-action="Index">@Resources.Views.Shared._Layout.NavDog</a>
+                        </li>
+            <li class="nav-item d-none d-sm-inline-block">
                 <a class="nav-link " asp-area="admin" asp-controller="AdminBreeds" asp-action="Index">@Resources.Views.Shared._Layout.NavBreed</a>
             </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a class="nav-link " asp-area="Admin" asp-controller="AdminCompetitions" asp-action="Index">@Resources.Views.Shared._Layout.NavCompetition</a>
-            </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a class="nav-link " asp-area="Admin" asp-controller="AdminDogs" asp-action="Index">@Resources.Views.Shared._Layout.NavDog</a>
-            </li>
+            
             <li class="nav-item d-none d-sm-inline-block">
                 <a class="nav-link " asp-area="Admin" asp-controller="AdminLocations" asp-action="Index">@Resources.Views.Shared._Layout.NavLocation</a>
             </li>
@@ -63,6 +61,9 @@
             <li class="nav-item d-none d-sm-inline-block">
                 <a class="nav-link " asp-area="Admin" asp-controller="AdminShows" asp-action="Index">@Resources.Views.Shared._Layout.NavShow</a>
             </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a class="nav-link " asp-area="Admin" asp-controller="AdminCompetitions" asp-action="Index">@Resources.Views.Shared._Layout.NavCompetition</a>
+                </li>
               
            
            

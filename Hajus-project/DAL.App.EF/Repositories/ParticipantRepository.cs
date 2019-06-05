@@ -26,8 +26,6 @@ namespace DAL.App.EF.Repositories
 
 
             var Res = await RepositoryDbSet
-                .Include(a => a.FirstName)
-                .Include(a => a.LastName)
                 .Select(c => ParticipantMapper.MapFromDomain(c))
                 .ToListAsync();
 

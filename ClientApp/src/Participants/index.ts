@@ -1,5 +1,5 @@
 import {LogManager, View, autoinject} from "aurelia-framework";
-import {RouteConfig, NavigationInstruction} from "aurelia-router";
+import {RouteConfig, NavigationInstruction, Router} from "aurelia-router";
 import {IParticipant} from "../interfaces/IParticipant";
 import {ParticipantService} from "../services/participant-service";
 
@@ -14,6 +14,7 @@ export class Index {
   private participant: IParticipant[] = [];
 
   constructor(
+    
     private participantsService: ParticipantService
   ) {
     log.debug('constructor');
@@ -30,9 +31,8 @@ export class Index {
 
   attached() {
     log.debug('attached');
-    this.participantsService.fetchAll().then(
+    this.participantsService.fetchAll("").then(
       jsonData => {
-        log.debug('jsonData', jsonData);
         this.participant = jsonData;
       }
     );

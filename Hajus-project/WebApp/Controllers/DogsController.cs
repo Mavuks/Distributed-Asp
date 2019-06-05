@@ -1,23 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using BLL.App.Mappers;
 using Contracts.BLL.App;
-using Contracts.DAL.App;
+using Domain;
+using ee.itcollege.mavuks.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using DAL.App.EF;
-using Domain;
-using Domain.Identity;
-using ee.itcollege.mavuks.Identity;
-using Microsoft.AspNetCore.Authorization;
-using WebApp.ViewModels;
+using WebApp.Areas.Admin.ViewModels;
+using DogCreateViewModel = WebApp.ViewModels.DogCreateViewModel;
 
 namespace WebApp.Controllers
 { 
-    [Authorize]
+    
     public class DogsController : Controller
     {
         
@@ -51,6 +43,10 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
+            var vm = new RegistrationDogDetailsViewModel();
+            vm.Dog = dog;
+            vm.Dog.Registrations = await _bll.Registration.AllForDogRegisAsync(id.Value);
+
             return View(dog);
         }
 
@@ -74,9 +70,8 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(DogCreateViewModel vm)
         {
-
-            vm.Dog.AppUserId = User.GetUserId();
             
+            vm.Dog.AppUserId = User.GetUserId();
             
             if (ModelState.IsValid)
             {
@@ -136,8 +131,6 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            vm.Dog.AppUserId = User.GetUserId();
-            
             if (ModelState.IsValid)
             {
                 _bll.Dog.Update(vm.Dog);
@@ -146,7 +139,7 @@ namespace WebApp.Controllers
                 return RedirectToAction(nameof(Index));
             }
             
-         vm.BreedSelectList  = new SelectList(await _bll.Breed.AllAsync(), 
+             vm.BreedSelectList  = new SelectList(await _bll.Breed.AllAsync(), 
              nameof( BLL.App.DTO.Breed.Id),
                 nameof( BLL.App.DTO.Breed.BreedName),
                 vm.Dog.BreedId );

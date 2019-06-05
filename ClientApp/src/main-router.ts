@@ -24,6 +24,7 @@ export class MainRouter {
         {route: ['', 'home'], name: 'home', moduleId: PLATFORM.moduleName('home'), nav: true, title: 'Home'},
         {route: ['News', 'news'], name: 'news', moduleId: PLATFORM.moduleName('news'), nav: true, title: 'News'},
         {route: ['Puppy', 'puppy'], name: 'puppy', moduleId: PLATFORM.moduleName('puppy'), nav: true, title: 'Puppies'},
+        
 
         {route: 'identity/login', name: 'identity' + 'Login', moduleId: PLATFORM.moduleName('identity/login'), nav: false, title: 'Login'},
         {route: 'identity/register', name: 'identity' + 'Register', moduleId: PLATFORM.moduleName('identity/register'), nav: false, title: 'Register'},

@@ -5,7 +5,8 @@ using ee.itcollege.mavuks.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using WebApp.ViewModels;
+using WebApp.Areas.Admin.ViewModels;
+using DogCreateViewModel = WebApp.ViewModels.DogCreateViewModel;
 
 namespace WebApp.Areas.Admin.Controllers
 { 
@@ -43,7 +44,11 @@ namespace WebApp.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            return View(dog);
+            var vm = new RegistrationDogDetailsViewModel();
+            vm.Dog = dog;
+            vm.Dog.Registrations = await _bll.Registration.AllForDogRegisAsync(id.Value);
+
+            return View(vm);
         }
 
         // GET: Dogs/Create
@@ -67,7 +72,7 @@ namespace WebApp.Areas.Admin.Controllers
         public async Task<IActionResult> Create(DogCreateViewModel vm)
         {
             
-            
+            vm.Dog.AppUserId = User.GetUserId();
             if (ModelState.IsValid)
             {
                 await _bll.Dog.AddAsync(vm.Dog);

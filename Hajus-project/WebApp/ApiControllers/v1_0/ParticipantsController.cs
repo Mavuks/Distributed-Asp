@@ -3,6 +3,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Contracts.BLL.App;
 using DAL.App.DTO;
+using ee.itcollege.mavuks.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApp.ApiControllers.v1_0
@@ -10,6 +13,7 @@ namespace WebApp.ApiControllers.v1_0
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class ParticipantsController : ControllerBase
     {
         
@@ -28,9 +32,9 @@ namespace WebApp.ApiControllers.v1_0
         /// <returns></returns>
         // GET: api/Participants
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<PublicApi.v1.DTO.ParticipantNames>>> GetParticipants()
+        public async Task<ActionResult<IEnumerable<PublicApi.v1.DTO.Participant>>> GetParticipants()
         {
-            return (await _bll.Participant.GetAllParticipantAsync())
+            return (await _bll.Participant.AllForUserAsync(User.GetUserId()))
                 .Select(e => PublicApi.v1.Mappers.ParticipantMapper.MapFromInternal(e)).ToList();
         }
 

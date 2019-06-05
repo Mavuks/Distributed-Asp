@@ -240,4 +240,7 @@
   <data name="SendVerEmail" xml:space="preserve">
     <value>Send verification email</value>
 	</data>
+  <data name="Choose" xml:space="preserve">
+    <value>Choose...</value>
+	</data>
 </root>

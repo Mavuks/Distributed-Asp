@@ -9,6 +9,7 @@ using Domain.Identity;
 using ee.itcollege.mavuks.DAL.Base.EF.Repositories;
 using Microsoft.EntityFrameworkCore;
 using DogMapper = DAL.App.EF.Mappers.DogMapper;
+using Registration = DAL.App.DTO.Registration;
 using RegistrationMapper = DAL.App.EF.Mappers.RegistrationMapper;
 
 namespace DAL.App.EF.Repositories
@@ -30,7 +31,9 @@ namespace DAL.App.EF.Repositories
                 .ThenInclude(a => a.Translations)
                 .Include(a => a.Comment)
                 .ThenInclude(a => a.Translations)
-                //.Include(a => a.Dog)
+                .Include(a => a.Dog)
+                .ThenInclude(a => a.Sex)
+                .ThenInclude(a => a.Translations)
                 .Include(a => a.Participant)
                 .Include(a => a.Schooling)
                 .ThenInclude(a => a.SchoolingName)
@@ -38,12 +41,19 @@ namespace DAL.App.EF.Repositories
                 .Include(a => a.Show)
                 .ThenInclude(a => a.Title)
                 .ThenInclude(a => a.Translations)
+                .Include(a => a.Show)
+                .ThenInclude(a => a.Comment)
+                .ThenInclude(a => a.Translations)
                 .Include(a => a.Competition)
                 .ThenInclude(a => a.Title)
+                .ThenInclude(a => a.Translations)
+                .Include(a => a.Competition)
+                .ThenInclude(a => a.Comment)
                 .ThenInclude(a => a.Translations)
                 .Include(a => a.Schooling)
                 .ThenInclude(a => a.SchoolingName)
                 .ThenInclude(a => a.Translations)
+                .Where( a=> a.Dog.AppUserId == userId)
                 .Select(e => RegistrationMapper.MapFromDomain(e))
                 .ToListAsync();
 //                .Select(c => new
@@ -78,7 +88,20 @@ namespace DAL.App.EF.Repositories
                //return resultList;
                return res;
         }
-        
+
+        public async Task<List<Registration>> AllForDogRegisAsync(int dogId)
+        {
+            return await RepositoryDbSet
+                .Include(a => a.Dog)
+                .Include(a => a.Comment)
+                .ThenInclude(a => a.Translations)
+                .Include(a => a.Title)
+                .ThenInclude( e=> e.Translations)
+                .Where(a => a.DogId == dogId)
+                .Select(e => RegistrationMapper.MapFromDomain(e))
+                .ToListAsync();
+        }
+
         public override async Task<DTO.Registration> FindAsync(params object[] id)
         {
             var culture = Thread.CurrentThread.CurrentUICulture.Name.Substring(0, 2).ToLower();
@@ -187,6 +210,7 @@ namespace DAL.App.EF.Repositories
                 .Include( a => a.Schooling)
                 .ThenInclude(a => a.SchoolingName)
                 .ThenInclude( a=> a.Translations)
+                .Include(a => a.Participant)
                 .FirstOrDefault(x => x.Id == entity.Id);
             
             entityInDb.Title.SetTranslation(entity.Title);
@@ -201,6 +225,8 @@ namespace DAL.App.EF.Repositories
                 .Include(a => a.Dog)
                 .ThenInclude(dog => dog.Sex)
                 .ThenInclude(sex => sex.Translations)
+                .Include(a => a.Dog)
+                .ThenInclude(a => a.AppUser)
                 .Include(m => m.Title)
                 .ThenInclude(t => t.Translations)
                 .Include( n=> n.Comment)
@@ -215,6 +241,7 @@ namespace DAL.App.EF.Repositories
                 .ThenInclude(a => a.Comment)
                 .ThenInclude( a=> a.Translations)
                 .Include(a => a.Participant)
+                
                 
                 .Include(a => a.Competition)
                 .ThenInclude(comp => comp.Comment)

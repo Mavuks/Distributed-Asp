@@ -25,5 +25,10 @@ namespace BLL.App.Services
             return (await Uow.Registration.AllForUserAsync(userId)).Select(e => RegistrationMapper.MapFromInternal(e)).ToList();
         }
 
+        public async Task<List<DTO.Registration>> AllForDogRegisAsync(int dogId)
+        {
+            return (await Uow.Registration.AllForDogRegisAsync(dogId))
+                .Select(e => RegistrationMapper.MapFromInternal(e)).ToList();
         }
+    }
     }

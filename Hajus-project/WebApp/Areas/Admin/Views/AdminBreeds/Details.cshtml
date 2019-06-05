@@ -27,6 +27,7 @@
                                   asp-controller="AdminDogs" asp-route-id="@dog.Id">
                                    @dog.DogName
                                </a>
+                               <a> | @Resources.Domain.Dog.Owner:  @dog.Owner</a>
                            </li>
                       }
                   </ul>

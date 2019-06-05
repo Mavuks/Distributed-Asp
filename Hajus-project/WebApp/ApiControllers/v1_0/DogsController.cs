@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using Contracts.BLL.App;
 using Domain;
 using ee.itcollege.mavuks.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApp.ApiControllers.v1_0
@@ -11,6 +13,7 @@ namespace WebApp.ApiControllers.v1_0
     [ApiVersion( "1.0" )]
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class DogsController : ControllerBase
     {
        
@@ -31,7 +34,7 @@ namespace WebApp.ApiControllers.v1_0
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PublicApi.v1.DTO.Dog>>> GetDogs()
         {
-            return (await _bll.Dog.AllAsync())
+            return (await _bll.Dog.AllForUserAsync(User.GetUserId()))
                 .Select(e => PublicApi.v1.Mappers.DogMapper.MapFromInternal(e)).ToList();
         }
 
@@ -45,7 +48,7 @@ namespace WebApp.ApiControllers.v1_0
         [HttpGet("{id}")]
         public async Task<ActionResult<PublicApi.v1.DTO.Dog>> GetDog(int id)
         {
-            var dog = PublicApi.v1.Mappers.DogMapper.MapFromInternal(await _bll.Dog.FindAsync(id));
+            var dog = PublicApi.v1.Mappers.DogMapper.MapFromInternal(await _bll.Dog.FindForUserAsync(id, User.GetUserId()));
 
             if (dog == null)
             {
@@ -72,10 +75,16 @@ namespace WebApp.ApiControllers.v1_0
             }
 
             dog.AppUserId = User.GetUserId();
-
+            
+            // check, that the Person being used is really belongs to logged in user
+            if (!await _bll.Dog.BelongsToUserAsync(id, User.GetUserId()))
+            {
+                return NotFound();
+            }
+            
+            
+            
             _bll.Dog.Update(PublicApi.v1.Mappers.DogMapper.MapFromExternal(dog));
-            
-            
             await _bll.SaveChangesAsync();
 
             return NoContent();
@@ -91,12 +100,27 @@ namespace WebApp.ApiControllers.v1_0
         [HttpPost]
         public async Task<ActionResult<PublicApi.v1.DTO.Dog>> PostDog(PublicApi.v1.DTO.Dog dog)
         {
-            dog.AppUserId = User.GetUserId();
+            if (!await _bll.Dog.BelongsToUserAsync(dog.Id, User.GetUserId()))
+            {
+                return NotFound();
+            }
+            
+            
+            dog = PublicApi.v1.Mappers.DogMapper.MapFromInternal(
+                _bll.Dog.Add(PublicApi.v1.Mappers.DogMapper.MapFromExternal(dog)));
             
             await _bll.Dog.AddAsync(PublicApi.v1.Mappers.DogMapper.MapFromExternal(dog));
             await _bll.SaveChangesAsync();
+            
+            dog = PublicApi.v1.Mappers.DogMapper.MapFromInternal(
+                _bll.Dog.GetUpdatesAfterUOWSaveChanges(
+                    PublicApi.v1.Mappers.DogMapper.MapFromExternal(dog)));
 
-            return CreatedAtAction("GetDog", new { id = dog.Id }, dog);
+            return CreatedAtAction("GetDog", new 
+            {
+                version = HttpContext.GetRequestedApiVersion().ToString(),
+                id = dog.Id
+            }, dog);;
         }
 
         
@@ -109,13 +133,13 @@ namespace WebApp.ApiControllers.v1_0
         [HttpDelete("{id}")]
         public async Task<ActionResult<Dog>> DeleteDog(int id)
         {
-            var dog = await _bll.Dog.FindAsync(id);
-            if (dog == null)
+           
+            if (!await _bll.Dog.BelongsToUserAsync(id, User.GetUserId()))
             {
                 return NotFound();
             }
 
-            _bll.Dog.Remove(dog);
+            _bll.Dog.Remove(id);
             await _bll.SaveChangesAsync();
 
             return NoContent();

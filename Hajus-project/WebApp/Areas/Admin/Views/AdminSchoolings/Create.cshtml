@@ -23,19 +23,19 @@
                 <span asp-validation-for="Schooling.Start" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Schooling.MaterialId" class="control-label" ></label>
+                <label asp-for="Schooling.MaterialId" class="control-label" >@Resources.Domain.Schooling.Material </label>
                 <select asp-for="Schooling.MaterialId" class="form-control" asp-items="Model.MaterialSelectList">
-                    <option value="">Valige</option>
+                     <option value="">@Resources.Views.Common.Choose</option>
                 </select>
             </div>
                         <div class="form-group">
-                            <label asp-for="Schooling.LocationId" class="control-label" ></label>
+                            <label asp-for="Schooling.LocationId" class="control-label" >@Resources.Domain.Location.Locations</label>
                             <select asp-for="Schooling.LocationId" class="form-control" asp-items="Model.LocationSelectList">
-                                <option value="">Valige</option>
+                                 <option value="">@Resources.Views.Common.Choose</option>
                             </select>
                         </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="@Resources.Views.Common.Create" class="btn btn-primary" />
             </div>
         </form>
     </div>

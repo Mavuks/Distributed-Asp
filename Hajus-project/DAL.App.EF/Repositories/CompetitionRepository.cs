@@ -69,7 +69,7 @@ namespace DAL.App.EF.Repositories
 
         public Task<List<Competition>> AllForCompLocationAsync(int locationId)
         {
-            
+            return null;
         }
 
 

@@ -90,6 +90,23 @@ namespace DAL.App.EF.Repositories
             return resultList;
         }
 
+        public async Task<Dog> FindForUserAsync(int id, int userId)
+        {
+            return DogMapper.MapFromDomain(await RepositoryDbSet
+                .Include( a=> a.Breed)
+                .ThenInclude( a=> a.BreedName)
+                .ThenInclude(a=> a.Translations)
+                .Include(a=> a.Sex)
+                .ThenInclude(a => a.Translations)
+                .Include(p => p.AppUser)
+                .FirstOrDefaultAsync(p => p.Id == id && p.AppUserId == userId));
+        }
+
+        public async Task<bool> BelongsToUserAsync(int id, int userId)
+        {
+            return await RepositoryDbSet.AnyAsync(p => p.Id == id && p.AppUserId == userId);
+        }
+
         public async Task<List<DAL.App.DTO.Dog>> AllForBreedAsync(int breedId)
         {
             return await RepositoryDbSet

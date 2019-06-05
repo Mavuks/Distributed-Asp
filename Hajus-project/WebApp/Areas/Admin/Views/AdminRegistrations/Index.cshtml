@@ -12,6 +12,9 @@
 <table class="table table-hover">
     <thead style="background-color: lightgrey">
         <tr>
+        <th>
+                        @Html.DisplayNameFor(model => model.Dog.AppUser)
+                    </th>
             <th>
                 @Html.DisplayNameFor(model => model.Title)
             </th>
@@ -39,6 +42,9 @@
     <tbody style="background-color: lightgray">
 @foreach (var item in Model) {
         <tr>
+        <td>
+                        @Html.DisplayFor(modelItem => item.Dog.AppUserId)
+                    </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>

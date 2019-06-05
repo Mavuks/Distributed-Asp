@@ -47,7 +47,7 @@ namespace BLL.App.DTO
         public AppUser AppUser { get; set; }
         
        
-        public List<Registration> Registrations  { get; set; }
+        public ICollection<Registration> Registrations  { get; set; }
 
 
         

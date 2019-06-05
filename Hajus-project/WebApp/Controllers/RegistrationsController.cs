@@ -29,7 +29,7 @@ namespace WebApp.Controllers
         public async Task<IActionResult> Index()
         {
          
-            return View(await _bll.Registration.AllAsync());
+            return View(await _bll.Registration.AllForUserAsync(User.GetUserId()));
         }
 
         // GET: Registrations/Details/5

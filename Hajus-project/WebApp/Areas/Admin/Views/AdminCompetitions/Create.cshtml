@@ -33,11 +33,13 @@
                 <span asp-validation-for="Competition.End" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Competition.LocationId" class="control-label"></label>
-                <select asp-for="Competition.LocationId" class ="form-control" asp-items="Model.LocationSelectList"> Null</select>
+                <label asp-for="Competition.LocationId" class="control-label"> @Resources.Domain.Competition.Location</label>
+                <select asp-for="Competition.LocationId" class="form-control" asp-items="Model.LocationSelectList">
+                     <option value="">@Resources.Views.Common.Choose</option>
+                </select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="@Resources.Views.Common.Create" class="btn btn-primary" />
             </div>
         </form>
     </div>

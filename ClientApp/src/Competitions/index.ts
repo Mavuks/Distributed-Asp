@@ -29,7 +29,7 @@ export class Index {
 
   attached() {
     log.debug('attached');
-    this.competitionsService.fetchAll().then(
+    this.competitionsService.fetchAll("").then(
       jsonData => {
         log.debug('jsonData', jsonData);
         this.competition = jsonData;

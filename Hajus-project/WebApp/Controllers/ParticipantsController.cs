@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DAL.App.EF;
 using Domain;
+using ee.itcollege.mavuks.Identity;
 
 namespace WebApp.Controllers
 {
@@ -27,7 +28,7 @@ namespace WebApp.Controllers
         // GET: Participants
         public async Task<IActionResult> Index()
         {
-            return View(await _bll.Participant.AllAsync());
+            return View(await _bll.Participant.AllForUserAsync(User.GetUserId()));
         }
 
         // GET: Participants/Details/5

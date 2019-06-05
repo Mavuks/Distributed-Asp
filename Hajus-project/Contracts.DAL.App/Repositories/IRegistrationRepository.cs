@@ -8,6 +8,8 @@ using DALAppDTO = DAL.App.DTO;
      public interface IRegistrationRepository : IRegistrationRepository<DALAppDTO.Registration>
      {
          
+         
+         Task<List<DALAppDTO.Registration>> AllForDogRegisAsync(int dogId);
      }
      
      

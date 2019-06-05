@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Contracts.BLL.App;
+using ee.itcollege.mavuks.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,7 +24,7 @@ namespace WebApp.Areas.Admin.Controllers
         // GET: Participants
         public async Task<IActionResult> Index()
         {
-            return View(await _bll.Participant.AllAsync());
+            return View(await _bll.Participant.AllForUserAsync(User.GetUserId()));
         }
 
         // GET: Participants/Details/5
@@ -56,6 +57,8 @@ namespace WebApp.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("FirstName,LastName,Id")]  BLL.App.DTO.Participant participant)
         {
+            
+            
             if (ModelState.IsValid)
             {
                 await _bll.Participant.AddAsync(participant);

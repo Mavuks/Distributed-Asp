@@ -27,9 +27,10 @@ export class Index {
     log.debug('bind');
   }
 
+  
   attached() {
     log.debug('attached');
-    this.materialsService.fetchAll().then(
+    this.materialsService.fetchAll("").then(
       jsonData => {
         log.debug('jsonData', jsonData);
         this.material = jsonData;

@@ -24,6 +24,16 @@ namespace BLL.App.Services
             return (await Uow.Dog.AllForUserAsync(userId)).Select(e => DogMapper.MapFromInternal(e)).ToList();
         }
 
+        public async Task<Dog> FindForUserAsync(int id, int userId)
+        {
+            return DogMapper.MapFromInternal(await Uow.Dog.FindForUserAsync(id, userId));
+        }
+
+        public async Task<bool> BelongsToUserAsync(int id, int userId)
+        {
+            return await Uow.Dog.BelongsToUserAsync(id, userId);
+        }
+
         public async Task<List<Dog>> AllForBreedAsync(int breedId)
         {
             return (await Uow.Dog.AllForBreedAsync(breedId))

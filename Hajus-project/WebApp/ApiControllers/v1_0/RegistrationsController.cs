@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using Contracts.BLL.App;
 using Domain;
 using ee.itcollege.mavuks.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApp.ApiControllers.v1_0
@@ -11,6 +13,7 @@ namespace WebApp.ApiControllers.v1_0
     [ApiVersion( "1.0" )]
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class RegistrationsController : ControllerBase
     {
         
@@ -31,7 +34,7 @@ namespace WebApp.ApiControllers.v1_0
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PublicApi.v1.DTO.Registration>>> GetRegistrations()
         {
-            return (await _bll.Registration.AllAsync())
+            return (await _bll.Registration.AllForUserAsync(User.GetUserId()))
                 .Select(e => PublicApi.v1.Mappers.RegistrationMapper.MapFromInternal(e)).ToList();
         }
 

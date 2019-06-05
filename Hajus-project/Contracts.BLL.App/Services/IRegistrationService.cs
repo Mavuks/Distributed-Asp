@@ -8,5 +8,7 @@ namespace Contracts.BLL.App.Services
 {
     public interface IRegistrationService : IBaseEntityService<BLLAppDTO.Registration>, IRegistrationRepository<BLLAppDTO.Registration>
     {
+        
+        Task<List<BLLAppDTO.Registration>> AllForDogRegisAsync(int dogId);
     }
 }

@@ -23,37 +23,37 @@
                 <span asp-validation-for="Registration.Comment" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Registration.DogId" class="control-label"></label>
+                <label asp-for="Registration.DogId" class="control-label"> @Resources.Domain.Registration.Dog</label>
                 <select asp-for="Registration.DogId" class="form-control" asp-items="Model.DogSelectList">
-                    <option value="">Valige</option>
+                    <option value="">@Resources.Views.Common.Choose</option>
                 </select>
             </div>
             <div class="form-group">
-                <label asp-for="Registration.ParticipantId" class="control-label"></label>
+                <label asp-for="Registration.ParticipantId" class="control-label"> @Resources.Domain.Registration.Participant</label>
                 <select asp-for="Registration.ParticipantId" class="form-control" asp-items="Model.ParticipantSelectList">
-                    <option value="">Valige</option>
+                    <option value="">@Resources.Views.Common.Choose</option>
                 </select>
             </div>
             <div class="form-group">
-                <label asp-for="Registration.CompetitionId" class="control-label"></label>
+                <label asp-for="Registration.CompetitionId" class="control-label"> @Resources.Domain.Registration.Competition</label>
                 <select asp-for="Registration.CompetitionId" class="form-control" asp-items="Model.CompetitionSelectList">
-                    <option value="">Valige</option>
+                    <option value="">@Resources.Views.Common.Choose</option>
                 </select>
             </div>
                         <div class="form-group">
-                            <label asp-for="Registration.SchoolingId" class="control-label"></label>
+                            <label asp-for="Registration.SchoolingId" class="control-label"> @Resources.Domain.Registration.Schooling</label>
                             <select asp-for="Registration.SchoolingId" class="form-control" asp-items="Model.SchoolingSelectList">
-                                <option value="">Valige</option>
+                                <option value="">@Resources.Views.Common.Choose</option>
                             </select>
                         </div>
             <div class="form-group">
-                <label asp-for="Registration.ShowId" class="control-label"></label>
+                <label asp-for="Registration.ShowId" class="control-label">@Resources.Domain.Registration.Show</label>
                 <select asp-for="Registration.ShowId" class="form-control" asp-items="Model.ShowSelectList">
-                    <option value="">Valige</option>
+                    <option value="">@Resources.Views.Common.Choose</option>
                 </select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="@Resources.Views.Common.Create" class="btn btn-primary" />
             </div>
         </form>
     </div>

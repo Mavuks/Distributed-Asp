@@ -29,7 +29,7 @@ export class Index {
 
   attached() {
     log.debug('attached');
-    this.schoolingsService.fetchAll().then(
+    this.schoolingsService.fetchAll("").then(
       jsonData => {
         log.debug('jsonData', jsonData);
         this.schooling = jsonData;

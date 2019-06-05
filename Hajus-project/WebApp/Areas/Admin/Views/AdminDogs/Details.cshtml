@@ -1,8 +1,6 @@
-@model BLL.App.DTO.Dog
+@model WebApp.Areas.Admin.ViewModels.RegistrationDogDetailsViewModel
 
-@{
-    ViewData["Title"] = "Details";
-}
+
 
 <h1>@Resources.Views.Common.Details</h1>
 
@@ -11,44 +9,65 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DogName)
+            @Html.DisplayNameFor(model => model.Dog)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DogName)
+            @Html.DisplayFor(model => model.Dog.DogName)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DateOfBirth)
+            @Html.DisplayNameFor(model => model.Dog.DateOfBirth)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DateOfBirth)
+            @Html.DisplayFor(model => model.Dog.DateOfBirth)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DateOfDeath)
+            @Html.DisplayNameFor(model => model.Dog.DateOfDeath)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DateOfDeath)
+            @Html.DisplayFor(model => model.Dog.DateOfDeath)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Sex)
+            @Html.DisplayNameFor(model => model.Dog.Sex)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Sex)
+            @Html.DisplayFor(model => model.Dog.Sex)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Breed)
+            @Html.DisplayNameFor(model => model.Dog.Breed)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Breed.BreedName)
+            @Html.DisplayFor(model => model.Dog.Breed.BreedName)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Owner)
+            @Html.DisplayNameFor(model => model.Dog.Owner)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Owner)
+            @Html.DisplayFor(model => model.Dog.Owner)
         </dd>
+        
+        <dt class="col-sm-2">
+                        @Resources.Domain.Registration.Title
+                 </dt>
+                <dd class="col-sm-10">
+                          <ul>
+                              @foreach (var registration in Model.Dog.Registrations)
+                              {
+                                   <li>
+                                       <a asp-action="Details"
+                                          asp-controller="AdminRegistrations" asp-route-id="@registration.Id">
+                                           @registration.Title 
+                                           </a>
+                                   </li>
+                              }
+                          </ul>
+                     </dd>
+        
+        
+        
+        
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">@Resources.Views.Common.Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Model.Dog.Id">@Resources.Views.Common.Edit</a> |
     <a asp-action="Index">@Resources.Views.Common.BackToList</a>
 </div>

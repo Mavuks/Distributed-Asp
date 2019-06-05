@@ -29,7 +29,7 @@ export class Index {
 
   attached() {
     log.debug('attached');
-    this.showsService.fetchAll().then(
+    this.showsService.fetchAll("").then(
       jsonData => {
         log.debug('jsonData', jsonData);
         this.show = jsonData;

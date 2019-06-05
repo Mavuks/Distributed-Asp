@@ -30,7 +30,7 @@ export class Index {
 
   attached() {
     log.debug('attached');
-    this.breedsService.fetchAll().then(
+    this.breedsService.fetchAll("").then(
       jsonData => {
         log.debug('jsonData', jsonData);
         this.breed = jsonData;

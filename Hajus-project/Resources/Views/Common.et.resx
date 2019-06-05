@@ -221,4 +221,7 @@
 	<data name="SendVerEmail" xml:space="preserve">
     <value>Saada kinnitusmeil</value>
 	</data>
+	<data name="Choose" xml:space="preserve">
+    <value>Valige...</value>
+	</data>
 </root>
