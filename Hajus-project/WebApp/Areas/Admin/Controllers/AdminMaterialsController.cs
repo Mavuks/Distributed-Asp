@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using Contracts.BLL.App;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using WebApp.Areas.Admin.ViewModels;
 
 namespace WebApp.Areas.Admin.Controllers
 {
@@ -40,7 +41,11 @@ namespace WebApp.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            return View(material);
+            var vm = new SchoolingMaterialDetailsViewModel();
+            vm.Material = material;
+            vm.Material.Schoolings = await _bll.Schooling.AllForMaterialAsync(id.Value);
+
+            return View(vm);
         }
 
         // GET: Materials/Create
@@ -126,8 +131,8 @@ namespace WebApp.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var material = await _bll.Material.FindAsync(id);
-            _bll.Material.Remove(material);
+            
+            _bll.Material.Remove(id);
             await _bll.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

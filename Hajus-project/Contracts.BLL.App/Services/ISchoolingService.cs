@@ -8,5 +8,6 @@ namespace Contracts.BLL.App.Services
 {
     public interface ISchoolingService : IBaseEntityService<BLLAppDTO.Schooling>, ISchoolingRepository<BLLAppDTO.Schooling>
     {
+        Task<List<BLLAppDTO.Schooling>> AllForMaterialAsync(int materialId);
     }
 }

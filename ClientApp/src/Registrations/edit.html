@@ -1,0 +1,50 @@
+<template>
+
+  <h1>Edit</h1>
+
+  <h4>Registraions</h4>
+  <hr />
+  <div class="row">
+    <div class="col-md-4">
+      <form method="post" submit.delegate="submit()">
+
+        <div class="form-group">
+          <label class="control-label" for="Title">Title</label>
+          <input class="form-control" type="text" value.bind="registration.title" />
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="Comment">Comment</label>
+          <input class="form-control" type="text" value.bind="registration.firstName" />
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="Dog">Dog</label>
+          <input class="form-control" type="text" value.bind="registration.dog.DogName" />
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="Competition">competition</label>
+          <input class="form-control" type="text" value.bind="registration.competition.title" />
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="Show">Show</label>
+          <input class="form-control" type="text" value.bind="registration.show.title" />
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="Schooling">Schooling</label>
+          <input class="form-control" type="text" value.bind="registration.schooling.schoolingName" />
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="Participant">Participant</label>
+          <input class="form-control" type="text" value.bind="registration.participant.firstName" />
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div>
+    <a route-href="route: registrationsIndex">Back to List</a>
+  </div>
+
+</template>

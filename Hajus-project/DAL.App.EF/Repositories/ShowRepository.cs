@@ -60,6 +60,11 @@ namespace DAL.App.EF.Repositories
                 await RepositoryDbContext.Entry(show)
                     .Reference(c => c.Title)
                     .LoadAsync();
+                await RepositoryDbContext.Entry(show.Title)
+                    .Collection(b => b.Translations)
+                    .Query()
+                    .Where(t => t.Culture == culture)
+                    .LoadAsync();
                 await RepositoryDbContext.Entry(show)
                     .Reference(c => c.Location)
                     .LoadAsync();
@@ -73,11 +78,6 @@ namespace DAL.App.EF.Repositories
                     .LoadAsync();
                 await RepositoryDbContext.Entry(show)
                     .Reference(c => c.Comment)
-                    .LoadAsync();
-                await RepositoryDbContext.Entry(show.Title)
-                    .Collection(b => b.Translations)
-                    .Query()
-                    .Where(t => t.Culture == culture)
                     .LoadAsync();
                 await RepositoryDbContext.Entry(show.Comment)
                     .Collection(b => b.Translations)

@@ -1,0 +1,59 @@
+<template>
+
+  <h1>Details</h1>
+
+  <div>
+    <h4>Registration</h4>
+    <hr />
+    <dl class="row">
+      <dt class = "col-sm-2">
+        Title
+      </dt>
+      <dd class = "col-sm-10">
+        ${registration.title}
+      </dd>
+      <dt class = "col-sm-2">
+        Comment
+      </dt>
+      <dd class = "col-sm-10">
+        ${registration.comment}
+      </dd>
+      <dt class = "col-sm-2">
+        dog
+      </dt>
+      <dd class = "col-sm-10">
+        ${registration.dog.dogName}
+      </dd>
+      <dt class = "col-sm-2">
+        Participant
+      </dt>
+      <dd class = "col-sm-10">
+        ${(registration.participant.firstName)}
+      </dd>
+      <dt class = "col-sm-2">
+        Competition
+      </dt>
+      <dd class = "col-sm-10">
+        ${registration.competition.title}
+      </dd>
+      <dt class = "col-sm-2">
+        Show
+      </dt>
+      <dd class = "col-sm-10">
+        ${registration.show.title}
+      </dd>
+      <dt class = "col-sm-2">
+        Schooling
+      </dt>
+      <dd class = "col-sm-10">
+        ${registration.schooling.schoolingName}
+      </dd>
+    </dl>
+  </div>
+  <div>
+    <!-- if.bind - add/remove element to dom based on predicate -->
+    <a if.bind="registration != null" route-href="route: registrationsEdit; params.bind: {id: registration.id}">Edit</a> |
+    <a route-href="route: registrationsIndex">Back to List</a>
+  </div>
+
+</template>

@@ -87,23 +87,34 @@ namespace DAL.App.EF.Repositories
             if (registration != null)
             {
                 await RepositoryDbContext.Entry(registration)
-                    .Reference(c => c.Show)
-                    .LoadAsync();
-                await RepositoryDbContext.Entry(registration.Show)
-                    .Reference(c => c.Title)
-                    .LoadAsync();
-                await RepositoryDbContext.Entry(registration.Show.Title)
-                    .Collection(b => b.Translations)
-                    .Query()
-                    .Where(t => t.Culture == culture)
-                    .LoadAsync();
-                await RepositoryDbContext.Entry(registration)
                     .Reference(c => c.Schooling)
                     .LoadAsync();
                 await RepositoryDbContext.Entry(registration.Schooling)
                     .Reference(c => c.SchoolingName)
                     .LoadAsync();
                 await RepositoryDbContext.Entry(registration.Schooling.SchoolingName)
+                    .Collection(b => b.Translations)
+                    .Query()
+                    .Where(t => t.Culture == culture)
+                    .LoadAsync();
+                await RepositoryDbContext.Entry(registration)
+                    .Reference(c => c.Competition)
+                    .LoadAsync();
+                await RepositoryDbContext.Entry(registration.Competition)
+                    .Reference(c => c.Title)
+                    .LoadAsync();
+                await RepositoryDbContext.Entry(registration.Competition.Title)
+                    .Collection(b => b.Translations)
+                    .Query()
+                    .Where(t => t.Culture == culture)
+                    .LoadAsync();
+                await RepositoryDbContext.Entry(registration)
+                    .Reference(c => c.Competition)
+                    .LoadAsync();
+                await RepositoryDbContext.Entry(registration.Competition)
+                    .Reference(c => c.Comment)
+                    .LoadAsync();
+                await RepositoryDbContext.Entry(registration.Competition.Comment)
                     .Collection(b => b.Translations)
                     .Query()
                     .Where(t => t.Culture == culture)
@@ -124,6 +135,42 @@ namespace DAL.App.EF.Repositories
                     .Query()
                     .Where(t => t.Culture == culture)
                     .LoadAsync();
+                await RepositoryDbContext.Entry(registration)
+                    .Reference(c => c.Dog)
+                    .LoadAsync();
+                await RepositoryDbContext.Entry(registration.Dog)
+                    .Reference(c => c.Sex)
+                    .LoadAsync();
+                await RepositoryDbContext.Entry(registration.Dog.Sex)
+                    .Collection(b => b.Translations)
+                    .Query()
+                    .Where(t => t.Culture == culture)
+                    .LoadAsync();
+                await RepositoryDbContext.Entry(registration)
+                    .Reference(c => c.Participant)
+                    .LoadAsync();
+                await RepositoryDbContext.Entry(registration)
+                    .Reference(c => c.Show)
+                    .LoadAsync();
+                await RepositoryDbContext.Entry(registration.Show)
+                    .Reference(c => c.Title)
+                    .LoadAsync();
+                await RepositoryDbContext.Entry(registration.Show.Title)
+                    .Collection(b => b.Translations)
+                    .Query()
+                    .Where(t => t.Culture == culture)
+                    .LoadAsync();
+                await RepositoryDbContext.Entry(registration)
+                    .Reference(c => c.Show)
+                    .LoadAsync();
+                await RepositoryDbContext.Entry(registration.Show)
+                    .Reference(c => c.Comment)
+                    .LoadAsync();
+                await RepositoryDbContext.Entry(registration.Show.Comment)
+                    .Collection(b => b.Translations)
+                    .Query()
+                    .Where(t => t.Culture == culture)
+                    .LoadAsync();
 //                
             }
  
@@ -137,6 +184,9 @@ namespace DAL.App.EF.Repositories
                 .Include(m => m.Title)
                 .Include( n => n.Comment)
                 .ThenInclude(t => t.Translations)
+                .Include( a => a.Schooling)
+                .ThenInclude(a => a.SchoolingName)
+                .ThenInclude( a=> a.Translations)
                 .FirstOrDefault(x => x.Id == entity.Id);
             
             entityInDb.Title.SetTranslation(entity.Title);
@@ -148,8 +198,9 @@ namespace DAL.App.EF.Repositories
         public override async Task<List<DAL.App.DTO.Registration>> AllAsync()
         {
             return await RepositoryDbSet
-                //.Include(a => a.Dog)
-                //.ThenInclude( a=> a.DogName)
+                .Include(a => a.Dog)
+                .ThenInclude(dog => dog.Sex)
+                .ThenInclude(sex => sex.Translations)
                 .Include(m => m.Title)
                 .ThenInclude(t => t.Translations)
                 .Include( n=> n.Comment)
@@ -160,6 +211,18 @@ namespace DAL.App.EF.Repositories
                 .Include( a => a.Show)
                 .ThenInclude(a => a.Title)
                 .ThenInclude( a=> a.Translations)
+                .Include( a => a.Show)
+                .ThenInclude(a => a.Comment)
+                .ThenInclude( a=> a.Translations)
+                .Include(a => a.Participant)
+                
+                .Include(a => a.Competition)
+                .ThenInclude(comp => comp.Comment)
+                .ThenInclude(comment => comment.Translations)
+
+                .Include(a => a.Competition)
+                .ThenInclude(comp => comp.Title)
+                .ThenInclude(title => title.Translations)
 
                 
                 .Select(e => RegistrationMapper.MapFromDomain(e)).ToListAsync();

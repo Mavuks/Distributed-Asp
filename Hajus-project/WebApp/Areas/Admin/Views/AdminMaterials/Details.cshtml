@@ -1,8 +1,6 @@
-@model BLL.App.DTO.Material
+@model WebApp.Areas.Admin.ViewModels.SchoolingMaterialDetailsViewModel
 
-@{
-    ViewData["Title"] = "Details";
-}
+
 
 <h1>@Resources.Views.Common.Details</h1>
 
@@ -11,14 +9,32 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MaterialName)
+            @Html.DisplayNameFor(model => model.Material)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MaterialName)
+            @Html.DisplayFor(model => model.Material.MaterialName)
         </dd>
+        
+        
+                 <dt class="col-sm-2">
+                        @Resources.Domain.Schooling.SchoolingName
+                 </dt>
+                <dd class="col-sm-10">
+                          <ul>
+                              @foreach (var schoolings in Model.Material.Schoolings)
+                              {
+                                   <li>
+                                       <a asp-action="Details"
+                                          asp-controller="AdminSchoolings" asp-route-id="@schoolings.Id">
+                                           @schoolings.SchoolingName
+                                       </a>
+                                   </li>
+                              }
+                          </ul>
+                     </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">@Resources.Views.Common.Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Model.Material.Id">@Resources.Views.Common.Edit</a> |
     <a asp-action="Index">@Resources.Views.Common.BackToList</a>
 </div>

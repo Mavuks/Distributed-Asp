@@ -23,7 +23,7 @@ export class MainRouter {
       [
         {route: ['', 'home'], name: 'home', moduleId: PLATFORM.moduleName('home'), nav: true, title: 'Home'},
         {route: ['News', 'news'], name: 'news', moduleId: PLATFORM.moduleName('news'), nav: true, title: 'News'},
-        {route: ['Puppy', 'puppy'], name: 'puppy', moduleId: PLATFORM.moduleName('puppy'), nav: true, title: 'puppy'},
+        {route: ['Puppy', 'puppy'], name: 'puppy', moduleId: PLATFORM.moduleName('puppy'), nav: true, title: 'Puppies'},
 
         {route: 'identity/login', name: 'identity' + 'Login', moduleId: PLATFORM.moduleName('identity/login'), nav: false, title: 'Login'},
         {route: 'identity/register', name: 'identity' + 'Register', moduleId: PLATFORM.moduleName('identity/register'), nav: false, title: 'Register'},
@@ -41,7 +41,16 @@ export class MainRouter {
         {route: 'dogs/edit/:id', name: 'dogs' + 'Edit', moduleId: PLATFORM.moduleName('dogs/edit'), nav: false, title: 'Dogs Edit'},
         {route: 'dogs/delete/:id', name: 'dogs' + 'Delete', moduleId: PLATFORM.moduleName('dogs/delete'), nav: false, title: 'Dogs Delete'},
         {route: 'dogs/details/:id', name: 'dogs' + 'Details', moduleId: PLATFORM.moduleName('dogs/details'), nav: false, title: 'Dogs Details'},
-
+        
+        
+        {route: ['registrations','registrations/index'], name: 'registrations' + 'Index', moduleId: PLATFORM.moduleName('registrations/index'), nav: true, title: 'Registrations'},
+        {route: 'registrations/create', name: 'registrations' + 'Create', moduleId: PLATFORM.moduleName('registrations/create'), nav: false, title: 'Registrations Create'},
+        {route: 'registrations/edit/:id', name: 'registrations' + 'Edit', moduleId: PLATFORM.moduleName('registrations/edit'), nav: false, title: 'Registrations Edit'},
+        {route: 'registrations/delete/:id', name: 'registrations' + 'Delete', moduleId: PLATFORM.moduleName('registrations/delete'), nav: false, title: 'Registrations Delete'},
+        {route: 'registrations/details/:id', name: 'registrations' + 'Details', moduleId: PLATFORM.moduleName('registrations/details'), nav: false, title: 'Registrations Details'},
+        
+        
+        
         // {route: ['materials','material/index'], name: 'materials' + 'Index', moduleId: PLATFORM.moduleName('materials/index'), nav: true, title: 'Materials'},
         // {route: 'materials/create', name: 'materials' + 'Create', moduleId: PLATFORM.moduleName('materials/create'), nav: false, title: 'Materials Create'},
         // {route: 'materials/edit/:id', name: 'materials' + 'Edit', moduleId: PLATFORM.moduleName('materials/edit'), nav: false, title: 'Materials Edit'},

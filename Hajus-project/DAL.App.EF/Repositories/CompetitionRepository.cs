@@ -10,6 +10,7 @@ using Domain;
 using Domain.Identity;
 using ee.itcollege.mavuks.DAL.Base.EF.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Competition = DAL.App.DTO.Competition;
 
 
 namespace DAL.App.EF.Repositories
@@ -64,7 +65,12 @@ namespace DAL.App.EF.Repositories
 //            }).ToList();
             //return resultList;
             return res;
-        }    
+        }
+
+        public Task<List<Competition>> AllForCompLocationAsync(int locationId)
+        {
+            
+        }
 
 
         public override async Task<DTO.Competition> FindAsync(params object[] id)

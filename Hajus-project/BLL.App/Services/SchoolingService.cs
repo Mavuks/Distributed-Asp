@@ -22,5 +22,11 @@ namespace BLL.App.Services
         {
             return (await Uow.Schooling.AllForUserAsync(userId)).Select(e => SchoolingMapper.MapFromInternal(e)).ToList();
         }
+
+        public async Task<List<DTO.Schooling>> AllForMaterialAsync(int materialId)
+        {
+            return (await Uow.Schooling.AllForMaterialAsync(materialId))
+                .Select(e => SchoolingMapper.MapFromInternal(e)).ToList();
+        }
     }
 }

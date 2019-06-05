@@ -7,6 +7,7 @@ using Contracts.DAL.App.Repositories;
 using Domain;
 using ee.itcollege.mavuks.DAL.Base.EF.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Schooling = DAL.App.DTO.Schooling;
 using SchoolingMapper = DAL.App.EF.Mappers.SchoolingMapper;
 
 namespace DAL.App.EF.Repositories
@@ -49,8 +50,20 @@ namespace DAL.App.EF.Repositories
             }).ToList();
             return resultList;
         }
-        
-        
+
+        public async Task<List<Schooling>> AllForMaterialAsync(int materialId)
+        {
+            return await RepositoryDbSet
+                .Include(a => a.Material)
+                .Include( a=> a.SchoolingName)
+                .ThenInclude(a => a.Translations)
+                .Where(a => a.MaterialId == materialId)
+                .Select(e => SchoolingMapper.MapFromDomain(e))
+                .ToListAsync();
+
+        }
+
+
         public override async Task<DTO.Schooling> FindAsync(params object[] id)
         {
             var culture = Thread.CurrentThread.CurrentUICulture.Name.Substring(0, 2).ToLower();

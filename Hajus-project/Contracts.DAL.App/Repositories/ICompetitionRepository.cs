@@ -8,7 +8,7 @@ namespace Contracts.DAL.App.Repositories
 {
     public interface ICompetitionRepository : ICompetitionRepository<DALAppDTO.Competition>
     {
-
+        Task<List<DALAppDTO.Competition>> AllForCompLocationAsync(int locationId);
     }
 
     public interface ICompetitionRepository<TDALEntity> : IBaseRepository<TDALEntity>

@@ -107,13 +107,13 @@ namespace WebApp.ApiControllers.v1_0
         [HttpDelete("{id}")]
         public async Task<ActionResult<PublicApi.v1.DTO.Participant>> DeleteParticipant(int id)
         {
-            var participant = await _bll.Participant.FindAsync(id);
-            if (participant == null)
-            {
-                return NotFound();
-            }
+           // var participant = await _bll.Participant.FindAsync(id);
+//            if (participant == null)
+//            {
+//                return NotFound();
+//            }
 
-            _bll.Participant.Remove(participant);
+            _bll.Participant.Remove(id);
             await _bll.SaveChangesAsync();
 
             return NoContent();

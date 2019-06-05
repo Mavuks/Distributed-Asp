@@ -1,20 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Contracts.BLL.App;
-using Contracts.DAL.App;
+using Domain;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using DAL.App.EF;
-using DAL.App.EF.Repositories;
-using Domain;
-using ee.itcollege.mavuks.Identity;
 using WebApp.ViewModels;
 
 namespace WebApp.Controllers
 {
+    
+    [Authorize]
     public class SchoolingsController : Controller
     {
         
@@ -32,7 +27,7 @@ namespace WebApp.Controllers
         public async Task<IActionResult> Index()
         {
         
-            return View(await _bll.Schooling.AllForUserAsync(User.GetUserId()));
+            return View(await _bll.Schooling.AllAsync());
         }
 
         // GET: Schoolings/Details/5
@@ -43,7 +38,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var schooling = await _bll.Schooling.FindAsync(id);
+            var schooling = await _bll.Schooling.FindAsync(id.Value);
             if (schooling == null)
             {
                 return NotFound();
@@ -98,7 +93,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var schooling = await _bll.Schooling.FindAsync(id);
+            var schooling = await _bll.Schooling.FindAsync(id.Value);
             if (schooling == null)
             {
                 return NotFound();

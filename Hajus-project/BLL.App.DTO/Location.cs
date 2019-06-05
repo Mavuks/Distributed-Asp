@@ -17,6 +17,8 @@ namespace BLL.App.DTO
         public List<Competition> Competitions { get; set; }
 
         public List<Show> Shows { get; set; }
+
+        public List<Schooling> Schoolings { get; set; }
         
     }
 }

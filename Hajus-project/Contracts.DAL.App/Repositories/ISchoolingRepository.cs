@@ -7,7 +7,7 @@ using DALAppDTO = DAL.App.DTO;
  {
      public interface ISchoolingRepository : ISchoolingRepository<DALAppDTO.Schooling>
      {
-         
+         Task<List<DALAppDTO.Schooling>> AllForMaterialAsync(int materialId);
      }
      
      

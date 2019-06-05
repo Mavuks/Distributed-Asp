@@ -1,0 +1,78 @@
+<template>
+
+  <h1>Registrations</h1>
+
+  <p>
+    <a route-href="route: participantsCreate">Registration - Add New</a>
+  </p>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>
+        Title
+      </th>
+      <th>
+       Comment
+      </th>
+      <th>
+        Dog
+      </th>
+      <th>
+        Participant
+      </th>
+      <th>
+        Competitions
+      </th>
+      <th>
+        Show
+      </th>
+      <th>
+        Schoolings
+      </th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- repeat this tr element, iterate over participants -->
+    <tr repeat.for="registrations of registration">
+      <td>
+        <!-- string interpolation -->
+        ${registrations.title}
+      </td>
+      <td>
+        <!-- string interpolation -->
+        ${registrations.comment}
+      </td>
+      <td>
+        <!-- string interpolation -->
+        ${registrations.dog.dogName}
+      </td>
+      <td>
+        <!-- string interpolation -->
+        ${registrations.participant.firstName}
+      </td>
+      <td>
+        <!-- string interpolation -->
+        ${registrations.competition.title}
+      </td>
+      <td>
+        <!-- string interpolation -->
+        ${registrations.show.title}
+      </td>
+      
+      <td>
+        <!-- string interpolation -->
+        ${registrations.schooling.schoolingName}
+      </td>
+      <td>
+        <!-- gdenerate links, based on routing table defined in main-router -->
+        <a route-href="route: registrationsEdit; params.bind: {id: registrations.id}">Edit</a> |
+        <a route-href="route: registrationsDetails; params.bind: {id: registrations.id}">Details</a> |
+        <a route-href="route: registrationsDelete; params.bind: {id: registrations.id}">Delete</a>
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+  
+</template>

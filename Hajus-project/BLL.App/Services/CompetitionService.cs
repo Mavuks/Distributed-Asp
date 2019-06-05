@@ -7,6 +7,7 @@ using Contracts.DAL.App;
 using DAL.App.DTO;
 using Domain;
 using ee.itcollege.mavuks.BLL.Base.Services;
+using Competition = BLL.App.DTO.Competition;
 
 
 namespace BLL.App.Services
@@ -24,5 +25,10 @@ namespace BLL.App.Services
                  .ToList();
          }
 
+         public async Task<List<Competition>> AllForCompLocationAsync(int locationId)
+         {
+             return (await Uow.Competition.AllForCompLocationAsync(locationId))
+                 .Select(e => CompetitionMapper.MapFromInternal(e)).ToList();
+         }
      }
  }
