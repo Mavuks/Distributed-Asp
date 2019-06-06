@@ -55,6 +55,10 @@ namespace WebApp.ApiControllers.v1_0
                 return NotFound();
             }
 
+            dog.Registrations = (await _bll.Registration.AllForDogRegisAsync(dog.Id))
+                .Select(e => PublicApi.v1.Mappers.RegistrationMapper.MapFromInternal(e))
+                .ToList();
+
             return dog;
         }
 

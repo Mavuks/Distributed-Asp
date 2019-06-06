@@ -89,6 +89,40 @@ namespace DAL.App.EF.Repositories
                return res;
         }
 
+        public async Task<Registration> FindForUserAsync(int id, int userId)
+        {
+            return RegistrationMapper.MapFromDomain(await RepositoryDbSet
+                .Include(a => a.Title)
+                .ThenInclude(a => a.Translations)
+                .Include(a => a.Comment)
+                .ThenInclude(a => a.Translations)
+                .Include(a => a.Dog)
+                .ThenInclude(a => a.Sex)
+                .ThenInclude(a => a.Translations)
+                .Include(a => a.Participant)
+                .Include(a => a.Schooling)
+                .ThenInclude(a => a.SchoolingName)
+                .ThenInclude(a => a.Translations)
+                .Include(a => a.Show)
+                .ThenInclude(a => a.Title)
+                .ThenInclude(a => a.Translations)
+                .Include(a => a.Show)
+                .ThenInclude(a => a.Comment)
+                .ThenInclude(a => a.Translations)
+                .Include(a => a.Competition)
+                .ThenInclude(a => a.Title)
+                .ThenInclude(a => a.Translations)
+                .Include(a => a.Competition)
+                .ThenInclude(a => a.Comment)
+                .ThenInclude(a => a.Translations)
+                .Include(a => a.Schooling)
+                .ThenInclude(a => a.SchoolingName)
+                .ThenInclude(a => a.Translations)
+                .FirstOrDefaultAsync(a => a.Dog.AppUserId == userId));
+
+
+        }
+
         public async Task<List<Registration>> AllForDogRegisAsync(int dogId)
         {
             return await RepositoryDbSet
@@ -205,6 +239,7 @@ namespace DAL.App.EF.Repositories
         {
             var entityInDb = RepositoryDbSet
                 .Include(m => m.Title)
+                .ThenInclude(t => t.Translations)
                 .Include( n => n.Comment)
                 .ThenInclude(t => t.Translations)
                 .Include( a => a.Schooling)

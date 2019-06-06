@@ -25,11 +25,15 @@ namespace DAL.App.EF.Repositories
 
 
 
-            var Res = await RepositoryDbSet
+            var res = await RepositoryDbSet
+                .Include(a => a.Registrations)
+                .ThenInclude(a => a.Dog)
+                .ThenInclude(a=> a.AppUser)
+                .Where(a=> a.Id == userId)
                 .Select(c => ParticipantMapper.MapFromDomain(c))
                 .ToListAsync();
 
-            return Res;
+            return res;
 
 
         }

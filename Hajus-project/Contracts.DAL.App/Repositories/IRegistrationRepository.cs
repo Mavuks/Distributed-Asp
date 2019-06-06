@@ -19,6 +19,8 @@ using DALAppDTO = DAL.App.DTO;
          // add here custom methods
          
          Task<List<TDALEntity>> AllForUserAsync(int userId);
+         
+         Task<TDALEntity> FindForUserAsync(int id, int userId);
 
      }
  }

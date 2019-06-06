@@ -27,14 +27,14 @@
     @RenderSection("CSS", required: false)
     @RenderSection("HeaderScripts", required: false)
 </head>
-<body style="background-color: beige">
+<body>
 
 <header>
 
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom" >
+    <nav class="main-header navbar navbar-expand bg-primary-gradient navbar-light border-bottom" >
         <!-- Left navbar links -->
-        <ul class="navbar-nav" style="background-color: lightblue">
+        <ul class="navbar-nav">
            @if(SignInManager.IsSignedIn(User))
            {
 

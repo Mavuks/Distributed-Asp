@@ -27,12 +27,12 @@
           <input class="form-control" id="Sex" name="Sex" type="text" value.bind="dog.Sex" />
         </div>
         <div class="form-group">
-          <label class="control-label" for="Breed">Breed Name</label>
-          <select class="form-control" data-val="true" id="Breed" name="Breed" >
+          <label class="control-label" for="breed">Breed Name</label>
+          <select class="form-control" value.bind="breed" id="breed" name="breed" >
             <option model.bind="null" >Choose...</option>
             <option repeat.for="breed of breeds"
-                  model.bind="breed">
-                    ${breed}
+                  model.bind="breedName">
+                    ${breed.breedName}
             
             </option>
           </select>

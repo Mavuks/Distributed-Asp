@@ -243,4 +243,10 @@
   <data name="Choose" xml:space="preserve">
     <value>Choose...</value>
 	</data>
+  <data name="welcome" xml:space="preserve">
+    <value>Welcome!</value>
+	</data>
+  <data name="Wel" xml:space="preserve">
+    <value>Welcome!</value>
+	</data>
 </root>

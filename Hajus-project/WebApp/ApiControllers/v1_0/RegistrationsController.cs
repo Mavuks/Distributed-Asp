@@ -49,7 +49,7 @@ namespace WebApp.ApiControllers.v1_0
         public async Task<ActionResult<PublicApi.v1.DTO.Registration>> GetRegistration(int id)
         {
             var registration = PublicApi.v1.Mappers.RegistrationMapper.MapFromInternal(
-                await _bll.Registration.FindAsync(id));
+                await _bll.Registration.FindForUserAsync(id, User.GetUserId()));
 
             if (registration == null)
             {

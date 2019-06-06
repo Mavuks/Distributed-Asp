@@ -7,7 +7,7 @@ using WebApp.Areas.Admin.ViewModels;
 namespace WebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class AdminMaterialsController : Controller
     {
         
