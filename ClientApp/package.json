@@ -20,7 +20,7 @@
     "aurelia-router": "latest",
     "bluebird": "^3.5.4",
     "bootstrap": "^4.3.1",
-    "jquery": "^3.4.0",
+    "jquery": "^3.5.0",
     "popper.js": "^1.14.7",
     "tether": "^1.4.6",
     "velocity-animate": "^1.5.2"
